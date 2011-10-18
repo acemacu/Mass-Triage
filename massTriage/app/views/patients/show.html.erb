@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Numberoftag:</b>
+  <%= @patient.numberOfTag %>
+</p>
+
+<p>
+  <b>Idincident:</b>
+  <%= @patient.idIncident %>
+</p>
+
+<p>
+  <b>Tagcolor:</b>
+  <%= @patient.tagColor %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%= @patient.sex %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @patient.age %>
+</p>
+
+<p>
+  <b>Agetype:</b>
+  <%= @patient.ageType %>
+</p>
+
+<p>
+  <b>Complaint:</b>
+  <%= @patient.complaint %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @patient.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

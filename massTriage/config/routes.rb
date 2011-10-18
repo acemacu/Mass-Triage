@@ -1,4 +1,14 @@
 MassTriage::Application.routes.draw do
+  resources :hospitals
+
+  resources :ambulances
+
+  resources :responders
+
+  resources :incidents
+
+  resources :patients
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

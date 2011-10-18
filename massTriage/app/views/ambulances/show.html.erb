@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Idambulance:</b>
+  <%= @ambulance.idAmbulance %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @ambulance.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_ambulance_path(@ambulance) %> |
+<%= link_to 'Back', ambulances_path %>

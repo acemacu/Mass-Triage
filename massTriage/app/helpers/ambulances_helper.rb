@@ -1,0 +1,2 @@
+module AmbulancesHelper
+end
