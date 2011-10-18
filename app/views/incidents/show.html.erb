@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Idincident:</b>
+  <%= @incident.idIncident %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @incident.date %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @incident.type %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @incident.location %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @incident.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @incident.latitude %>
+</p>
+
+<p>
+  <b>Dispatchtime:</b>
+  <%= @incident.dispatchTime %>
+</p>
+
+<p>
+  <b>Arrivaltime:</b>
+  <%= @incident.arrivalTime %>
+</p>
+
+<p>
+  <b>Endtime:</b>
+  <%= @incident.endTime %>
+</p>
+
+
+<%= link_to 'Edit', edit_incident_path(@incident) %> |
+<%= link_to 'Back', incidents_path %>

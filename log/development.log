@@ -1,0 +1,312 @@
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (0.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreatePatients (20111018191054)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "patients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "numberOfTag" integer, "idIncident" integer, "tagColor" varchar(255), "sex" varchar(255), "age" integer, "ageType" varchar(255), "complaint" text, "status" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111018191054')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("patients")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "incidents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "idIncident" integer, "date" datetime, "type" varchar(255), "location" varchar(255), "longitude" float, "latitude" float, "dispatchTime" datetime, "arrivalTime" datetime, "endTime" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111018191905')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.9ms)[0m  [1mCREATE TABLE "responders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "idResponder" integer, "firstName" varchar(255), "lastName" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111018192101')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("responders")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "ambulances" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "idAmbulance" integer, "description" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111018192136')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("incidents")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("patients")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("responders")[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "hospitals" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "idHospital" integer, "name" varchar(255), "address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111018192305')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("responders")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from instance_exec at /Library/Ruby/Gems/1.8/gems/railties-3.0.9/lib/rails/initializable.rb:25)
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 18 12:53:21 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.4ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 45ms
+
+ActionView::Template::Error (undefined method `color' for #<Patient:0x103579208>):
+    5: <% form_for Patient.new, :remote => true do |patient| %>
+    6: 	<%= patient.label :numberOfTag, "Tag" %><br />
+    7: 	<%= patient.text_field :numberOfTag %>
+    8: 	<%= patient.select :color, [['Red','Red'],['Yellow','Yellow'],['Green','Green'],['Black','Black']] %>
+    9: 	<%= patient.select :sex, [['Female','female'],['Male','Male']] %>
+    10: 	<%= patient.label :age, "Age"%>
+    11: 	<%= patient.text_field :age %>
+  app/views/patients/index.html.erb:8:in `_app_views_patients_index_html_erb___844396192_2175537560_0'
+  app/views/patients/index.html.erb:5:in `_app_views_patients_index_html_erb___844396192_2175537560_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /Users/anachecho/.gem/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/anachecho/.gem/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /Users/anachecho/.gem/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 18 12:53:53 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.1ms)[0m  SELECT "patients".* FROM "patients"
+Rendered patients/index.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `color' for #<Patient:0x1037df6f0>):
+    5: <% form_for Patient.new, :remote => true do |patient| %>
+    6: 	<%= patient.label :numberOfTag, "Tag" %><br />
+    7: 	<%= patient.text_field :numberOfTag %>
+    8: 	<%= patient.select :color, [['Red','Red'],['Yellow','Yellow'],['Green','Green'],['Black','Black']] %>
+    9: 	<%= patient.select :sex, [['Female','female'],['Male','Male']] %>
+    10: 	<%= patient.label :age, "Age"%>
+    11: 	<%= patient.text_field :age %>
+  app/views/patients/index.html.erb:8:in `_app_views_patients_index_html_erb___844396192_2176796940_0'
+  app/views/patients/index.html.erb:5:in `_app_views_patients_index_html_erb___844396192_2176796940_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /Users/anachecho/.gem/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Users/anachecho/.gem/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.9ms)
+Rendered /Users/anachecho/.gem/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.3ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 18 12:54:12 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.3ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb___844396192_2175637000_0 at /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/massTriage/app/views/patients/index.html.erb:5)
+Rendered collection (0.0ms)
+Rendered patients/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 18ms (Views: 14.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/patients" for 127.0.0.1 at Tue Oct 18 12:54:23 -0700 2011
+  Processing by PatientsController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"Mrlsab29ovuU0hLx5hP8fRM30EJYRb9NBfg9sG0bPrU=", "utf8"=>"\342\234\223", "patient"=>{"complaint"=>"None", "ageType"=>"Years", "numberOfTag"=>"1234", "sex"=>"Male", "tagColor"=>"Yellow", "age"=>"33"}}
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "patients" ("idIncident", "updated_at", "sex", "ageType", "status", "complaint", "age", "numberOfTag", "tagColor", "created_at") VALUES (NULL, '2011-10-18 19:54:23.095773', 'Male', 'Years', NULL, 'None', 33, 1234, 'Yellow', '2011-10-18 19:54:23.095773')[0m
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 56ms
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 18 12:54:23 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.4ms)[0m  SELECT "patients".* FROM "patients"
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb___844396192_2175896540_0 at /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/massTriage/app/views/patients/index.html.erb:5)
+Rendered patients/_patient.html.erb (5.6ms)
+Rendered patients/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 26ms (Views: 21.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/patients/1" for 127.0.0.1 at Tue Oct 18 12:54:24 -0700 2011
+  Processing by PatientsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Mrlsab29ovuU0hLx5hP8fRM30EJYRb9NBfg9sG0bPrU=", "id"=>"1"}
+  [1m[36mPatient Load (0.2ms)[0m  [1mSELECT "patients".* FROM "patients" WHERE "patients"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "patients" WHERE "patients"."id" = 1
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 12ms
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 18 12:54:24 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.3ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb___844396192_2176973340_0 at /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/massTriage/app/views/patients/index.html.erb:5)
+Rendered collection (0.0ms)
+Rendered patients/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 58ms (Views: 13.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/patients" for 127.0.0.1 at Tue Oct 18 12:54:31 -0700 2011
+  Processing by PatientsController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"Mrlsab29ovuU0hLx5hP8fRM30EJYRb9NBfg9sG0bPrU=", "utf8"=>"\342\234\223", "patient"=>{"complaint"=>"", "ageType"=>"Years", "numberOfTag"=>"1234", "sex"=>"female", "tagColor"=>"Green", "age"=>"34"}}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "patients" ("created_at", "idIncident", "updated_at", "tagColor", "status", "age", "numberOfTag", "sex", "complaint", "ageType") VALUES ('2011-10-18 19:54:31.745676', NULL, '2011-10-18 19:54:31.745676', 'Green', NULL, 34, 1234, 'female', '', 'Years')
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 14ms
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 18 12:54:31 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.4ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb___844396192_2175574340_0 at /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/massTriage/app/views/patients/index.html.erb:5)
+Rendered patients/_patient.html.erb (4.4ms)
+Rendered patients/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/patients/2" for 127.0.0.1 at Tue Oct 18 12:54:37 -0700 2011
+  Processing by PatientsController#update as HTML
+  Parameters: {"id"=>"2", "patient"=>{"complaint"=>"Some injury"}}
+  [1m[35mPatient Load (0.1ms)[0m  SELECT "patients".* FROM "patients" WHERE "patients"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "patients" SET "updated_at" = '2011-10-18 19:54:37.222753', "complaint" = 'Some injury' WHERE "patients"."id" = 2[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 45ms (Views: 32.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/patients/2" for 127.0.0.1 at Tue Oct 18 12:54:40 -0700 2011
+  Processing by PatientsController#update as HTML
+  Parameters: {"id"=>"2", "patient"=>{"ageType"=>"Days"}}
+  [1m[35mPatient Load (0.1ms)[0m  SELECT "patients".* FROM "patients" WHERE "patients"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.2ms)[0m  [1mUPDATE "patients" SET "updated_at" = '2011-10-18 19:54:40.155706', "ageType" = 'Days' WHERE "patients"."id" = 2[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/patients/2" for 127.0.0.1 at Tue Oct 18 12:54:43 -0700 2011
+  Processing by PatientsController#update as HTML
+  Parameters: {"id"=>"2", "patient"=>{"tagColor"=>"Red"}}
+  [1m[35mPatient Load (0.1ms)[0m  SELECT "patients".* FROM "patients" WHERE "patients"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "patients" SET "updated_at" = '2011-10-18 19:54:43.319973', "tagColor" = 'Red' WHERE "patients"."id" = 2[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/patients/2" for 127.0.0.1 at Tue Oct 18 12:54:46 -0700 2011
+  Processing by PatientsController#update as HTML
+  Parameters: {"id"=>"2", "patient"=>{"tagColor"=>"Red"}}
+  [1m[35mPatient Load (0.2ms)[0m  SELECT "patients".* FROM "patients" WHERE "patients"."id" = 2 LIMIT 1
+Rendered text template (0.0ms)
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 18 12:55:06 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.4ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb___844396192_2174806880_0 at /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/massTriage/app/views/patients/index.html.erb:5)
+Rendered patients/_patient.html.erb (47.5ms)
+Rendered patients/index.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 67ms (Views: 63.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/patients/2" for 127.0.0.1 at Tue Oct 18 12:55:09 -0700 2011
+  Processing by PatientsController#update as HTML
+  Parameters: {"id"=>"2", "patient"=>{"tagColor"=>"Green"}}
+  [1m[35mPatient Load (0.1ms)[0m  SELECT "patients".* FROM "patients" WHERE "patients"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "patients" SET "updated_at" = '2011-10-18 19:55:09.603511', "tagColor" = 'Green' WHERE "patients"."id" = 2[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 0.4ms)

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  idResponder: 1
+  firstName: MyString
+  lastName: MyString
+  title: MyString
+
+two:
+  idResponder: 1
+  firstName: MyString
+  lastName: MyString
+  title: MyString
