@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+  
+  
   # GET /patients
   # GET /patients.xml
   def index
@@ -37,19 +39,13 @@ class PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
   end
 
-  # POST /patients
-  # POST /patients.xml
   def create
-    @patient = Patient.new(params[:patient])
+    @patient = Patient.create!(params[:patient])
+    flash[:notice] = "You just added a patient!"
 
     respond_to do |format|
-      if @patient.save
-        format.html { redirect_to(@patient, :notice => 'Patient was successfully created.') }
-        format.xml  { render :xml => @patient, :status => :created, :location => @patient }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @patient.errors, :status => :unprocessable_entity }
-      end
+        format.html { redirect_to patients_path }
+        format.js
     end
   end
 
@@ -57,14 +53,32 @@ class PatientsController < ApplicationController
   # PUT /patients/1.xml
   def update
     @patient = Patient.find(params[:id])
-
+    
     respond_to do |format|
       if @patient.update_attributes(params[:patient])
-        format.html { redirect_to(@patient, :notice => 'Patient was successfully updated.') }
-        format.xml  { head :ok }
+        flash[:notice] = "Patient successfully updated."
+        if params[:patient][:numberOfTag]
+          format.html {  render :text => params[:patient][:numberOfTag] }
+          format.json  { head :ok }
+        elsif params[:patient][:tagColor]
+          format.html {  render :text => params[:patient][:tagColor] }
+          format.json  { head :ok }
+        elsif params[:patient][:sex]
+          format.html {  render :text => params[:patient][:sex] }
+          format.json  { head :ok } 
+        elsif params[:patient][:age]
+         format.html {  render :text => params[:patient][:age] }
+          format.json  { head :ok }
+        elsif params[:patient][:ageType]
+          format.html {  render :text => params[:patient][:ageType] }
+          format.json  { head :ok }
+        else params[:patient][:complaint]
+          format.html {  render :text => params[:patient][:complaint] }
+          format.json  { head :ok }      
+        end
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @patient.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @patient.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -76,8 +90,8 @@ class PatientsController < ApplicationController
     @patient.destroy
 
     respond_to do |format|
-      format.html { redirect_to(patients_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to (patients_url) }
+      format.js
     end
   end
 end

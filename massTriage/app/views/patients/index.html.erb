@@ -1,37 +1,28 @@
-<h1>Listing patients</h1>
-
-<table>
-  <tr>
-    <th>Numberoftag</th>
-    <th>Idincident</th>
-    <th>Tagcolor</th>
-    <th>Sex</th>
-    <th>Age</th>
-    <th>Agetype</th>
-    <th>Complaint</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @patients.each do |patient| %>
-  <tr>
-    <td><%= patient.numberOfTag %></td>
-    <td><%= patient.idIncident %></td>
-    <td><%= patient.tagColor %></td>
-    <td><%= patient.sex %></td>
-    <td><%= patient.age %></td>
-    <td><%= patient.ageType %></td>
-    <td><%= patient.complaint %></td>
-    <td><%= patient.status %></td>
-    <td><%= link_to 'Show', patient %></td>
-    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-    <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
 
 <br />
 
-<%= link_to 'New Patient', new_patient_path %>
+<% form_for Patient.new, :remote => true do |patient| %>
+	<%= patient.label :numberOfTag, "Tag" %><br />
+	<%= patient.text_field :numberOfTag %>
+	<%= patient.select :tagColor, [['Red','Red'],['Yellow','Yellow'],['Green','Green'],['Black','Black']] %>
+	<%= patient.select :sex, [['Female','female'],['Male','Male']] %>
+	<%= patient.label :age, "Age"%>
+	<%= patient.text_field :age %>
+	<%= patient.select :ageType, [['Years','Years'],['Months','Months'], ['Days', 'Days']] %>
+	<%= patient.label :complaint, "Complaint"%>
+	<%= patient.text_field :complaint %>
+	<%= patient.submit "ADD"%>
+<% end %> 
+
+<br />
+<hr />
+
+<div id="patient-notice"></div>
+<br />
+<div id="patients">
+	<table>
+	<%= render :partial => @patients, :locals => {:list => true} %>
+	</table>
+</div>
+
