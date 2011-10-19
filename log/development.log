@@ -310,3 +310,1194 @@ Started POST "/patients/2" for 127.0.0.1 at Tue Oct 18 12:55:09 -0700 2011
   [1m[36mAREL (0.3ms)[0m  [1mUPDATE "patients" SET "updated_at" = '2011-10-18 19:55:09.603511', "tagColor" = 'Green' WHERE "patients"."id" = 2[0m
 Rendered text template (0.0ms)
 Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+  [1m[36mSQL (16.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (4.2ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("responders")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("responders")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 00:00:13 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (1.6ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__620731788_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:5)
+Rendered patients/_patient.html.erb (49.7ms)
+Rendered patients/index.html.erb within layouts/application (100.3ms)
+Completed 200 OK in 306ms (Views: 131.6ms | ActiveRecord: 1.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+Migrating to CreateUsers (20111019074419)
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111019074419')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("responders")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 00:52:21 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (3.9ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__612793698_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:8)
+Rendered patients/_patient.html.erb (22.5ms)
+Rendered patients/index.html.erb within layouts/application (80.5ms)
+Completed 200 OK in 163ms (Views: 96.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Wed Oct 19 00:52:25 -0700 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (28.7ms)
+Rendered users/new.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 184ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 01:00:13 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (1.2ms)[0m  SELECT "patients".* FROM "patients"
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__612303018_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:8)
+Rendered patients/_patient.html.erb (22.3ms)
+Rendered patients/index.html.erb within layouts/application (75.1ms)
+Completed 200 OK in 104ms (Views: 84.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Wed Oct 19 01:00:14 -0700 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (153.0ms)
+Rendered users/new.html.erb within layouts/application (193.1ms)
+Completed 200 OK in 302ms (Views: 217.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Oct 19 01:00:35 -0700 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"PgxWg2nBOR7CBIp1YTIyOnrFDX1PD9mA4GfwiPVqr04=", "utf8"=>"\342\234\223", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"craig", "password"=>"[FILTERED]", "email"=>"rixhamc@gmail.com"}}
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('rixhamc@gmail.com')) LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('craig')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."persistence_token" = 'e6509766458c0e49a90a4b8a227227dfde0c4c2da56dde0c1e67141ed401cc0f4b51ba2db969223a2ad28515e8ed9a5b9b878aa3e512c98e1af7b40fe660aa86') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (2.2ms)[0m  [1mINSERT INTO "users" ("crypted_password", "email", "username", "created_at", "persistence_token", "password_salt", "updated_at") VALUES ('733fe6ffa980613c0ea946c8b6ab7de927b9184d7a2b7adde1e39183f936a256f0d45e1f8ce1f6024e0955b0690adb64317e4a4e9fb92324e15549838c3e6452', 'rixhamc@gmail.com', 'craig', '2011-10-19 08:00:35.312308', 'e6509766458c0e49a90a4b8a227227dfde0c4c2da56dde0c1e67141ed401cc0f4b51ba2db969223a2ad28515e8ed9a5b9b878aa3e512c98e1af7b40fe660aa86', 'ADysQ3vWfapG1YoGYBlq', '2011-10-19 08:00:35.312308')[0m
+Completed 500 Internal Server Error in 244ms
+
+NameError (undefined local variable or method `root_url' for #<UsersController:0xb7089a8c>):
+  app/controllers/users_controller.rb:46:in `create'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (24.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (44.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Oct 19 01:02:12 -0700 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"PgxWg2nBOR7CBIp1YTIyOnrFDX1PD9mA4GfwiPVqr04=", "utf8"=>"\342\234\223", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"craig", "password"=>"[FILTERED]", "email"=>"rixhamc@gmail.com"}}
+  [1m[35mSQL (17.3ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('rixhamc@gmail.com')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('craig')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE ("users"."persistence_token" = '53282e22f15560c46405d802a7c46777325a3c718a5b95e04864b0d6367ab4cce456c6518923aa710acad3db6e146c83ab077dc8d5fc78be9e9fd77811690a6c') LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('rixhamc@gmail.com')) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('craig')) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."persistence_token" = '53282e22f15560c46405d802a7c46777325a3c718a5b95e04864b0d6367ab4cce456c6518923aa710acad3db6e146c83ab077dc8d5fc78be9e9fd77811690a6c') LIMIT 1[0m
+Rendered users/_form.html.erb (60.9ms)
+Rendered users/new.html.erb within layouts/application (82.8ms)
+Completed 200 OK in 329ms (Views: 114.6ms | ActiveRecord: 17.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Oct 19 01:02:23 -0700 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"PgxWg2nBOR7CBIp1YTIyOnrFDX1PD9mA4GfwiPVqr04=", "utf8"=>"\342\234\223", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"craig2", "password"=>"[FILTERED]", "email"=>"rixhamc2@gmail.com"}}
+  [1m[35mSQL (2.4ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('rixhamc2@gmail.com')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('craig2')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE ("users"."persistence_token" = '3481e16790d85d2bf24d889ce3cc1005dd4d2af1e45c4dbdadd59bf479e3bef014c23c11c13a2eec717c4d4ba1af978a044c87aae01cd534a7ad168481aa666b') LIMIT 1
+  [1m[36mAREL (1.4ms)[0m  [1mINSERT INTO "users" ("password_salt", "username", "created_at", "updated_at", "email", "crypted_password", "persistence_token") VALUES ('JEmLqxWetcx4YZskM5RF', 'craig2', '2011-10-19 08:02:23.712825', '2011-10-19 08:02:23.712825', 'rixhamc2@gmail.com', 'da737056b2782e422e11f9d57123af798b6b53588cc6f9e1d8d5333576d857f5e8346a91efcfb605144d0786e6a8cc6252b67b5d6b6c735a138e35bd770dcc8b', '3481e16790d85d2bf24d889ce3cc1005dd4d2af1e45c4dbdadd59bf479e3bef014c23c11c13a2eec717c4d4ba1af978a044c87aae01cd534a7ad168481aa666b')[0m
+Redirected to http://localhost:3000/patients
+Redirected to 
+Completed 500 Internal Server Error in 129ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/users_controller.rb:50
+  app/controllers/users_controller.rb:48:in `create'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (26.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (40.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Oct 19 01:02:59 -0700 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"PgxWg2nBOR7CBIp1YTIyOnrFDX1PD9mA4GfwiPVqr04=", "utf8"=>"\342\234\223", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"craig2", "password"=>"[FILTERED]", "email"=>"rixhamc2@gmail.com"}}
+  [1m[35mSQL (0.8ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('rixhamc2@gmail.com')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('craig2')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE ("users"."persistence_token" = '8fad8e46b25a7ee62e80a126b05e0fb30872c8c31f926489b32312eea3f412a163d89049a526c39825e46cbccecb3fcaaafe4395f0ee9e9b1b8c021159b3184a') LIMIT 1
+Rendered users/_form.html.erb (24.7ms)
+Rendered users/new.html.erb within layouts/application (40.9ms)
+Completed 200 OK in 150ms (Views: 49.6ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Oct 19 01:03:07 -0700 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"PgxWg2nBOR7CBIp1YTIyOnrFDX1PD9mA4GfwiPVqr04=", "utf8"=>"\342\234\223", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"craig3", "password"=>"[FILTERED]", "email"=>"rixhamc3@gmail.com"}}
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('rixhamc3@gmail.com')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('craig3')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."persistence_token" = '36f7e843ef91c63d940a8f4f06592b4ed0fddd18f68d1f5007e050e410929ffb9f237ef98704cffd0955992fb9280128490b0c27b142e8b88fd82025743dcc7f') LIMIT 1[0m
+  [1m[35mAREL (3.2ms)[0m  INSERT INTO "users" ("username", "crypted_password", "created_at", "updated_at", "email", "persistence_token", "password_salt") VALUES ('craig3', '71ec5f214a3c581aa43a7a649bec8084f79df552defe9edd442f76dd78a7533a471368dcf12f24ae8dac53b8a465b006f407f0e35bb5a62bc50ea19048b26dec', '2011-10-19 08:03:07.371129', '2011-10-19 08:03:07.371129', 'rixhamc3@gmail.com', '36f7e843ef91c63d940a8f4f06592b4ed0fddd18f68d1f5007e050e410929ffb9f237ef98704cffd0955992fb9280128490b0c27b142e8b88fd82025743dcc7f', 'u5DDnZFdZvNGqIA1nkx')
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 102ms
+
+
+Started GET "/users/3" for 127.0.0.1 at Wed Oct 19 01:03:07 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 85ms (Views: 36.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Wed Oct 19 01:03:18 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (150.9ms)
+Completed 200 OK in 204ms (Views: 160.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at Wed Oct 19 01:03:23 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 87ms (Views: 34.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Wed Oct 19 01:03:26 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 89ms (Views: 45.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at Wed Oct 19 01:03:29 -0700 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 87ms (Views: 43.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Wed Oct 19 01:03:32 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (157.3ms)
+Completed 200 OK in 210ms (Views: 167.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Wed Oct 19 01:04:10 -0700 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (33.0ms)
+Rendered users/new.html.erb within layouts/application (46.1ms)
+Completed 200 OK in 100ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Wed Oct 19 01:04:27 -0700 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"PgxWg2nBOR7CBIp1YTIyOnrFDX1PD9mA4GfwiPVqr04=", "utf8"=>"\342\234\223", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"craig4", "password"=>"[FILTERED]", "email"=>"rixhamc4@gmail.com"}}
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('rixhamc4@gmail.com')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."username") = LOWER('craig4')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."persistence_token" = 'd0762bfd223a776a7d600e0e1cab92fddf8962f3fbc1f4805d42288f945d7e06e04d37140d9a7ee6849a1d38943a885442226326bc5ec8c273f592220e10bea4') LIMIT 1[0m
+  [1m[35mAREL (1.3ms)[0m  INSERT INTO "users" ("password_salt", "updated_at", "username", "persistence_token", "created_at", "email", "crypted_password") VALUES ('KCWXgIZCkDTmycyEg4f7', '2011-10-19 08:04:27.547949', 'craig4', 'd0762bfd223a776a7d600e0e1cab92fddf8962f3fbc1f4805d42288f945d7e06e04d37140d9a7ee6849a1d38943a885442226326bc5ec8c273f592220e10bea4', '2011-10-19 08:04:27.547949', 'rixhamc4@gmail.com', '115cbd6c30e5a487409194dd34009e44d4cbd5a169d6651537edd199f2381c6ca38b4a7b0b4021aed429a9f6bbdacb8e7d6e9c7b023560d92e9e464cca819845')
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 96ms
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 01:04:27 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.9ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613077168_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:8)
+Rendered patients/_patient.html.erb (42.2ms)
+Rendered patients/index.html.erb within layouts/application (98.2ms)
+Completed 200 OK in 121ms (Views: 106.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at Wed Oct 19 01:04:43 -0700 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (42.5ms)
+Completed 200 OK in 219ms (Views: 53.5ms | ActiveRecord: 0.8ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at Wed Oct 19 01:51:43 -0700 2011
+
+ActionController::RoutingError (No route matches "/user_session/new"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/user_session/" for 127.0.0.1 at Wed Oct 19 01:51:50 -0700 2011
+
+ActionController::RoutingError (No route matches "/user_session"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:08:21 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.8ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (118.6ms)
+Completed 500 Internal Server Error in 156ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6bbc658>:0xb6bbb7bc>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__614607718_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.1ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:11:23 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.8ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (99.1ms)
+Completed 500 Internal Server Error in 141ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6c96678>:0xb6c957dc>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__614161238_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.5ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:11:24 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.5ms)[0m  SELECT "patients".* FROM "patients"
+Rendered patients/index.html.erb within layouts/application (25.0ms)
+Completed 500 Internal Server Error in 44ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6f5be1c>:0xb6f5af80>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__612708228_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.4ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:11:25 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (1.1ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (39.9ms)
+Completed 500 Internal Server Error in 77ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6e325a4>:0xb6e31690>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__613317988_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.5ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:11:26 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.8ms)[0m  SELECT "patients".* FROM "patients"
+Rendered patients/index.html.erb within layouts/application (47.8ms)
+Completed 500 Internal Server Error in 76ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6f95e3c>:0xb6f94fa0>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__612589438_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.4ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:11:34 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.6ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (24.6ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6e3fc2c>:0xb6e3e714>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__613292288_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (59.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (65.7ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:12:15 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.6ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (98.7ms)
+Completed 500 Internal Server Error in 143ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6c7b5d0>:0xb6c7a734>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__614216618_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.1ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:12:16 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.7ms)[0m  SELECT "patients".* FROM "patients"
+Rendered patients/index.html.erb within layouts/application (28.6ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6f401f8>:0xb6f3f35c>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__612765078_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.6ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:12:16 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (2.0ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (36.2ms)
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6e169a8>:0xb6e15828>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__613374988_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.8ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:12:16 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.7ms)[0m  SELECT "patients".* FROM "patients"
+Rendered patients/index.html.erb within layouts/application (24.1ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6f79e1c>:0xb6f78f80>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__612647338_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.2ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:12:17 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.5ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (64.2ms)
+Completed 500 Internal Server Error in 76ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6e231f8>:0xb6e21b14>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__613349888_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (61.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (67.3ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:12:17 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.6ms)[0m  SELECT "patients".* FROM "patients"
+Rendered patients/index.html.erb within layouts/application (19.9ms)
+Completed 500 Internal Server Error in 33ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6fd0a3c>:0xb6fcf650>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__612470528_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.2ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:12:17 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.5ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+Rendered patients/index.html.erb within layouts/application (19.4ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb6e6e61c>:0xb6e6cc04>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__613196528_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.6ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 02:12:17 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (1.1ms)[0m  SELECT "patients".* FROM "patients"
+Rendered patients/index.html.erb within layouts/application (21.3ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined local variable or method `login_path' for #<#<Class:0xb700b880>:0xb700a9d0>):
+    1: <div>
+    2:   <%= link_to "Register", new_user_path %>
+    3:   <%= link_to "Login", login_path %>
+    4: </div>
+    5: <span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+    6: 
+  app/views/patients/index.html.erb:3:in `_app_views_patients_index_html_erb__141635911__612348508_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.7ms)
+
+
+Started GET "/user_sessions/new" for 127.0.0.1 at Wed Oct 19 02:12:33 -0700 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (13.2ms)
+Rendered user_sessions/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 47ms (Views: 23.2ms | ActiveDEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 09:43:33 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.9ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__614325308_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:9)
+Rendered patients/_patient.html.erb (8.0ms)
+Rendered patients/index.html.erb within layouts/application (87.0ms)
+Completed 200 OK in 207ms (Views: 94.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/user_sessions/new" for 127.0.0.1 at Wed Oct 19 09:43:37 -0700 2011
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (17.1ms)
+Rendered user_sessions/new.html.erb within layouts/application (41.3ms)
+Completed 200 OK in 186ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user_sessions" for 127.0.0.1 at Wed Oct 19 09:43:46 -0700 2011
+  Processing by UserSessionsController#index as HTML
+Rendered user_sessions/index.html.erb within layouts/application (9.7ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    9:     <th></th>
+    10:   </tr>
+    11: 
+    12: <% @user_sessions.each do |user_session| %>
+    13:   <tr>
+    14:     <td><%= user_session.username %></td>
+    15:     <td><%= user_session.password %></td>
+  app/views/user_sessions/index.html.erb:12:in `_app_views_user_sessions_index_html_erb___95806967__613194548_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.4ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 09:49:12 -0700 2011
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.6ms)[0m  SELECT "patients".* FROM "patients"
+Rendered patients/index.html.erb within layouts/application (18.2ms)
+Completed 500 Internal Server Error in 31ms
+
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0xb6fd4d94>:0xb6fd3e6c>):
+    1: <div>
+    2:   <% if current_user %>
+    3:     <%= link_to "Edit Profile", edit_user_path(:current) %>
+    4:     <%= link_to "Logout", destroy_user_session_path %>
+    5:   <% else %>
+  app/views/patients/index.html.erb:2:in `_app_views_patients_index_html_erb__141635911__612460638_0'
+  app/controllers/patients_controller.rb:9:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.8ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 09:52:59 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.6ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613156268_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (7.7ms)
+Rendered patients/index.html.erb within layouts/application (52.7ms)
+Completed 200 OK in 64ms (Views: 56.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/user_sessions/new" for 127.0.0.1 at Wed Oct 19 09:53:06 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (4.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 35ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 09:53:13 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"vwJ4QlLcgnjD4WzoeBdBxfHY/b/ejbP74JiaHynMoXQ=", "utf8"=>"\342\234\223"}
+  [1m[35mUser Load (17.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1
+Redirected to 
+Completed 500 Internal Server Error in 92ms
+
+NoMethodError (undefined method `destroyed?' for #<UserSession: {:username=>"craig", :password=>"<protected>"}>):
+  app/controllers/user_sessions_controller.rb:22
+  app/controllers/user_sessions_controller.rb:20:in `create'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.5ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+Migrating to CreateUsers (20111019074419)
+Migrating to CreateUserSessions (20111019085623)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TABLE "user_sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "password" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111019085623')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("responders")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("user_sessions")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 09:59:21 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"vwJ4QlLcgnjD4WzoeBdBxfHY/b/ejbP74JiaHynMoXQ=", "utf8"=>"\342\234\223"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1[0m
+Redirected to 
+Completed 500 Internal Server Error in 35ms
+
+NoMethodError (undefined method `destroyed?' for #<UserSession: {:username=>"craig", :password=>"<protected>"}>):
+  app/controllers/user_sessions_controller.rb:22
+  app/controllers/user_sessions_controller.rb:20:in `create'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 10:04:08 -0700 2011
+
+SyntaxError (/home/craig/Projects/master/app/controllers/user_sessions_controller.rb:41: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.6ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 10:04:33 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"vwJ4QlLcgnjD4WzoeBdBxfHY/b/ejbP74JiaHynMoXQ=", "utf8"=>"\342\234\223"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1
+Redirected to 
+Completed 500 Internal Server Error in 30ms
+
+NoMethodError (undefined method `destroyed?' for #<UserSession: {:username=>"craig", :password=>"<protected>"}>):
+  app/controllers/user_sessions_controller.rb:21:in `create'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 10:17:38 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.8ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__614469808_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (9.3ms)
+Rendered patients/index.html.erb within layouts/application (118.5ms)
+Completed 200 OK in 159ms (Views: 122.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 19 10:17:42 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (4.5ms)
+Rendered user_sessions/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 33ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 10:17:47 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"vwJ4QlLcgnjD4WzoeBdBxfHY/b/ejbP74JiaHynMoXQ=", "utf8"=>"\342\234\223"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1
+Redirected to http://localhost:3000/users
+Completed 302 Found in 36ms
+
+
+Started GET "/users" for 127.0.0.1 at Wed Oct 19 10:17:47 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 137ms (Views: 53.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 10:18:00 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.5ms)[0m  SELECT "patients".* FROM "patients"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__612947988_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (7.7ms)
+Rendered patients/index.html.erb within layouts/application (104.5ms)
+Completed 200 OK in 116ms (Views: 108.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Wed Oct 19 10:18:16 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/user_sessions
+Completed 302 Found in 28ms
+
+
+Started GET "/user_sessions" for 127.0.0.1 at Wed Oct 19 10:18:17 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#index as HTML
+Rendered user_sessions/index.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    9:     <th></th>
+    10:   </tr>
+    11: 
+    12: <% @user_sessions.each do |user_session| %>
+    13:   <tr>
+    14:     <td><%= user_session.username %></td>
+    15:     <td><%= user_session.password %></td>
+  app/views/user_sessions/index.html.erb:12:in `_app_views_user_sessions_index_html_erb___95806967__612616558_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.9ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 10:20:13 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.6ms)[0m  SELECT "patients".* FROM "patients"
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613297158_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (7.3ms)
+Rendered patients/index.html.erb within layouts/application (52.4ms)
+Completed 200 OK in 64ms (Views: 56.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 19 10:20:16 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (4.7ms)
+Rendered user_sessions/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 34ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 10:20:22 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"vwJ4QlLcgnjD4WzoeBdBxfHY/b/ejbP74JiaHynMoXQ=", "utf8"=>"\342\234\223"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1[0m
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 31ms
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 10:20:22 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.5ms)[0m  SELECT "patients".* FROM "patients"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613719738_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (93.4ms)
+Rendered patients/index.html.erb within layouts/application (142.6ms)
+Completed 200 OK in 153ms (Views: 146.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Wed Oct 19 10:20:25 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 31ms
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 10:20:25 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.6ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613378098_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (7.7ms)
+Rendered patients/index.html.erb within layouts/application (46.2ms)
+Completed 200 OK in 56ms (Views: 50.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 19 10:22:07 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (71.0ms)
+Rendered user_sessions/new.html.erb within layouts/application (76.7ms)
+Completed 200 OK in 99ms (Views: 80.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 10:22:14 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"vwJ4QlLcgnjD4WzoeBdBxfHY/b/ejbP74JiaHynMoXQ=", "utf8"=>"\342\234\223"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 36ms
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 10:22:14 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.5ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613451268_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (7.3ms)
+Rendered patients/index.html.erb within layouts/application (52.7ms)
+Completed 200 OK in 63ms (Views: 56.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Wed Oct 19 10:22:15 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 0 LIMIT 1[0m
+Completed 404 Not Found in 16ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=current):
+  app/controllers/users_controller.rb:37:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.8ms)
+
+
+Started GET "/users/current/edit" for 127.0.0.1 at Wed Oct 19 10:23:42 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"current"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 0 LIMIT 1
+Completed 404 Not Found in 21ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=current):
+  app/controllers/users_controller.rb:37:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.9ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 10:23:55 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.7ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613755208_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (7.1ms)
+Rendered patients/index.html.erb within layouts/application (57.7ms)
+Completed 200 OK in 71ms (Views: 61.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1022658/edit" for 127.0.0.1 at Wed Oct 19 10:23:57 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1022658"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1022658 LIMIT 1[0m
+Completed 404 Not Found in 18ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=1022658):
+  app/controllers/users_controller.rb:37:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 11:30:06 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.9ms)[0m  SELECT "patients".* FROM "patients"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__612574808_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (15.2ms)
+Rendered patients/index.html.erb within layouts/application (85.7ms)
+Completed 200 OK in 100ms (Views: 91.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Wed Oct 19 11:30:09 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 45ms
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 11:30:09 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (3.6ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__612649238_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (8.7ms)
+Rendered patients/index.html.erb within layouts/application (52.7ms)
+Completed 200 OK in 68ms (Views: 57.1ms | ActiveRecord: 3.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 19 11:32:59 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (7.0ms)
+Rendered user_sessions/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 52ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 19 11:46:04 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (35.3ms)
+Rendered user_sessions/new.html.erb within layouts/application (97.4ms)
+Completed 200 OK in 216ms (Views: 135.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 11:46:17 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"vwJ4QlLcgnjD4WzoeBdBxfHY/b/ejbP74JiaHynMoXQ=", "utf8"=>"\342\234\223"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1[0m
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 339ms
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 11:46:18 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.8ms)[0m  SELECT "patients".* FROM "patients"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__612735408_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (8.7ms)
+Rendered patients/index.html.erb within layouts/application (93.1ms)
+Completed 200 OK in 105ms (Views: 96.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 19 11:46:43 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (4.8ms)
+Rendered user_sessions/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 98ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 19 11:48:36 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered user_sessions/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 47ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 11:48:42 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.9ms)[0m  SELECT "patients".* FROM "patients"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613124968_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (22.1ms)
+Rendered patients/index.html.erb within layouts/application (169.6ms)
+Completed 200 OK in 181ms (Views: 172.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Wed Oct 19 11:50:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 44ms
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 19 11:50:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (24.8ms)
+Rendered user_sessions/new.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 99ms (Views: 59.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 11:50:18 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"vwJ4QlLcgnjD4WzoeBdBxfHY/b/ejbP74JiaHynMoXQ=", "utf8"=>"\342\234\223"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1[0m
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 39ms
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 11:50:18 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (1.3ms)[0m  SELECT "patients".* FROM "patients"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__612200548_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (7.5ms)
+Rendered patients/index.html.erb within layouts/application (72.3ms)
+Completed 200 OK in 87ms (Views: 76.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 19 11:50:22 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered user_sessions/new.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 42ms (Views: 22.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Wed Oct 19 11:50:24 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 122ms
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 19 11:50:24 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (11.4ms)
+Rendered user_sessions/new.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 111ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 11:50:45 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (0.8ms)[0m  SELECT "patients".* FROM "patients"
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613043588_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (7.3ms)
+Rendered patients/index.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 61ms (Views: 53.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 11:50:55 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.8ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613701508_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (10.1ms)
+Rendered patients/index.html.erb within layouts/application (157.1ms)
+Completed 200 OK in 168ms (Views: 161.0ms | ActiveRecord: 0.8ms)

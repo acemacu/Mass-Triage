@@ -7,6 +7,8 @@ gem 'jeditable-rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'authlogic', :git => "git://github.com/binarylogic/authlogic.git"
+gem "rails3-generators"
 
 # Use unicorn as the web server
 # gem 'unicorn'

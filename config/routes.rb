@@ -1,4 +1,14 @@
 MassTriage::Application.routes.draw do
+  
+  match "login", :to => "user_sessions#new", :as => :login
+  
+  match "logout", :to => "user_sessions#destroy", :as => :logout
+  
+  
+  resources :user_sessions
+
+  resources :users
+
   resources :hospitals
 
   resources :ambulances
@@ -8,6 +18,8 @@ MassTriage::Application.routes.draw do
   resources :incidents
 
   resources :patients
+  
+  root :to => 'user_sessions#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

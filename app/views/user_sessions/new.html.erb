@@ -1,0 +1,10 @@
+<h1>Login</h1>
+<% if current_user %>
+  <p>You are currently logged in</p><br /></br>
+  <%= link_to "Logout", :logout %>
+<% else %>
+  <%= render 'form' %>
+  <%= link_to "Register", new_user_path %><br />
+<% end %>
+
+<%= link_to 'Go to Patients', patients_path %>

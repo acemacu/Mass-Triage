@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/binarylogic/authlogic.git
+  revision: 380761d1d6bf3ca0fd990f5945448bbd5e69d03f
+  specs:
+    authlogic (3.0.3)
+      activerecord (>= 3.0.7)
+      activerecord (>= 3.0.7)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -54,6 +62,8 @@ GEM
       activesupport (= 3.0.9)
       bundler (~> 1.0)
       railties (= 3.0.9)
+    rails3-generators (0.17.4)
+      railties (>= 3.0.0)
     railties (3.0.9)
       actionpack (= 3.0.9)
       activesupport (= 3.0.9)
@@ -72,6 +82,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authlogic!
   jeditable-rails
   rails (= 3.0.9)
+  rails3-generators
   sqlite3
