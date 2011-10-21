@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :idIncident %><br />
-    <%= f.text_field :idIncident %>
-  </div>
-  <div class="field">
     <%= f.label :date %><br />
     <%= f.datetime_select :date %>
   </div>
@@ -24,30 +20,16 @@
     <%= f.text_field :type %>
   </div>
   <div class="field">
-    <%= f.label :location %><br />
+    <%= f.label :address %><br />
     <%= f.text_field :location %>
   </div>
   <div class="field">
-    <%= f.label :longitude %><br />
+    <%= f.label :longitude %>
     <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
+    <%= f.label :latitude %>
     <%= f.text_field :latitude %>
   </div>
-  <div class="field">
-    <%= f.label :dispatchTime %><br />
-    <%= f.datetime_select :dispatchTime %>
-  </div>
-  <div class="field">
-    <%= f.label :arrivalTime %><br />
-    <%= f.datetime_select :arrivalTime %>
-  </div>
-  <div class="field">
-    <%= f.label :endTime %><br />
-    <%= f.datetime_select :endTime %>
-  </div>
-  <div class="actions">
+   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

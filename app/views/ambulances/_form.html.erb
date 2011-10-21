@@ -1,25 +1,9 @@
-<%= form_for(@ambulance) do |f| %>
-  <% if @ambulance.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ambulance.errors.count, "error") %> prohibited this ambulance from being saved:</h2>
-
-      <ul>
-      <% @ambulance.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :idAmbulance %><br />
-    <%= f.text_field :idAmbulance %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= form_for [@incident, @ambulance] do |ambulance| %>
+ 	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+	<%= ambulance.text_field :idAmbulance %>
+	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+	<%= collection_select(:ambulance, :hospital,Hospital.all ,:name, :name) %>
+	<%= ambulance.label :eta, "ETA"%>
+	<%= ambulance.text_field :eta %>
+	<%= ambulance.submit "ADD"%>
+<% end %> 

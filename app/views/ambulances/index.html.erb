@@ -2,24 +2,26 @@
 
 <table>
   <tr>
-    <th>Idambulance</th>
-    <th>Description</th>
-    <th></th>
+    <th>Ambulance</th>
+    <th>status</th>
+    <th>hospital</th>
+    <th>eta</th>
     <th></th>
     <th></th>
   </tr>
 
-<% @ambulances.each do |ambulance| %>
+<% @incident.ambulances.each do |ambulance| %>
   <tr>
     <td><%= ambulance.idAmbulance %></td>
-    <td><%= ambulance.description %></td>
-    <td><%= link_to 'Show', ambulance %></td>
-    <td><%= link_to 'Edit', edit_ambulance_path(ambulance) %></td>
-    <td><%= link_to 'Destroy', ambulance, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= ambulance.status %></td>
+    <td>hospital</td>
+    <td><%= ambulance.eta %></td>
+    <td><%= link_to 'Edit', edit_incident_ambulance_path(@incident, ambulance) %></td>
+    <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Ambulance', new_ambulance_path %>
+<%= link_to 'New Ambulance', new_incident_ambulance_path(@incident) %>

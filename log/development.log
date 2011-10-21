@@ -1501,3 +1501,2441 @@ DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>
 Rendered patients/_patient.html.erb (10.1ms)
 Rendered patients/index.html.erb within layouts/application (157.1ms)
 Completed 200 OK in 168ms (Views: 161.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/patients/2" for 127.0.0.1 at Wed Oct 19 13:49:32 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#update as HTML
+  Parameters: {"id"=>"2", "patient"=>{"complaint"=>"Some injuryasdfasdf"}}
+  [1m[35mPatient Load (0.5ms)[0m  SELECT "patients".* FROM "patients" WHERE "patients"."id" = 2 LIMIT 1
+  [1m[36mAREL (1.4ms)[0m  [1mUPDATE "patients" SET "complaint" = 'Some injuryasdfasdf', "updated_at" = '2011-10-19 20:49:33.017163' WHERE "patients"."id" = 2[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 129ms (Views: 39.2ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/patients/2" for 127.0.0.1 at Wed Oct 19 13:49:40 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#update as HTML
+  Parameters: {"id"=>"2", "patient"=>{"ageType"=>"Months"}}
+  [1m[35mPatient Load (0.3ms)[0m  SELECT "patients".* FROM "patients" WHERE "patients"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.8ms)[0m  [1mUPDATE "patients" SET "updated_at" = '2011-10-19 20:49:40.375066', "ageType" = 'Months' WHERE "patients"."id" = 2[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 32ms (Views: 1.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/patients/2" for 127.0.0.1 at Wed Oct 19 13:49:50 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#update as HTML
+  Parameters: {"id"=>"2", "patient"=>{"complaint"=>"Some injury"}}
+  [1m[35mPatient Load (0.3ms)[0m  SELECT "patients".* FROM "patients" WHERE "patients"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.7ms)[0m  [1mUPDATE "patients" SET "complaint" = 'Some injury', "updated_at" = '2011-10-19 20:49:50.995179' WHERE "patients"."id" = 2[0m
+Rendered text template (0.0ms)
+Completed 200 OK in 35ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 19 13:50:21 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (5.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 148ms (Views: 24.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Wed Oct 19 13:50:29 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1
+Redirected to http://localhost:3000/patients
+Completed 302 Found in 36ms
+
+
+Started GET "/patients" for 127.0.0.1 at Wed Oct 19 13:50:30 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.6ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613239498_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (11.0ms)
+Rendered patients/index.html.erb within layouts/application (544.8ms)
+Completed 200 OK in 556ms (Views: 548.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Oct 19 13:50:37 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered user_sessions/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 40ms (Views: 21.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Wed Oct 19 13:50:39 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 29ms
+
+
+Started GET "/login" for 127.0.0.1 at Wed Oct 19 13:50:39 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (4.9ms)
+Rendered user_sessions/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 108ms (Views: 90.1ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+Migrating to CreateUsers (20111019074419)
+Migrating to CreateUserSessions (20111019085623)
+Migrating to CreateConfigurables (20111020014558)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TABLE "configurables" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "value" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("configurables")
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE INDEX "index_configurables_on_name" ON "configurables" ("name")[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111020014558')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("configurables")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_configurables_on_name')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("responders")
+  [1m[36mSQL (0.5ms)[0m  [1mPRAGMA index_list("user_sessions")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 20 15:16:14 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (5.3ms)
+Rendered user_sessions/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 137ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 15:16:21 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[36mAmbulance Load (0.6ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 54ms (Views: 10.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/ambulances/new" for 127.0.0.1 at Thu Oct 20 15:17:56 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+Rendered ambulances/_form.html.erb (18.5ms)
+Rendered ambulances/new.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 43ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+Migrating to CreateUsers (20111019074419)
+Migrating to CreateUserSessions (20111019085623)
+Migrating to CreateConfigurables (20111020014558)
+Migrating to AddColumn (20111020224416)
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.3ms)[0m  [1mALTER TABLE "ambulances" ADD "incident_id" integer[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111020224416')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("configurables")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_configurables_on_name')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("responders")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("user_sessions")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+Migrating to CreateUsers (20111019074419)
+Migrating to CreateUserSessions (20111019085623)
+Migrating to CreateConfigurables (20111020014558)
+Migrating to AddColumn (20111020224416)
+Migrating to AddMoreAmbColumns (20111020225617)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mALTER TABLE "ambulances" ADD "status" varchar(255)[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "ambulances" ADD "hospital_id" integer
+  [1m[36mSQL (0.2ms)[0m  [1mALTER TABLE "ambulances" ADD "patient_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  ALTER TABLE "ambulances" ADD "eta" varchar(255)
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111020225617')[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("ambulances")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("configurables")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_configurables_on_name')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("hospitals")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("incidents")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("patients")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("responders")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("user_sessions")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 20 23:17:52 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (28.8ms)
+Rendered user_sessions/new.html.erb within layouts/application (60.9ms)
+Completed 200 OK in 178ms (Views: 105.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:18:22 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[35mAmbulance Load (12.9ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 376ms (Views: 22.8ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/ambulances/new" for 127.0.0.1 at Thu Oct 20 23:18:28 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+ERROR: compiling _app_views_ambulances__form_html_erb___131383944__612494688_455776 RAISED compile error
+/home/craig/Projects/master/app/views/ambulances/_form.html.erb:41: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _app_views_ambulances__form_html_erb___131383944__612494688_455776(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "ambulances/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for(@ambulance) do |ambulance| @output_buffer.safe_concat('
+');   if @ambulance.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@ambulance.errors.count, "error") );@output_buffer.safe_concat(' prohibited this ambulance from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @ambulance.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+
+
+
+	');@output_buffer.append= ( ambulance.label :idAmbulance, "Ambulance Number" );@output_buffer.safe_concat('<br />
+	');@output_buffer.append= ( ambulance.text_field :idAmbulance );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	');@output_buffer.append= ( ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	Hospital ID
+	');@output_buffer.append= ( ambulance.label :eta, "ETA");@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	');@output_buffer.append= ( ambulance.text_field :eta );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	');@output_buffer.append= ( ambulance.submit "ADD");@output_buffer.safe_concat('
+'); end  
+@output_buffer.safe_concat('
+
+  <div class="field">
+    ');@output_buffer.append= ( f.label :idAmbulance );@output_buffer.safe_concat('<br />
+    ');@output_buffer.append= ( f.text_field :idAmbulance );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+  <div class="select">
+        <td>');@output_buffer.append= ( editable_field ambulance, :status, :type => 'select', :submit => 'OK', :data => {'Green', 'Green', 'Black', 'Black', 'Yellow', 'Yellow', 'Red', 'Red'});@output_buffer.safe_concat('</td>
+        <td>');@output_buffer.append= ( editable_field ambulance, :hospital_id, :type => 'select', :submit => 'OK', :data => {'Female', 'Female', 'Male', 'Male'} );@output_buffer.safe_concat('</td>
+        <td>');@output_buffer.append= ( editable_field ambulance, :eta );@output_buffer.safe_concat('</td>
+        <td>');@output_buffer.append= ( button_to "X", ambulance, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true );@output_buffer.safe_concat('</td>
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/craig/Projects/master/app/views/ambulances/_form.html.erb:41:in `compile'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:134:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:333:in `render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:262:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:260:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/partials.rb:378:in `_render_partial'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:31:in `render'
+/home/craig/Projects/master/app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__612489738_0'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `send'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:135:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:59:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:56:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:26:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:93:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:17:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:261
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/craig/Projects/master/app/controllers/ambulances_controller.rb:29:in `new'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:150:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:441:in `_run__45947206__process_action__943997142__callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `send'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `run_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:119:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:41:in `process'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:138:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_controller/metal.rb:178
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:75:in `optimized_each'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/usr/lib/ruby/gems/1.8/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:493:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/head.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:32:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:12:in `cache'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:31:in `call'
+/usr/lib/ruby/gems/1.8/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/rack/logger.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+/usr/lib/ruby/gems/1.8/gems/activesupport-3.0.9/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `synchronize'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+/usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/static.rb:30:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:168:in `call'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `send'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/application.rb:77:in `method_missing'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/rack/log_tailer.rb:14:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/handler/webrick.rb:13:in `run'
+/usr/lib/ruby/gems/1.8/gems/rack-1.2.3/lib/rack/server.rb:217:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands/server.rb:65:in `start'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:30
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27:in `tap'
+/usr/lib/ruby/gems/1.8/gems/railties-3.0.9/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered ambulances/_form.html.erb (95.3ms)
+Rendered ambulances/new.html.erb within layouts/application (97.3ms)
+Completed 500 Internal Server Error in 117ms
+
+ActionView::Template::Error (compile error
+/home/craig/Projects/master/app/views/ambulances/_form.html.erb:41: syntax error, unexpected kENSURE, expecting $end):
+    38:   </div>
+    39: <% end %>
+  app/views/ambulances/_form.html.erb:41:in `compile'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__612489738_0'
+  app/controllers/ambulances_controller.rb:29:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (19.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (69.6ms)
+
+
+Started GET "/ambulances/new" for 127.0.0.1 at Thu Oct 20 23:21:21 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+Rendered ambulances/_form.html.erb (15.9ms)
+Rendered ambulances/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 57ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ambulances" for 127.0.0.1 at Thu Oct 20 23:21:36 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"a12", "eta"=>"11:20", "status"=>"Delayed"}}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (1.4ms)[0m  INSERT INTO "ambulances" ("incident_id", "updated_at", "description", "eta", "patient_id", "status", "idAmbulance", "hospital_id", "created_at") VALUES (NULL, '2011-10-21 06:21:36.383889', NULL, '11:20', NULL, 'Delayed', 0, NULL, '2011-10-21 06:21:36.383889')
+Redirected to http://localhost:3000/ambulances/1
+Completed 302 Found in 161ms
+
+
+Started GET "/ambulances/1" for 127.0.0.1 at Thu Oct 20 23:21:36 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 1 LIMIT 1[0m
+Rendered ambulances/show.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 56ms (Views: 40.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:21:42 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[35mAmbulance Load (0.6ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 42ms (Views: 29.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:25:22 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[36mAmbulance Load (0.8ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 129ms (Views: 31.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/ambulances/new" for 127.0.0.1 at Thu Oct 20 23:26:57 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+Rendered ambulances/_form.html.erb (13.8ms)
+Rendered ambulances/new.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 46ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ambulances" for 127.0.0.1 at Thu Oct 20 23:27:08 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"123", "eta"=>"11:30", "status"=>"Transported"}}
+  [1m[35mAREL (0.9ms)[0m  INSERT INTO "ambulances" ("description", "eta", "created_at", "idAmbulance", "incident_id", "hospital_id", "patient_id", "status", "updated_at") VALUES (NULL, '11:30', '2011-10-21 06:27:09.036666', 123, NULL, NULL, NULL, 'Transported', '2011-10-21 06:27:09.036666')
+Redirected to http://localhost:3000/ambulances/2
+Completed 302 Found in 48ms
+
+
+Started GET "/ambulances/2" for 127.0.0.1 at Thu Oct 20 23:27:09 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAmbulance Load (0.2ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 2 LIMIT 1[0m
+Rendered ambulances/show.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 52ms (Views: 28.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:27:11 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[35mAmbulance Load (0.7ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 42ms (Views: 27.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/ambulances/1" for 127.0.0.1 at Thu Oct 20 23:27:16 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 1 LIMIT 1[0m
+Rendered ambulances/show.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 39ms (Views: 21.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:27:19 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[35mAmbulance Load (0.8ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 169ms (Views: 27.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/ambulances/2" for 127.0.0.1 at Thu Oct 20 23:27:21 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAmbulance Load (0.2ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 2 LIMIT 1[0m
+Rendered ambulances/show.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 40ms (Views: 26.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:27:24 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[35mAmbulance Load (0.6ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 47ms (Views: 27.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/ambulances/new" for 127.0.0.1 at Thu Oct 20 23:28:42 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+Rendered ambulances/_form.html.erb (91.0ms)
+Rendered ambulances/new.html.erb within layouts/application (102.9ms)
+Completed 200 OK in 132ms (Views: 109.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/ambulances" for 127.0.0.1 at Thu Oct 20 23:28:52 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"321", "eta"=>"11:35", "status"=>"Delayed"}}
+  [1m[36mAREL (4.9ms)[0m  [1mINSERT INTO "ambulances" ("incident_id", "description", "updated_at", "status", "eta", "idAmbulance", "patient_id", "created_at", "hospital_id") VALUES (NULL, NULL, '2011-10-21 06:28:52.291697', 'Delayed', '11:35', 321, NULL, '2011-10-21 06:28:52.291697', NULL)[0m
+Redirected to http://localhost:3000/ambulances
+Completed 302 Found in 61ms
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:28:52 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[35mAmbulance Load (0.7ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 50ms (Views: 23.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:32:18 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[36mAmbulance Load (0.7ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 52ms (Views: 37.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/ambulances/3" for 127.0.0.1 at Thu Oct 20 23:32:20 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "id"=>"3"}
+  [1m[35mAmbulance Load (0.9ms)[0m  SELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 3 LIMIT 1
+  [1m[36mAREL (29.7ms)[0m  [1mDELETE FROM "ambulances" WHERE "ambulances"."id" = 3[0m
+Redirected to http://localhost:3000/ambulances
+Completed 302 Found in 84ms
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:32:20 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[35mAmbulance Load (0.6ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 48ms (Views: 31.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/ambulances/2/edit" for 127.0.0.1 at Thu Oct 20 23:32:24 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAmbulance Load (4.8ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 2 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (35.0ms)
+Rendered ambulances/edit.html.erb within layouts/application (52.9ms)
+Completed 200 OK in 177ms (Views: 63.3ms | ActiveRecord: 35.4ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:32:26 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[35mAmbulance Load (8.9ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (101.1ms)
+Completed 200 OK in 223ms (Views: 141.7ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/ambulances/new" for 127.0.0.1 at Thu Oct 20 23:32:36 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+Rendered ambulances/_form.html.erb (13.5ms)
+Rendered ambulances/new.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 54ms (Views: 38.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Thu Oct 20 23:32:39 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  [1m[36mAmbulance Load (0.7ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 45ms (Views: 29.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Thu Oct 20 23:32:52 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[35mPatient Load (7.3ms)[0m  SELECT "patients".* FROM "patients"
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__612582708_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (11.9ms)
+Rendered patients/index.html.erb within layouts/application (80.8ms)
+Completed 200 OK in 145ms (Views: 103.5ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 20 23:35:05 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+Rendered user_sessions/_form.html.erb (7.1ms)
+Rendered user_sessions/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 62ms (Views: 28.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at Thu Oct 20 23:35:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#create as HTML
+  Parameters: {"commit"=>"Login", "user_session"=>{"username"=>"craig", "password"=>"[FILTERED]"}, "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users".username LIKE 'craig') LIMIT 1[0m
+Redirected to http://localhost:3000/incidents
+Completed 302 Found in 249ms
+
+
+Started GET "/incidents" for 127.0.0.1 at Thu Oct 20 23:35:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[35mIncident Load (0.5ms)[0m  SELECT "incidents".* FROM "incidents"
+Rendered incidents/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 23ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/incidents/new" for 127.0.0.1 at Thu Oct 20 23:35:16 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#new as HTML
+Rendered incidents/_form.html.erb (71.4ms)
+Rendered incidents/new.html.erb within layouts/application (80.1ms)
+Completed 200 OK in 100ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/incidents/new" for 127.0.0.1 at Thu Oct 20 23:36:55 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#new as HTML
+Rendered incidents/_form.html.erb (117.0ms)
+Rendered incidents/new.html.erb within layouts/application (127.3ms)
+Completed 200 OK in 142ms (Views: 132.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/incidents/new" for 127.0.0.1 at Thu Oct 20 23:39:06 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#new as HTML
+Rendered incidents/_form.html.erb (30.9ms)
+Rendered incidents/new.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 58ms (Views: 44.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/incidents/" for 127.0.0.1 at Thu Oct 20 23:39:49 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[36mIncident Load (0.9ms)[0m  [1mSELECT "incidents".* FROM "incidents"[0m
+Rendered incidents/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 43ms (Views: 29.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/incidents/new" for 127.0.0.1 at Thu Oct 20 23:39:59 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#new as HTML
+Rendered incidents/_form.html.erb (48.3ms)
+Rendered incidents/new.html.erb within layouts/application (60.8ms)
+Completed 200 OK in 99ms (Views: 77.5ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 21 00:33:26 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered user_sessions/new.html.erb within layouts/application (104.5ms)
+Completed 200 OK in 242ms (Views: 110.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/incidents" for 127.0.0.1 at Fri Oct 21 00:33:36 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[36mIncident Load (0.5ms)[0m  [1mSELECT "incidents".* FROM "incidents"[0m
+Rendered incidents/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 24ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/incidents/new" for 127.0.0.1 at Fri Oct 21 00:33:39 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#new as HTML
+Rendered incidents/_form.html.erb (37.8ms)
+Rendered incidents/new.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 68ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/incidents" for 127.0.0.1 at Fri Oct 21 00:33:57 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#create as HTML
+  Parameters: {"commit"=>"Create Incident", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "incident"=>{"date(1i)"=>"2011", "location"=>"123 cont drive mv ca", "latitude"=>"321", "date(2i)"=>"10", "date(3i)"=>"21", "date(4i)"=>"07", "date(5i)"=>"33", "type"=>"mci", "longitude"=>"123"}}
+WARNING: Can't mass-assign protected attributes: type
+  [1m[35mAREL (1.1ms)[0m  INSERT INTO "incidents" ("updated_at", "created_at", "longitude", "location", "type", "dispatchTime", "idIncident", "endTime", "arrivalTime", "date", "latitude") VALUES ('2011-10-21 07:33:57.323476', '2011-10-21 07:33:57.323476', 123.0, '123 cont drive mv ca', NULL, NULL, NULL, NULL, NULL, '2011-10-21 07:33:00.000000', 321.0)
+Redirected to http://localhost:3000/incidents/1
+Completed 302 Found in 70ms
+
+
+Started GET "/incidents/1" for 127.0.0.1 at Fri Oct 21 00:33:57 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered incidents/show.html.erb within layouts/application (50.6ms)
+Completed 200 OK in 123ms (Views: 108.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:34:03 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mAmbulance Load (0.6ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (34.8ms)
+Completed 500 Internal Server Error in 55ms
+
+ActionView::Template::Error (undefined method `edit_ambulance_path' for #<#<Class:0xb6d5e81c>:0xb6d5d7b4>):
+    16:     <td><%= ambulance.status %></td>
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', edit_ambulance_path(ambulance) %></td>
+    20:     <td><%= button_to "X", ambulance, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+  app/views/ambulances/index.html.erb:19:in `_app_views_ambulances_index_html_erb__736524292__613752968_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613752968_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (87.3ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:45:29 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mAmbulance Load (0.9ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (12.7ms)
+Completed 500 Internal Server Error in 41ms
+
+ActionView::Template::Error (No route matches {:incident_id=>#<Ambulance id: 1, idAmbulance: 0, description: nil, created_at: "2011-10-21 06:21:36", updated_at: "2011-10-21 06:21:36", incident_id: nil, status: "Delayed", hospital_id: nil, patient_id: nil, eta: "11:20">, :action=>"show", :controller=>"ambulances"}):
+    16:     <td><%= ambulance.status %></td>
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', incident_ambulance_path(ambulance) %></td>
+    20:     <td><%= button_to "X", ambulance, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+  app/views/ambulances/index.html.erb:19:in `_app_views_ambulances_index_html_erb__736524292__613034718_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613034718_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.6ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:45:43 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mAmbulance Load (1.1ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (33.4ms)
+Completed 500 Internal Server Error in 60ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6d29ec8>:0xb6d28e24>):
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', incident_ambulances_path(ambulance) %></td>
+    20:     <td><%= button_to "X", ambulance, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+    23: </table>
+  app/views/ambulances/index.html.erb:20:in `_app_views_ambulances_index_html_erb__736524292__613859658_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613859658_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (91.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (100.6ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:46:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mAmbulance Load (0.7ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (36.1ms)
+Completed 500 Internal Server Error in 56ms
+
+ActionView::Template::Error (undefined local variable or method `incident_ambulance' for #<#<Class:0xb6ea0f2c>:0xb6ea0090>):
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', incident_ambulances_path(ambulance) %></td>
+    20:     <td><%= button_to "X", incident_ambulance, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+    23: </table>
+  app/views/ambulances/index.html.erb:20:in `_app_views_ambulances_index_html_erb__736524292__613091038_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613091038_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.8ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:46:32 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mAmbulance Load (1.5ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (98.3ms)
+Completed 500 Internal Server Error in 117ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6cff5b0>:0xb6cfda1c>):
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', incident_ambulances_path(ambulance) %></td>
+    20:     <td><%= button_to "X", ambulance, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+    23: </table>
+  app/views/ambulances/index.html.erb:20:in `_app_views_ambulances_index_html_erb__736524292__613948028_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613948028_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.8ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:48:25 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mAmbulance Load (0.9ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (32.8ms)
+Completed 500 Internal Server Error in 56ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6de789c>:0xb6de5ed4>):
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', incident_ambulances_path(ambulance) %></td>
+    20:     <td><%= button_to "X", [ambulance.incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+    23: </table>
+  app/views/ambulances/index.html.erb:20:in `_app_views_ambulances_index_html_erb__736524292__613478318_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613478318_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.1ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:48:56 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mAmbulance Load (0.7ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (29.0ms)
+Completed 500 Internal Server Error in 61ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6f19364>:0xb6f184c8>):
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     
+    20:     <td><%= button_to "X", [ambulance.incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+    23: </table>
+  app/views/ambulances/index.html.erb:20:in `_app_views_ambulances_index_html_erb__736524292__612844728_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__612844728_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.7ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:49:11 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mAmbulance Load (0.6ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (34.8ms)
+Completed 500 Internal Server Error in 52ms
+
+ActionView::Template::Error (undefined local variable or method `new_ambulance_path' for #<#<Class:0xb6d551cc>:0xb6d5418c>):
+    23: 
+    24: <br />
+    25: 
+    26: <%= link_to 'New Ambulance', new_ambulance_path %>
+  app/views/ambulances/index.html.erb:26:in `_app_views_ambulances_index_html_erb__736524292__613771088_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (72.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (91.2ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:52:16 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mAmbulance Load (0.8ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 43ms (Views: 29.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 00:53:19 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mAmbulance Load (0.7ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (111.7ms)
+Completed 500 Internal Server Error in 133ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6d44e94>:0xb6d42ef0>):
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', incident_ambulances_path(ambulance) %></td>
+    20:     <td><%= button_to "X", [ambulance.incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+    23: </table>
+  app/views/ambulances/index.html.erb:20:in `_app_views_ambulances_index_html_erb__736524292__613807228_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613807228_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:04:04 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mAmbulance Load (0.8ms)[0m  SELECT "ambulances".* FROM "ambulances"
+Rendered ambulances/index.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 81ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"ambulances"}):
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', incident_ambulances_path(ambulance) %></td>
+    20:     <td><%= button_to "X", incident_ambulance_path, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+    23: </table>
+  app/views/ambulances/index.html.erb:20:in `_app_views_ambulances_index_html_erb__736524292__613513778_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613513778_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.2ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:05:59 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mAmbulance Load (0.7ms)[0m  [1mSELECT "ambulances".* FROM "ambulances"[0m
+Rendered ambulances/index.html.erb within layouts/application (45.0ms)
+Completed 500 Internal Server Error in 153ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6f72aa4>:0xb6f71c08>):
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', incident_ambulances_path(ambulance) %></td>
+    20:     <td><%= button_to "X", ambulance, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+    23: </table>
+  app/views/ambulances/index.html.erb:20:in `_app_views_ambulances_index_html_erb__736524292__612662338_0'
+  app/views/ambulances/index.html.erb:13:in `each'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__612662338_0'
+  app/controllers/ambulances_controller.rb:7:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.6ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:22:16 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 60ms (Views: 17.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/incidents/1" for 127.0.0.1 at Fri Oct 21 01:22:22 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered incidents/show.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 44ms (Views: 30.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/incidents/" for 127.0.0.1 at Fri Oct 21 01:22:25 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[36mIncident Load (1.3ms)[0m  [1mSELECT "incidents".* FROM "incidents"[0m
+Rendered incidents/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 40ms (Views: 29.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/incidents/1" for 127.0.0.1 at Fri Oct 21 01:22:30 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered incidents/show.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 41ms (Views: 27.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Fri Oct 21 01:22:53 -0700 2011
+
+ActionController::RoutingError (No route matches "/ambulances"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:23:03 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 133ms
+
+NoMethodError (undefined method `ambulance' for #<Incident:0xb6f70b3c>):
+  app/controllers/ambulances_controller.rb:29:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.2ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:25:03 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 28ms
+
+NoMethodError (undefined method `ambulance' for #<Incident:0xb6dd668c>):
+  app/controllers/ambulances_controller.rb:29:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.2ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:26:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 23ms
+
+NoMethodError (undefined method `ambulance' for #<Incident:0xb6caa6a0>):
+  app/controllers/ambulances_controller.rb:29:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)
+
+
+Started GET "/incidents/1/ambulances/edit/1" for 127.0.0.1 at Fri Oct 21 01:35:14 -0700 2011
+
+ActionController::RoutingError (No route matches "/incidents/1/ambulances/edit/1"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (88.1ms)
+
+
+Started GET "/incidents/1/ambulances/1/edit" for 127.0.0.1 at Fri Oct 21 01:35:26 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"1", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed 500 Internal Server Error in 21ms
+
+NoMethodError (undefined method `ambulance' for #<Class:0xb6ef2778>):
+  app/controllers/ambulances_controller.rb:40:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.0ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:35:47 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 29ms
+
+NoMethodError (undefined method `Ambulance' for #<Incident:0xb6d77650>):
+  app/controllers/ambulances_controller.rb:29:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.7ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:36:09 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (1.1ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (7.7ms)
+Rendered ambulances/new.html.erb within layouts/application (12.9ms)
+Completed 500 Internal Server Error in 174ms
+
+ActionView::Template::Error (undefined method `idAmbulance' for #<Incident:0xb6c4da7c>):
+    11:     </div>
+    12:   <% end %>
+    13: 	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    14: 	<%= ambulance.text_field :idAmbulance %>
+    15: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+    16: 	Hospital ID
+    17: 	<%= ambulance.label :eta, "ETA"%>
+  app/views/ambulances/_form.html.erb:14:in `_app_views_ambulances__form_html_erb___131383944__612907948_455776'
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__612907948_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__612901638_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.9ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:37:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (4.3ms)
+Rendered ambulances/new.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 62ms
+
+ActionView::Template::Error (undefined method `ambulance' for #<Incident:0xb6d6de70>):
+    11:     </div>
+    12:   <% end %>
+    13: 	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    14: 	<%= @incident.ambulance.text_field :idAmbulance %>
+    15: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+    16: 	Hospital ID
+    17: 	<%= ambulance.label :eta, "ETA"%>
+  app/views/ambulances/_form.html.erb:14:in `_app_views_ambulances__form_html_erb___131383944__613999358_455776'
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__613999358_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613993568_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.3ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:37:21 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Rendered ambulances/_form.html.erb (5.1ms)
+Rendered ambulances/new.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 75ms
+
+ActionView::Template::Error (undefined method `text_field' for #<Class:0xb6ee6b44>):
+    11:     </div>
+    12:   <% end %>
+    13: 	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    14: 	<%= @incident.ambulances.text_field :idAmbulance %>
+    15: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+    16: 	Hospital ID
+    17: 	<%= ambulance.label :eta, "ETA"%>
+  app/views/ambulances/_form.html.erb:14:in `_app_views_ambulances__form_html_erb___131383944__613285488_455776'
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__613285488_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613276078_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.4ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:40:41 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (4.6ms)
+Rendered ambulances/new.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 80ms
+
+ActionView::Template::Error (undefined method `idAmbulance' for #<Incident:0xb6cd8b04>):
+    1: <%= form_for(@incident, @ambulance) do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+    5: 	Hospital ID
+    6: 	<%= ambulance.label :eta, "ETA"%>
+  app/views/ambulances/_form.html.erb:3:in `_app_views_ambulances__form_html_erb___131383944__614264498_455776'
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__614264498_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__614258588_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (97.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (104.0ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:42:10 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (8.5ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (4.5ms)
+Rendered ambulances/new.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 106ms
+
+ActionView::Template::Error (undefined method `idAmbulance' for #<Incident:0xb6e82c34>):
+    1: <%= form_for(@incident, @ambulance) do |ambulance| %>
+    2:  	<%= ambulance.label :idIncident, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+    5: 	Hospital ID
+    6: 	<%= ambulance.label :eta, "ETA"%>
+  app/views/ambulances/_form.html.erb:3:in `_app_views_ambulances__form_html_erb___131383944__613481698_455776'
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__613481698_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613470488_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.7ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:42:28 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (5.3ms)
+Rendered ambulances/new.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 140ms
+
+ActionView::Template::Error (undefined method `idAmbulance' for #<Incident:0xb6c8da8c>):
+    1: <%= form_for(@incident, @ambulance) do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+    5: 	Hospital ID
+    6: 	<%= ambulance.label :eta, "ETA"%>
+  app/views/ambulances/_form.html.erb:3:in `_app_views_ambulances__form_html_erb___131383944__612632758_455776'
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__612632758_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613001028_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (20.6ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:42:55 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (3.8ms)
+Rendered ambulances/new.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 62ms
+
+ActionView::Template::Error (undefined method `status' for #<Incident:0xb6db8470>):
+    1: <%= form_for(@incident, @ambulance) do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idIncident %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+    5: 	Hospital ID
+    6: 	<%= ambulance.label :eta, "ETA"%>
+    7: 	<%= ambulance.text_field :eta %>
+  app/views/ambulances/_form.html.erb:4:in `_app_views_ambulances__form_html_erb___131383944__613824468_455776'
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__613824468_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613819148_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.6ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:46:00 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (21.8ms)
+Rendered ambulances/new.html.erb within layouts/application (24.2ms)
+Completed 500 Internal Server Error in 171ms
+
+ActionView::Template::Error (undefined method `ambulances_path' for #<#<Class:0xb6edf45c>:0xb6ed69b0>):
+    1: <%= form_for(@ambulance) do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__612997438_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__612992228_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.0ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:48:25 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (17.5ms)
+Rendered ambulances/new.html.erb within layouts/application (20.3ms)
+Completed 500 Internal Server Error in 85ms
+
+ActionView::Template::Error (undefined method `ambulances_path' for #<#<Class:0xb6cae7c8>:0xb6cad6d4>):
+    1: <%= form_for @ambulance do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__614119318_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__614114108_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.4ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:48:28 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (27.1ms)
+Rendered ambulances/new.html.erb within layouts/application (31.1ms)
+Completed 500 Internal Server Error in 98ms
+
+ActionView::Template::Error (undefined method `ambulances_path' for #<#<Class:0xb6d716d8>:0xb6d6fc0c>):
+    1: <%= form_for @ambulance do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__613721768_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613714298_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.4ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:50:53 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (3.6ms)
+Rendered ambulances/new.html.erb within layouts/application (25.4ms)
+Completed 500 Internal Server Error in 91ms
+
+ActionView::Template::Error (undefined local variable or method `ambulances_path' for #<#<Class:0xb6e96e64>:0xb6e94718>):
+    2: 
+    3: <%= render 'form' %>
+    4: 
+    5: <%= link_to 'Back', ambulances_path %>
+  app/views/ambulances/new.html.erb:5:in `_app_views_ambulances_new_html_erb___65467990__613123088_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.5ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:51:20 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (1.4ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (3.1ms)
+Rendered ambulances/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 105ms (Views: 19.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:51:31 -0700 2011
+
+ActionController::RoutingError (No route matches "/incidents/1/ambulances/new"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:51:49 -0700 2011
+
+ActionController::RoutingError (No route matches "/incidents/1/ambulances/new"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started POST "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:51:55 -0700 2011
+
+ActionController::RoutingError (No route matches "/incidents/1/ambulances/new"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:52:45 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (1.2ms)
+Rendered ambulances/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 61ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"ambulances"}):
+    1: <%= form_for [@incident, @ambulance], :url=> incident_ambulance_path do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__613816768_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613811198_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.6ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:53:04 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (3.7ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (2.6ms)
+Rendered ambulances/new.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 67ms
+
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"ambulances"}):
+    1: <%= form_for [@incident, @ambulance], :url=> edit_incident_ambulance_path do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__613165838_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613156528_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.6ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:53:19 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (7.0ms)
+Rendered ambulances/new.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 95ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"ambulances"}):
+    1: <%= form_for [@incident, @ambulance], :url=> incident_ambulance_path do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__614135208_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__614128228_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (89.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (100.7ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:53:39 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (22.5ms)
+Rendered ambulances/new.html.erb within layouts/application (24.3ms)
+Completed 500 Internal Server Error in 83ms
+
+ActionView::Template::Error (undefined local variable or method `update_incident_ambulance_path' for #<#<Class:0xb6e27ed8>:0xb6e26fc4>):
+    1: <%= form_for [@incident, @ambulance], :url=> update_incident_ambulance_path do |ambulance| %>
+    2:  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
+    3: 	<%= ambulance.text_field :idAmbulance %>
+    4: 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+  app/views/ambulances/_form.html.erb:1:in `_app_views_ambulances__form_html_erb___131383944__613345078_455776'
+  app/views/ambulances/new.html.erb:3:in `_app_views_ambulances_new_html_erb___65467990__613338948_0'
+  app/controllers/ambulances_controller.rb:31:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.1ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:53:51 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (7.6ms)
+Rendered ambulances/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 153ms (Views: 22.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:54:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (5.4ms)
+Rendered ambulances/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 68ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:54:14 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.4ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (5.2ms)
+Rendered ambulances/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 70ms (Views: 15.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:54:21 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"321123", "eta"=>"1212", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 22ms
+
+NoMethodError (undefined method `ambulance' for #<Incident:0xb6d13894>):
+  app/controllers/ambulances_controller.rb:47:in `create'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (20.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.7ms)
+
+
+Started POST "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:54:46 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"321123", "eta"=>"1212", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAREL (1.2ms)[0m  [1mINSERT INTO "ambulances" ("created_at", "updated_at", "idAmbulance", "patient_id", "incident_id", "description", "eta", "status", "hospital_id") VALUES ('2011-10-21 08:54:46.669262', '2011-10-21 08:54:46.669262', 321123, NULL, 1, NULL, '1212', 'En Route', NULL)[0m
+Completed 500 Internal Server Error in 67ms
+
+NameError (undefined local variable or method `ambulances_path' for #<AmbulancesController:0xb6e3a22c>):
+  app/controllers/ambulances_controller.rb:51
+  app/controllers/ambulances_controller.rb:49:in `create'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.0ms)
+
+
+Started POST "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:55:34 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"321123123", "eta"=>"1212", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAREL (1.4ms)[0m  [1mINSERT INTO "ambulances" ("patient_id", "description", "created_at", "updated_at", "status", "incident_id", "idAmbulance", "eta", "hospital_id") VALUES (NULL, NULL, '2011-10-21 08:55:34.510175', '2011-10-21 08:55:34.510175', 'En Route', 1, 321123123, '1212', NULL)[0m
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 146ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:55:34 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (1.5ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 72ms (Views: 28.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 01:56:21 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (4.3ms)
+Rendered ambulances/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 62ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:56:29 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"987", "eta"=>"3131", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[36mIncident Load (1.4ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 37ms
+
+NoMethodError (undefined method `ambulance' for #<Incident:0xb6eb7308>):
+  app/controllers/ambulances_controller.rb:47:in `create'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.5ms)
+
+
+Started POST "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:56:43 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"987", "eta"=>"3131", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[35mIncident Load (3.5ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.8ms)[0m  [1mINSERT INTO "ambulances" ("idAmbulance", "created_at", "status", "incident_id", "eta", "updated_at", "hospital_id", "description", "patient_id") VALUES (987, '2011-10-21 08:56:44.040027', 'En Route', 1, '3131', '2011-10-21 08:56:44.040027', NULL, NULL, NULL)[0m
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 75ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 01:56:44 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.6ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 151ms (Views: 31.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/incidents/1/ambulances.6" for 127.0.0.1 at Fri Oct 21 01:56:46 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as 
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Completed 406 Not Acceptable in 34ms
+
+
+Started GET "/incidents/1/ambulances.5" for 127.0.0.1 at Fri Oct 21 01:56:54 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as 
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Completed 406 Not Acceptable in 116ms
+
+
+Started GET "/incidents/1/ambulances.4" for 127.0.0.1 at Fri Oct 21 01:56:56 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as 
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Completed 406 Not Acceptable in 34ms
+
+
+Started GET "/incidents/1/ambulances/4" for 127.0.0.1 at Fri Oct 21 01:57:00 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#show as HTML
+  Parameters: {"id"=>"4", "incident_id"=>"1"}
+  [1m[36mAmbulance Load (0.2ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 4 LIMIT 1[0m
+Rendered ambulances/show.html.erb within layouts/application (24.4ms)
+Completed 500 Internal Server Error in 52ms
+
+ActionView::Template::Error (undefined method `edit_ambulance_path' for #<#<Class:0xb6cae2a0>:0xb6ca98cc>):
+    25:   <%= @ambulance.description %>
+    26: </p>
+    27: 
+    28: <%= link_to 'Edit', edit_ambulance_path(@ambulance) %> |
+    29: <%= link_to 'Back', ambulances_path %>
+  app/views/ambulances/show.html.erb:28:in `_app_views_ambulances_show_html_erb___927748848__614121548_0'
+  app/controllers/ambulances_controller.rb:19:in `show'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.9ms)
+
+
+Started GET "/incidents/1/ambulances.4" for 127.0.0.1 at Fri Oct 21 01:57:34 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as 
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Completed 406 Not Acceptable in 55ms
+
+
+Started GET "/incidents/1/ambulances.4" for 127.0.0.1 at Fri Oct 21 01:58:23 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as 
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Completed 406 Not Acceptable in 31ms
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 21 02:00:34 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by UserSessionsController#new as HTML
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered user_sessions/new.html.erb within layouts/application (94.6ms)
+Completed 200 OK in 212ms (Views: 102.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Fri Oct 21 02:00:37 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.6ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb__141635911__613125908_0 at /home/craig/Projects/master/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (15.2ms)
+Rendered patients/index.html.erb within layouts/application (145.6ms)
+Completed 200 OK in 185ms (Views: 174.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/incidents" for 127.0.0.1 at Fri Oct 21 02:00:46 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[36mIncident Load (0.7ms)[0m  [1mSELECT "incidents".* FROM "incidents"[0m
+Rendered incidents/index.html.erb within layouts/application (47.5ms)
+Completed 200 OK in 153ms (Views: 53.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/incidents/1" for 127.0.0.1 at Fri Oct 21 02:00:51 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mIncident Load (0.4ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered incidents/show.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 58ms (Views: 33.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:00:58 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mAmbulance Load (0.4ms)[0m  SELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)
+Rendered ambulances/index.html.erb within layouts/application (37.2ms)
+Completed 500 Internal Server Error in 91ms
+
+ActionView::Template::Error (undefined method `edit_incident_ambulances_path' for #<#<Class:0xb6daa94c>:0xb6da98f8>):
+    16:     <td><%= ambulance.status %></td>
+    17:     <td>hospital</td>
+    18:     <td><%= ambulance.eta %></td>
+    19:     <td><%= link_to 'Edit', edit_incident_ambulances_path(@incident, ambulance) %></td>
+    20:     <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+    21:   </tr>
+    22: <% end %>
+  app/views/ambulances/index.html.erb:19:in `_app_views_ambulances_index_html_erb__736524292__613595818_0'
+  app/views/ambulances/index.html.erb:13:in `_app_views_ambulances_index_html_erb__736524292__613595818_0'
+  app/controllers/ambulances_controller.rb:8:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (122.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (129.2ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:01:13 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mAmbulance Load (0.5ms)[0m  SELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)
+Rendered ambulances/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 75ms (Views: 32.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/incidents/1/ambulances/4/edit" for 127.0.0.1 at Fri Oct 21 02:01:15 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"4", "incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Completed 500 Internal Server Error in 15ms
+
+NoMethodError (undefined method `ambulances' for #<Class:0xb6de9ac0>):
+  app/controllers/ambulances_controller.rb:40:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (22.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (47.3ms)
+
+
+Started GET "/incidents/1/ambulances/4/edit" for 127.0.0.1 at Fri Oct 21 02:01:40 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"4", "incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Completed 500 Internal Server Error in 13ms
+
+NoMethodError (undefined method `ambulance' for #<Class:0xb6f1f1ec>):
+  app/controllers/ambulances_controller.rb:40:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (20.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.5ms)
+
+
+Started GET "/incidents/1/ambulances/4/edit" for 127.0.0.1 at Fri Oct 21 02:01:42 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"4", "incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Completed 500 Internal Server Error in 14ms
+
+NoMethodError (undefined method `ambulance' for #<Class:0xb6dce11c>):
+  app/controllers/ambulances_controller.rb:40:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (19.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.5ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 02:01:52 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered ambulances/_form.html.erb (4.2ms)
+Rendered ambulances/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 62ms (Views: 17.8ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:01:57 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"32", "eta"=>"4", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAREL (1.2ms)[0m  [1mINSERT INTO "ambulances" ("patient_id", "created_at", "description", "eta", "incident_id", "idAmbulance", "status", "updated_at", "hospital_id") VALUES (NULL, '2011-10-21 09:01:57.772469', NULL, '4', 1, 32, 'En Route', '2011-10-21 09:01:57.772469', NULL)[0m
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 90ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:01:57 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.6ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 183ms (Views: 127.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/incidents/1/ambulances/7/edit" for 127.0.0.1 at Fri Oct 21 02:02:01 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"7", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed 500 Internal Server Error in 12ms
+
+NoMethodError (undefined method `ambulance' for #<Class:0xb6f3a71c>):
+  app/controllers/ambulances_controller.rb:40:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.5ms)
+
+
+Started POST "/incidents/1/ambulances/7" for 127.0.0.1 at Fri Oct 21 02:02:03 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "id"=>"7", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed 500 Internal Server Error in 33ms
+
+NoMethodError (undefined method `ambulance' for #<Class:0xb6dd3720>):
+  app/controllers/ambulances_controller.rb:81:in `destroy'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.3ms)
+
+
+Started POST "/incidents/1/ambulances/7" for 127.0.0.1 at Fri Oct 21 02:03:36 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "id"=>"7", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed 500 Internal Server Error in 14ms
+
+NoMethodError (undefined method `ambulances' for #<Class:0xb70028ac>):
+  app/controllers/ambulances_controller.rb:81:in `destroy'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (21.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.0ms)
+
+
+Started POST "/incidents/1/ambulances/7" for 127.0.0.1 at Fri Oct 21 02:04:30 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "id"=>"7", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Completed 500 Internal Server Error in 22ms
+
+NoMethodError (undefined method `ambulance' for #<Incident:0xb6e827e8>):
+  app/controllers/ambulances_controller.rb:81:in `destroy'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.8ms)
+
+
+Started POST "/incidents/1/ambulances/7" for 127.0.0.1 at Fri Oct 21 02:05:22 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "id"=>"7", "incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mAmbulance Load (0.3ms)[0m  SELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 7 AND ("ambulances".incident_id = 1) LIMIT 1
+  [1m[36mAREL (2.8ms)[0m  [1mDELETE FROM "ambulances" WHERE "ambulances"."id" = 7[0m
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 157ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:05:22 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.8ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.4ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 85ms (Views: 30.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/incidents/1/ambulances/6/edit" for 127.0.0.1 at Fri Oct 21 02:05:24 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"6", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed 500 Internal Server Error in 13ms
+
+NoMethodError (undefined method `ambulance' for #<Class:0xb6de8710>):
+  app/controllers/ambulances_controller.rb:40:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (42.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (64.8ms)
+
+
+Started GET "/incidents/1/ambulances/6/edit" for 127.0.0.1 at Fri Oct 21 02:05:45 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"6", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Completed 500 Internal Server Error in 94ms
+
+NoMethodError (undefined method `ambulances' for #<Class:0xb7020744>):
+  app/controllers/ambulances_controller.rb:40:in `edit'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (19.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.5ms)
+
+
+Started GET "/incidents/1/ambulances/6/edit" for 127.0.0.1 at Fri Oct 21 02:05:58 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"6", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (1.4ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 6 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+Rendered ambulances/_form.html.erb (11.3ms)
+Rendered ambulances/edit.html.erb within layouts/application (33.3ms)
+Completed 500 Internal Server Error in 86ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6e1f8dc>:0xb6e1daf0>):
+    2: 
+    3: <%= render 'form' %>
+    4: 
+    5: <%= link_to 'Show', @ambulance %> |
+    6: <%= link_to 'Back', ambulances_path %>
+  app/views/ambulances/edit.html.erb:5:in `_app_views_ambulances_edit_html_erb___364974979__613358058_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (17.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.7ms)
+
+
+Started GET "/incidents/1/ambulances/6/edit" for 127.0.0.1 at Fri Oct 21 02:06:02 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"6", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 6 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+Rendered ambulances/_form.html.erb (15.1ms)
+Rendered ambulances/edit.html.erb within layouts/application (38.0ms)
+Completed 500 Internal Server Error in 102ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6f37c4c>:0xb6f36c0c>):
+    2: 
+    3: <%= render 'form' %>
+    4: 
+    5: <%= link_to 'Show', @ambulance %> |
+    6: <%= link_to 'Back', ambulances_path %>
+  app/views/ambulances/edit.html.erb:5:in `_app_views_ambulances_edit_html_erb___364974979__612782618_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.2ms)
+
+
+Started GET "/incidents/1/ambulances/6/edit" for 127.0.0.1 at Fri Oct 21 02:06:23 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"6", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 6 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+Rendered ambulances/_form.html.erb (13.8ms)
+Rendered ambulances/edit.html.erb within layouts/application (121.4ms)
+Completed 500 Internal Server Error in 168ms
+
+ActionView::Template::Error (undefined method `ambulance_path' for #<#<Class:0xb6d1b648>:0xb6d1a34c>):
+    2: 
+    3: <%= render 'form' %>
+    4: 
+    5: <%= link_to 'Show', @ambulance %> |
+    6: <%= link_to 'Back', incident_ambulances_path %>
+  app/views/ambulances/edit.html.erb:5:in `_app_views_ambulances_edit_html_erb___364974979__613889408_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (20.8ms)
+
+
+Started GET "/incidents/1/ambulances/6/edit" for 127.0.0.1 at Fri Oct 21 02:06:49 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"6", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 6 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+Rendered ambulances/_form.html.erb (14.5ms)
+Rendered ambulances/edit.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 70ms (Views: 25.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/incidents/1/ambulances/6" for 127.0.0.1 at Fri Oct 21 02:06:53 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#update as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "id"=>"6", "ambulance"=>{"idAmbulance"=>"987", "eta"=>"3131", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 6 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+Redirected to 
+Completed 500 Internal Server Error in 77ms
+
+NoMethodError (undefined method `ambulance_url' for #<AmbulancesController:0xb6fe3934>):
+  app/controllers/ambulances_controller.rb:68
+  app/controllers/ambulances_controller.rb:66:in `update'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.2ms)
+
+
+Started POST "/incidents/1/ambulances/6" for 127.0.0.1 at Fri Oct 21 02:07:34 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#update as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "id"=>"6", "ambulance"=>{"idAmbulance"=>"987", "eta"=>"3131", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 6 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 65ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:07:34 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.4ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 68ms (Views: 30.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/incidents/1/ambulances/6/edit" for 127.0.0.1 at Fri Oct 21 02:07:36 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#edit as HTML
+  Parameters: {"id"=>"6", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 6 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+Rendered ambulances/_form.html.erb (109.1ms)
+Rendered ambulances/edit.html.erb within layouts/application (117.2ms)
+Completed 200 OK in 183ms (Views: 122.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/incidents/1/ambulances/6" for 127.0.0.1 at Fri Oct 21 02:07:38 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#update as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "id"=>"6", "ambulance"=>{"idAmbulance"=>"987", "eta"=>"3131", "status"=>"En Route"}, "incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.3ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 6 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 64ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:07:38 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.4ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 66ms (Views: 29.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 02:07:41 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (0.3ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered ambulances/_form.html.erb (8.8ms)
+Rendered ambulances/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 191ms (Views: 23.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:07:47 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#create as HTML
+  Parameters: {"commit"=>"ADD", "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223", "ambulance"=>{"idAmbulance"=>"412", "eta"=>"1243", "status"=>"Delayed"}, "incident_id"=>"1"}
+  [1m[36mIncident Load (0.3ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.9ms)[0m  INSERT INTO "ambulances" ("updated_at", "incident_id", "idAmbulance", "created_at", "status", "eta", "hospital_id", "description", "patient_id") VALUES ('2011-10-21 09:07:47.347459', 1, 412, '2011-10-21 09:07:47.347459', 'Delayed', '1243', NULL, NULL, NULL)
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 114ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:07:47 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mAmbulance Load (1.0ms)[0m  SELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)
+Rendered ambulances/index.html.erb within layouts/application (28.1ms)
+Completed 200 OK in 80ms (Views: 33.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/incidents/1/ambulances/4" for 127.0.0.1 at Fri Oct 21 02:07:49 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "id"=>"4", "incident_id"=>"1"}
+  [1m[36mIncident Load (0.2ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mAmbulance Load (0.4ms)[0m  SELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 4 AND ("ambulances".incident_id = 1) LIMIT 1
+  [1m[36mAREL (8.1ms)[0m  [1mDELETE FROM "ambulances" WHERE "ambulances"."id" = 4[0m
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 172ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 02:07:49 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (6.4ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.4ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 98ms (Views: 33.8ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/hospitals" for 127.0.0.1 at Fri Oct 21 12:25:00 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#index as HTML
+  [1m[35mHospital Load (1.3ms)[0m  SELECT "hospitals".* FROM "hospitals"
+Rendered hospitals/index.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 352ms (Views: 140.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/hospitals/new" for 127.0.0.1 at Fri Oct 21 12:25:12 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#new as HTML
+Rendered hospitals/_form.html.erb (25.8ms)
+Rendered hospitals/new.html.erb within layouts/application (40.6ms)
+Completed 200 OK in 80ms (Views: 68.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/hospitals" for 127.0.0.1 at Fri Oct 21 12:25:28 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#create as HTML
+  Parameters: {"commit"=>"Create Hospital", "hospital"=>{"name"=>"St. Mary's", "address"=>"", "idHospital"=>""}, "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223"}
+  [1m[36mAREL (1.4ms)[0m  [1mINSERT INTO "hospitals" ("updated_at", "name", "created_at", "address", "idHospital") VALUES ('2011-10-21 19:25:28.979224', 'St. Mary''s', '2011-10-21 19:25:28.979224', '', NULL)[0m
+Redirected to http://localhost:3000/hospitals/1
+Completed 302 Found in 31ms
+
+
+Started GET "/hospitals/1" for 127.0.0.1 at Fri Oct 21 12:25:29 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mHospital Load (0.2ms)[0m  SELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = 1 LIMIT 1
+Rendered hospitals/show.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 75ms (Views: 66.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/hospitals" for 127.0.0.1 at Fri Oct 21 12:25:31 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#index as HTML
+  [1m[36mHospital Load (1.6ms)[0m  [1mSELECT "hospitals".* FROM "hospitals"[0m
+Rendered hospitals/index.html.erb within layouts/application (29.9ms)
+Completed 200 OK in 76ms (Views: 47.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/hospitals/new" for 127.0.0.1 at Fri Oct 21 12:25:32 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#new as HTML
+Rendered hospitals/_form.html.erb (12.0ms)
+Rendered hospitals/new.html.erb within layouts/application (52.7ms)
+Completed 200 OK in 67ms (Views: 57.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/hospitals" for 127.0.0.1 at Fri Oct 21 12:25:37 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#create as HTML
+  Parameters: {"commit"=>"Create Hospital", "hospital"=>{"name"=>"Hopkins", "address"=>"", "idHospital"=>""}, "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223"}
+  [1m[35mAREL (0.9ms)[0m  INSERT INTO "hospitals" ("name", "created_at", "address", "idHospital", "updated_at") VALUES ('Hopkins', '2011-10-21 19:25:37.194380', '', NULL, '2011-10-21 19:25:37.194380')
+Redirected to http://localhost:3000/hospitals/2
+Completed 302 Found in 69ms
+
+
+Started GET "/hospitals/2" for 127.0.0.1 at Fri Oct 21 12:25:37 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHospital Load (0.2ms)[0m  [1mSELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = 2 LIMIT 1[0m
+Rendered hospitals/show.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 67ms (Views: 52.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/hospitals" for 127.0.0.1 at Fri Oct 21 12:25:39 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#index as HTML
+  [1m[35mHospital Load (0.8ms)[0m  SELECT "hospitals".* FROM "hospitals"
+Rendered hospitals/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 239ms (Views: 34.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/hospitals/new" for 127.0.0.1 at Fri Oct 21 12:25:40 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#new as HTML
+Rendered hospitals/_form.html.erb (37.5ms)
+Rendered hospitals/new.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 92ms (Views: 65.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/hospitals" for 127.0.0.1 at Fri Oct 21 12:25:52 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#create as HTML
+  Parameters: {"commit"=>"Create Hospital", "hospital"=>{"name"=>"Mercy", "address"=>"", "idHospital"=>""}, "authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "utf8"=>"\342\234\223"}
+  [1m[36mAREL (2.1ms)[0m  [1mINSERT INTO "hospitals" ("idHospital", "address", "updated_at", "created_at", "name") VALUES (NULL, '', '2011-10-21 19:25:52.095819', '2011-10-21 19:25:52.095819', 'Mercy')[0m
+Redirected to http://localhost:3000/hospitals/3
+Completed 302 Found in 44ms
+
+
+Started GET "/hospitals/3" for 127.0.0.1 at Fri Oct 21 12:25:52 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mHospital Load (0.5ms)[0m  SELECT "hospitals".* FROM "hospitals" WHERE "hospitals"."id" = 3 LIMIT 1
+Rendered hospitals/show.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 59ms (Views: 47.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/hospitals/" for 127.0.0.1 at Fri Oct 21 12:25:58 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by HospitalsController#index as HTML
+  [1m[36mHospital Load (1.1ms)[0m  [1mSELECT "hospitals".* FROM "hospitals"[0m
+Rendered hospitals/index.html.erb within layouts/application (165.1ms)
+Completed 200 OK in 180ms (Views: 171.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/incidents" for 127.0.0.1 at Fri Oct 21 14:08:23 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[35mIncident Load (68.5ms)[0m  SELECT "incidents".* FROM "incidents"
+Rendered incidents/index.html.erb within layouts/application (1071.9ms)
+Completed 200 OK in 1551ms (Views: 1206.1ms | ActiveRecord: 68.5ms)
+
+
+Started GET "/incidents/1" for 127.0.0.1 at Fri Oct 21 14:08:46 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIncident Load (0.6ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+Rendered incidents/show.html.erb within layouts/application (101.7ms)
+Completed 200 OK in 156ms (Views: 120.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 14:08:53 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[35mIncident Load (2.0ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (1.0ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)[0m
+Rendered ambulances/index.html.erb within layouts/application (260.3ms)
+Completed 200 OK in 822ms (Views: 311.6ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/incidents/1/ambulances/8" for 127.0.0.1 at Fri Oct 21 14:19:28 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bwJ93naps9H6mkXU7WuGvkkjZZjk58lm7PVEgY8ycuY=", "id"=>"8", "incident_id"=>"1"}
+  [1m[35mIncident Load (0.7ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+  [1m[36mAmbulance Load (0.5ms)[0m  [1mSELECT "ambulances".* FROM "ambulances" WHERE "ambulances"."id" = 8 AND ("ambulances".incident_id = 1) LIMIT 1[0m
+  [1m[35mAREL (39.5ms)[0m  DELETE FROM "ambulances" WHERE "ambulances"."id" = 8
+Redirected to http://localhost:3000/incidents/1/ambulances
+Completed 302 Found in 405ms
+
+
+Started GET "/incidents/1/ambulances" for 127.0.0.1 at Fri Oct 21 14:19:31 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#index as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.6ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mAmbulance Load (0.6ms)[0m  SELECT "ambulances".* FROM "ambulances" WHERE ("ambulances".incident_id = 1)
+Rendered ambulances/index.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 439ms (Views: 89.1ms | ActiveRecord: 41.9ms)
+
+
+Started GET "/incidents/1/ambulances/new" for 127.0.0.1 at Fri Oct 21 15:43:11 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /home/craig/Projects/master/app/controllers/application_controller.rb:4)
+  Processing by AmbulancesController#new as HTML
+  Parameters: {"incident_id"=>"1"}
+  [1m[36mIncident Load (0.6ms)[0m  [1mSELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1[0m
+  [1m[35mHospital Load (33.5ms)[0m  SELECT "hospitals".* FROM "hospitals"
+Rendered ambulances/_form.html.erb (120.8ms)
+Rendered ambulances/new.html.erb within layouts/application (130.8ms)
+Completed 200 OK in 2159ms (Views: 124.2ms | ActiveRecord: 34.1ms)

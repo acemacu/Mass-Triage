@@ -11,11 +11,13 @@ MassTriage::Application.routes.draw do
 
   resources :hospitals
 
-  resources :ambulances
+  
 
   resources :responders
 
-  resources :incidents
+  resources :incidents do
+    resources :ambulances
+  end
 
   resources :patients
   
