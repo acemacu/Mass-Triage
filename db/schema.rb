@@ -10,10 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111020225617) do
+ActiveRecord::Schema.define(:version => 20111026183720) do
 
   create_table "ambulances", :force => true do |t|
-    t.integer  "idAmbulance"
+    t.string   "idAmbulance"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20111020225617) do
     t.string   "status"
     t.integer  "hospital_id"
     t.integer  "patient_id"
-    t.string   "eta"
+    t.datetime "eta",         :limit => 255
   end
 
   create_table "configurables", :force => true do |t|
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20111020225617) do
   create_table "incidents", :force => true do |t|
     t.integer  "idIncident"
     t.datetime "date"
-    t.string   "type"
+    t.string   "incident_type"
     t.string   "location"
     t.float    "longitude"
     t.float    "latitude"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20111020225617) do
     t.datetime "endTime"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "est_patient_count",   :default => 0
+    t.integer  "requested_amb_count", :default => 0
   end
 
   create_table "patients", :force => true do |t|
@@ -64,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20111020225617) do
     t.string   "ageType"
     t.text     "complaint"
     t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "incident_id"
+  end
+
+  create_table "resources", :force => true do |t|
+    t.integer  "est_patient_count",   :default => 0
+    t.integer  "requested_amb_count", :default => 0
+    t.integer  "incident_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

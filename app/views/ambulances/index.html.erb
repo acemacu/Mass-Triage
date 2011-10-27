@@ -1,4 +1,8 @@
-<h1>Listing ambulances</h1>
+<h1>INCIDENT AMBULANCE TAB</h1>
+
+REQUESTED AMBULANCES: <%= @incident.requested_amb_count %>
+AMBULANCES SENT: <%= @incident.ambulances.count %><br />
+AMBULANCES REQUESTED, NOT YET SENT: <%= @incident.requested_amb_count - @incident.ambulances.count %>
 
 <table>
   <tr>
@@ -14,7 +18,8 @@
   <tr>
     <td><%= ambulance.idAmbulance %></td>
     <td><%= ambulance.status %></td>
-    <td>hospital</td>
+        <% @desthospital = Hospital.find(ambulance.hospital_id) %>
+    <td><%= @desthospital.name %></td>
     <td><%= ambulance.eta %></td>
     <td><%= link_to 'Edit', edit_incident_ambulance_path(@incident, ambulance) %></td>
     <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
@@ -23,5 +28,11 @@
 </table>
 
 <br />
+REQUEST ADDITIONAL AMBULANCES
+<%form_for @incident do |j|%>
+<%= j.text_field :requested_amb_count, :value => @incident.requested_amb_count%>
+<%= j.submit "REQUEST" %>
+<% end %>
 
-<%= link_to 'New Ambulance', new_incident_ambulance_path(@incident) %>
+<%= link_to 'New Ambulance', new_incident_ambulance_path(@incident) %><br />
+<%= link_to "TRIAGE TAB", incident_patients_path(@incident) %>

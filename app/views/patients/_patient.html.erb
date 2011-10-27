@@ -1,11 +1,10 @@
 <%= div_for patient do %>
     <tr>
-		<td><%= editable_field patient, :numberOfTag %></td>
-		<td><%= editable_field patient, :tagColor, :type => 'select', :submit => 'OK', :data => {'Green', 'Green', 'Black', 'Black', 'Yellow', 'Yellow', 'Red', 'Red'}%></td>
-		<td><%= editable_field patient, :sex, :type => 'select', :submit => 'OK', :data => {'Female', 'Female', 'Male', 'Male'} %></td>
-		<td><%= editable_field patient, :age %></td>
-		<td><%= editable_field patient, :ageType, :type => 'select', :submit => 'OK', :data => {'Years', 'Years', 'Months', 'Months', 'Days', 'Days'} %></td>
-		<td><%= editable_field patient, :complaint %></td>
-		<td><%= button_to "X", patient, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
-  
+        <td><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
+        <td><%= editable_field patient, :tagColor, :type => 'select', :submit => 'OK', :update_url => incident_patient_path(@incident, patient), :data => {'Green', 'Green', 'Black', 'Black', 'Yellow', 'Yellow', 'Red', 'Red'}%></td>
+        <td><%= editable_field patient, :sex, :type => 'select', :submit => 'OK', :data => {'Female', 'Female', 'Male', 'Male'}, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td><%= editable_field patient, :age, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td><%= editable_field patient, :ageType, :type => 'select', :submit => 'OK', :data => {'Years', 'Years', 'Months', 'Months', 'Days', 'Days'}, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td><%= editable_field patient, :complaint, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td><%= button_to "X", [@incident, patient], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
 <% end %>

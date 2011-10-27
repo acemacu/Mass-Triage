@@ -14,7 +14,7 @@ class IncidentsController < ApplicationController
   # GET /incidents/1.xml
   def show
     @incident = Incident.find(params[:id])
-
+       
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @incident }
@@ -60,7 +60,8 @@ class IncidentsController < ApplicationController
 
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
-        format.html { redirect_to(@incident, :notice => 'Incident was successfully updated.') }
+        format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
+          
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
