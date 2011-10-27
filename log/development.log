@@ -3939,3 +3939,128 @@ DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is dep
 Rendered ambulances/_form.html.erb (120.8ms)
 Rendered ambulances/new.html.erb within layouts/application (130.8ms)
 Completed 200 OK in 2159ms (Views: 124.2ms | ActiveRecord: 34.1ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from instance_exec at /Library/Ruby/Gems/1.8/gems/railties-3.0.9/lib/rails/initializable.rb:25)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+Migrating to CreateUsers (20111019074419)
+Migrating to CreateUserSessions (20111019085623)
+Migrating to CreateConfigurables (20111020014558)
+Migrating to AddColumn (20111020224416)
+Migrating to AddMoreAmbColumns (20111020225617)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("configurables")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_configurables_on_name')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("responders")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("user_sessions")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from instance_exec at /Library/Ruby/Gems/1.8/gems/railties-3.0.9/lib/rails/initializable.rb:25)
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 25 23:07:17 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (16.2ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb___1307435047_2227408900_0 at /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (4.7ms)
+Rendered patients/index.html.erb within layouts/application (120.4ms)
+Completed 200 OK in 194ms (Views: 148.5ms | ActiveRecord: 16.2ms)
+
+
+Started GET "/ambulances" for 127.0.0.1 at Tue Oct 25 23:07:22 -0700 2011
+
+ActionController::RoutingError (No route matches "/ambulances"):
+  
+
+Rendered /Users/anachecho/.gem/ruby/1.8/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/incidents" for 127.0.0.1 at Tue Oct 25 23:08:23 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[35mIncident Load (0.8ms)[0m  SELECT "incidents".* FROM "incidents"
+Rendered incidents/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 81ms (Views: 28.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 25 23:08:26 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.4ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb___1307435047_2225982160_0 at /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (4.5ms)
+Rendered patients/index.html.erb within layouts/application (65.7ms)
+Completed 200 OK in 75ms (Views: 71.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/incidents" for 127.0.0.1 at Tue Oct 25 23:08:41 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[35mIncident Load (0.5ms)[0m  SELECT "incidents".* FROM "incidents"
+Rendered incidents/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 22ms (Views: 16.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/incidents/1" for 127.0.0.1 at Tue Oct 25 23:08:43 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mIncident Load (0.2ms)[0m  SELECT "incidents".* FROM "incidents" WHERE "incidents"."id" = 1 LIMIT 1
+Rendered incidents/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 41ms (Views: 34.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/patients" for 127.0.0.1 at Tue Oct 25 23:10:20 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/controllers/application_controller.rb:4)
+  Processing by PatientsController#index as HTML
+  [1m[36mPatient Load (0.4ms)[0m  [1mSELECT "patients".* FROM "patients"[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_patients_index_html_erb___1307435047_2227977020_0 at /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/views/patients/index.html.erb:14)
+Rendered patients/_patient.html.erb (4.3ms)
+Rendered patients/index.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 38ms (Views: 34.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/incidents" for 127.0.0.1 at Tue Oct 25 23:10:29 -0700 2011
+DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is deprecated and has no longer effect, please set 'config.filter_parameters' in config/application.rb instead. (called from /Users/anachecho/Documents/CMU/Fall 11/Practicum/Mass-Triage/app/controllers/application_controller.rb:4)
+  Processing by IncidentsController#index as HTML
+  [1m[35mIncident Load (0.4ms)[0m  SELECT "incidents".* FROM "incidents"
+Rendered incidents/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 19ms (Views: 14.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/info/properties" for 127.0.0.1 at Tue Oct 25 23:15:12 -0700 2011
+  Processing by Rails::InfoController#properties as 
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Rendered inline template (0.2ms)
+Completed 200 OK in 34ms (Views: 0.9ms | ActiveRecord: 0.6ms)
