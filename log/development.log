@@ -17749,3 +17749,52 @@ DEPRECATION WARNING: Setting filter_parameter_logging in ActionController is dep
 DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_ambulances_index_html_erb__736524292__613366238_0 at /home/craig/Projects/master/app/views/ambulances/index.html.erb:32)
 Rendered ambulances/index.html.erb within layouts/application (14.8ms)
 Completed 200 OK in 69ms (Views: 19.2ms | ActiveRecord: 0.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from /home/craig/Projects/master/config/environment.rb:5)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreatePatients (20111018191054)
+Migrating to CreateIncidents (20111018191905)
+Migrating to CreateResponders (20111018192101)
+Migrating to CreateAmbulances (20111018192136)
+Migrating to CreateHospitals (20111018192305)
+Migrating to CreateUsers (20111019074419)
+Migrating to CreateUserSessions (20111019085623)
+Migrating to CreateConfigurables (20111020014558)
+Migrating to AddColumn (20111020224416)
+Migrating to AddMoreAmbColumns (20111020225617)
+Migrating to AddIncidentIdToPatient (20111021225639)
+Migrating to AddPatientAndAmbCountToIncident (20111024200235)
+Migrating to UpdateIncidentFields (20111024221912)
+Migrating to UpdateIdAmbulanceToString (20111025235312)
+Migrating to CreateResources (20111026010623)
+Migrating to IncidentTableChangeTypeToIncidentType (20111026083454)
+Migrating to EtaChangeStringToTime (20111026183720)
+Migrating to RemoveResources (20111027004022)
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.3ms)[0m  [1mDROP TABLE "resources"[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111027004022')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.8ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("ambulances")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("configurables")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_configurables_on_name')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("hospitals")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("incidents")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("patients")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("responders")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("user_sessions")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
