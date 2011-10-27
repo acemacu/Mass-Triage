@@ -4,8 +4,10 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.xml
   def index
-    @patients = Patient.all
-
+    @incident = Incident.find(params[:incident_id])
+    @patients = @incident.patients.all
+    @patient = @incident.patients.new
+   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @patients }
@@ -26,7 +28,8 @@ class PatientsController < ApplicationController
   # GET /patients/new
   # GET /patients/new.xml
   def new
-    @patient = Patient.new
+    @incident = Incident.find(params[:incident_id])
+    @patient = @incident.patients.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,15 +39,17 @@ class PatientsController < ApplicationController
 
   # GET /patients/1/edit
   def edit
-    @patient = Patient.find(params[:id])
+    @incident = Incident.find(params[:incident_id])
+    @patient = @incident.patients.find(params[:id])
   end
 
   def create
-    @patient = Patient.create!(params[:patient])
+    @incident = Incident.find(params[:incident_id])
+    @patient = @incident.patients.create!(params[:patient])
     flash[:notice] = "You just added a patient!"
 
     respond_to do |format|
-        format.html { redirect_to patients_path }
+        format.html { redirect_to incident_patients_path }
         format.js
     end
   end
@@ -52,7 +57,8 @@ class PatientsController < ApplicationController
   # PUT /patients/1
   # PUT /patients/1.xml
   def update
-    @patient = Patient.find(params[:id])
+    @incident = Incident.find(params[:incident_id])
+    @patient = @incident.patients.find(params[:id])
     
     respond_to do |format|
       if @patient.update_attributes(params[:patient])
@@ -86,11 +92,12 @@ class PatientsController < ApplicationController
   # DELETE /patients/1
   # DELETE /patients/1.xml
   def destroy
-    @patient = Patient.find(params[:id])
+    @incident = Incident.find(params[:incident_id])
+    @patient = @incident.patients.find(params[:id])
     @patient.destroy
 
     respond_to do |format|
-      format.html { redirect_to (patients_url) }
+      format.html { redirect_to (incident_patients_url) }
       format.js
     end
   end

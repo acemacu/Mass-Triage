@@ -1,28 +1,12 @@
-<div>
-  <% if current_user %>
-    <%= link_to "Edit Profile", edit_user_path(:current_user.id) %>
-    <%= link_to "Logout", :logout %>
-  <% else %>
-    <%= link_to "Register", new_user_path %>
-    <%= link_to "Login", :login %>
-  <% end %>
-</div>
-<span id="patients_count"><%= pluralize(@patients.count, "Patient")%></span>
+
+<h1>INCIDENT TRIAGE TAB</h1>
+REQUESTED AMBULANCES: <%= @incident.requested_amb_count %><br />
+ESTIMAGED PATIENT COUNT: <%= @incident.est_patient_count %><br />
+TAGGED PATIENTS: <%= @patients.count%>
 
 <br />
 
-<% form_for Patient.new, :remote => true do |patient| %>
-	<%= patient.label :numberOfTag, "Tag" %><br />
-	<%= patient.text_field :numberOfTag %>
-	<%= patient.select :tagColor, [['Red','Red'],['Yellow','Yellow'],['Green','Green'],['Black','Black']] %>
-	<%= patient.select :sex, [['Female','female'],['Male','Male']] %>
-	<%= patient.label :age, "Age"%>
-	<%= patient.text_field :age %>
-	<%= patient.select :ageType, [['Years','Years'],['Months','Months'], ['Days', 'Days']] %>
-	<%= patient.label :complaint, "Complaint"%>
-	<%= patient.text_field :complaint %>
-	<%= patient.submit "ADD"%>
-<% end %> 
+<%= render 'form' %>
 
 <br />
 <hr />
@@ -34,4 +18,6 @@
 	<%= render :partial => @patients, :locals => {:list => true} %>
 	</table>
 </div>
+<br />
+<%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident) %>
 

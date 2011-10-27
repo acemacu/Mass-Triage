@@ -1,50 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Idincident:</b>
-  <%= @incident.idIncident %>
-</p>
 
-<p>
   <b>Date:</b>
   <%= @incident.date %>
-</p>
+
 
 <p>
   <b>Type:</b>
   <%= @incident.type %>
-</p>
 
-<p>
+
   <b>Location:</b>
   <%= @incident.location %>
-</p>
 
-<p>
+
   <b>Longitude:</b>
   <%= @incident.longitude %>
-</p>
 
-<p>
+
   <b>Latitude:</b>
   <%= @incident.latitude %>
-</p>
 
-<p>
+
   <b>Dispatchtime:</b>
   <%= @incident.dispatchTime %>
-</p>
 
-<p>
+
   <b>Arrivaltime:</b>
   <%= @incident.arrivalTime %>
-</p>
 
-<p>
+
+
   <b>Endtime:</b>
   <%= @incident.endTime %>
+
+
+p>
+  <b>est patients:</b>
+  <%= @incident.est_patient_count %>
 </p>
 
+<%= form_for(@incident) do |f| %>
+ESTIMATED PATIENT COUNT <br />
+ <%= f.text_field :est_patient_count, :value => @incident.est_patient_count%><br /><br />
+REQUESTED AMBULANCES <br />
+<%= f.text_field :requested_amb_count, :value => @incident.requested_amb_count%><br /><br />
+<%= f.submit "GO TO TRIAGE"%>
+ 
+<% end %>
 
-<%= link_to 'Edit', edit_incident_path(@incident) %> |
-<%= link_to 'Back', incidents_path %>
+<%= link_to 'Back', edit_incident_path(@incident) %> |
+

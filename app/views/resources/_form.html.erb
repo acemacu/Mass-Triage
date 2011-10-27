@@ -1,0 +1,14 @@
+<%= form_for(@incident, @resource) do |f| %>
+  
+  <div class="field">
+    <%= f.label :est_patient_count %><br />
+    <%= f.text_field :est_patient_count %>
+  </div>
+  <div class="field">
+    <%= f.label :requested_amb_count %><br />
+    <%= f.text_field :requested_amb_count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 MassTriage::Application.routes.draw do
+ 
+  
   
   match "login", :to => "user_sessions#new", :as => :login
   
@@ -17,9 +19,10 @@ MassTriage::Application.routes.draw do
 
   resources :incidents do
     resources :ambulances
+    resources :patients
   end
 
-  resources :patients
+  
   
   root :to => 'user_sessions#new'
 

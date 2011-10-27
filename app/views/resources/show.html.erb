@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Est patient count:</b>
+  <%= @resource.est_patient_count %>
+</p>
+
+<p>
+  <b>Requested amb count:</b>
+  <%= @resource.requested_amb_count %>
+</p>
+
+<p>
+  <b>Incident:</b>
+  <%= @resource.incident_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_resource_path(@resource) %> |
+<%= link_to 'Back', resources_path %>

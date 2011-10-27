@@ -1,10 +1,11 @@
 <%= div_for ambulance do %>
 
       <tr>
-        <td><%= editable_field ambulance, :idAmbulance %></td>
-        <td><%= editable_field ambulance, :status, :type => 'select', :submit => 'OK', :data => {'Green', 'Green', 'Black', 'Black', 'Yellow', 'Yellow', 'Red', 'Red'}%></td>
-        <td><%= editable_field ambulance, :hospital_id, :type => 'select', :submit => 'OK', :data => {'Female', 'Female', 'Male', 'Male'} %></td>
-        <td><%= editable_field ambulance, :eta %></td>
-        <td><%= button_to "X", ambulance, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+        <td><%= ambulance, :idAmbulance %></td>
+        <td><%= editable_field ambulance, :status, :type => 'collection_select', :data => (:ambulance, :hospital_id,Hospital.all ,:id, :name),:update_url => incident_ambulance_path(@incident, ambulance)%></td>
+        <td><%= ambulance, :eta %></td>
+        <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
 
 <% end %>
+
+        

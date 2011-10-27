@@ -2,8 +2,8 @@
  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
 	<%= ambulance.text_field :idAmbulance %>
 	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
-	<%= collection_select(:ambulance, :hospital,Hospital.all ,:name, :name) %>
+	<%= collection_select(:ambulance, :hospital_id,Hospital.all ,:id, :name) %>
 	<%= ambulance.label :eta, "ETA"%>
-	<%= ambulance.text_field :eta %>
+	<%= ambulance.time_select :eta %>
 	<%= ambulance.submit "ADD"%>
 <% end %> 

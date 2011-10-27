@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  est_patient_count: 1
+  requested_amb_count: 1
+  incident_id: 1
+
+two:
+  est_patient_count: 1
+  requested_amb_count: 1
+  incident_id: 1

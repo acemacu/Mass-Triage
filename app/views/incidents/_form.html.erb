@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.datetime_select :date, :disabled => true %>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label :incident_type %><br />
+    <%= f.text_field :incident_type %>
   </div>
   <div class="field">
     <%= f.label :address %><br />
@@ -28,6 +28,7 @@
     <%= f.text_field :longitude %>
     <%= f.label :latitude %>
     <%= f.text_field :latitude %>
+       
   </div>
    <div class="actions">
     <%= f.submit %>
