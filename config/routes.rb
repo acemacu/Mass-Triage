@@ -22,7 +22,7 @@ MassTriage::Application.routes.draw do
     resources :patients
   end
 
-  
+  match "incidents/:incident_id/viewupdate" => "incidents#viewupdate", :as => "viewupdate"
   
   root :to => 'user_sessions#new'
 

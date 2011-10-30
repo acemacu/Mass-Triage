@@ -70,6 +70,21 @@ class IncidentsController < ApplicationController
     end
   end
 
+  def viewupdate
+    @incident = Incident.find(params[:incident_id])
+    params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
+
+    respond_to do |format|
+      if @incident.update_attributes(params[:incident])
+        format.html {redirect_to(incident_ambulances_path(@incident), :notice => 'Incident was successfully updated.')}
+          
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
   # DELETE /incidents/1
   # DELETE /incidents/1.xml
   def destroy

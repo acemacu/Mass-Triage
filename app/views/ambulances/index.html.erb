@@ -29,8 +29,8 @@ AMBULANCES REQUESTED, NOT YET SENT: <%= @incident.requested_amb_count - @inciden
 
 <br />
 REQUEST ADDITIONAL AMBULANCES
-<%form_for @incident do |j|%>
-<%= j.text_field :requested_amb_count, :value => @incident.requested_amb_count%>
+<%form_for @incident, :url=> viewupdate_path do |j|%>
+<%= j.text_field :requested_amb_count, :value => 0%>
 <%= j.submit "REQUEST" %>
 <% end %>
 

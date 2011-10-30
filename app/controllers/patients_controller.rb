@@ -78,8 +78,14 @@ class PatientsController < ApplicationController
         elsif params[:patient][:ageType]
           format.html {  render :text => params[:patient][:ageType] }
           format.json  { head :ok }
-        else params[:patient][:complaint]
+        elsif params[:patient][:hospital_id]
+          format.html {  render :text => params[:patient][:hospital_id] }
+          format.json  { head :ok }
+        elseif params[:patient][:complaint]
           format.html {  render :text => params[:patient][:complaint] }
+          format.json  { head :ok }
+        else params[:patient][:status]
+          format.html {  render :text => params[:patient][:status] }
           format.json  { head :ok }      
         end
       else

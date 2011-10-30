@@ -6,5 +6,7 @@
         <td><%= editable_field patient, :age, :update_url => incident_patient_path(@incident, patient) %></td>
         <td><%= editable_field patient, :ageType, :type => 'select', :submit => 'OK', :data => {'Years', 'Years', 'Months', 'Months', 'Days', 'Days'}, :update_url => incident_patient_path(@incident, patient) %></td>
         <td><%= editable_field patient, :complaint, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td><%= editable_field patient, :status, :type => 'select', :submit => 'OK', :data => {'At Scene', 'At Scene', 'Transported', 'Transported', 'Missing/Left Scene', 'Missing/Left Scene'}, :update_url => incident_patient_path(@incident, patient) %></td>
         <td><%= button_to "X", [@incident, patient], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
 <% end %>
+        
