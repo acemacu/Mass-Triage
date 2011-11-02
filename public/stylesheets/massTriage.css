@@ -1,0 +1,53 @@
+.centerEverythingContainter{
+	margin-left: 	auto;
+	margin-right: 	auto;
+	width: 			50%;
+	text-align: 	center;
+	border:			1px dashed
+}
+
+.fieldLogin{
+	font-size: 20px;
+}
+
+#mciTable{
+	border: 			2px solid black;
+	border-collapse: 	collapse;
+	width:				100%;	
+}
+
+#mciTable th{
+	border: 			2px solid black;
+	padding:			3px;
+	border-spacing:		2px;
+}
+
+#mciTable th{
+	background:		gray;
+	color: 			white;
+}
+
+#mciTable td{
+	border: 			2px solid black;
+	padding:			3px;
+	border-spacing:		2px;
+}
+
+#even{
+	background:	 #D3D3D3;
+}
+
+
+.centerEverythingContainterNoBorder{
+	margin-left: 	auto;
+	margin-right: 	auto;
+	width: 			70%;
+	text-align: 	center;
+}
+
+.footerwrap{
+	position:		fixed;
+	/* bottom:			0; */
+	left:			0;
+	width:			100%;
+}

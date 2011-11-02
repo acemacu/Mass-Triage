@@ -1,6 +1,7 @@
-<h1>CURRENT MCIs IN PROGRESS</h1>
+<div class="centerEverythingContainterNoBorder">
+<h1>MCIs IN PROGRESS</h1>
 
-<table>
+<table id="mciTable">
   <tr>
     <th>Date</th>
     <th>Type</th>
@@ -9,23 +10,30 @@
     <th>Latitude</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
-<% @incidents.each do |incident| %>
-  <tr>
+<% @incidents.each_with_index do |incident, i| %>
+<% if i%2 == 0 %>
+  <tr id ="even">
+<%else %>
+	<tr>
+<% end%>
+
     <td><%= incident.date %></td>
     <td><%= incident.incident_type %></td>
     <td><%= incident.location %></td>
     <td><%= incident.longitude %></td>
     <td><%= incident.latitude %></td>
-
     <td><%= link_to 'EDIT', edit_incident_path(incident) %></td>
     <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
-      </tr>
+  </tr>
 <% end %>
 </table>
 
-<br />
-<p>-----------------------------------------------------------------------------------------</p>
-<%= button_to 'START NEW MCI', new_incident_path, {:method => "get"} %>
+	<div class="footerwrap">
+		<br />
+		<p>-----------------------------------------------------------------------------------------</p>
+		<%= button_to 'START NEW MCI', new_incident_path, {:method => "get"} %>
+		<br />
+	</div>
+</div>

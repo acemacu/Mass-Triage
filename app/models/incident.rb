@@ -6,4 +6,5 @@ class Incident < ActiveRecord::Base
   validates_numericality_of :requested_amb_count, :only_integer => true, :allow_nil => true 
   validates_numericality_of :latitude, :only_integer => false, :allow_nil => true
   validates_numericality_of :longitude, :only_integer => false, :allow_nil => true
+  validates_presence_of :time, :on => :create, :message => "can't be blank"
 end

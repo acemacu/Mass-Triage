@@ -1,12 +1,16 @@
-<h1>MASS TRIAGE ASSISTANCE APPLICATION</h1><br />
+<div class="centerEverythingContainter">
+<h1>MTAP</h1><br />
 
 <% if current_user %>
   <p>YOU ARE CURRENTLY LOGGED IN AS <%= current_user.username %></p><br /></br>
   <%= link_to "Logout", :logout %>
 <% else %>
-  <h2>PLEASE LOG IN</h2>
   <%= render 'form' %>
+<br/>
+<br/>
   <%= link_to "Register", new_user_path %><br />
 <% end %>
+<br/>
+</div>
 
 
