@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/binarylogic/authlogic.git
-  revision: 380761d1d6bf3ca0fd990f5945448bbd5e69d03f
-  specs:
-    authlogic (3.0.3)
-      activerecord (>= 3.0.7)
-      activerecord (>= 3.0.7)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -37,6 +29,8 @@ GEM
       activesupport (= 3.0.9)
     activesupport (3.0.9)
     arel (2.0.10)
+    authlogic (2.1.6)
+      activesupport
     builder (2.1.2)
     configurable_engine (0.2.9)
       activerecord (~> 3)
@@ -85,7 +79,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  authlogic!
+  authlogic
   configurable_engine
   jeditable-rails
   rails (= 3.0.9)
