@@ -1,3 +1,4 @@
+<div id="newMCIdiv">
 <%= form_for(@incident) do |f| %>
   <% if @incident.errors.any? %>
     <div id="error_explanation">
@@ -11,26 +12,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date, :disabled => true %>
+  	<div class="fieldNewMCI">
+    <%= f.label "Date: " << Time.now().strftime("%m/%d/%y %H:%I %p %Z") %>
+	<br /><br /><br />
+  	</div>
+  	<div class="fieldNewMCI">
+    <%= f.label "Address: " %>
+    <%= f.text_field :location, :size => 90 %>
+  	</div>
+	<br />
+	<div class="fieldNewMCI">
+	    <%= f.label "Longitude: " %>
+	    <%= f.text_field :longitude, :size => 23 %>
+	    <%= f.label "Latitude: " %>
+	    <%= f.text_field :latitude, :size => 23 %>
+	</div>
+	<br />
+	<div class="fieldNewMCI">
+    <%= f.label "Incident Type: " %>
+	<%= f.select :incident_type, [['Motor Vehicle Collision', 'Motor Vehicle Collision'],['Building Fire', 'Building Fire'], ['Harmful Material Release', 'Harmful Material Release']] %>
   </div>
-  <div class="field">
-    <%= f.label :incident_type %><br />
-    <%= f.text_field :incident_type %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %>
-    <%= f.text_field :longitude %>
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude %>
-       
-  </div>
-   <div class="actions">
-    <%= f.submit %>
-  </div>
+	
+	<br />
+	<div id="alignRight">
+    <%= f.submit%>
+	</div>
 <% end %>
+	<%= button_to 'Back', incidents_path, {:method=>"get"} %>
+</div>

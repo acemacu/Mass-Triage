@@ -41,7 +41,7 @@ class IncidentsController < ApplicationController
   # POST /incidents.xml
   def create
     @incident = Incident.new(params[:incident])
-
+    @incident.date = Time.now();  
     respond_to do |format|
       if @incident.save
         format.html { redirect_to(@incident, :notice => 'Incident was successfully created.') }
