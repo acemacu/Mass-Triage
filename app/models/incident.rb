@@ -7,4 +7,9 @@ class Incident < ActiveRecord::Base
   validates_numericality_of :latitude, :only_integer => false, :allow_nil => true
   validates_numericality_of :longitude, :only_integer => false, :allow_nil => true
   validates_presence_of :date, :on => :create, :message => "can't be blank"
+
+
+  def self.get_datetime
+   return Time.now()
+  end
 end

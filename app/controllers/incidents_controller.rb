@@ -25,6 +25,7 @@ class IncidentsController < ApplicationController
   # GET /incidents/new.xml
   def new
     @incident = Incident.new
+    @incident.date = Incident.get_datetime
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +42,7 @@ class IncidentsController < ApplicationController
   # POST /incidents.xml
   def create
     @incident = Incident.new(params[:incident])
-    @incident.date = Time.now();  
+    
     respond_to do |format|
       if @incident.save
         format.html { redirect_to(@incident, :notice => 'Incident was successfully created.') }
@@ -95,5 +96,25 @@ class IncidentsController < ApplicationController
       format.html { redirect_to(incidents_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def add_arrival
+
+    @incident = Incident.find(params[:id])
+    @incident.arrivalTime = Incident.get_datetime
+
+    @incident.save
+
+    respond_to do |format|
+      if @incident.update_attributes(params[:incident])
+        format.html {redirect_to(incidents_path, :notice => 'Incident arrival was successfully updated.')}
+
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "index" }
+        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+      end
+    end
+
   end
 end
