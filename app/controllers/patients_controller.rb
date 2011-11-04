@@ -1,5 +1,10 @@
 class PatientsController < ApplicationController
-  
+
+  def other
+    date_millis = Time.at(params[:after].to_i/1000)
+    puts "Time query = " + date_millis.to_s
+    @patients = Patient.where("incident_id = ? and updated_at > ?", params[:incident_id], date_millis)
+  end
   
   # GET /patients
   # GET /patients.xml

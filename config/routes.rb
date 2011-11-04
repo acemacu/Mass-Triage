@@ -7,6 +7,9 @@ MassTriage::Application.routes.draw do
   match "logout", :to => "user_sessions#destroy", :as => :logout
   
   match "add_arrival", :to => "incidents#add_arrival", :as => :add_arrival
+
+  match "patients/other", :to => "patients#other"
+
   resources :user_sessions
 
   resources :users
