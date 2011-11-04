@@ -36,6 +36,7 @@ class IncidentsController < ApplicationController
   # GET /incidents/1/edit
   def edit
     @incident = Incident.find(params[:id])
+    
   end
 
   # POST /incidents
@@ -58,7 +59,7 @@ class IncidentsController < ApplicationController
   # PUT /incidents/1.xml
   def update
     @incident = Incident.find(params[:id])
-
+    @temp = @incident.date
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
         format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}

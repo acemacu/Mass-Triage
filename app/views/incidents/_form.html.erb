@@ -18,8 +18,11 @@
 
   </div>
   <div class="field">
+    <% if !@incident.errors.any? %>
     <%= f.label "Date: " << @incident.date.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %><br />
-    
+    <%else%>
+    <%= f.label "Date: " << @temp.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %><br />
+    <%end%>
     <br /> <br />
   </div>
   	<div class="fieldNewMCI">
