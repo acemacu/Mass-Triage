@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavascriptTest</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+  <%= javascript_include_tag "jquery-rails.js" %>
+  <%= javascript_include_tag "jquery.jeditable.js" %>
+  <%= javascript_include_tag "application.js" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div class="header_bar_container">
+  <div id="collapsable" class="header_bar">
+  <div class="left">
+    <b>INCIDENT</b><br/>
+    <%= @incident.date %>
+    <%= @incident.incident_type %><br />
+    <%= @incident.location %><br />
+    LAT <%= @incident.latitude %> LONG <%= @incident.longitude %>
+    
+  </div>
+  <div class="left">
+    <b>PATIENTS</b><br/>
+    ESTIMAGED: <%= @incident.est_patient_count %><br />
+    TAGGED: <%= @patients.count%><br />
+    <table class="summary">
+      <tr>
+        <td class="red"><%= @incident.color_dist("Red") %>
+        <td class="yellow"><%= @incident.color_dist("Yellow") %></td>
+        <td class="green"><%= @incident.color_dist("Green") %></td>
+        <td class="black"><%= @incident.color_dist("Black") %></td>
+      </tr>
+    </table> 
+   </div>
+  <div class="left">
+    <b>AMBULANCES</b><br/>
+    REQUESTED: <%= @incident.requested_amb_count %><br />
+    EN ROUTE: <%= @incident.amb_count("En Route")%><br />
+    AT SCENE: <%= @incident.amb_count("Arrived") %>
+  </div>
+  <div class="right">
+    <% if current_user %>
+      <%= current_user.username%> LOGGED IN
+      <br /><%= link_to "Logout", :logout %>
+    <% else %>
+      NO USER
+      <br /><%= link_to "Login", :login %>
+    <% end %>    
+    <br />
+  
+
+  </div>
+   
+  </div>
+    
+   ---------------------------------------------------------------------------------<a id="min" >Toggle</a>---------------------------------------------------------------------------------
+</div>
+   <script>
+     $('#min').click( function() {
+  $("#collapsable").toggle("slow");
+});
+
+   </script>
+
+
+
+  
+<%= yield %>
+
+</body>
+</html>

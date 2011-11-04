@@ -8,7 +8,15 @@ class Incident < ActiveRecord::Base
   validates_numericality_of :longitude, :only_integer => false, :allow_nil => true
   validates_presence_of :date, :on => :create, :message => "can't be blank"
 
-
+def color_dist(color)
+    
+   patients.find_all_by_tagColor(color).count
+  end
+  
+  def amb_count(status)
+    ambulances.find_all_by_status(status).count
+  end
+  
   def self.get_datetime
    return Time.now()
   end

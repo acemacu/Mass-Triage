@@ -1,8 +1,11 @@
 class AmbulancesController < ApplicationController
+ layout 'patient'
   # GET /ambulances
   # GET /ambulances.xml
   def index
+    
     @incident = Incident.find(params[:incident_id])
+    @patients = @incident.patients.all
     @ambulances = @incident.ambulances
 
     respond_to do |format|
@@ -27,6 +30,7 @@ class AmbulancesController < ApplicationController
   def new
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.new
+    @patients = @incident.patients.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +42,7 @@ class AmbulancesController < ApplicationController
   def edit
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.find(params[:id])
+    @patients = @incident.patients.all
   end
 
   # POST /ambulances
