@@ -25,7 +25,7 @@ class IncidentsController < ApplicationController
   # GET /incidents/new.xml
   def new
     @incident = Incident.new
-    @incident.date = Incident.get_datetime
+    @incident.date = Time.now()
 
     respond_to do |format|
       format.html # new.html.erb
@@ -58,7 +58,6 @@ class IncidentsController < ApplicationController
   # PUT /incidents/1.xml
   def update
     @incident = Incident.find(params[:id])
-    @temp = @incident.date
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
         format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
@@ -105,7 +104,7 @@ class IncidentsController < ApplicationController
   def add_arrival
 
     @incident = Incident.find(params[:id])
-    @incident.arrivalTime = Incident.get_datetime
+    @incident.arrivalTime = Time.now()
 
     @incident.save
 

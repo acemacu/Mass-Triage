@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
-
+layout 'patient'
+  
   def other
     date_millis = Time.at(params[:after].to_i/1000)
     puts "Time query = " + date_millis.to_s

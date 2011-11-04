@@ -9,3 +9,9 @@ nbproject/
 ##########################
 
 log/*.log
+
+
+## Database files ##
+####################
+
+db/development.sqlite3
