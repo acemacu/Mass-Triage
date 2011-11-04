@@ -4,6 +4,8 @@ REQUESTED AMBULANCES: <%= @incident.requested_amb_count %><br />
 ESTIMAGED PATIENT COUNT: <%= @incident.est_patient_count %><br />
 TAGGED PATIENTS: <%= @patients.count%>
 
+<div id="incident" data-id="<%= @incident.id %>"></div>
+
 <br />
 
 <%= render 'form' %>

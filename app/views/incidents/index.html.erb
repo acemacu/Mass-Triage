@@ -3,12 +3,15 @@
 
 <table id="mciTable">
   <tr>
+    <th> Incident Id</th>
     <th>Date</th>
     <th>Type</th>
     <th>Location</th>
     <th>Longitude</th>
     <th>Latitude</th>
-    <th></th>
+    <th>Arrival Time</th>
+    <th> </th>
+    <th> </th>
     <th></th>
   </tr>
 
@@ -19,12 +22,24 @@
 	<tr>
 <% end%>
 
-    <td><%= incident.date %></td>
+    <td><%= incident.id %></td>
+    <% if incident.date != nil %>
+      <td><%= incident.date.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %></td>
+
+      <% else %>
+      <td> </td>
+      <% end %>
     <td><%= incident.incident_type %></td>
     <td><%= incident.location %></td>
     <td><%= incident.longitude %></td>
     <td><%= incident.latitude %></td>
-    <td><%= link_to 'EDIT', edit_incident_path(incident) %></td>
+    <% if incident.arrivalTime != nil %>
+      <td><%= incident.arrivalTime.strftime("%I:%M:%S %p") %></td>
+    <% else %>
+      <td> </td>
+      <% end %>
+    <td><%= button_to "Arrived", :controller => 'incidents', :action => 'add_arrival', :id => incident.id %></td>
+    <td><%= button_to 'EDIT', edit_incident_path(incident), {:method => "get"}  %></td>
     <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
   </tr>
 <% end %>

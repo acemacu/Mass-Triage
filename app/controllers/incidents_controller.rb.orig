@@ -36,6 +36,7 @@ class IncidentsController < ApplicationController
   # GET /incidents/1/edit
   def edit
     @incident = Incident.find(params[:id])
+    
   end
 
   # POST /incidents
@@ -97,10 +98,11 @@ class IncidentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+<<<<<<< HEAD
   
   def patient_count
     @incident = Incident.find(params[:incident_id])
-  end
+=======
 
   def add_arrival
 
@@ -120,5 +122,6 @@ class IncidentsController < ApplicationController
       end
     end
 
+>>>>>>> 08a5f947e78b7ddfe8361c29c939b1f2e9bb11c4
   end
 end

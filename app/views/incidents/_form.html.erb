@@ -12,10 +12,19 @@
     </div>
   <% end %>
 
-  	<div class="fieldNewMCI">
-    <%= f.label "Date: " << Time.now().strftime("%m/%d/%y %H:%I %p %Z") %>
-	<br /><br /><br />
-  	</div>
+
+  <div class="field">
+    <%= f.hidden_field :date %>
+
+  </div>
+  <div class="field">
+    <% if !@incident.errors.any? %>
+    <%= f.label "Date: " << @incident.date.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %><br />
+    <%else%>
+    <%= f.label "Date: " << @temp.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %><br />
+    <%end%>
+    <br /> <br />
+  </div>
   	<div class="fieldNewMCI">
     <%= f.label "Address: " %>
     <%= f.text_field :location, :size => 90 %>
