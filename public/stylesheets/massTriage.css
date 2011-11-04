@@ -6,6 +6,58 @@
 	border:			1px dashed
 }
 
+table.summary{
+    border:     0px;
+    
+}
+
+table.summary td {
+    font: x-large bold;
+    width: 30px;
+    text-align: center;
+}
+
+table.summary td.red {
+    background-color:       red;
+}
+
+table.summary td.yellow {
+    background-color:       yellow;
+}
+
+table.summary td.green {
+    background-color:       green;
+    color:  white;
+}
+
+table.summary td.black {
+    background-color:       black;
+    color:  white;
+}
+div.header_bar{
+ width: 100%;
+
+}
+div.header_bar_container{
+ width: 100%;
+ text-align: center;
+
+}
+
+
+div.left {
+    float: left;
+    width: 30%;
+    text-align: left;
+    min-height: 90px;
+}
+div.right{
+    float: left;
+    width: 10%;
+    text-align: right;
+    min-height: 90px;
+}
+
 .fieldLogin{
 	font-size: 20px;
 }
