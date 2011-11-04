@@ -96,4 +96,8 @@ class IncidentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def patient_count
+    @incident = Incident.find(params[:incident_id])
+  end
 end
