@@ -45,7 +45,7 @@ class IncidentsController < ApplicationController
     
     respond_to do |format|
       if @incident.save
-        format.html { redirect_to(@incident, :notice => 'Incident was successfully created.') }
+        format.html { redirect_to(patient_count_path(@incident), :notice => 'Incident was successfully created.') }
         format.xml  { render :xml => @incident, :status => :created, :location => @incident }
       else
         format.html { render :action => "new" }

@@ -1,5 +1,18 @@
 <div class="centerEverythingContainterNoBorder">
 	<%= form_for(@incident) do |f| %>
+	
+	<% if @incident.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+
+	      <ul>
+	      <% @incident.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
 	<h1>Initial patients count</h1>
 	<%= submit_tag "-5", :type=> 'button', :class => 'minus5Patient'%>
 	<%= submit_tag "-1", :type=> 'button', :class => 'minus1Patient'%>
@@ -8,11 +21,11 @@
 	<%= submit_tag "+5", :type=> 'button', :class => 'plus5Patient'%>
 	<br /><br /><br />
 	<h1>Request ambulances</h1>
-	<%= submit_tag "-5", :type=> 'button'%>
-	<%= submit_tag "-1", :type=> 'button'%>
-	<%= f.text_field :requested_amb_count, :value => '0' %>
-	<%= submit_tag "+1", :type=> 'button'%>
-	<%= submit_tag "+5", :type=> 'button'%>
+	<%= submit_tag "-5", :type=> 'button', :class => 'minus5Ambulance'%>
+	<%= submit_tag "-1", :type=> 'button', :class => 'minus1Ambulance'%>
+	<%= f.text_field :requested_amb_count, :value => '0', :id => 'fieldAmbulance'  %>
+	<%= submit_tag "+1", :type=> 'button', :class => 'plus1Ambulance'%>
+	<%= submit_tag "+5", :type=> 'button', :class => 'plus5Ambulance'%>
 	<br /><br /><br />
 	
 	<%= f.submit "BEGIN TRIAGE"%>

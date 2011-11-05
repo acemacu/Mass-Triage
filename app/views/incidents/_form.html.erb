@@ -17,12 +17,8 @@
     <%= f.hidden_field :date %>
 
   </div>
-  <div class="field">
-    <% if !@incident.errors.any? %>
-    <%= f.label "Date: " << @incident.date.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %><br />
-    <%else%>
-    <%= f.label "Date: " << @temp.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %><br />
-    <%end%>
+  <div class="fieldNewMCI">
+	<%= f.label "Date: " << @incident.date.strftime("%m/%d/%y %H:%I %p %Z") %><br />
     <br /> <br />
   </div>
   	<div class="fieldNewMCI">
