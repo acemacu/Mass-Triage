@@ -32,12 +32,13 @@
     <td><%= incident.latitude %></td>
     <% if incident.arrivalTime != nil %>
       <td><%= incident.arrivalTime.strftime("%I:%M:%S %p") %></td>
-     
+     <td><%= button_to "Arrived", {:controller => 'incidents', :action => 'add_arrival', :id => incident.id}, {:disabled => true }%></td>
     <% else %>
       <td> </td>
+      <td><%= button_to "Arrived", {:controller => 'incidents', :action => 'add_arrival', :id => incident.id}%></td>
       <% end %>
 
-    <td><%= button_to "Arrived", :controller => 'incidents', :action => 'add_arrival', :id => incident.id%></td>
+    
     <td><%= button_to 'EDIT', edit_incident_path(incident), {:method => "get"}  %></td>
     <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
   </tr>

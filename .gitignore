@@ -15,3 +15,8 @@ log/*.log
 ####################
 
 db/development.sqlite3
+
+## Temp folder ##
+#################
+
+temp/
