@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
 layout 'patient'
+require 'json'
   
   def other
     date_millis = Time.at(params[:after].to_i/1000)
@@ -13,6 +14,9 @@ layout 'patient'
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
     @patient = @incident.patients.new
+   
+   @hospitals = Hospital.all
+   @stringHospitals = json_hospitals(@hospitals)
    
     respond_to do |format|
       format.html # index.html.erb
@@ -64,39 +68,49 @@ layout 'patient'
   # PUT /patients/1.xml
   def update
     @incident = Incident.find(params[:incident_id])
+    if(params[:hospital][:name])
+      params[:hospital][:name] = Integer(params[:hospital][:name])
+    end
     @patient = @incident.patients.find(params[:id])
     
+    
     respond_to do |format|
-      if @patient.update_attributes(params[:patient])
-        flash[:notice] = "Patient successfully updated."
-        if params[:patient][:numberOfTag]
-          format.html {  render :text => params[:patient][:numberOfTag] }
-          format.json  { head :ok }
-        elsif params[:patient][:tagColor]
-          format.html {  render :text => params[:patient][:tagColor] }
-          format.json  { head :ok }
-        elsif params[:patient][:sex]
-          format.html {  render :text => params[:patient][:sex] }
-          format.json  { head :ok } 
-        elsif params[:patient][:age]
-         format.html {  render :text => params[:patient][:age] }
-          format.json  { head :ok }
-        elsif params[:patient][:ageType]
-          format.html {  render :text => params[:patient][:ageType] }
-          format.json  { head :ok }
-        elsif params[:patient][:hospital_id]
-          format.html {  render :text => params[:patient][:hospital_id] }
-          format.json  { head :ok }
-        elseif params[:patient][:complaint]
-          format.html {  render :text => params[:patient][:complaint] }
-          format.json  { head :ok }
-        else params[:patient][:status]
-          format.html {  render :text => params[:patient][:status] }
-          format.json  { head :ok }      
+      if(params[:patient])
+        if @patient.update_attributes(params[:patient])
+          flash[:notice] = "Patient successfully updated."
+          if params[:patient][:numberOfTag]
+            format.html {  render :text => params[:patient][:numberOfTag] }
+            format.json  { head :ok }
+          elsif params[:patient][:tagColor]
+            format.html {  render :text => params[:patient][:tagColor] }
+            format.json  { head :ok }
+          elsif params[:patient][:sex]
+            format.html {  render :text => params[:patient][:sex] }
+            format.json  { head :ok } 
+          elsif params[:patient][:age]
+            format.html {  render :text => params[:patient][:age] }
+            format.json  { head :ok }
+          elsif params[:patient][:ageType]
+            format.html {  render :text => params[:patient][:ageType] }
+            format.json  { head :ok }
+          elsif params[:patient][:hospital_id]
+            @new_hospital = Hospital.find(params[:patient][:hospital_id])
+            format.html {  render :text => @new_hospital.name }
+            format.json  { head :ok }
+          elsif params[:patient][:complaint]
+            format.html {  render :text => params[:patient][:complaint] }
+            format.json  { head :ok }
+          else params[:patient][:status]
+            format.html {  render :text => params[:patient][:status] }
+            format.json  { head :ok }      
+          end
         end
-      else
-        format.html { render :action => "edit" }
-        format.json  { render :json => @patient.errors, :status => :unprocessable_entity }
+      else  
+        if @patient.update_attributes(:hospital_id => params[:hospital][:name])
+             @new_hospital = Hospital.find(params[:hospital][:name])
+             format.html {  render :text => @new_hospital.name }
+             format.json  { head :ok }
+        end
       end
     end
   end
@@ -113,4 +127,14 @@ layout 'patient'
       format.js
     end
   end
+  
+  /Returns a json string of the hospitals/
+  def json_hospitals(hospitals)
+    hashHospitals = Hash.new
+    hospitals.each do |hospital|
+      hashHospitals[hospital.id] = hospital.name
+    end
+    return JSON.generate(hashHospitals)
+  end
+  
 end

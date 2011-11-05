@@ -3,7 +3,6 @@
 
 <table id="mciTable">
   <tr>
-    <th> Incident Id</th>
     <th>Date</th>
     <th>Type</th>
     <th>Location</th>
@@ -22,13 +21,11 @@
 	<tr>
 <% end%>
 
-    <td><%= incident.id %></td>
     <% if incident.date != nil %>
       <td><%= incident.date.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %></td>
-
-      <% else %>
+    <% else %>
       <td> </td>
-      <% end %>
+    <% end %>
     <td><%= incident.incident_type %></td>
     <td><%= incident.location %></td>
     <td><%= incident.longitude %></td>
