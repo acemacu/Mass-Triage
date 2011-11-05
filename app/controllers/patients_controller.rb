@@ -1,5 +1,6 @@
 class PatientsController < ApplicationController
 layout 'patient'
+require 'json'
   
   def other
     date_millis = Time.at(params[:after].to_i/1000)
@@ -13,6 +14,9 @@ layout 'patient'
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
     @patient = @incident.patients.new
+   
+   @hospitals = Hospital.all
+   @stringHospitals = json_hospitals(@hospitals)
    
     respond_to do |format|
       format.html # index.html.erb
@@ -64,7 +68,11 @@ layout 'patient'
   # PUT /patients/1.xml
   def update
     @incident = Incident.find(params[:incident_id])
+    if(params[:patient][:hospital])
+      params[:patient][:hospital] = Integer(params[:patient][:hospital])
+    end
     @patient = @incident.patients.find(params[:id])
+    
     
     respond_to do |format|
       if @patient.update_attributes(params[:patient])
@@ -85,9 +93,10 @@ layout 'patient'
           format.html {  render :text => params[:patient][:ageType] }
           format.json  { head :ok }
         elsif params[:patient][:hospital_id]
-          format.html {  render :text => params[:patient][:hospital_id] }
+          @new_hospital = Hospital.find(params[:patient][:hospital_id])
+          format.html {  render :text => @new_hospital.name }
           format.json  { head :ok }
-        elseif params[:patient][:complaint]
+        elsif params[:patient][:complaint]
           format.html {  render :text => params[:patient][:complaint] }
           format.json  { head :ok }
         else params[:patient][:status]
@@ -113,4 +122,14 @@ layout 'patient'
       format.js
     end
   end
+  
+  /Returns a json string of the hospitals/
+  def json_hospitals(hospitals)
+    hashHospitals = Hash.new
+    hospitals.each do |hospital|
+      hashHospitals[hospital.id] = hospital.name
+    end
+    return JSON.generate(hashHospitals)
+  end
+  
 end
