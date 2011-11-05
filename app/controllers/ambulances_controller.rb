@@ -6,6 +6,7 @@ class AmbulancesController < ApplicationController
     
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
+    @ambulance = @incident.ambulances.new
     @ambulances = @incident.ambulances
 
     respond_to do |format|

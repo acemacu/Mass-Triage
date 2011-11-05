@@ -4,6 +4,18 @@ REQUESTED AMBULANCES: <%= @incident.requested_amb_count %>
 AMBULANCES SENT: <%= @incident.ambulances.count %><br />
 AMBULANCES REQUESTED, NOT YET SENT: <%= @incident.requested_amb_count - @incident.ambulances.count %>
 
+<div id="incident" data-id="<%= @incident.id %>"></div>
+
+<br />
+
+<%= render 'form' %>
+
+<br />
+<hr />
+
+<div id="patient-notice"></div>
+<br />
+
 <table>
   <tr>
     <th>Ambulance</th>

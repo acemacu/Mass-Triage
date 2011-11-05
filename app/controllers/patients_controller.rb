@@ -93,10 +93,6 @@ require 'json'
           elsif params[:patient][:ageType]
             format.html {  render :text => params[:patient][:ageType] }
             format.json  { head :ok }
-          elsif params[:patient][:hospital_id]
-            @new_hospital = Hospital.find(params[:patient][:hospital_id])
-            format.html {  render :text => @new_hospital.name }
-            format.json  { head :ok }
           elsif params[:patient][:complaint]
             format.html {  render :text => params[:patient][:complaint] }
             format.json  { head :ok }
