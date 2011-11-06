@@ -14,12 +14,15 @@
 <body>
   <div class="header_bar_container">
   <div id="collapsable" class="header_bar">
-  <div class="left">
+  <div class="left-long">
     <b>INCIDENT</b><br/>
-    <%= @incident.date %>
-    <%= @incident.incident_type %><br />
-    <%= @incident.location %><br />
-    LAT <%= @incident.latitude %> LONG <%= @incident.longitude %>
+    <%= @incident.date %><br />
+    <%= editable_field @incident, :incident_type, :type => 'select',:submit=> 'OK', :data => {'Motor Vehicle Collision', 'Motor Vehicle Collision','Building Fire', 'Building Fire', 'Harmful Material Release', 'Harmful Material Release'}, :update_url => resourceupdate_path%>    
+    <br />
+    <%= editable_field @incident, :location, :update_url => resourceupdate_path%>    
+    <br />
+    LAT: <%= editable_field @incident, :latitude, :update_url => resourceupdate_path %> | LONG: <%= editable_field @incident, :longitude, :update_url => resourceupdate_path %>    
+    
     
   </div>
   <div class="left">

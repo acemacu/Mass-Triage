@@ -1,8 +1,4 @@
-<h1>INCIDENT AMBULANCE TAB</h1>
-
-REQUESTED AMBULANCES: <%= @incident.requested_amb_count %>
-AMBULANCES SENT: <%= @incident.ambulances.count %><br />
-AMBULANCES REQUESTED, NOT YET SENT: <%= @incident.requested_amb_count - @incident.ambulances.count %>
+<h1><%= link_to "TRIAGE TAB", incident_patients_path(@incident) %>   AMBULANCE TAB</h1>
 
 <div id="incident" data-id="<%= @incident.id %>"></div>
 
@@ -47,4 +43,3 @@ REQUEST ADDITIONAL AMBULANCES
 <% end %>
 
 <%= link_to 'New Ambulance', new_incident_ambulance_path(@incident) %><br />
-<%= link_to "TRIAGE TAB", incident_patients_path(@incident) %>

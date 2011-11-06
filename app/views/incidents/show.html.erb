@@ -40,7 +40,7 @@ p>
   <%= @incident.est_patient_count %>
 </p>
 
-<%= form_for(@incident) do |f| %>
+<%form_for @incident, :url=> resourceupdate_path  do |f| %>
 ESTIMATED PATIENT COUNT <br />
  <%= f.text_field :est_patient_count, :value => @incident.est_patient_count%><br /><br />
 REQUESTED AMBULANCES <br />
