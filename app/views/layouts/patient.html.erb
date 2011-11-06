@@ -16,27 +16,13 @@
   <div id="collapsable" class="header_bar">
   <div class="left-long">
     <b>INCIDENT</b><br/>
-<<<<<<< HEAD
     <%= @incident.date %><br />
     <%= editable_field @incident, :incident_type, :type => 'select',:submit=> 'OK', :data => {'Motor Vehicle Collision', 'Motor Vehicle Collision','Building Fire', 'Building Fire', 'Harmful Material Release', 'Harmful Material Release'}, :update_url => resourceupdate_path%>    
     <br />
     <%= editable_field @incident, :location, :update_url => resourceupdate_path%>    
     <br />
     LAT: <%= editable_field @incident, :latitude, :update_url => resourceupdate_path %> | LONG: <%= editable_field @incident, :longitude, :update_url => resourceupdate_path %>    
-    
-=======
-    <%= @incident.date %><br/>
-	<% if @incident.incident_type_id != nil %>
-	<% incident_type_name = IncidentType.find(@incident.incident_type_id)%>
-    <td><%= incident_type_name.name %></td>
-	<% else %>
-	<td></td>
-	<% end %>
-    <br />
-    <%= @incident.location %><br />
-    LAT <%= @incident.latitude %> LONG <%= @incident.longitude %>
->>>>>>> 4abfb31068c0b6988fd4e913ddc0bff42f2a6320
-    
+        
   </div>
   <div class="left">
     <b>PATIENTS</b><br/>
