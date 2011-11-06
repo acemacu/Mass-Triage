@@ -44,18 +44,23 @@ div.header_bar_container{
 
 }
 
-
+div.left-long {
+    float: left;
+    width: 40%;
+    text-align: left;
+    min-height: 150px;
+}
 div.left {
     float: left;
-    width: 30%;
+    width: 25%;
     text-align: left;
-    min-height: 90px;
+    min-height: 150px;
 }
 div.right{
     float: left;
     width: 10%;
     text-align: right;
-    min-height: 90px;
+    min-height: 150px;
 }
 
 .fieldLogin{
