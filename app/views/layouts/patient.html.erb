@@ -16,8 +16,14 @@
   <div id="collapsable" class="header_bar">
   <div class="left">
     <b>INCIDENT</b><br/>
-    <%= @incident.date %>
-    <%= @incident.incident_type %><br />
+    <%= @incident.date %><br/>
+	<% if @incident.incident_type_id != nil %>
+	<% incident_type_name = IncidentType.find(@incident.incident_type_id)%>
+    <td><%= incident_type_name.name %></td>
+	<% else %>
+	<td></td>
+	<% end %>
+    <br />
     <%= @incident.location %><br />
     LAT <%= @incident.latitude %> LONG <%= @incident.longitude %>
     

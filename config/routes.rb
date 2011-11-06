@@ -2,6 +2,8 @@ MassTriage::Application.routes.draw do
  
   
   
+  resources :incident_types
+
   match "login", :to => "user_sessions#new", :as => :login
   
   match "logout", :to => "user_sessions#destroy", :as => :logout

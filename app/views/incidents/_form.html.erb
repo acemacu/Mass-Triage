@@ -27,15 +27,16 @@
   	</div>
 	<br />
 	<div class="fieldNewMCI">
+		<%= f.label "Latitude: " %>
+	    <%= f.text_field :latitude, :size => 23 %>
 	    <%= f.label "Longitude: " %>
 	    <%= f.text_field :longitude, :size => 23 %>
-	    <%= f.label "Latitude: " %>
-	    <%= f.text_field :latitude, :size => 23 %>
 	</div>
 	<br />
 	<div class="fieldNewMCI">
     <%= f.label "Incident Type: " %>
-	<%= f.select :incident_type, [['Motor Vehicle Collision', 'Motor Vehicle Collision'],['Building Fire', 'Building Fire'], ['Harmful Material Release', 'Harmful Material Release']] %>
+	<% @incident_type = IncidentType.find(:all).map { |u| [u.name, u.id] } %>
+	<%= f.select :incident_type_id, @incident_type %>
   </div>
 	
 	<br />

@@ -3,6 +3,7 @@ class Incident < ActiveRecord::Base
   has_many :ambulances
   has_many :patients
   
+  
  / validates_positive_or_zero :est_patient_count
   validates_positive_or_zero :requested_amb_count /
   validates_numericality_of :est_patient_count, :only_integer => true, :allow_nil => true, :greater_than => -1, :on => :update
