@@ -6,8 +6,8 @@
     <th>Date</th>
     <th>Type</th>
     <th>Location</th>
-    <th>Longitude</th>
     <th>Latitude</th>
+    <th>Longitude</th>
     <th>Arrival Time</th>
     <th> </th>
     <th> </th>
@@ -22,14 +22,19 @@
 <% end%>
 
     <% if incident.date != nil %>
-      <td><%= incident.date.strftime("%A, %B  %d, %Y - %I:%M:%S %p") %></td>
+      <td><%= incident.date.strftime("%m/%d/%y %H:%I %p %Z") %></td>
     <% else %>
       <td> </td>
     <% end %>
-    <td><%= incident.incident_type %></td>
+	<% if incident.incident_type_id != nil %>
+	<% incident_type_name = IncidentType.find(incident.incident_type_id)%>
+    <td><%= incident_type_name.name %></td>
+	<% else %>
+	<td></td>
+	<% end %>
     <td><%= incident.location %></td>
-    <td><%= incident.longitude %></td>
     <td><%= incident.latitude %></td>
+    <td><%= incident.longitude %></td>
     <% if incident.arrivalTime != nil %>
       <td><%= incident.arrivalTime.strftime("%I:%M:%S %p") %></td>
      <td><%= button_to "Arrived", {:controller => 'incidents', :action => 'add_arrival', :id => incident.id}, {:disabled => true }%></td>

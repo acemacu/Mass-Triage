@@ -26,6 +26,7 @@ class IncidentsController < ApplicationController
   def new
     @incident = Incident.new
     @incident.date = Time.now()
+    @incident_type = IncidentType.all
 
     respond_to do |format|
       format.html # new.html.erb
