@@ -39,13 +39,17 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:id])
   end
 
-  # POST /incidents
+  # POST /incidentsrequire 'incidents_controller'
+  
   # POST /incidents.xml
-  def create
+  def create  
     @incident = Incident.new(params[:incident])
+  
     
     respond_to do |format|
       if @incident.save
+        hospital = Hospital.find(:first, :conditions => {:name => "Not yet defined"})
+        ambulance = Ambulance.create(:idAmbulance => "Not yet defined", :incident_id => @incident.id, :hospital_id => hospital.id )
         format.html { redirect_to(patient_count_path(@incident), :notice => 'Incident was successfully created.') }
         format.xml  { render :xml => @incident, :status => :created, :location => @incident }
       else

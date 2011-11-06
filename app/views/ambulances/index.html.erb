@@ -27,6 +27,7 @@ AMBULANCES REQUESTED, NOT YET SENT: <%= @incident.requested_amb_count - @inciden
   </tr>
 
 <% @incident.ambulances.each do |ambulance| %>
+<% if ambulance.idAmbulance != "Not yet defined" %>
   <tr>
     <td><%= ambulance.idAmbulance %></td>
     <td><%= ambulance.status %></td>
@@ -36,6 +37,7 @@ AMBULANCES REQUESTED, NOT YET SENT: <%= @incident.requested_amb_count - @inciden
     <td><%= link_to 'Edit', edit_incident_ambulance_path(@incident, ambulance) %></td>
     <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
   </tr>
+<% end %>
 <% end %>
 </table>
 
