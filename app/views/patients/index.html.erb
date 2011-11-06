@@ -1,9 +1,5 @@
 
-<h1>INCIDENT TRIAGE TAB</h1>
-REQUESTED AMBULANCES: <%= @incident.requested_amb_count %><br />
-ESTIMAGED PATIENT COUNT: <%= @incident.est_patient_count %><br />
-TAGGED PATIENTS: <%= @patients.count%>
-
+<h2>TRIAGE TAB   <%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident) %></h2>
 <div id="incident" data-id="<%= @incident.id %>"></div>
 
 <br />
@@ -21,5 +17,4 @@ TAGGED PATIENTS: <%= @patients.count%>
 	</table>
 </div>
 <br />
-<%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident) %>
 

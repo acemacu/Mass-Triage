@@ -62,10 +62,12 @@ class IncidentsController < ApplicationController
   # PUT /incidents/1
   # PUT /incidents/1.xml
   def update
-    @incident = Incident.find(params[:id])
+     @incident = Incident.find(params[:id])
+    params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
+
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
-        format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
+        format.html {redirect_to(incident_ambulances_path(@incident), :notice => 'Incident was successfully updated.')}
           
         format.xml  { head :ok }
       else
@@ -74,7 +76,32 @@ class IncidentsController < ApplicationController
       end
     end
   end
+  
+  def resourceupdate
+   @incident = Incident.find(params[:incident_id])
+    params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
 
+    respond_to do |format|
+     
+        if(params[:incident])
+          if @incident.update_attributes(params[:incident])
+            if params[:incident][:location]
+              format.html {  render :text => params[:incident][:location] }
+              format.json  { head :ok }
+            elsif params[:incident][:incident_type]
+              format.html {  render :text => params[:incident][:incident_type] }
+              format.json  { head :ok }
+            elsif params[:incident][:latitude]
+              format.html {  render :text => params[:incident][:latitude] }
+              format.json  { head :ok }
+            elsif params[:incident][:longitude]
+              format.html {  render :text => params[:incident][:longitude] }
+              format.json  { head :ok }
+      end
+    end
+  end
+    end
+  end
   def viewupdate
     @incident = Incident.find(params[:incident_id])
     params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
