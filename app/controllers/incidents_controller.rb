@@ -67,7 +67,7 @@ class IncidentsController < ApplicationController
 
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
-        format.html {redirect_to(incident_ambulances_path(@incident), :notice => 'Incident was successfully updated.')}
+        format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
           
         format.xml  { head :ok }
       else

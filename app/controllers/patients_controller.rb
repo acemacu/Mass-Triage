@@ -68,9 +68,9 @@ require 'json'
   # PUT /patients/1.xml
   def update
     @incident = Incident.find(params[:incident_id])
-    if(params[:hospital][:name])
-      params[:hospital][:name] = Integer(params[:hospital][:name])
-    end
+    #if(params[:hospital][:name])
+     # params[:hospital][:name] = Integer(params[:hospital][:name])
+    #end
     @patient = @incident.patients.find(params[:id])
     
     

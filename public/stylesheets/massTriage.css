@@ -48,19 +48,19 @@ div.left-long {
     float: left;
     width: 40%;
     text-align: left;
-    min-height: 150px;
+    min-height: 90px;
 }
 div.left {
     float: left;
     width: 25%;
     text-align: left;
-    min-height: 150px;
+    min-height: 90px;
 }
 div.right{
     float: left;
     width: 10%;
     text-align: right;
-    min-height: 150px;
+    min-height: 90px;
 }
 
 .fieldLogin{
