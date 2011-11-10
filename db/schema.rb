@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(:version => 20111106001325) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "responder_id"
   end
 
 end

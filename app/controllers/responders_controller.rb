@@ -44,10 +44,8 @@ class RespondersController < ApplicationController
 
     respond_to do |format|
       if @responder.save
-        session[:respId] = @responder.id
-        format.html { redirect_to(new_responder_user_path(@responder), :notice => 'Responder was successfully created.') }
+        format.html { redirect_to(@responder, :notice => 'Responder was successfully created.') }
         format.xml  { render :xml => @responder, :status => :created, :location => @responder }
-
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @responder.errors, :status => :unprocessable_entity }
