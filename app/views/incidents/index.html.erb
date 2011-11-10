@@ -13,7 +13,10 @@
     <th> </th>
     <th></th>
   </tr>
+</table>
 
+<div class="scrollable">
+<table id="mciTable">
 <% @incidents.each_with_index do |incident, i| %>
 <% if i%2 == 0 %>
   <tr id ="even">
@@ -44,11 +47,11 @@
       <% end %>
 
     
-    <td><%= button_to 'EDIT', edit_incident_path(incident), {:method => "get"}  %></td>
     <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
   </tr>
 <% end %>
 </table>
+</div>
 
 	<div class="footerwrap">
 		<br />

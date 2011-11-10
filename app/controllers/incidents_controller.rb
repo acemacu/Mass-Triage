@@ -1,4 +1,5 @@
 class IncidentsController < ApplicationController
+
   # GET /incidents
   # GET /incidents.xml
   def index
@@ -40,8 +41,8 @@ class IncidentsController < ApplicationController
   end
 
   # POST /incidentsrequire 'incidents_controller'
-  
   # POST /incidents.xml
+  # Patient count == to show?
   def create  
     @incident = Incident.new(params[:incident])
   
@@ -61,9 +62,77 @@ class IncidentsController < ApplicationController
 
   # PUT /incidents/1
   # PUT /incidents/1.xml
+
   def update
      @incident = Incident.find(params[:id])
-    params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
+   params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
+
+    respond_to do |format|
+      if @incident.update_attributes(params[:incident])
+        if (params[:commit] == "BEGIN TRIAGE")
+          format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
+          format.xml  { head :ok }
+        else
+          format.html {redirect_to(incident_ambulances_path(@incident), :notice => 'Incident was successfully updated.')}
+          format.xml  { head :ok }
+        end
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+      end
+    end
+  end 
+  
+  /Craig's version for update making routing easier
+  def update
+      @incident = Incident.find(params[:id])
+
+     respond_to do |format|
+       if @incident.update_attributes(params[:incident])
+         format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
+
+         format.xml  { head :ok }
+       else
+         /#format.html { render :template => 'incidents/patient_count.html.erb' }
+       /  format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+       end
+     end
+   end/
+
+  
+  def resourceupdate
+   @incident = Incident.find(params[:incident_id])
+    
+    respond_to do |format|
+     
+      if(params[:incident])
+          if @incident.update_attributes(params[:incident])
+            if params[:incident][:location]
+              format.html {  render :text => params[:incident][:location] }
+              format.json  { head :ok }
+            elsif params[:incident][:latitude]
+              format.html {  render :text => params[:incident][:latitude] }
+              format.json  { head :ok }
+            elsif params[:incident][:longitude]
+              format.html {  render :text => params[:incident][:longitude] }
+              format.json  { head :ok }
+            end
+          end
+      elsif(params[:incident_type])
+          if(@incident.update_attributes(:incident_type_id => params[:incident_type][:name]))
+            incidentTypeName = IncidentType.find(params[:incident_type][:name])
+            format.html {  render :text => incidentTypeName.name  }
+          end
+      /elsif(params[:incident][:requested_amb_count])
+          params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])/
+      end
+    end
+  end
+  
+  def viewupdate
+    @incident = Incident.find(params[:incident_id])
+    /params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])/
+    params[:incident][:requested_amb_count] = @incident.requested_amb_count + params[:incident][:requested_amb_count].to_i
 
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
@@ -77,46 +146,6 @@ class IncidentsController < ApplicationController
     end
   end
   
-  def resourceupdate
-   @incident = Incident.find(params[:incident_id])
-    params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
-
-    respond_to do |format|
-     
-        if(params[:incident])
-          if @incident.update_attributes(params[:incident])
-            if params[:incident][:location]
-              format.html {  render :text => params[:incident][:location] }
-              format.json  { head :ok }
-            elsif params[:incident][:incident_type]
-              format.html {  render :text => params[:incident][:incident_type] }
-              format.json  { head :ok }
-            elsif params[:incident][:latitude]
-              format.html {  render :text => params[:incident][:latitude] }
-              format.json  { head :ok }
-            elsif params[:incident][:longitude]
-              format.html {  render :text => params[:incident][:longitude] }
-              format.json  { head :ok }
-      end
-    end
-  end
-    end
-  end
-  def viewupdate
-    @incident = Incident.find(params[:incident_id])
-    params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
-
-    respond_to do |format|
-      if @incident.update_attributes(params[:incident])
-        format.html {redirect_to(incident_ambulances_path(@incident), :notice => 'Incident was successfully updated.')}
-          
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
   # DELETE /incidents/1
   # DELETE /incidents/1.xml
   def destroy

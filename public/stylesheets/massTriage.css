@@ -15,6 +15,7 @@ table.summary td {
     font: x-large bold;
     width: 30px;
     text-align: center;
+
 }
 
 table.summary td.red {
@@ -27,20 +28,63 @@ table.summary td.yellow {
 
 table.summary td.green {
     background-color:       green;
-    color:  white;
+    color:  				white;
 }
 
 table.summary td.black {
     background-color:       black;
-    color:  white;
+    color:  				white;
 }
+
+.patientsTable{
+	border-collapse: 	collapse;
+	width:				100%;	
+}
+
+.patientsTable td{
+	border: 			2px solid black;
+	padding:			3px;
+	border-spacing:		2px;
+	font: 				large bold;
+	font-family: 		verdana, arial, helvetica, sans-serif;
+}
+
+.redPatient {
+    background-color:	red;
+	color:  			white;
+}
+
+.yellowPatient {
+    background-color:   yellow;
+}
+
+.greenPatient {
+    background-color:	green;
+    color:				white;
+}
+
+.blackPatient {
+    background-color:	black;
+    color:  			white;
+}
+
+.femalePatient{
+	background-color: 	pink;
+}
+
+.malePatient{
+	background-color: 	blue;
+	color:  			white;	
+}
+
+
 div.header_bar{
- width: 100%;
+ width: 				100%;
 
 }
 div.header_bar_container{
- width: 100%;
- text-align: center;
+ width: 				100%;
+ text-align: 			center;
 
 }
 
@@ -77,12 +121,10 @@ div.right{
 	border: 			2px solid black;
 	padding:			3px;
 	border-spacing:		2px;
-}
-
-#mciTable th{
 	background:		gray;
 	color: 			white;
 }
+
 
 #mciTable td{
 	border: 			2px solid black;
@@ -102,9 +144,19 @@ div.right{
 	text-align: 	center;
 }
 
+.scrollable {
+        max-height:     500px;
+        overflow:       scroll;
+}
+
+.scrollable2 {
+        max-height:     90%;
+        overflow:       scroll;
+}
+
 .footerwrap{
-	position:		relative;
-	/* bottom:			0; */
+	position:		fixed;
+	bottom:			0;
 	left:			0;
 	width:			100%;
 }

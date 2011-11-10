@@ -8,25 +8,29 @@
   <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
   <%= javascript_include_tag "jquery-rails.js" %>
   <%= javascript_include_tag "jquery.jeditable.js" %>
-  <%= javascript_include_tag "application.js" %>
+  <%= javascript_include_tag "jquery.cookie.js" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
   <div class="header_bar_container">
   <div id="collapsable" class="header_bar">
   <div class="left-long">
-    <b>INCIDENT</b><br/>
+	<b>INCIDENT</b><br/>
     <%= @incident.date %><br />
-    <%= editable_field @incident, :incident_type, :type => 'select',:submit=> 'OK', :data => {'Motor Vehicle Collision', 'Motor Vehicle Collision','Building Fire', 'Building Fire', 'Harmful Material Release', 'Harmful Material Release'}, :update_url => resourceupdate_path%>    
-    <br />
-    <%= editable_field @incident, :location, :update_url => resourceupdate_path%>    
+	<% incidentTypeName = IncidentType.find(@incident.incident_type_id)%>
+	<%= div_for incidentTypeName do %>
+    <%= editable_field incidentTypeName, :name, :type => 'select', :submit => 'OK', :data => @stringIncidentType, :update_url => resourceupdate_path %>
+	<% end %>
+	<br />	
+	<%= editable_field @incident, :location, :update_url => resourceupdate_path%>    
     <br />
     LAT: <%= editable_field @incident, :latitude, :update_url => resourceupdate_path %> | LONG: <%= editable_field @incident, :longitude, :update_url => resourceupdate_path %>    
-        
   </div>
+
+	
   <div class="left">
     <b>PATIENTS</b><br/>
-    ESTIMAGED: <%= @incident.est_patient_count %><br />
+    ESTIMATED: <%= @incident.est_patient_count %><br />
     TAGGED: <%= @patients.count%><br />
     <table class="summary">
       <tr>
@@ -57,15 +61,9 @@
   </div>
    
   </div>
-    
-   ---------------------------------------------------------------------------------<a id="min" >Toggle</a>---------------------------------------------------------------------------------
+  <hr /><a class="min_toggle" id="min" >SUMMARY RIBBON</a>
 </div>
-   <script>
-     $('#min').click( function() {
-  $("#collapsable").toggle("slow");
-});
 
-   </script>
 
 
 

@@ -7,7 +7,13 @@ class AmbulancesController < ApplicationController
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
     @ambulance = @incident.ambulances.new
-    @ambulances = @incident.ambulances
+    @ambulances = @incident.ambulances.all  #Craig has: @ambulances = @incident.ambulances
+    
+     @hospitals = Hospital.all
+     @stringHospitals = json_hospitals(@hospitals)
+     
+    @incidentType = IncidentType.all
+    @stringIncidentType = json_hospitals(@incidentType)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -65,18 +71,36 @@ class AmbulancesController < ApplicationController
 
   # PUT /ambulances/1
   # PUT /ambulances/1.xml
+  #Craig doesn't have all the if's after if @ambulance.update_attributes(params[:ambulance])
   def update
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.find(params[:id])
 
     respond_to do |format|
+    if(params[:patient])
       if @ambulance.update_attributes(params[:ambulance])
-        format.html { redirect_to(incident_ambulances_path, :notice => 'Ambulance was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @ambulance.errors, :status => :unprocessable_entity }
+        flash[:notice] = "Ambulance successfully updated."
+        if params[:ambulance][:idAmbulance]
+          format.html {  render :text => params[:ambulance][:idAmbulance] }
+          format.json  { head :ok }
+        elsif params[:ambulance][:status]
+          format.html {  render :text => params[:ambulance][:status] }
+          format.json  { head :ok }
+        elsif params[:ambulance][:hospital]
+          format.html {  render :text => params[:ambulance][:hospital] }
+          format.json  { head :ok }
+        elsif params[:ambulance][:eta]
+          format.html {  render :text => params[:ambulance][:eta] }
+          format.json  { head :ok }
+        end
       end
+    else  
+      if @ambulance.update_attributes(:hospital_id => params[:hospital][:name])
+           @new_hospital = Hospital.find(params[:hospital][:name])
+           format.html {  render :text => @new_hospital.name }
+           format.json  { head :ok }
+      end
+    end
     end
   end
 
@@ -92,4 +116,22 @@ class AmbulancesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  /Returns a json string of the hospitals/
+  def json_hospitals(hospitals)
+    hashHospitals = Hash.new
+    hospitals.each do |hospital|
+      hashHospitals[hospital.id] = hospital.name
+    end
+    return JSON.generate(hashHospitals)
+  end
+  
+  def json_incidentType(incidentType)
+    hashIncidentType = Hash.new
+    incidentType.each do |incidentType|
+      hashIncidentType[incidentType.id] = incidentType.name
+    end
+    return JSON.generate(hashIncidentType)
+  end
+  
 end

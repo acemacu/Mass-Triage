@@ -6,44 +6,56 @@
 
 <%= render 'form' %>
 
+
 <br />
 <hr />
 
 <div id="patient-notice"></div>
 <br />
-
-<table>
+<div class="centerEverythingContainterNoBorder">
+<table id="mciTable">
   <tr>
-    <th>Ambulance</th>
-    <th>status</th>
-    <th>hospital</th>
-    <th>eta</th>
-    <th></th>
-    <th></th>
+    <th>AMBULANCE</th>
+    <th>STATUS</th>
+    <th>HOSPITAL</th>
+    <th>ETA</th>
+	<th>REMOVE
+
   </tr>
 
-<% @incident.ambulances.each do |ambulance| %>
-<% if ambulance.idAmbulance != "Not yet defined" %>
-  <tr>
-    <td><%= ambulance.idAmbulance %></td>
-    <td><%= ambulance.status %></td>
-        <% @desthospital = Hospital.find(ambulance.hospital_id) %>
-    <td><%= @desthospital.name %></td>
-    <td><%= ambulance.eta %></td>
-    <td><%= link_to 'Edit', edit_incident_ambulance_path(@incident, ambulance) %></td>
-    <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
-  </tr>
-<% end %>
-<% end %>
+	<%= render :partial => @ambulances, :locals => {:list => true} %>
+
 </table>
 
-<br />
-REQUEST ADDITIONAL AMBULANCES
-<%form_for @incident, :url=> viewupdate_path do |j|%>
-<%= j.text_field :requested_amb_count, :value => 0%>
-<%= j.submit "REQUEST" %>
+<%form_for @incident, :url=> viewupdate_path do |f|%>
+
+<% if @incident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+
+      <ul>
+      <% @incident.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<h1>Request ambulances</h1>
+<%= submit_tag "-5", :type=> 'button', :class => 'minus5Ambulance'%>
+<%= submit_tag "-1", :type=> 'button', :class => 'minus1Ambulance'%>
+<%= f.text_field :requested_amb_count, :value => '0', :id => 'fieldAmbulance'  %>
+<%= submit_tag "+1", :type=> 'button', :class => 'plus1Ambulance'%>
+<%= submit_tag "+5", :type=> 'button', :class => 'plus5Ambulance'%>
+<br /><br /><br />
+
+<%= f.submit "NOTIFY DISPATCH"%>
 <% end %>
 
+<br />
 
-<%= link_to 'New Ambulance', new_incident_ambulance_path(@incident) %><br />
+
+</div>
+
 

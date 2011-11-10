@@ -1,20 +1,37 @@
 
 <h2>TRIAGE TAB   <%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident) %></h2>
-<div id="incident" data-id="<%= @incident.id %>"></div>
+<div class="incident" id="patient_input" data-id="<%= @incident.id %>">
 
-<br />
+	<br />
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<br />
-<hr />
+	<br />
+</div>
+	<hr />
+	<center><a class="min_toggle"id="min_patient_form" >PATIENT FORM</a></center>
+	<div id="patient-notice"></div>
+	<br />
 
-<div id="patient-notice"></div>
-<br />
-<div id="patients">
+<div class="centerEverythingContainterNoBorder">
+<div class="scrollable2">
+<div class="patientsTable">
 	<table>
-	<%= render :partial => @patients, :locals => {:list => true} %>
+		<tr>
+		    <th>TAG #</th>
+		    <th>COLOR</th>
+		    <th>SEX</th>
+		    <th>AGE</th>
+		    <th></th>
+		    <th>COMPLAINT</th>
+			<th>STATUS</th>
+			<th>HOSPITAL</th>
+			<th>AMBULANCE</th>
+			<th>DELETE PATIENT</th>
+		</tr>
+		<%= render :partial => @patients, :locals => {:list => true} %>
 	</table>
+</div>
 </div>
 <br />
 

@@ -2,6 +2,7 @@ class PatientsController < ApplicationController
 layout 'patient'
 require 'json'
   
+  #Juan needs to pick a better name :)
   def other
     date_millis = Time.at(params[:after].to_i/1000)
     puts "Time query = " + date_millis.to_s
@@ -18,6 +19,12 @@ require 'json'
    @hospitals = Hospital.all
    @stringHospitals = json_hospitals(@hospitals)
    
+   @incidentType = IncidentType.all
+   @stringIncidentType = json_incidentType(@incidentType)
+   
+   @ambulances = @incident.ambulances.all
+   @stringAmbulances = json_ambulance(@ambulances)
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @patients }
@@ -63,14 +70,39 @@ require 'json'
         format.js
     end
   end
+  
+  /Craig's create method that include variables for validation in age
+  def create
+      @incident = Incident.find(params[:incident_id])
+      @patient = @incident.patients.new(params[:patient])
+      @patients = @incident.patients.all
+      @hospitals = Hospital.all
+     @stringHospitals = json_hospitals(@hospitals)
+     @incident_types = IncidentType.all
+     @stringTypes = json_incident_types(@incident_types)
+
+
+      respond_to do |format|
+        if @patient.save
+           flash[:notice] = "You just added a patient!"
+          format.html { redirect_to incident_patients_path }
+          format.js
+        else
+          format.html { render :action => "index" }
+          format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+        end
+
+      end
+    end
+    /
 
   # PUT /patients/1
   # PUT /patients/1.xml
   def update
     @incident = Incident.find(params[:incident_id])
-    if(params[:hospital][:name])
+    /if(params[:hospital][:name])
       params[:hospital][:name] = Integer(params[:hospital][:name])
-    end
+    end/
     @patient = @incident.patients.find(params[:id])
     
     
@@ -101,8 +133,18 @@ require 'json'
             format.json  { head :ok }      
           end
         end
+      elsif(params[:ambulance])
+        if @patient.update_attributes(:ambulance_id => params[:ambulance][:idAmbulance])
+          ambulanceName = Ambulance.find(params[:ambulance][:idAmbulance])
+          format.html {  render :text => ambulanceName.idAmbulance }
+          format.json  { head :ok }
+        end
       else  
         if @patient.update_attributes(:hospital_id => params[:hospital][:name])
+             @ambulance = Ambulance.find(@patient.ambulance_id)
+             if(@ambulance.idAmbulance != "Not yet defined")
+                @ambulance.update_attributes(:hospital_id => params[:hospital][:name] )
+             end
              @new_hospital = Hospital.find(params[:hospital][:name])
              format.html {  render :text => @new_hospital.name }
              format.json  { head :ok }
@@ -133,4 +175,19 @@ require 'json'
     return JSON.generate(hashHospitals)
   end
   
+  def json_incidentType(incidentType)
+    hashIncidentType = Hash.new
+    incidentType.each do |incidentType|
+      hashIncidentType[incidentType.id] = incidentType.name
+    end
+    return JSON.generate(hashIncidentType)
+  end
+  
+  def json_ambulance(ambulance)
+    hashAmbulance = Hash.new
+    ambulance.each do |ambulance|
+      hashAmbulance[ambulance.id] = ambulance.idAmbulance
+    end
+    return JSON.generate(hashAmbulance)
+  end
 end
