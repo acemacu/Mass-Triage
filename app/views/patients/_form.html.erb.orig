@@ -1,0 +1,25 @@
+<%= form_for [@incident, @patient] do |patient| %>
+	<%= patient.label :numberOfTag, "TAG #" %>
+	<%= patient.text_field :numberOfTag %>
+	<%= patient.select :tagColor, [['Red','Red'],['Yellow','Yellow'],['Green','Green'],['Black','Black']] %>
+	<%= patient.select :sex, [['Female','Female'],['Male','Male']] %>
+	<%= patient.label :age, "AGE" %>
+	<%= patient.text_field :age %>
+	<%= patient.select :ageType, [['Years','Years'],['Months','Months'], ['Days', 'Days']] %>
+	<%= patient.label :complaint, "COMPLAINT"%>
+	<%= patient.text_field :complaint%>
+<<<<<<< HEAD
+<input type="button" id="extra_options_min" value="Extra Options" >
+=======
+<input type="button" id="extra_options_min" value="+" >
+>>>>>>> 468694db8ac88bdc7c27a20f5fcf3c8dde4dd2eb
+<div id="extra_options">
+        <%= patient.label "Status" %>
+        <%= patient.select :status, [['At Scene', 'At Scene'],['Transported','Transported'],['Missing/Left Scene','Missing/Left Scene']] %>
+        <%= patient.label "Hospital" %>
+        <%= patient.collection_select(:hospital_id,Hospital.all ,:id, :name) %>
+        <%= patient.label "Ambulance" %>
+        <%= patient.collection_select(:ambulance_id,@incident.ambulances.all ,:id, :idAmbulance) %>
+</div>
+	<%= patient.submit "ADD"%>
+<% end %>

@@ -24,7 +24,10 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
+    @responder = Responder.find(params[:responder_id])
     @user = User.new
+    @user.responder_id = @responder.id
+    @exist = User.find_by_responder_id(params[:responder_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.xml
   def create
+    #@responder = Responder.find(params[:responder_id])
     @user = User.new(params[:user])
+    #@user.responder_id = @responder.id
     respond_to do |format|
       if @user.save
         format.html { redirect_to(incidents_path, :notice => 'User was successfully created.') }

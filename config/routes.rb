@@ -20,7 +20,9 @@ MassTriage::Application.routes.draw do
 
   
 
-  resources :responders
+  resources :responders do
+      resource :user
+  end
 
   resources :incidents do
     resources :ambulances
