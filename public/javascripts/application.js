@@ -1,5 +1,19 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+
+$(document).ready(function() {
+  //if ($("#incident").length > 0) {  
+    setTimeout(updatePatients, 5000);
+  //}
+});
+
+function updatePatients () {
+  var incident_id = $("#incident_info").attr("data-id");
+  var time = new Date().getTime() - 15000;
+  $.getScript("/patients/other.js?incident_id=" + incident_id + "&after=" + time.toString());
+  setTimeout(updatePatients, 15000);
+}
+
 $(document).ready(function() {
    var toggleStatus = $.cookie("ToggleStatus");
    if (toggleStatus == "hidden")

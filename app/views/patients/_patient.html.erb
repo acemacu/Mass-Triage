@@ -3,7 +3,7 @@
 
     <tr id="patient_<%= patient.id %>">
 	
-        <td><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
+        <td id="tag_<%= patient.id%>"><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
         <% if patient.tagColor == "Black" %>
 			<td class="blackPatient">
 		<% elsif patient.tagColor == "Red" %>
@@ -20,9 +20,9 @@
 			<td class="malePatient">
 		<% end %>
 		<%= editable_field patient, :sex, :type => 'select', :submit => 'OK', :data => {'Female', 'Female', 'Male', 'Male'}, :update_url => incident_patient_path(@incident, patient) %></td>
-        <td><%= editable_field patient, :age, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td id="age_<%= patient.id%>"><%= editable_field patient, :age, :update_url => incident_patient_path(@incident, patient) %></td>
         <td><%= editable_field patient, :ageType, :type => 'select', :submit => 'OK', :data => {'Years', 'Years', 'Months', 'Months', 'Days', 'Days'}, :update_url => incident_patient_path(@incident, patient) %></td>
-        <td><%= editable_field patient, :complaint, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td id="complaint_<%= patient.id%>"><%= editable_field patient, :complaint, :update_url => incident_patient_path(@incident, patient) %></td>
         <td><%= editable_field patient, :status, :type => 'select', :submit => 'OK', :data => {'At Scene', 'At Scene', 'Transported', 'Transported', 'Missing/Left Scene', 'Missing/Left Scene'}, :update_url => incident_patient_path(@incident, patient) %></td>
 		
 		<%= div_for hospitalname do %>
