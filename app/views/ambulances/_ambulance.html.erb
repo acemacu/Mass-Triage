@@ -1,5 +1,4 @@
 <% if ambulance.idAmbulance != "Not yet defined"%>
-
 <% hospitalname = Hospital.find(ambulance.hospital_id)%>
 	 <% if @oddOrEven % 2 == 0 %>
       <tr id="ambulance_<%= ambulance.id %>" class = "even">
@@ -16,8 +15,7 @@
         <td><%= editable_field ambulance, :eta, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
         <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
 </tr>
-
-
 <% end %>
+
 
         

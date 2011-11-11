@@ -50,10 +50,10 @@
   <div class="right">
     <% if current_user %>
       <%= current_user.username%> LOGGED IN
-      <br /><%= link_to "Logout", :logout %>
+      <br /><%= link_to "EXIT", :logout %>
     <% else %>
       NO USER
-      <br /><%= link_to "Login", :login %>
+      <br /><%= link_to "LOGIN", :login %>
     <% end %>    
     <br />
   

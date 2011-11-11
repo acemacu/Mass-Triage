@@ -50,7 +50,9 @@ class IncidentsController < ApplicationController
     respond_to do |format|
       if @incident.save
         hospital = Hospital.find(:first, :conditions => {:name => "Not yet defined"})
+        puts "Hospital name " << hospital.name
         ambulance = Ambulance.create(:idAmbulance => "Not yet defined", :incident_id => @incident.id, :hospital_id => hospital.id )
+        puts "Ambulance name" << ambulance.id
         format.html { redirect_to(patient_count_path(@incident), :notice => 'Incident was successfully created.') }
         format.xml  { render :xml => @incident, :status => :created, :location => @incident }
       else
@@ -83,21 +85,7 @@ class IncidentsController < ApplicationController
     end
   end 
   
-  /Craig's version for update making routing easier
-  def update
-      @incident = Incident.find(params[:id])
 
-     respond_to do |format|
-       if @incident.update_attributes(params[:incident])
-         format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
-
-         format.xml  { head :ok }
-       else
-         /#format.html { render :template => 'incidents/patient_count.html.erb' }
-       /  format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
-       end
-     end
-   end/
 
   
   def resourceupdate
@@ -123,15 +111,13 @@ class IncidentsController < ApplicationController
             incidentTypeName = IncidentType.find(params[:incident_type][:name])
             format.html {  render :text => incidentTypeName.name  }
           end
-      /elsif(params[:incident][:requested_amb_count])
-          params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])/
       end
     end
   end
   
   def viewupdate
     @incident = Incident.find(params[:incident_id])
-    /params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])/
+   
     params[:incident][:requested_amb_count] = @incident.requested_amb_count + params[:incident][:requested_amb_count].to_i
 
     respond_to do |format|

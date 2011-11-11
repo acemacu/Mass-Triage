@@ -184,3 +184,12 @@ div.right{
 #alignRight{
 	text-align:	right;
 }
+
+#closeExitTab{
+	margin-left: 	auto;
+	margin-right: 	auto;
+	width: 			50%;
+	text-align: 	center;
+	border:			1px dashed;
+	font-size: 		30px;
+}

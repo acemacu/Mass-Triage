@@ -5,7 +5,6 @@ class Ambulance < ActiveRecord::Base
   
   validates_presence_of :idAmbulance
   
-  
 
   
 end

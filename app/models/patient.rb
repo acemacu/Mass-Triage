@@ -4,4 +4,5 @@ class Patient < ActiveRecord::Base
   belongs_to :ambulance
   
   
+  
 end
