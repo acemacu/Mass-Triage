@@ -45,7 +45,10 @@
     <b>AMBULANCES</b><br/>
     REQUESTED: <%= @incident.requested_amb_count %><br />
     EN ROUTE: <%= @incident.amb_count("En Route")%><br />
-    AT SCENE: <%= @incident.amb_count("Arrived") %>
+    ARRIVED: <%= @incident.amb_count("Arrived") %><br />
+	DELAYED: <%= @incident.amb_count("Delayed") %><br />
+	STAGED: <%= @incident.amb_count("Staged") %><br />
+	TRANSPORTED: <%= @incident.amb_count("Transported") %>
   </div>
   <div class="right">
     <% if current_user %>

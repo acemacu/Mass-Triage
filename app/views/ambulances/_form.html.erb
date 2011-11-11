@@ -1,7 +1,7 @@
 <%= form_for [@incident, @ambulance] do |ambulance| %>
  	<%= ambulance.label :idAmbulance, "Ambulance Number" %><br />
 	<%= ambulance.text_field :idAmbulance %>
-	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported']] %>
+	<%= ambulance.select :status, [['En Route','En Route'],['Delayed','Delayed'],['Arrived','Arrived'],['Transported','Transported'],['Staged','Staged']] %>
 	<%= collection_select(:ambulance, :hospital_id,Hospital.all ,:id, :name) %>
 	<%= ambulance.label :eta, "ETA"%>
 	<%= ambulance.time_select :eta %>

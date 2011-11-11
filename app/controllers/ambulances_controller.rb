@@ -78,30 +78,30 @@ class AmbulancesController < ApplicationController
     @ambulance = @incident.ambulances.find(params[:id])
 
     respond_to do |format|
-    if(params[:patient])
-      if @ambulance.update_attributes(params[:ambulance])
-        flash[:notice] = "Ambulance successfully updated."
-        if params[:ambulance][:idAmbulance]
-          format.html {  render :text => params[:ambulance][:idAmbulance] }
-          format.json  { head :ok }
-        elsif params[:ambulance][:status]
-          format.html {  render :text => params[:ambulance][:status] }
-          format.json  { head :ok }
-        elsif params[:ambulance][:hospital]
-          format.html {  render :text => params[:ambulance][:hospital] }
-          format.json  { head :ok }
-        elsif params[:ambulance][:eta]
-          format.html {  render :text => params[:ambulance][:eta] }
+      if(params[:ambulance])
+        if @ambulance.update_attributes(params[:ambulance])
+          flash[:notice] = "Ambulance successfully updated."
+          if params[:ambulance][:idAmbulance]
+            format.html {  render :text => params[:ambulance][:idAmbulance] }
+            format.json  { head :ok }
+          elsif params[:ambulance][:status]
+            format.html {  render :text => params[:ambulance][:status] }
+            format.json  { head :ok }
+          elsif params[:ambulance][:hospital]
+            format.html {  render :text => params[:ambulance][:hospital] }
+            format.json  { head :ok }
+          elsif params[:ambulance][:eta]
+            format.html {  render :text => params[:ambulance][:eta] }
+            format.json  { head :ok }
+          end
+        end
+      else  
+        if @ambulance.update_attributes(:hospital_id => params[:hospital][:name])
+          @new_hospital = Hospital.find(params[:hospital][:name])
+          format.html {  render :text => @new_hospital.name }
           format.json  { head :ok }
         end
       end
-    else  
-      if @ambulance.update_attributes(:hospital_id => params[:hospital][:name])
-           @new_hospital = Hospital.find(params[:hospital][:name])
-           format.html {  render :text => @new_hospital.name }
-           format.json  { head :ok }
-      end
-    end
     end
   end
 
