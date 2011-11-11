@@ -3,7 +3,7 @@ class AddMoreAmbColumns < ActiveRecord::Migration
     add_column :ambulances, :status, :string
     add_column :ambulances, :hospital_id, :integer
     add_column :ambulances, :patient_id, :integer
-    add_column :ambulances, :eta, :string
+    add_column :ambulances, :eta, :datetime
   end
 
   def self.down
