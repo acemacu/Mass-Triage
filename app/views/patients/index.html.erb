@@ -14,24 +14,25 @@
 	<br />
 
 <div class="centerEverythingContainterNoBorder">
-<div class="scrollable2">
-<div class="patientsTable">
-	<table>
-		<tr>
-		    <th>TAG #</th>
-		    <th>COLOR</th>
-		    <th>SEX</th>
-		    <th>AGE</th>
-		    <th></th>
-		    <th>COMPLAINT</th>
-			<th>STATUS</th>
-			<th>HOSPITAL</th>
-			<th>AMBULANCE</th>
-			<th>DELETE PATIENT</th>
-		</tr>
-		<%= render :partial => @patients, :locals => {:list => true} %>
-	</table>
-</div>
+	<div class="scrollable2">
+		<div class="patientsTable">
+			<table>
+				<tr>
+		    		<th>TAG #</th>
+		    		<th>COLOR</th>
+		    		<th>SEX</th>
+		    		<th>AGE</th>
+		    		<th></th>
+		    		<th>COMPLAINT</th>
+					<th>STATUS</th>
+					<th>HOSPITAL</th>
+					<th>AMBULANCE</th>
+					<th>DELETE PATIENT</th>
+				</tr>					
+				<%= render :partial => @patients, :locals => {:list => true} %>	
+			</table>
+		</div>
+	</div>
 </div>
 <br />
 

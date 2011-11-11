@@ -1,6 +1,6 @@
-/* Eliminate the comment by fading it out */
+/* Eliminate the patient by fading it out */
 $('#patient_<%= @patient.id %>').fadeOut();
-/* Replace the count of comments */
+/* Replace the count of patient */
 $("#patient_count").html("<%= pluralize(Patient.count, 'Patient') %>");
 
 $('.delete_patient').bind('ajax:success', function() {  

@@ -1,7 +1,8 @@
-<%= div_for patient do %>
+
 <% hospitalname = Hospital.find(patient.hospital_id)%>
 
-    <tr>
+    <tr id="patient_<%= patient.id %>">
+	
         <td><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
         <% if patient.tagColor == "Black" %>
 			<td class="blackPatient">
@@ -29,7 +30,6 @@
 		<% end %>
 		<td><%= editable_field Ambulance.find(patient.ambulance_id), :idAmbulance, :type => 'select', :submit => 'OK', :data => @stringAmbulances, :update_url => incident_patient_path(@incident, patient) %></td>
         <td><%= button_to "X", [@incident, patient], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
-		<% end %>
     </tr>
 
         

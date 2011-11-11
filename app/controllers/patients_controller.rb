@@ -15,7 +15,7 @@ require 'json'
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
     @patient = @incident.patients.new
-   
+    
    @hospitals = Hospital.all
    @stringHospitals = json_hospitals(@hospitals)
    
@@ -47,7 +47,8 @@ require 'json'
   def new
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.new
-
+    
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @patient }

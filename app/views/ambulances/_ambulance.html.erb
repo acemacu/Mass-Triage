@@ -1,8 +1,13 @@
 <% if ambulance.idAmbulance != "Not yet defined"%>
-<%= div_for ambulance do %>
-<% hospitalname = Hospital.find(ambulance.hospital_id)%>
 
-      <tr>
+<% hospitalname = Hospital.find(ambulance.hospital_id)%>
+	 <% if @oddOrEven % 2 == 0 %>
+      <tr id="ambulance_<%= ambulance.id %>" class = "even">
+	  <%else %>
+	  <tr id="ambulance_<%= ambulance.id %>" >
+	  <% end %>
+	  <% @oddOrEven+=1%>
+	
         <td><%= editable_field ambulance, :idAmbulance, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
         <td><%= editable_field ambulance, :status, :type => 'select', :submit => 'OK', :update_url => incident_ambulance_path(@incident, ambulance), :data => {'En Route', 'En Route', 'Delayed', 'Delayed', 'Arrived', 'Arrived', 'Transported', 'Transported'}%></td>
 		<%= div_for hospitalname do %>
@@ -10,8 +15,9 @@
 		<% end %>
         <td><%= editable_field ambulance, :eta, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
         <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
+</tr>
 
-<% end %>
+
 <% end %>
 
         

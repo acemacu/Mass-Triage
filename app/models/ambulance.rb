@@ -4,6 +4,8 @@ class Ambulance < ActiveRecord::Base
   belongs_to :hospital
   
   validates_presence_of :idAmbulance
+  
+  
 
   
 end

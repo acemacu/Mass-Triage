@@ -15,6 +15,7 @@ class AmbulancesController < ApplicationController
     @incidentType = IncidentType.all
     @stringIncidentType = json_hospitals(@incidentType)
 
+    @oddOrEven = 0
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @ambulances }
@@ -113,7 +114,7 @@ class AmbulancesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(incident_ambulances_url) }
-      format.xml  { head :ok }
+      format.js
     end
   end
   
