@@ -12,6 +12,33 @@ $(document).ready(function() {
        $("#patient_input").hide();
  });
 
+$(document).ready(function() { 
+        $("#tableForPatients").tablesorter({
+				headers: { 
+		            // assign the secound column (we start counting zero) 
+		            9: { 
+		                // disable it by setting the property sorter to false 
+		                sorter: false 
+		            }
+		        }
+				}); 
+    } 
+);
+
+$(document).ready(function() { 
+        $("#mciTable").tablesorter({
+				headers: { 
+		            // assign the secound column (we start counting zero) 
+		            5: { 
+		                // disable it by setting the property sorter to false 
+		                sorter: false 
+		            }
+		        }
+				}); 
+    } 
+);
+
+mciTable
 $(function(){
     $("#extra_options").hide();
     

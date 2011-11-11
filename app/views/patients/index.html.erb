@@ -16,7 +16,8 @@
 <div class="centerEverythingContainterNoBorder">
 	<div class="scrollable2">
 		<div class="patientsTable">
-			<table>
+			<table id="tableForPatients" class="tablesorter">
+				<thead>
 				<tr>
 		    		<th>TAG #</th>
 		    		<th>COLOR</th>
@@ -28,8 +29,11 @@
 					<th>HOSPITAL</th>
 					<th>AMBULANCE</th>
 					<th>DELETE PATIENT</th>
-				</tr>					
+				</tr>
+				</thead>		
+				<tbody>			
 				<%= render :partial => @patients, :locals => {:list => true} %>	
+				</tbody>
 			</table>
 		</div>
 	</div>

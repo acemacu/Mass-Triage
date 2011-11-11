@@ -13,8 +13,9 @@
 <div id="patient-notice"></div>
 <br />
 <div class="centerEverythingContainterNoBorder">
-<table id="mciTable">
-  <tr>
+<table id="mciTable" class="tablesorter">
+  <thead>
+   <tr>
     <th>AMBULANCE</th>
     <th>STATUS</th>
     <th>HOSPITAL</th>
@@ -22,9 +23,11 @@
 	<th>REMOVE
 
   </tr>
+  	</thead>		
+	<tbody>	
 
 	<%= render :partial => @ambulances, :locals => {:list => true} %>
-
+    </tbody>	
 </table>
 
 <% form_for @incident, :url=> viewupdate_path do |f|%>
