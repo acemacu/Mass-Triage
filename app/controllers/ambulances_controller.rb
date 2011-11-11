@@ -59,6 +59,10 @@ class AmbulancesController < ApplicationController
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.new(params[:ambulance])
 
+    if(@ambulance.eta < Time.now())
+      @ambulance.eta = @ambulance.eta + 1.day
+    end
+    
     respond_to do |format|
       if @ambulance.save
         format.html { redirect_to(incident_ambulances_path, :notice => 'Ambulance was successfully created.') }
@@ -76,9 +80,13 @@ class AmbulancesController < ApplicationController
   def update
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.find(params[:id])
-
+    
     respond_to do |format|
       if(params[:ambulance])
+        if(@ambulance.eta < Time.now())
+          @ambulance.eta = @ambulance.eta + 1.day
+        end
+        
         if @ambulance.update_attributes(params[:ambulance])
           flash[:notice] = "Ambulance successfully updated."
           if params[:ambulance][:idAmbulance]

@@ -38,7 +38,7 @@ $(document).ready(function() {
     } 
 );
 
-mciTable
+
 $(function(){
     $("#extra_options").hide();
     

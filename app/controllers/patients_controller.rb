@@ -106,6 +106,7 @@ require 'json'
     end/
     @patient = @incident.patients.find(params[:id])
     
+
     
     respond_to do |format|
       if(params[:patient])
