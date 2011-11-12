@@ -107,15 +107,15 @@ div.header_bar_container{
 
 div.left-long {
     float: left;
-    width: 40%;
+    width: 35%;
     text-align: left;
     min-height: 90px;
 }
 div.left {
     float: left;
-    width: 25%;
+    width: 20%;
     text-align: left;
-    min-height: 90px;
+    min-height: 90px; 
 }
 div.right{
     float: left;
@@ -229,7 +229,7 @@ table.ambulance {
 }
 
 table.ambulance td{
-        border-left: 20px solid transparent;
+        border-left: 10px solid transparent;
         border-right: 0px;
         border-top: 0px;
         border-bottom: 0px;

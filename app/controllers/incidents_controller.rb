@@ -117,8 +117,13 @@ class IncidentsController < ApplicationController
   
   def viewupdate
     @incident = Incident.find(params[:incident_id])
-   
-    params[:incident][:requested_amb_count] = @incident.requested_amb_count + params[:incident][:requested_amb_count].to_i
+    
+    if ((@incident.requested_amb_count + params[:incident][:requested_amb_count].to_i) < 0)
+      params[:incident][:requested_amb_count] = 0
+    else
+      params[:incident][:requested_amb_count] = @incident.requested_amb_count + params[:incident][:requested_amb_count].to_i
+    end
+    
 
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
@@ -126,7 +131,7 @@ class IncidentsController < ApplicationController
           
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { redirect_to incident_ambulances_path }
         format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
       end
     end
