@@ -1,4 +1,28 @@
-<% unless @patients.empty? %>
-  alert("New info to update");
+<% if @patients.count > 0 %>
+
+  $("#tagged").text("TAGGED: <%= @general.count %>");
+  $("#red_triage").text("0");
+  $("#yellow_triage").text("0");
+  $("#green_triage").text("0");
+  $("#black_triage").text("0");
+
+  <% for triage in @triage %>
+    <% if triage.tagColor == "Red" %>
+      $("#red_triage").text("<%= triage.number %>");
+    <% elsif triage.tagColor == "Yellow"  %>
+      $("#yellow_triage").text("<%= triage.number %>");
+    <% elsif triage.tagColor == "Green"  %>
+      $("#green_triage").text("<%= triage.number %>");
+    <% elsif triage.tagColor == "Black"  %>
+      $("#black_triage").text("<%= triage.number %>");
+    <% end %>
+  <% end %>
+
+  <% for patient in @patients %>
+    $("#tag_<%=  patient.id %>").text("<%=  patient.numberOfTag %>");
+    $("#age_<%=  patient.id %>").text("<%=  patient.age %>");
+    $("#complaint_<%=  patient.id %>").text("<%=  patient.complaint %>");
+  <% end %>
+
 <% end %>
   

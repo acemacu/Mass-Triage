@@ -31,13 +31,13 @@
   <div class="left">
     <b>PATIENTS</b><br/>
     ESTIMATED: <%= @incident.est_patient_count %><br />
-    TAGGED: <%= @patients.count%><br />
+    <div id="tagged">TAGGED: <%= @patients.count%><br /></div>
     <table class="summary">
       <tr>
-        <td class="red"><%= @incident.color_dist("Red") %>
-        <td class="yellow"><%= @incident.color_dist("Yellow") %></td>
-        <td class="green"><%= @incident.color_dist("Green") %></td>
-        <td class="black"><%= @incident.color_dist("Black") %></td>
+        <td id="red_triage" class="red"><%= @incident.color_dist("Red") %></td>
+        <td id="yellow_triage" class="yellow"><%= @incident.color_dist("Yellow") %></td>
+        <td id="green_triage" class="green"><%= @incident.color_dist("Green") %></td>
+        <td id="black_triage" class="black"><%= @incident.color_dist("Black") %></td>
       </tr>
     </table> 
    </div>
