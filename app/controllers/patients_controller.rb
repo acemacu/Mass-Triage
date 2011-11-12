@@ -11,6 +11,8 @@ require 'json'
     @triage = Patient.select("tagColor, count(*) as number").where("incident_id = ?", params[:incident_id]).group("tagColor")
     puts "Triage " + @triage.count.to_s
     @general = Patient.where("incident_id = ?", params[:incident_id])
+    @ambulances = Ambulance.select("status, count(*) as number").where("incident_id = ?", params[:incident_id]).group("status")
+    puts "Ambulances " + @ambulances.count.to_s
   end
   
   # GET /patients

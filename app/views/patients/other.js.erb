@@ -1,3 +1,23 @@
+$("#en_route_amb").text("EN ROUTE: 0");
+$("#transported_amb").text("TRANSPORTED: 0");
+$("#delayed_amb").text("DELAYED: 0");
+$("#arrived_amb").text("ARRIVED: 0");
+$("#staged_amb").text("STAGED: 0");
+
+<% for ambulance in @ambulances %>
+  <% if ambulance.status == "En Route" %>
+    $("#en_route_amb").text("EN ROUTE: <%= ambulance.number %>");
+  <% elsif ambulance.status == "Transported"  %>
+    $("#transported_amb").text("TRANSPORTED: <%= ambulance.number %>");
+  <% elsif ambulance.status == "Delayed"  %>
+    $("#delayed_amb").text("DELAYED: <%= ambulance.number %>");
+  <% elsif ambulance.status == "Arrived"  %>
+    $("#arrived_amb").text("ARRIVED: <%= ambulance.number %>");
+  <% elsif ambulance.status == "Staged"  %>
+    $("#staged_amb").text("STAGED: <%= ambulance.number %>");
+  <% end %>
+<% end %>
+
 <% if @patients.count > 0 %>
 
   $("#tagged").text("TAGGED: <%= @general.count %>");
