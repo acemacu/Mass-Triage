@@ -13,7 +13,7 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <div class="header_bar_container">
+  
   <div id="collapsable" class="header_bar">
   <div class="left-long">
 	<b>INCIDENT</b><br/>
@@ -22,7 +22,6 @@
 	<%= div_for incidentTypeName do %>
     <%= editable_field incidentTypeName, :name, :type => 'select', :submit => 'OK', :data => @stringIncidentType, :update_url => resourceupdate_path %>
 	<% end %>
-	<br />	
 	<%= editable_field @incident, :location, :update_url => resourceupdate_path%>    
     <br />
     LAT: <%= editable_field @incident, :latitude, :update_url => resourceupdate_path %> | LONG: <%= editable_field @incident, :longitude, :update_url => resourceupdate_path %>    
@@ -65,14 +64,9 @@
   </div>
    
   </div>
-  <hr /><a class="min_toggle" id="min" >SUMMARY RIBBON</a>
-</div>
-
-
-
-
+  <hr /><div class="centerEverythingContainterNoBorder"><a class="min_toggle" id="min" >SUMMARY RIBBON</a></div>
   
 <%= yield %>
-
+     
 </body>
 </html>

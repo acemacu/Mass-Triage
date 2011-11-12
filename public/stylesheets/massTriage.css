@@ -1,3 +1,18 @@
+body {
+   height: 100%;
+   overflow: hidden;
+    
+}
+
+div.wrapper {
+    position:           fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    
+}
+
 .centerEverythingContainter{
 	margin-left: 	auto;
 	margin-right: 	auto;
@@ -47,6 +62,8 @@ table.summary td.black {
 	border-spacing:		2px;
 	font: 				large bold;
 	font-family: 		verdana, arial, helvetica, sans-serif;
+        margin-left: auto;
+        margin-right: auto;
 }
 
 .redPatient {
@@ -144,25 +161,31 @@ div.right{
 .centerEverythingContainterNoBorder{
 	margin-left: 	auto;
 	margin-right: 	auto;
-	width: 			70%;
+	width: 		75%;
 	text-align: 	center;
 }
 
 .scrollable {
-        max-height:     500px;
+        margin-left: 	auto;
+	margin-right: 	auto;
+        width: 75%;
+        max-height:     60%;
+        
         overflow:       scroll;
+        
 }
 
 .scrollable2 {
-        max-height:     90%;
-        overflow:       scroll;
-}
+        overflow:               scroll;
+        border:                 2px solid black;
+}  
 
 .footerwrap{
 	position:		fixed;
 	bottom:			0;
 	left:			0;
 	width:			100%;
+        text-align:             center;
 }
 
 .centerText{
@@ -200,5 +223,4 @@ table.tablesorter thead {
 	background-position: right;
 	cursor: pointer;
 }
-
 

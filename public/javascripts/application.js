@@ -40,6 +40,11 @@ $(document).ready(function() {
 
 
 $(function(){
+    
+    $('.scrollable2').height(function(index, height) {
+  return window.innerHeight - $(this).offset().top;
+});
+    
     $("#extra_options").hide();
     
 	$(".minus5Patient").click(function(){
@@ -86,24 +91,35 @@ $(function(){
         
         $('#min').click( function() {
             var toggleStatus = $.cookie("ToggleStatus");
-            $("#collapsable").toggle('slow');
-            
+            $("#collapsable").toggle();
+            $('.scrollable2').height(function(index, height) {
+                return window.innerHeight - $(this).offset().top;
+            });
             if (toggleStatus == "displayed" || toggleStatus == null)
                 $.cookie("ToggleStatus", "hidden");
             else 
-                $.cookie("ToggleStatus", "displayed");
+                $.cookie("ToggleStatus", "displayed");      
   
-});
-         
+        });
+
+                
          $('#min_patient_form').click( function() {
             var formStatus = $.cookie("FormStatus");
-            $("#patient_input").toggle('slow');
+            $("#patient_input").toggle();
+            $('.scrollable2').height(function(index, height) {
+                return window.innerHeight - $(this).offset().top;
+            });
             
             if (formStatus == "displayed" || formStatus == null)
                 $.cookie("FormStatus", "hidden");
             else 
                 $.cookie("FormStatus", "displayed");
   
+  
+  
+});
+        $('#min_patient_form').click( function() {
+            
 });
 
  $('#extra_options_min').click( function() {

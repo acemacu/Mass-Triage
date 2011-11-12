@@ -1,4 +1,5 @@
-<div class="centerEverythingContainterNoBorder">
+<div class="wrapper">
+  <div class="centerEverythingContainterNoBorder">
 <h1>MCIs IN PROGRESS</h1>
 
 <table id="mciTable">
@@ -11,18 +12,18 @@
     <th>Arrival Time</th>
     <th> </th>
     <th> </th>
-
+    <th></th>
   </tr>
-<!-- </table>
-
-<div class="scrollable">
-<table id="mciTable"> -->
-<% @incidents.each_with_index do |incident, i| %>
-<% if i%2 == 0 %>
-  <tr id ="even">
-<%else %>
-	<tr>
-<% end%>
+</table>
+  </div>
+  <div class="scrollable">
+    <table id="mciTable">
+      <% @incidents.each_with_index do |incident, i| %>
+        <% if i%2 == 0 %>
+          <tr id ="even">
+        <%else %>
+          <tr>
+        <% end%>
 
     <% if incident.date != nil %>
       <td><%= incident.date.strftime("%m/%d/%y %H:%I %p %Z") %></td>
@@ -51,12 +52,12 @@
   </tr>
 <% end %>
 </table>
-<!-- </div> -->
-
+</div>
+</div>
 	<div class="footerwrap">
 		<br />
 		<p>-----------------------------------------------------------------------------------------</p>
 		<%= button_to 'START NEW MCI', new_incident_path, {:method => "get"} %>
 		<br />
 	</div>
-</div>
+

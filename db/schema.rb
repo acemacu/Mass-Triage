@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20111106001325) do
     t.string   "status"
     t.integer  "hospital_id"
     t.integer  "patient_id"
-    t.datetime "eta",         :limit => 255
+    t.datetime "eta"
   end
 
   create_table "configurables", :force => true do |t|
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20111106001325) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "responder_id"
   end
 
 end
