@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111106001325) do
+ActiveRecord::Schema.define(:version => 20111112074124) do
 
   create_table "ambulances", :force => true do |t|
     t.string   "idAmbulance"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20111106001325) do
     t.datetime "updated_at"
     t.integer  "incident_id"
     t.string   "status"
-    t.integer  "hospital_id"
+    t.integer  "hospital_id", :default => 1
     t.integer  "patient_id"
     t.datetime "eta"
   end

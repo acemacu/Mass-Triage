@@ -2,7 +2,7 @@
 <% hospitalname = Hospital.find(patient.hospital_id)%>
 
     <tr id="patient_<%= patient.id %>">
-	
+      <td><%=  patient_counter + 1%></td>
         <td id="tag_<%= patient.id%>"><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
         <% if patient.tagColor == "Black" %>
 			<td class="blackPatient">
