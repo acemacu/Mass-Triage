@@ -43,21 +43,22 @@
    </div>
   <div class="left-long">
     <b>AMBULANCES</b><br/>
+
     <table class="ambulance">
       <tr>
-        <td>REQUESTED: <%= @incident.requested_amb_count %></td>
-        <td>EN ROUTE: <%= @incident.amb_count("En Route")%><br /></td>
+        <td id="requested_amb">REQUESTED: <%= @incident.requested_amb_count %></td>
+        <td id="en_route_amb">EN ROUTE: <%= @incident.amb_count("En Route")%><br /></td>
       </tr>
       <tr>
-        <td>AT SCENE: <%= @incident.amb_count("Arrived") %></td>
-        <td>DELAYED: <%= @incident.amb_count("Delayed") %><br /></td>
+        <td id="arrived_amb">AT SCENE: <%= @incident.amb_count("Arrived") %></td>
+        <td id="delayed_amb">DELAYED: <%= @incident.amb_count("Delayed") %><br /></td>
       </tr>
       <tr>
-        <td>STAGING: <%= @incident.amb_count("Staged") %></td>
-        <td>TRANSPORTED: <%= @incident.amb_count("Transported") %></td>
+        <td id="staged_amb">STAGING: <%= @incident.amb_count("Staged") %></td>
+        <td id="transported_amb">TRANSPORTED: <%= @incident.amb_count("Transported") %></td>
       </tr>
     </table>
-    </div>
+  </div>
   <div class="right">
     <% if current_user %>
       <%= current_user.username%> LOGGED IN
