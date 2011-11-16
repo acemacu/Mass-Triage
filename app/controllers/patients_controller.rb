@@ -70,13 +70,20 @@ require 'json'
   def create
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.create!(params[:patient])
-    flash[:notice] = "You just added a patient!"
-
+    @patient.creating_user_id = current_user.id
     respond_to do |format|
-        format.html { redirect_to incident_patients_path }
-        format.js
+        if @patient.save
+           flash[:notice] = "You just added a patient!"
+          format.html { redirect_to incident_patients_path }
+          format.js
+        else
+          format.html { render :action => "index" }
+          format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+        end
+
+      end
     end
-  end
+  
   
   /Craig's create method that include variables for validation in age
   def create
@@ -107,9 +114,6 @@ require 'json'
   # PUT /patients/1.xml
   def update
     @incident = Incident.find(params[:incident_id])
-    /if(params[:hospital][:name])
-      params[:hospital][:name] = Integer(params[:hospital][:name])
-    end/
     @patient = @incident.patients.find(params[:id])
     
 

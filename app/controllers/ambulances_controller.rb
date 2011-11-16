@@ -58,6 +58,7 @@ class AmbulancesController < ApplicationController
   def create
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.new(params[:ambulance])
+    @ambulance.adding_user_id = current_user.id
 
     if(@ambulance.eta < Time.now())
       @ambulance.eta = @ambulance.eta + 1.day

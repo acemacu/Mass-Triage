@@ -45,8 +45,8 @@ class IncidentsController < ApplicationController
   # Patient count == to show?
   def create  
     @incident = Incident.new(params[:incident])
-  
-    
+    @incident.creating_user_id = current_user.id
+      
     respond_to do |format|
       if @incident.save
         hospital = Hospital.find(:first, :conditions => {:name => "Not yet defined"})
@@ -191,6 +191,7 @@ end
   def closeincident
     @incident = Incident.find(params[:id])
     @incident.status = false
+    @incident.closing_user_id = current_user.id
   
     respond_to do |format|
       if @incident.save

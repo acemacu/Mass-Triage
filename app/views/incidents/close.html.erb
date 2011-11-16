@@ -2,9 +2,7 @@
 <div class="centerEverythingContainterNoBorder">
   <% untransported = @incident.untransported("At Scene") %>
   <%= untransported %><br /><br />
-  RETURN TO TRIAGE<br/>
-  <%= link_to "TRIAGE", incident_patients_path(@incident)  %><br/><br/>
-  
+  <h2><%= link_to "TRIAGE TAB", incident_patients_path(@incident) %>   <%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident)%>     CLOSE TAB</h2>
   LOG OUT AND EXIT THE APPLICATION<br />
   <%= link_to "EXIT", :logout %><br /><br />
   CLOSE THE INCIDENT AND MARK IT AS COMPLETED<br />
