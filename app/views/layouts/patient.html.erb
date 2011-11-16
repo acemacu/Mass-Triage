@@ -34,10 +34,10 @@
     <div id="tagged">TAGGED: <%= @patients.count%><br /></div>
     <table class="summary">
       <tr>
+        <td id="black_triage" class="black"><%= @incident.color_dist("Black") %></td>
         <td id="red_triage" class="red"><%= @incident.color_dist("Red") %></td>
         <td id="yellow_triage" class="yellow"><%= @incident.color_dist("Yellow") %></td>
         <td id="green_triage" class="green"><%= @incident.color_dist("Green") %></td>
-        <td id="black_triage" class="black"><%= @incident.color_dist("Black") %></td>
       </tr>
     </table> 
    </div>
@@ -61,8 +61,15 @@
   </div>
   <div class="right">
     <% if current_user %>
-      <%= current_user.username%> LOGGED IN
-      <br /><%= link_to "EXIT", :logout %>
+      LOGGED IN<br />
+      <%= current_user.username%><br />
+      <% if User.find(current_user.id).role_id == 1 %>
+        RESPONDER
+      <% elsif User.find(current_user.id).role_id == 2 %>
+        DISPATCHER
+      <% end %>
+      <br />
+      <%= link_to "EXIT", :logout %>
     <% else %>
       NO USER
       <br /><%= link_to "LOGIN", :login %>

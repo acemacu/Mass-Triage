@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111112074124) do
+ActiveRecord::Schema.define(:version => 20111115235603) do
 
   create_table "ambulances", :force => true do |t|
     t.string   "idAmbulance"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20111112074124) do
     t.integer  "est_patient_count",   :default => 0
     t.integer  "requested_amb_count", :default => 0
     t.integer  "incident_type_id"
+    t.boolean  "status",              :default => true
   end
 
   create_table "patients", :force => true do |t|
@@ -89,6 +90,12 @@ ActiveRecord::Schema.define(:version => 20111112074124) do
     t.datetime "updated_at"
   end
 
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_sessions", :force => true do |t|
     t.string   "username"
     t.string   "password"
@@ -105,6 +112,9 @@ ActiveRecord::Schema.define(:version => 20111112074124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "responder_id"
+    t.integer  "role_id"
+    t.string   "fname"
+    t.string   "lname"
   end
 
 end

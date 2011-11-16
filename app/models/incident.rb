@@ -20,6 +20,17 @@ class Incident < ActiveRecord::Base
     ambulances.find_all_by_status(status).count
   end
   
+  def untransported(status)
+    if patients.find_all_by_status(status).count == 0
+      return "There are no untransported patients listed at the incident"
+    elsif patients.find_all_by_status(status).count == 1
+      return "There is currently 1 untransported patient listed at the incident"
+    else
+      return "There are currently " << patients.find_all_by_status(status).count.to_s() << " untransported patients listed at the incident"
+    end
+       
+  end
+  
 
   
 end

@@ -22,14 +22,21 @@ MassTriage::Application.routes.draw do
 
   resources :responders
 
-  resources :incidents do
-    resources :ambulances
-    resources :patients
-  end
-
+   match "incidents/:id/closeincident" => "incidents#closeincident", :as => "closeincident"
   match "incidents/:incident_id/viewupdate" => "incidents#viewupdate", :as => "viewupdate"
   match "incidents/:incident_id/resourceupdate" => "incidents#resourceupdate", :as => "resourceupdate"
   match "incidents/:incident_id/patient_count" => "incidents#patient_count", :as => "patient_count"
+  
+  resources :incidents do
+    resources :ambulances
+    resources :patients
+    member do
+      get 'close'
+    end
+    
+  end
+
+ 
   
   root :to => 'user_sessions#new'
 

@@ -10,7 +10,14 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="fieldLogin">
+    <%= f.label "First Name" %><br />
+    <%= f.text_field :fname %>
+  </div>
+  <div class="fieldLogin">
+    <%= f.label "Last Name" %><br />
+    <%= f.text_field :lname %>
+  </div>
   <div class="fieldLogin">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
@@ -31,6 +38,12 @@
     <%= f.password_field :password_confirmation %>
 	</div>
   </div>
+<div>
+  <div class="fieldLogin">
+    <%= f.label "User Role" %>
+    <%= f.select :role_id, [["Responder",1],["Dispatcher",2]] %>
+  </div>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

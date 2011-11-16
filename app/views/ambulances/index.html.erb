@@ -1,36 +1,12 @@
 <h2><%= link_to "TRIAGE TAB", incident_patients_path(@incident) %>   AMBULANCE TAB</h2>
 
 <div id="incident" data-id="<%= @incident.id %>"></div>
-
-<br />
-
-<%= render 'form' %>
-
-
-<br />
-<hr />
-
-<div id="patient-notice"></div>
-<br />
 <div class="centerEverythingContainterNoBorder">
-<table id="mciTable" class="tablesorter">
-  <thead>
-   <tr>
-    <th>AMBULANCE</th>
-    <th>STATUS</th>
-    <th>HOSPITAL</th>
-    <th>ETA</th>
-	<th>REMOVE
-
-  </tr>
-  	</thead>		
-	<tbody>	
-
-	<%= render :partial => @ambulances, :locals => {:list => true} %>
-    </tbody>	
-</table>
-
-<% form_for @incident, :url=> viewupdate_path do |f|%>
+<% if current_user %>
+  <% if User.find(current_user.id).role_id == 2 %>
+  <%= render 'form' %>
+  <% elsif User.find(current_user.id).role_id == 1 %>
+    <% form_for @incident, :url=> viewupdate_path do |f|%>
 
 <% if @incident.errors.any? %>
     <div id="error_explanation">
@@ -55,6 +31,32 @@
 
 <%= f.submit "NOTIFY DISPATCH"%>
 <% end %>
+<% end %>
+<% end %>
+</div>
+<hr />
+
+<div id="patient-notice"></div>
+<br />
+<div class="centerEverythingContainterNoBorder">
+<table id="mciTable" class="tablesorter">
+  <thead>
+   <tr>
+    <th>AMBULANCE</th>
+    <th>STATUS</th>
+    <th>HOSPITAL</th>
+    <th>ETA</th>
+	<th>REMOVE
+
+  </tr>
+  	</thead>		
+	<tbody>	
+
+	<%= render :partial => @ambulances, :locals => {:list => true} %>
+    </tbody>	
+</table>
+
+
 
 <br />
 

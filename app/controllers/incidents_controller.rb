@@ -3,7 +3,7 @@ class IncidentsController < ApplicationController
   # GET /incidents
   # GET /incidents.xml
   def index
-    @incidents = Incident.all
+    @incidents = Incident.find_all_by_status(true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -172,4 +172,47 @@ class IncidentsController < ApplicationController
     end
 
   end
+  
+  def close
+  
+    @incident = Incident.find(params[:id])
+    @patients = @incident.patients.all
+    
+    @hospitals = Hospital.all
+   
+    @incidentType = IncidentType.all
+    @stringIncidentType = json_incidentType(@incidentType)
+   
+    @ambulances = @incident.ambulances.all
+  
+   # render :layout => 'patient'
 end
+  
+  def closeincident
+    @incident = Incident.find(params[:id])
+    @incident.status = false
+  
+    respond_to do |format|
+      if @incident.save
+        format.html {redirect_to(incidents_path, :notice => 'Incident was successfully closed.')}
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to close_incident_path }
+        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+    def json_incidentType(incidentType)
+    hashIncidentType = Hash.new
+    incidentType.each do |incidentType|
+      hashIncidentType[incidentType.id] = incidentType.name
+    end
+    return JSON.generate(hashIncidentType)
+  end
+  
+  
+end
+
+
+
