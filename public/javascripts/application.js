@@ -55,7 +55,11 @@ $(document).ready(function() {
 
 $(function(){
     
-    $('.scrollable2').height(function(index, height) {
+$('.scrollable2').height(function(index, height) {
+  return window.innerHeight - $(this).offset().top;
+});
+
+$('.scrollable3').height(function(index, height) {
   return window.innerHeight - $(this).offset().top;
 });
     
@@ -107,6 +111,9 @@ $(function(){
             var toggleStatus = $.cookie("ToggleStatus");
             $("#collapsable").toggle();
             $('.scrollable2').height(function(index, height) {
+                return window.innerHeight - $(this).offset().top;
+            });
+            $('.scrollable3').height(function(index, height) {
                 return window.innerHeight - $(this).offset().top;
             });
             if (toggleStatus == "displayed" || toggleStatus == null)

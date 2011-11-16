@@ -180,6 +180,11 @@ div.right{
         border:                 2px solid black;
 }  
 
+.scrollable3 {
+        overflow:               scroll;
+        border:                 2px solid black;
+}  
+
 .footerwrap{
 	position:		fixed;
 	bottom:			0;
