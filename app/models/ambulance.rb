@@ -3,7 +3,7 @@ class Ambulance < ActiveRecord::Base
   has_many :patients
   belongs_to :hospital
   
-  validates_presence_of :idAmbulance
+  #validates_presence_of :idAmbulance
   
 
   

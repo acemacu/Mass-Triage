@@ -67,8 +67,12 @@ class IncidentsController < ApplicationController
 
   def update
      @incident = Incident.find(params[:id])
-   params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
-
+   if ((params[:incident][:requested_amb_count].to_i) < 0)
+      params[:incident][:requested_amb_count] = 0
+   end
+    if ((params[:incident][:est_patient_count].to_i) < 0)
+      params[:incident][:est_patient_count] = 0
+    end
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
         if (params[:commit] == "BEGIN TRIAGE")

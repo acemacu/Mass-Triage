@@ -8,3 +8,4 @@
 
 Hospital.create(:name => 'Not yet defined')
 
+IncidentType.create(:name => 'Motor Vehicle Collision')
