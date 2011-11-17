@@ -157,6 +157,7 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:incident_id])
   end
 
+
   def add_arrival
 
     @incident = Incident.find(params[:id])
@@ -217,6 +218,7 @@ end
   end
   
   
+
 end
 
 

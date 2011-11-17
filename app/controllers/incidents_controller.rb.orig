@@ -3,7 +3,7 @@ class IncidentsController < ApplicationController
   # GET /incidents
   # GET /incidents.xml
   def index
-    @incidents = Incident.all
+    @incidents = Incident.find_all_by_status(true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,12 +45,14 @@ class IncidentsController < ApplicationController
   # Patient count == to show?
   def create  
     @incident = Incident.new(params[:incident])
-  
-    
+    @incident.creating_user_id = current_user.id
+      
     respond_to do |format|
       if @incident.save
         hospital = Hospital.find(:first, :conditions => {:name => "Not yet defined"})
+        puts "Hospital name " << hospital.name
         ambulance = Ambulance.create(:idAmbulance => "Not yet defined", :incident_id => @incident.id, :hospital_id => hospital.id )
+        puts "Ambulance name" << ambulance.id
         format.html { redirect_to(patient_count_path(@incident), :notice => 'Incident was successfully created.') }
         format.xml  { render :xml => @incident, :status => :created, :location => @incident }
       else
@@ -65,11 +67,14 @@ class IncidentsController < ApplicationController
 
   def update
      @incident = Incident.find(params[:id])
-   params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])
-
+   if ((params[:incident][:requested_amb_count].to_i) < 0)
+      params[:incident][:requested_amb_count] = 0
+   end
+    if ((params[:incident][:est_patient_count].to_i) < 0)
+      params[:incident][:est_patient_count] = 0
+    end
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
-<<<<<<< HEAD
         if (params[:commit] == "BEGIN TRIAGE")
           format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
           format.xml  { head :ok }
@@ -77,11 +82,6 @@ class IncidentsController < ApplicationController
           format.html {redirect_to(incident_ambulances_path(@incident), :notice => 'Incident was successfully updated.')}
           format.xml  { head :ok }
         end
-=======
-        format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
-          
-        format.xml  { head :ok }
->>>>>>> 468694db8ac88bdc7c27a20f5fcf3c8dde4dd2eb
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
@@ -89,21 +89,7 @@ class IncidentsController < ApplicationController
     end
   end 
   
-  /Craig's version for update making routing easier
-  def update
-      @incident = Incident.find(params[:id])
 
-     respond_to do |format|
-       if @incident.update_attributes(params[:incident])
-         format.html {redirect_to(incident_patients_path(@incident), :notice => 'Incident was successfully updated.')}
-
-         format.xml  { head :ok }
-       else
-         /#format.html { render :template => 'incidents/patient_count.html.erb' }
-       /  format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
-       end
-     end
-   end/
 
   
   def resourceupdate
@@ -129,16 +115,19 @@ class IncidentsController < ApplicationController
             incidentTypeName = IncidentType.find(params[:incident_type][:name])
             format.html {  render :text => incidentTypeName.name  }
           end
-      /elsif(params[:incident][:requested_amb_count])
-          params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])/
       end
     end
   end
   
   def viewupdate
     @incident = Incident.find(params[:incident_id])
-    /params[:incident][:requested_amb_count] = @incident.requested_amb_count + Integer(params[:incident][:requested_amb_count])/
-    params[:incident][:requested_amb_count] = @incident.requested_amb_count + params[:incident][:requested_amb_count].to_i
+    
+    if ((@incident.requested_amb_count + params[:incident][:requested_amb_count].to_i) < 0)
+      params[:incident][:requested_amb_count] = 0
+    else
+      params[:incident][:requested_amb_count] = @incident.requested_amb_count + params[:incident][:requested_amb_count].to_i
+    end
+    
 
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
@@ -146,7 +135,7 @@ class IncidentsController < ApplicationController
           
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { redirect_to incident_ambulances_path }
         format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
       end
     end
@@ -168,6 +157,7 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:incident_id])
   end
 
+<<<<<<< HEAD
   def add_arrival
 
     @incident = Incident.find(params[:id])
@@ -187,4 +177,50 @@ class IncidentsController < ApplicationController
     end
 
   end
+  
+  def close
+  
+    @incident = Incident.find(params[:id])
+    @patients = @incident.patients.all
+    
+    @hospitals = Hospital.all
+   
+    @incidentType = IncidentType.all
+    @stringIncidentType = json_incidentType(@incidentType)
+   
+    @ambulances = @incident.ambulances.all
+  
+   # render :layout => 'patient'
 end
+  
+  def closeincident
+    @incident = Incident.find(params[:id])
+    @incident.status = false
+    @incident.closing_user_id = current_user.id
+  
+    respond_to do |format|
+      if @incident.save
+        format.html {redirect_to(incidents_path, :notice => 'Incident was successfully closed.')}
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to close_incident_path }
+        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
+    def json_incidentType(incidentType)
+    hashIncidentType = Hash.new
+    incidentType.each do |incidentType|
+      hashIncidentType[incidentType.id] = incidentType.name
+    end
+    return JSON.generate(hashIncidentType)
+  end
+  
+  
+=======
+>>>>>>> 7084e81c6af220ed8a03bcb68b23b80081687785
+end
+
+
+

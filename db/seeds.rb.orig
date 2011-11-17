@@ -8,7 +8,9 @@
 
 Hospital.create(:name => 'Not yet defined')
 
-
+<<<<<<< HEAD
+IncidentType.create(:name => 'Motor Vehicle Collision')
+=======
 IncidentType.create(:name => 'Motor Vehicle Collision')
 IncidentType.create(:name => 'HazMat')
 IncidentType.create(:name => 'Collapsed Building')
@@ -30,4 +32,4 @@ Hospital.create(:name =>'California Pacific Medical Center', :address => '2333 B
 
 
 
-
+>>>>>>> 7084e81c6af220ed8a03bcb68b23b80081687785

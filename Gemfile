@@ -12,6 +12,7 @@ gem 'authlogic'
 gem "rails3-generators"
 gem "configurable_engine"
 gem 'jquery-rails'
+gem 'rails3-jquery-autocomplete'
 
 # Use unicorn as the web server
 # gem 'unicorn'

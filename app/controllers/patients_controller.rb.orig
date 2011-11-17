@@ -1,12 +1,23 @@
 class PatientsController < ApplicationController
 layout 'patient'
 require 'json'
+<<<<<<< HEAD
+    
+=======
+
   
-  #Juan needs to pick a better name :)
+>>>>>>> 7084e81c6af220ed8a03bcb68b23b80081687785
   def other
     date_millis = Time.at(params[:after].to_i/1000)
-    puts "Time query = " + date_millis.to_s
+    #puts "Time query = " + date_millis.to_s
     @patients = Patient.where("incident_id = ? and updated_at > ?", params[:incident_id], date_millis)
+    #@patients = Patient.where("incident_id = ?", params[:incident_id])
+    puts "Number " + @patients.count.to_s
+    @triage = Patient.select("tagColor, count(*) as number").where("incident_id = ?", params[:incident_id]).group("tagColor")
+    puts "Triage " + @triage.count.to_s
+    @general = Patient.where("incident_id = ?", params[:incident_id])
+    @ambulances = Ambulance.select("status, count(*) as number").where("incident_id = ?", params[:incident_id]).group("status")
+    puts "Ambulances " + @ambulances.count.to_s
   end
   
   # GET /patients
@@ -15,7 +26,7 @@ require 'json'
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
     @patient = @incident.patients.new
-   
+    
    @hospitals = Hospital.all
    @stringHospitals = json_hospitals(@hospitals)
    
@@ -47,7 +58,8 @@ require 'json'
   def new
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.new
-
+    
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @patient }
@@ -63,13 +75,20 @@ require 'json'
   def create
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.create!(params[:patient])
-    flash[:notice] = "You just added a patient!"
-
+    @patient.creating_user_id = current_user.id
     respond_to do |format|
-        format.html { redirect_to incident_patients_path }
-        format.js
+        if @patient.save
+           flash[:notice] = "You just added a patient!"
+          format.html { redirect_to incident_patients_path }
+          format.js
+        else
+          format.html { render :action => "index" }
+          format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+        end
+
+      end
     end
-  end
+  
   
   /Craig's create method that include variables for validation in age
   def create
@@ -100,15 +119,6 @@ require 'json'
   # PUT /patients/1.xml
   def update
     @incident = Incident.find(params[:incident_id])
-<<<<<<< HEAD
-    /if(params[:hospital][:name])
-      params[:hospital][:name] = Integer(params[:hospital][:name])
-    end/
-=======
-    #if(params[:hospital][:name])
-     # params[:hospital][:name] = Integer(params[:hospital][:name])
-    #end
->>>>>>> 468694db8ac88bdc7c27a20f5fcf3c8dde4dd2eb
     @patient = @incident.patients.find(params[:id])
     
     
