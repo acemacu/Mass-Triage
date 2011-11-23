@@ -148,23 +148,4 @@ class IncidentsController < ApplicationController
     @incident = Incident.find(params[:incident_id])
   end
 
-  def add_arrival
-
-    @incident = Incident.find(params[:id])
-    @incident.arrivalTime = Time.now()
-
-    @incident.save
-
-    respond_to do |format|
-      if @incident.update_attributes(params[:incident])
-        format.html {redirect_to(incidents_path, :notice => 'Incident arrival was successfully updated.')}
-
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "index" }
-        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
-      end
-    end
-
-  end
 end
