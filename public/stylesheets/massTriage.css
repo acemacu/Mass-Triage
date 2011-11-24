@@ -14,6 +14,13 @@ div.TopBar {
     background-color: #333;
 }
 
+div.TopBar a:link {color: #fc0;}
+div.TopBar a:active {color: #fc0;}
+div.TopBar a:visited {color: #fc0;}
+div.TopBar a:hover {color: #fc0;}
+
+
+
 h1.TopBarInterior {
     width: 50%;
     margin-left: auto;
@@ -42,10 +49,12 @@ div.CountLogin div.CountInputs {
     
 }
 
-div.CountLogin div.CountInputs input.ShortField {
-    width: 15%;  
+div.CountLogin div.CountInputs input {
+    width: 14%;  
     height: 50px;
     font-size: x-large;
+    margin-right: 2%;
+    margin-left: 2%;
 }
 
 div.Login {
@@ -60,13 +69,29 @@ div.Login {
     font-size: 150%;
 }
 
-input.button {
+input.LongButton {
     background-color: orange;
     height: 50px;
     width:200px;
     font-size:large; 
     font-weight:bold;
 }
+
+input.ShortButton {
+    background-color: orange;
+    height: 50px;
+    width:100px;
+    font-size:large; 
+    font-weight:bold;
+}
+
+input.RedShortButton {
+    background-color: darkred;
+    height: 50px;
+    width:100px;
+    font-size:large; 
+    font-weight:bold;
+   }
 
 div.Login div.Inputs {
     background-color: black;
@@ -96,6 +121,22 @@ div.wrapper {
     
 }
 
+div.incident {
+    background-color:#ccc;
+    font-size: large;
+}
+
+div.incident input.ShortField {
+    width: 5%;
+    height: 50px;
+    font-size: x-large;
+}
+
+div.incident input.LongField {
+    width: 15%;
+    height: 50px;
+    font-size: large;
+}
 .centerEverythingContainter{
 	margin-left: 	auto;
 	margin-right: 	auto;
@@ -122,6 +163,7 @@ table.summary td.red {
 
 table.summary td.yellow {
     background-color:       yellow;
+    color: black;
 }
 
 table.summary td.green {
