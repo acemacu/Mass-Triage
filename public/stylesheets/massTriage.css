@@ -3,6 +3,9 @@ body {
    overflow: hidden;
     
 }
+span.title {
+    color:#fc0;
+}
 
 div.TopBar {
     width: 100%;
@@ -18,6 +21,33 @@ h1.TopBarInterior {
     text-align: center;
 }
 
+div.CountLogin {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: skyblue;
+    text-align: right;
+    max-width: 600px;
+    font-size: 150%;
+}
+
+div.CountLogin div.CountInputs {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-bottom: 5%;
+    padding-left: 2%;
+    
+}
+
+div.CountLogin div.CountInputs input.ShortField {
+    width: 15%;  
+    height: 50px;
+    font-size: x-large;
+}
+
 div.Login {
     width: 50%;
     margin-left: auto;
@@ -28,7 +58,6 @@ div.Login {
     text-align: right;
     max-width: 400px;
     font-size: 150%;
-   
 }
 
 input.button {
@@ -47,6 +76,8 @@ div.Login div.Inputs {
     padding-left: 2%;
     
 }
+
+
 
 div.Login div.Inputs h2{
     text-align: center;

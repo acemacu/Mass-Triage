@@ -1,4 +1,3 @@
-<div class="centerEverythingContainterNoBorder">
 	<%= form_for(@incident) do |f| %>
 	
 	<% if @incident.errors.any? %>
@@ -12,27 +11,34 @@
 	      </ul>
 	    </div>
 	  <% end %>
-	
-	<h1>Initial patients count</h1>
-	<%= submit_tag "-5", :type=> 'button', :class => 'minus5Patient'%>
-	<%= submit_tag "-1", :type=> 'button', :class => 'minus1Patient'%>
-	<%= f.text_field :est_patient_count, :value => '0', :id => 'fieldPatient' %>
-	<%= submit_tag "+1", :type=> 'button', :class => 'plus1Patient'%>
-	<%= submit_tag "+5", :type=> 'button', :class => 'plus5Patient'%>
-	<br /><br /><br />
-	<h1>Request ambulances</h1>
-	<%= submit_tag "-5", :type=> 'button', :class => 'minus5Ambulance'%>
-	<%= submit_tag "-1", :type=> 'button', :class => 'minus1Ambulance'%>
-	<%= f.text_field :requested_amb_count, :value => '0', :id => 'fieldAmbulance'  %>
-	<%= submit_tag "+1", :type=> 'button', :class => 'plus1Ambulance'%>
-	<%= submit_tag "+5", :type=> 'button', :class => 'plus5Ambulance'%>
-	<br /><br /><br />
-
-
-	
-	<%= f.submit "BEGIN TRIAGE"%>
-	<% end %>
+<div class="TopBar">
+  
+    <br />
+    <h1 class="TopBarInterior">New MCI Information<hr /></h1><br />
+ </div>
+<div class="CountLogin"><br />
+  <div class="CountInputs">
 	<br />
-	<%= button_to 'BACK', incidents_path, {:method=>"get"} %>
+	<h2>Initial patients count</h2>
+	<%= submit_tag "-5", :type=> 'button', :class => 'minus5Patient', :class => "ShortField" %>
+	<%= submit_tag "-1", :type=> 'button', :class => 'minus1Patient', :class => "ShortField"%>
+	<%= f.text_field :est_patient_count, :value => '0', :id => 'fieldPatient', :class => "ShortField" %>
+	<%= submit_tag "+1", :type=> 'button', :class => 'plus1Patient', :class => "ShortField"%>
+	<%= submit_tag "+5", :type=> 'button', :class => 'plus5Patient', :class => "ShortField"%>
+	<br /><br /><br />
+	<h2>Request ambulances</h2>
+	<%= submit_tag "-5", :type=> 'button', :class => 'minus5Ambulance', :class => "ShortField"%>
+	<%= submit_tag "-1", :type=> 'button', :class => 'minus1Ambulance', :class => "ShortField"%>
+	<%= f.text_field :requested_amb_count, :value => '0', :id => 'fieldAmbulance', :class => "ShortField"  %>
+	<%= submit_tag "+1", :type=> 'button', :class => 'plus1Ambulance', :class => "ShortField"%>
+	<%= submit_tag "+5", :type=> 'button', :class => 'plus5Ambulance', :class => "ShortField"%>
+	<br /><br /><br />
+  </div>
+
+	
+	<%= f.submit "BEGIN TRIAGE", :class => "button"%>
+	<% end %>
+	<br /><br />
+	<%= button_to 'BACK', incidents_path, {:method=>"get", :class => "button"} %>
 	
 </div>

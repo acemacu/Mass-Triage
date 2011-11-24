@@ -1,4 +1,4 @@
-<div id="newMCIdiv">
+
 <%= form_for(@incident) do |f| %>
   <% if @incident.errors.any? %>
     <div id="error_explanation">
@@ -12,37 +12,36 @@
     </div>
   <% end %>
 
-
-  <div class="field">
-    <%= f.hidden_field :date %>
-
-  </div>
-  <div class="fieldNewMCI">
-	<%= f.label "Date: " << @incident.date.strftime("%m/%d/%y %H:%I %p %Z") %><br />
-    <br /> <br />
-  </div>
-  	<div class="fieldNewMCI">
-    <%= f.label "Address: " %>
-    <%= f.text_field :location, :size => 90 %>
-  	</div>
-	<br />
-	<div class="fieldNewMCI">
-		<%= f.label "Latitude: " %>
-	    <%= f.text_field :latitude, :size => 23 %>
-	    <%= f.label "Longitude: " %>
-	    <%= f.text_field :longitude, :size => 23 %>
-	</div>
-	<br />
-	<div class="fieldNewMCI">
-    <%= f.label "Incident Type: " %>
-	<% @incident_type = IncidentType.find(:all).map { |u| [u.name, u.id] } %>
-	<%= f.select :incident_type_id, @incident_type %>
-  </div>
-	
-	<br />
-	<div id="alignRight">
-    <%= f.submit%>
-	</div>
-<% end %>
-	<%= button_to 'Back', incidents_path, {:method=>"get"} %>
+  <%= f.hidden_field :date %>
+<span class="title">
+  <%= f.label "Date: " << @incident.date.strftime("%m/%d/%y %H:%I %p %Z") %>
+</span>
+<br />
+<br />
+<div class="fieldLogin">
+  <%= f.label "Address: " %>
+  <%= f.text_field :location %>
 </div>
+<br />
+<div class="fieldLogin">
+  <%= f.label "Latitude: " %>
+  <%= f.text_field :latitude%>
+</div>
+<br />
+<div class="fieldLogin">
+  <%= f.label "Longitude: " %>
+  <%= f.text_field :longitude%>
+</div>
+<br />
+<div class="fieldLogin">
+  <%= f.label "Incident Type: " %>
+  <% @incident_type = IncidentType.find(:all).map { |u| [u.name, u.id] } %>
+  <%= f.select :incident_type_id, @incident_type %>
+</div>
+</div>
+<%= f.submit "Create Incident", :class => "button"%>
+<% end %>
+<br />
+<br />
+<%= button_to 'Back', incidents_path, {:method=>"get", :class => "button"} %>
+
