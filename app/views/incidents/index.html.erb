@@ -1,14 +1,20 @@
 <div class="wrapper">
+  <div class="TopBar">
+  
+    <br />
+    <h1 class="TopBarInterior">MCIs in Progress<hr /></h1><br />
+ </div>
+  <br />
   <div class="centerEverythingContainterNoBorder">
-<h1>MCIs IN PROGRESS</h1>
 
-<table id="mciTable">
+
+<table id="mciTableHeader">
   <tr>
-    <th>Date</th>
-    <th>Type</th>
-    <th>Location</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
+    <th class="date">Date</th>
+    <th class ="type">Type</th>
+    <th class="location">Location</th>
+    <th class="latitude">Latitude</th>
+    <th class="longitude">Longitude</th>
     <th> </th>
     <th></th>
   </tr>
@@ -45,8 +51,8 @@
 </div>
 	<div class="footerwrap">
 		<br />
-		<p>-----------------------------------------------------------------------------------------</p>
-		<%= button_to 'START NEW MCI', new_incident_path, {:method => "get"} %>
+		<hr />
+		<%= button_to 'START NEW MCI', new_incident_path, {:method => "get", :class => "button"}%>
 		<br />
 	</div>
 

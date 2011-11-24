@@ -1,16 +1,23 @@
-<div class="centerEverythingContainter">
-<h1>MTAP</h1><br />
-
-<% if current_user %>
-  <p>YOU ARE CURRENTLY LOGGED IN AS <%= current_user.username %></p><br /></br>
-  <%= link_to "Logout", :logout %>
-<% else %>
-  <%= render 'form' %>
-<br/>
-<br/>
-  <%= link_to "Register", new_user_path %><br />
-<% end %>
-<br/>
+<div class="TopBar">
+  
+    <br />
+    <h1 class="TopBarInterior">MTAP<hr /></h1>
+  <br/>
+</div>
+<div class="Login">
+  <% if current_user %>
+  
+    <p>YOU ARE CURRENTLY LOGGED IN AS <%= current_user.username %></p><br /></br>
+    <%= link_to "Logout", :logout %>
+  <% else %>
+    <br />
+    <div class="Inputs">
+      <br /><h2>Log In</h2>
+      <%= render 'form' %>
+      <%= link_to "Register", new_user_path %><br />
+    
+  <% end %>
+  <br/>
 </div>
 
 

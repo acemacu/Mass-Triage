@@ -4,6 +4,57 @@ body {
     
 }
 
+div.TopBar {
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: #333;
+}
+
+h1.TopBarInterior {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+div.Login {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: skyblue;
+    text-align: right;
+    max-width: 400px;
+    font-size: 150%;
+   
+}
+
+input.button {
+    background-color: orange;
+    height: 50px;
+    width:100px;
+    font-size:large;    
+}
+
+div.Login div.Inputs {
+    background-color: black;
+    color: white;
+    text-align: left;
+    margin-bottom: 5%;
+    padding-left: 2%;
+    
+}
+
+div.Login div.Inputs h2{
+    text-align: center;
+}
+
+div.Login div.Inputs input {
+    width: 90%;  
+}
+
 div.wrapper {
     position:           fixed;
     top: 0px;
@@ -127,26 +178,34 @@ div.right{
 .fieldLogin{
 	font-size: 20px;
 }
+#mciTableHeader {
+        border: 		0px;
+	border-collapse: 	collapse;
+	width:				100%;	
+        background-color: skyblue;
+}
+
+#mciTableHeader th.date,th.type,th.location,th.latitude {
+    
+    border-right: 3px aquamarine ridge;
+}
+
 
 #mciTable{
-	border: 			2px solid black;
+	border: 			0px;
 	border-collapse: 	collapse;
 	width:				100%;	
 }
 
-#mciTable th{
-	border: 			2px solid black;
+#mciTable td{
+	border: 			0px;
 	padding:			3px;
 	border-spacing:		2px;
-	background:		gray;
-	color: 			white;
 }
 
-
-#mciTable td{
-	border: 			2px solid black;
-	padding:			3px;
-	border-spacing:		2px;
+#mciTable input{
+    background-color:darkred;
+    color: white;
 }
 
 #even{
