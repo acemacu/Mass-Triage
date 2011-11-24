@@ -34,8 +34,9 @@ div.Login {
 input.button {
     background-color: orange;
     height: 50px;
-    width:100px;
-    font-size:large;    
+    width:200px;
+    font-size:large; 
+    font-weight:bold;
 }
 
 div.Login div.Inputs {
