@@ -1,7 +1,8 @@
 body {
    height: 100%;
    overflow: hidden;
-    
+   background-image:url(../images/Brushed_Steel.png);
+   background-size: 100%;
 }
 span.title {
     color:#fc0;
@@ -12,6 +13,13 @@ div.TopBar {
     text-align: center;
     color: white;
     background-color: #333;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    -moz-border-bottom-left-radius: 25px;
+    -moz-border-bottom-right-radius: 25px;
+    -moz-box-shadow: 5px 5px 5px gray;
+    -webkit-box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px gray;
 }
 
 div.TopBar a:link {color: #fc0;}
@@ -19,7 +27,12 @@ div.TopBar a:active {color: #fc0;}
 div.TopBar a:visited {color: #fc0;}
 div.TopBar a:hover {color: #fc0;}
 
-
+span.highlight {
+    background-color:darkred;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    font-size: large;
+}
 
 h1.TopBarInterior {
     width: 50%;
@@ -38,6 +51,13 @@ div.CountLogin {
     text-align: right;
     max-width: 600px;
     font-size: 150%;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    -moz-border-bottom-left-radius: 25px;
+    -moz-border-bottom-right-radius: 25px;
+    -moz-box-shadow: 5px 5px 5px gray;
+    -webkit-box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px gray;
 }
 
 div.CountLogin div.CountInputs {
@@ -46,6 +66,9 @@ div.CountLogin div.CountInputs {
     text-align: center;
     margin-bottom: 5%;
     padding-left: 2%;
+    -moz-box-shadow: 5px 5px 5px gray;
+    -webkit-box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px gray;
     
 }
 
@@ -67,6 +90,13 @@ div.Login {
     text-align: right;
     max-width: 400px;
     font-size: 150%;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    -moz-border-bottom-left-radius: 25px;
+    -moz-border-bottom-right-radius: 25px;
+    -moz-box-shadow: 5px 5px 5px gray;
+    -webkit-box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px gray;
 }
 
 input.LongButton {
@@ -99,10 +129,10 @@ div.Login div.Inputs {
     text-align: left;
     margin-bottom: 5%;
     padding-left: 2%;
-    
+    -moz-box-shadow: 5px 5px 5px gray;
+    -webkit-box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px gray;
 }
-
-
 
 div.Login div.Inputs h2{
     text-align: center;
@@ -122,8 +152,16 @@ div.wrapper {
 }
 
 div.incident {
-    background-color:#ccc;
+    background-color: #333;
     font-size: large;
+    color: white;
+    border-radius: 25px;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -moz-box-shadow: 5px 5px 5px gray;
+    -webkit-box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px gray;
 }
 
 div.incident input.ShortField {
@@ -159,21 +197,29 @@ table.summary td {
 
 table.summary td.red {
     background-color:       red;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
 }
 
 table.summary td.yellow {
     background-color:       yellow;
     color: black;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
 }
 
 table.summary td.green {
     background-color:       green;
-    color:  				white;
+    color: 
+-moz-border-radius: 8px;
+    border-radius: 8px;        white;
 }
 
 table.summary td.black {
     background-color:       black;
-    color:  				white;
+    color:  white;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
 }
 
 .patientsTable{
@@ -193,7 +239,7 @@ table.summary td.black {
 
 .redPatient {
     background-color:	red;
-	color:  			white;
+	color:  	white;
 }
 
 .yellowPatient {
@@ -283,7 +329,7 @@ div.right{
 }
 
 #even{
-	background:	 #D3D3D3;
+	background:	 white;
 }
 
 .even{
