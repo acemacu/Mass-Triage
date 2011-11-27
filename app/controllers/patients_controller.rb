@@ -96,7 +96,10 @@ class PatientsController < ApplicationController
   def create
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.create!(params[:patient])
-    @patient.creating_user_id = current_user.id
+    if(current_user.id != nil)
+      @patient.creating_user_id = current_user.id
+    end
+    
     respond_to do |format|
         if @patient.save
            flash[:notice] = "You just added a patient!"

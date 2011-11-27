@@ -121,7 +121,9 @@ class AmbulancesController < ApplicationController
   def destroy
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.find(params[:id])
-    @ambulance.destroy
+    if(@ambulance.idAmbulance != "Not yet defined")
+      @ambulance.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to(incident_ambulances_url) }
