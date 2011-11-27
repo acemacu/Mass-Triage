@@ -1,9 +1,9 @@
 
 <h2>TRIAGE TAB   <%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident) %>     <%= link_to "CLOSE TAB", close_incident_path(@incident) %></h2>
+<div id="incident_info" data-id="<%= @incident.id %>"></div>
 <% if current_user %>
   <% if User.find(current_user.id).role_id == 1 %>
     <div class="incident" id="patient_input" data-id="<%= @incident.id %>">
-      <div id="incident_info" data-id="<%= @incident.id %>"></div>
       <br />
       <%= render 'form' %>
       <br />
@@ -21,21 +21,22 @@
 			<table id="tableForPatients" class="tablesorter">
 				<thead>
 				<tr>
-                                  <th></th>
-		    		<th>TAG #</th>
+		    		<th>TAG#</th>
 		    		<th>COLOR</th>
 		    		<th>SEX</th>
 		    		<th>AGE</th>
 		    		<th></th>
-		    		<th>COMPLAINT</th>
+		    		<th>COMPLAINT(S)</th>
 					<th>STATUS</th>
 					<th>HOSPITAL</th>
 					<th>AMBULANCE</th>
-					<th>DELETE PATIENT</th>
+					<th>DELETE</th>
 				</tr>
 				</thead>		
-				<tbody>			
-				<%= render :partial => @patients, :locals => {:list => true} %>	
+				<tbody id="tbody_created_patients" class="tbody_created_patients">
+
+                                  <%= render :partial => @patients, :locals => {:list => true} %>
+                                  
 				</tbody>
 			</table>
 		</div>

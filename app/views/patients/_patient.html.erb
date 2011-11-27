@@ -2,33 +2,31 @@
 <% hospitalname = Hospital.find(patient.hospital_id)%>
 
     <tr id="patient_<%= patient.id %>">
-      <td><%=  patient_counter + 1%></td>
-        <td id="tag_<%= patient.id%>"><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
+        <td id="tagnum_<%= patient.id%>"><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
         <% if patient.tagColor == "Black" %>
-			<td class="blackPatient">
+			<td id="color_<%= patient.id%>" class="blackPatient">
 		<% elsif patient.tagColor == "Red" %>
-			<td class="redPatient">
+			<td id="color_<%= patient.id%>" class="redPatient">
 		<% elsif patient.tagColor == "Yellow" %>
-			<td class="yellowPatient">
+			<td id="color_<%= patient.id%>" class="yellowPatient">
 		<% else%>
-			<td class="greenPatient">
+			<td id="color_<%= patient.id%>" class="greenPatient">
 		<% end %>					
 		<%= editable_field patient, :tagColor, :type => 'select', :submit => 'OK', :update_url => incident_patient_path(@incident, patient), :data => {'Green', 'Green', 'Black', 'Black', 'Yellow', 'Yellow', 'Red', 'Red'}%></td>
         <% if patient.sex == "Female"%>
-			<td class="femalePatient">
+			<td id="sex_<%= patient.id%>" class="femalePatient">
 		<% else %>
-			<td class="malePatient">
+			<td id="sex_<%= patient.id%>" class="malePatient">
 		<% end %>
 		<%= editable_field patient, :sex, :type => 'select', :submit => 'OK', :data => {'Female', 'Female', 'Male', 'Male'}, :update_url => incident_patient_path(@incident, patient) %></td>
         <td id="age_<%= patient.id%>"><%= editable_field patient, :age, :update_url => incident_patient_path(@incident, patient) %></td>
-        <td><%= editable_field patient, :ageType, :type => 'select', :submit => 'OK', :data => {'Years', 'Years', 'Months', 'Months', 'Days', 'Days'}, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td id="ageType_<%= patient.id%>" class="ageType"><%= editable_field patient, :ageType, :type => 'select', :submit => 'OK', :data => {'Years', 'Years', 'Months', 'Months', 'Days', 'Days'}, :update_url => incident_patient_path(@incident, patient) %></td>
         <td id="complaint_<%= patient.id%>"><%= editable_field patient, :complaint, :update_url => incident_patient_path(@incident, patient) %></td>
-        <td><%= editable_field patient, :status, :type => 'select', :submit => 'OK', :data => {'At Scene', 'At Scene', 'Transported', 'Transported', 'Missing/Left Scene', 'Missing/Left Scene'}, :update_url => incident_patient_path(@incident, patient) %></td>
-		
-		<%= div_for hospitalname do %>
-		<td><%= editable_field hospitalname, :name, :type => 'select', :submit => 'OK', :data => @stringHospitals, :update_url => incident_patient_path(@incident, patient) %></td>
-		<% end %>
-		<td><%= editable_field Ambulance.find(patient.ambulance_id), :idAmbulance, :type => 'select', :submit => 'OK', :data => @stringAmbulances, :update_url => incident_patient_path(@incident, patient) %></td>
+        <td id="patient_status_<%= patient.id%>" class="patient_status"><%= editable_field patient, :status, :type => 'select', :submit => 'OK', :data => {'At Scene', 'At Scene', 'Transported', 'Transported', 'Missing/Left Scene', 'Missing/Left Scene'}, :update_url => incident_patient_path(@incident, patient) %></td>
+          <%= div_for hospitalname do %>
+            <td id="hospital_patient_<%= patient.id%>" class="hospital_patient"><%= editable_field hospitalname, :name, :type => 'select', :submit => 'OK', :data => @stringHospitals, :update_url => incident_patient_path(@incident, patient) %></td>
+          <% end %>
+          <td id="ambulance_patient_<%= patient.id%>" class="ambulance_patient"><%= editable_field Ambulance.find(patient.ambulance_id), :idAmbulance, :type => 'select', :submit => 'OK', :data => @stringAmbulances, :update_url => incident_patient_path(@incident, patient) %></td>
         <td><%= button_to "X", [@incident, patient], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
     </tr>
 

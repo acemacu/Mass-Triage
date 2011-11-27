@@ -2,8 +2,8 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function() {
-  //if ($("#incident").length > 0) {  
-    setTimeout(updatePatients, 5000);
+  //if ($("#incident").length > 0) {
+    setTimeout(updatePatients, 10000);
   //}
 });
 

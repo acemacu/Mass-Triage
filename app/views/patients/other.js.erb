@@ -1,48 +1,207 @@
-$("#en_route_amb").text("EN ROUTE: 0");
-$("#transported_amb").text("TRANSPORTED: 0");
-$("#delayed_amb").text("DELAYED: 0");
-$("#arrived_amb").text("ARRIVED: 0");
-$("#staged_amb").text("STAGED: 0");
-
-<% for ambulance in @ambulances %>
-  <% if ambulance.status == "En Route" %>
-    $("#en_route_amb").text("EN ROUTE: <%= ambulance.number %>");
-  <% elsif ambulance.status == "Transported"  %>
-    $("#transported_amb").text("TRANSPORTED: <%= ambulance.number %>");
-  <% elsif ambulance.status == "Delayed"  %>
-    $("#delayed_amb").text("DELAYED: <%= ambulance.number %>");
-  <% elsif ambulance.status == "Arrived"  %>
-    $("#arrived_amb").text("ARRIVED: <%= ambulance.number %>");
-  <% elsif ambulance.status == "Staged"  %>
-    $("#staged_amb").text("STAGED: <%= ambulance.number %>");
+<% if @ambulances.count > 0 %>
+  resetAmbulanceValues();
+  <% for ambulance in @ambulances_assigned %>
+    updateAmbulanceCount('<%= ambulance.status %>', '<%=  ambulance.number %>');
+  <% end %>
+  var ambulanceList = '';
+  var hashAmbulances = new Object();
+  <% for a in @general_ambulances %>
+    ambulanceList = ambulanceList + '"<%= a.id %>":"<%= a.idAmbulance %>",';
+    hashAmbulances["<%= a.id %>"] = "<%= a.idAmbulance %>";
+  <% end %>
+  ambulanceList = ambulanceList.substring(0, ambulanceList.length-1);
+  <% for p in @all_patients %>
+    updateAmbulanceListInPatients('<%= p.id %>', hashAmbulances["<%= p.ambulance_id %>"], ambulanceList);
   <% end %>
 <% end %>
 
-<% if @patients.count > 0 %>
+function updateAmbulanceListInPatients(id, ambulance_id, ambulanceList) {
+  var updateRoute = '/incidents/' + '<%= @incident_id %>' + '/patients/' + id;
+  generatejEditableCombo(id, ambulance_id, 'ambulance_patient', '1', 'ambulance[idAmbulance]', ambulanceList, 'ambulance_patient', updateRoute);
+}
 
-  $("#tagged").text("TAGGED: <%= @general.count %>");
+function resetAmbulanceValues() {
+  $("#en_route_amb").text("EN ROUTE: 0");
+  $("#transported_amb").text("TRANSPORTED: 0");
+  $("#delayed_amb").text("DELAYED: 0");
+  $("#arrived_amb").text("ARRIVED: 0");
+  $("#staged_amb").text("STAGED: 0");
+}
+
+function updateAmbulanceCount(statusMessage, number) {
+    if (statusMessage == "En Route") {
+      $('#en_route_amb').text("EN ROUTE: " + number);
+    } else if (statusMessage == "Transported") {
+      $("#transported_amb").text("TRANSPORTED: " + number);
+    } else if (statusMessage == "Delayed") {
+      $("#delayed_amb").text("DELAYED: " + number);
+    } else if (statusMessage == "Arrived") {
+      $("#arrived_amb").text("ARRIVED: " + number);
+    } else if (statusMessage == "Staged") {
+      $("#staged_amb").text("STAGED: " + number);
+    }
+}
+
+<% if @incident.count > 0 %>
+  <% for i in @incident %>
+    updateIncident('<%= i.location %>', '<%= i.latitude %>', '<%= i.longitude %>');
+  <% end %>
+<% end %>
+
+function updateIncident(location, latitude, longitude) {
+  var updateRoute = '/incidents/' + '<%= @incident_id %>' + '/resourceupdate';
+  generatejEditableTextField('', location, 'incident_location', '2', 'incident[location]', updateRoute);
+  generatejEditableTextField('', latitude, 'incident_latitude', '2', 'incident[latitude]', updateRoute);
+  generatejEditableTextField('', longitude, 'incident_longitude', '2', 'incident[longitude]', updateRoute);
+}
+
+<% if @patients.count > 0 %>
+  <% for n in @new_patients %>
+    generatejEditableForNewPatient('<%= n.id %>');
+  <% end %>
+
+  resetPatientsTriage('<%= @general.count %>');
+
+  <% for triage in @triage %>
+    updatePatientsTriage('<%= triage.tagColor %>', '<%= triage.number %>');
+  <% end %>
+
+  var hospitalList = '';
+  var hashHospitals = new Object();
+  <% for h in @hospitals %>
+    hospitalList = hospitalList + '"<%= h.id %>":"<%= h.name %>",';
+    hashHospitals["<%= h.id %>"] = "<%= h.name %>";
+  <% end %>
+  hospitalList = hospitalList.substring(0, hospitalList.length-1);
+
+  var ambulanceList = '';
+  var hashAllAmbulances = new Object();
+  <% for a in @all_ambulances %>
+    ambulanceList = ambulanceList + '"<%= a.id %>":"<%= a.idAmbulance %>",';
+    hashAllAmbulances["<%= a.id %>"] = "<%= a.idAmbulance %>";
+  <% end %>
+  ambulanceList = ambulanceList.substring(0, ambulanceList.length-1);
+
+  <% for p in @patients %>
+    updateModifiedPatientInfo('<%= p.id %>', '<%= p.numberOfTag %>', '<%= p.tagColor %>',
+      '<%= p.sex %>', '<%= p.age %>', '<%= p.ageType %>', '<%= p.complaint %>',
+      '<%= p.status %>', '<%= p.hospital_id %>', ambulanceList, hashAllAmbulances["<%= p.ambulance_id %>"],
+      hospitalList, hashHospitals["<%= p.hospital_id %>"]);
+  <% end %>
+<% end %>
+
+function resetPatientsTriage(general) {
+  $("#tagged").text("TAGGED:" + general);
   $("#red_triage").text("0");
   $("#yellow_triage").text("0");
   $("#green_triage").text("0");
   $("#black_triage").text("0");
+}
 
-  <% for triage in @triage %>
-    <% if triage.tagColor == "Red" %>
-      $("#red_triage").text("<%= triage.number %>");
-    <% elsif triage.tagColor == "Yellow"  %>
-      $("#yellow_triage").text("<%= triage.number %>");
-    <% elsif triage.tagColor == "Green"  %>
-      $("#green_triage").text("<%= triage.number %>");
-    <% elsif triage.tagColor == "Black"  %>
-      $("#black_triage").text("<%= triage.number %>");
-    <% end %>
-  <% end %>
+function updatePatientsTriage(color, number) {
+  if (color == "Red") {
+    $("#red_triage").text(number);
+  } else if (color == "Yellow") {
+    $("#yellow_triage").text(number);
+  } else if (color == "Green") {
+    $("#green_triage").text(number);
+  } else if (color == "Black") {
+    $("#black_triage").text(number);
+  }
+}
 
-  <% for patient in @patients %>
-    $("#tag_<%=  patient.id %>").text("<%=  patient.numberOfTag %>");
-    $("#age_<%=  patient.id %>").text("<%=  patient.age %>");
-    $("#complaint_<%=  patient.id %>").text("<%=  patient.complaint %>");
-  <% end %>
+function updateModifiedPatientInfo(id, tag, color, sex, age, ageType,
+  complaint, status, hospital, ambulanceList, ambulanceValue, hospitalList, hospitalValue) {
 
-<% end %>
-  
+  var data_id_text_field = '2';
+  var updateRoute = '/incidents/' + '<%= @incident_id %>' + '/patients/' + id;
+  generatejEditableTextField(id, tag, 'tagnum', data_id_text_field, 'patient[numberOfTag]', updateRoute);
+  generatejEditableTextField(id, age, 'age', data_id_text_field, 'patient[age]', updateRoute);
+  generatejEditableTextField(id, complaint, 'complaint', data_id_text_field, 'patient[complaint]', updateRoute);
+
+  var td_class = '';
+  if (color == "Red") {
+    td_class = 'redPatient';
+  } else if (color == "Yellow") {
+    td_class = 'yellowPatient';
+  } else if (color == "Green") {
+    td_class = 'greenPatient';
+  } else if (color == "Black") {
+    td_class = 'blackPatient';
+  }
+
+  var dataContent = '';
+  dataContent = '"Yellow":"Yellow","Black":"Black","Green":"Green","Red":"Red"';
+  generatejEditableCombo(id, color, 'color', data_id_text_field, 'patient[tagColor]', dataContent, td_class, updateRoute);
+
+  if (sex == "Male") {
+    td_class = 'malePatient';
+  } else if (sex == "Female") {
+    td_class = 'femalePatient';
+  }
+  dataContent = '"Male":"Male","Female":"Female"';
+  generatejEditableCombo(id, sex, 'sex', data_id_text_field, 'patient[sex]', dataContent, td_class, updateRoute);
+
+  dataContent = '"Years":"Years","Days":"Days","Months":"Months"';
+  generatejEditableCombo(id, ageType, 'ageType', data_id_text_field, 'patient[ageType]', dataContent, 'ageType', updateRoute);
+
+  dataContent = '"At Scene":"At Scene","Transported":"Transported","Missing/Left Scene":"Missing/Left Scene"';
+  generatejEditableCombo(id, status, 'patient_status', data_id_text_field, 'patient[status]', dataContent, 'patient_status', updateRoute);
+
+  generatejEditableCombo(id, hospitalValue, 'hospital_patient', '2', 'hospital[name]', hospitalList, 'hospital_patient', updateRoute);
+
+  generatejEditableCombo(id, ambulanceValue, 'ambulance_patient', '2', 'ambulance[idAmbulance]', ambulanceList, 'ambulance_patient', updateRoute);
+}
+
+function generatejEditableTextField(id, value, key, d_id, d_name, updateRoute) {
+  $("#" + key + "_" + id).html('<span class="editable" data-id="' + d_id + '" data-name="' + d_name + '">' + value + '</span>');
+    (function( $ ){
+      $(function(){
+          var args = {data: function(value, settings) {
+            // Unescape HTML
+            var retval = value
+              .replace(/&amp;/gi, '&')
+              .replace(/&gt;/gi, '>')
+              .replace(/&lt;/gi, '<')
+              .replace(/&quot;/gi, "\"");
+            return retval;
+          }};
+          $.extend(args, {"name": d_name,"method":"PUT"});
+          $(".editable[data-id='" + d_id + "'][data-name='" + d_name + "']").editable(updateRoute, args);
+        });
+      })( jQuery );
+}
+
+function generatejEditableCombo(id, value, key, d_id, d_name, dataContent, td_class, updateRoute) {
+  $("#" + key + "_" + id).replaceWith('<td id="' + key + '_' + id + '" class="' + td_class + '"><span class="editable" data-id="' + d_id + '" data-name="' + d_name + '">' + value + '</span>');
+        (function( $ ){
+          $(function(){
+            var args = {data: function(value, settings) {
+              // Unescape HTML
+              var retval = value
+                .replace(/&amp;/gi, '&')
+                .replace(/&gt;/gi, '>')
+                .replace(/&lt;/gi, '<')
+                .replace(/&quot;/gi, "\"");
+              return retval;
+            }};
+            $.extend(args, {"name": d_name,"data":"{" + dataContent + "}","submit":"OK","method":"PUT","type":"select"});
+            $(".editable[data-id='" + d_id + "'][data-name='" + d_name + "']").editable(updateRoute, args);
+          });
+        })( jQuery ) + '</td>';
+}
+
+function generatejEditableForNewPatient(id) {
+  $("#tbody_created_patients").append('<tr id="patient_' + id + '">'
+    + '<td id="tagnum_' + id + '"></td>'
+    + '<td id="color_' + id + '"></td>'
+    + '<td id="sex_' + id + '"></td>'
+    + '<td id="age_' + id + '"></td>'
+    + '<td id="ageType_' + id + '"></td>'
+    + '<td id="complaint_' + id + '"></td>'
+    + '<td id="patient_status_' + id + '"></td>'
+    + '<td id="hospital_patient_' + id + '"></td>'
+    + '<td id="ambulance_patient_' + id + '"></td></tr>');
+  $('#en_route_amb').text("YA si CARGo LO NUEVO" + id);
+}
+
