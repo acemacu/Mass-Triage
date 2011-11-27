@@ -1,4 +1,4 @@
-<h2><span class ="UnselectedTab"><%= link_to "TRIAGE TAB", incident_patients_path(@incident) %></span>   <span class ="SelectedTab">AMBULANCE TAB</span>     <span class ="UnselectedTab"><%= link_to "CLOSE TAB", close_incident_path(@incident) %></span></h2>
+<h2><span class ="UnselectedTab"><%= link_to "TRIAGE", incident_patients_path(@incident) %></span>   <span class ="SelectedTab">AMBULANCE</span>     <span class ="UnselectedTab"><%= link_to "CLOSE", close_incident_path(@incident) %></span></h2>
 
 <div id="incident" data-id="<%= @incident.id %>"></div>
 <% if current_user %>

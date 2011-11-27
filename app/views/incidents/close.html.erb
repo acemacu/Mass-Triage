@@ -1,12 +1,22 @@
 
-<div class="centerEverythingContainterNoBorder">
-  <% untransported = @incident.untransported("At Scene") %>
-  <%= untransported %><br /><br />
-  <h2><%= link_to "TRIAGE TAB", incident_patients_path(@incident) %>   <%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident)%>     CLOSE TAB</h2>
+<div class="TopBar">
+  
+    <br />
+    <h1 class="TopBarInterior">CLOSE INCIDENT<hr /></h1>
+  <br/>
+</div>
+<div class="CountLogin">
+  <div class="CountInputs">
+    <% untransported = @incident.untransported("At Scene") %>
+  <span class="title"><%= untransported %></span><br /><br />
+  <h2><%= link_to "TRIAGE", incident_patients_path(@incident) %>   <%= link_to "AMBULANCE", incident_ambulances_path(@incident)%></h2>
   LOG OUT AND EXIT THE APPLICATION<br />
   <%= link_to "EXIT", :logout %><br /><br />
   CLOSE THE INCIDENT AND MARK IT AS COMPLETED<br />
   <%= link_to "CLOSE INCIDENT", closeincident_path, :confirm => "Are you sure?\nThis will mark the triage and transportation\nprocess as completed!" %>
+  <br /><br/>
+</div>
+  <br/><br/>
 </div>
 
 
