@@ -41,6 +41,12 @@ h1.TopBarInterior {
     text-align: center;
 }
 
+.image {
+    float: right;
+    max-width: 5%;
+    margin: 3px;
+}
+
 div.CountLogin {
     width: 50%;
     margin-left: auto;
@@ -376,6 +382,7 @@ div.right{
     text-align: right;
     min-height: 90px;
 }
+
 
 .fieldLogin{
 	font-size: 20px;

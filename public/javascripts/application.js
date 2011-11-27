@@ -16,41 +16,32 @@ function updatePatients () {
 
 $(document).ready(function() {
    var toggleStatus = $.cookie("ToggleStatus");
+   var formStatus = $.cookie("FormStatus");
+   
+   $("#tableForPatients").tablesorter({
+        headers: {
+            // assign the secound column (we start counting zero) 
+            9: { 
+                // disable it by setting the property sorter to false 
+		sorter: false 
+            }}}); 
+   
+   $("#mciTable").tablesorter({
+        headers: { 
+            // assign the secound column (we start counting zero) 
+            5: { 
+                 // disable it by setting the property sorter to false 
+                  sorter: false 
+             }}}); 
+      
    if (toggleStatus == "hidden")
        $("#collapsable").hide();
-});
-
-$(document).ready(function() {
-   var formStatus = $.cookie("FormStatus");
    if (formStatus == "hidden")
        $("#patient_input").hide();
- });
+   window.setTimeout(resize, 1);
+});
 
-$(document).ready(function() { 
-        $("#tableForPatients").tablesorter({
-				headers: { 
-		            // assign the secound column (we start counting zero) 
-		            9: { 
-		                // disable it by setting the property sorter to false 
-		                sorter: false 
-		            }
-		        }
-				}); 
-    } 
-);
 
-$(document).ready(function() { 
-        $("#mciTable").tablesorter({
-				headers: { 
-		            // assign the secound column (we start counting zero) 
-		            5: { 
-		                // disable it by setting the property sorter to false 
-		                sorter: false 
-		            }
-		        }
-				}); 
-    } 
-);
 function resize () {
     $('.scrollable2').height(function(index, height) {
                 return window.innerHeight - $(this).offset().top;
@@ -61,15 +52,9 @@ function resize () {
             });
 };
 
-$(function(){
+$(document).ready(function() { 
     
-$('.scrollable2').height(function(index, height) {
-  return window.innerHeight - $(this).offset().top;
-});
 
-$('.scrollable3').height(function(index, height) {
-  return window.innerHeight - $(this).offset().top;
-});
     
     $("#extra_options").hide();
     
