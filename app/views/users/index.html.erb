@@ -1,19 +1,20 @@
-<h1>Listing users</h1>
+<div class="TopBar">
+	<br />
+	<h1 class="TopBarInterior">Listing users<hr /></h1><br />
+</div>
 
-<table>
+<table id="mciTable">
   <tr>
-    <th>Username</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="date">Username</th>
+    <th class="date">Email</th>
+    <th class="open"></th>
+    <th class="open"></th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
     <td><%= user.username %></td>
     <td><%= user.email %></td>
-    <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

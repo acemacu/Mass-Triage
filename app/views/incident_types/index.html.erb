@@ -1,17 +1,18 @@
-<h1>Listing incident_types</h1>
+<div class="TopBar">
+	<br />
+	<h1 class="TopBarInterior">Listing types of incidents<hr /></h1><br />
+</div>
 
-<table>
+<table id="mciTable">
   <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="date">Name</th>
+    <th class="open"></th>
+    <th class="open"></th>
   </tr>
 
 <% @incident_types.each do |incident_type| %>
   <tr>
     <td><%= incident_type.name %></td>
-    <td><%= link_to 'Show', incident_type %></td>
     <td><%= link_to 'Edit', edit_incident_type_path(incident_type) %></td>
     <td><%= link_to 'Destroy', incident_type, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

@@ -20,8 +20,13 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-        format.html { redirect_to(:incidents, :notice => 'Login Successful') }
-        format.xml  { render :xml => @user_session, :status => :created, :location => @user_session }
+        if User.find(current_user.id).role_id == 3
+          format.html { redirect_to(administrators_path, :notice => 'Login Successful') }
+          format.xml  { render :xml => @user_session, :status => :created, :location => @user_session }
+        else
+          format.html { redirect_to(:incidents, :notice => 'Login Successful') }
+          format.xml  { render :xml => @user_session, :status => :created, :location => @user_session }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @user_session.errors, :status => :unprocessable_entity }

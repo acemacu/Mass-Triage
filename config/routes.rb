@@ -9,6 +9,8 @@ MassTriage::Application.routes.draw do
   match "logout", :to => "user_sessions#destroy", :as => :logout
 
   match "patients/other", :to => "patients#other"
+  
+  match "administrators/index"  => "administrators#index", :as => "administrators"
 
   resources :user_sessions
 
@@ -20,10 +22,11 @@ MassTriage::Application.routes.draw do
 
   resources :responders
 
-   match "incidents/:id/closeincident" => "incidents#closeincident", :as => "closeincident"
+  match "incidents/:id/closeincident" => "incidents#closeincident", :as => "closeincident"
   match "incidents/:incident_id/viewupdate" => "incidents#viewupdate", :as => "viewupdate"
   match "incidents/:incident_id/resourceupdate" => "incidents#resourceupdate", :as => "resourceupdate"
   match "incidents/:incident_id/patient_count" => "incidents#patient_count", :as => "patient_count"
+
   
   resources :incidents do
     resources :ambulances

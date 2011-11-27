@@ -14,6 +14,23 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<% if @current_user %>
+	<% if @current_user.id == 3 %>
+		<div class="right">
+		    <% if @current_user %>
+		      LOGGED IN USER: <%= @current_user.username%><br />
+		      <%= link_to "EXIT", :logout %>
+		    <% end %>    
+		    <br />
+		  </div>
+	<% end %>
+	<center>
+		<%= link_to 'List of type of incidents', incident_types_path %><br/>
+		<%= link_to 'List of hospitals', hospitals_path %><br/>
+		<%= link_to 'List users', users_path %><br/>
+		<%= link_to 'List incidents',  incidents_path %><br/>
+	</center>
+<% end %>
 
 <%= yield %>
 
