@@ -47,10 +47,11 @@ div.field, div.actions, div.fieldLogin {
   margin: -7px;
   margin-bottom: 0px;
   background-color: #c00;
-  color: #fff;
+  color: #000000;
 }
 
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
+  color: #000000;
 }

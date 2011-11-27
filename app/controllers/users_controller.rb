@@ -45,9 +45,13 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(incidents_path, :notice => 'User was successfully created.') }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
-      
+        if @user.role_id == 3
+          format.html { redirect_to(administrators_path, :notice => 'User was successfully created.') }
+          format.xml  { render :xml => @user, :status => :created, :location => @user }
+        else
+          format.html { redirect_to(incidents_path, :notice => 'User was successfully created.') }
+          format.xml  { render :xml => @user, :status => :created, :location => @user }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
