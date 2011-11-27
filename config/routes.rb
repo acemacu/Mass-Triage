@@ -39,7 +39,7 @@ MassTriage::Application.routes.draw do
 
  
   
-  root :to => 'user_sessions#new'
+  root :to => 'incidents#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
