@@ -138,6 +138,7 @@ div.Login div.Inputs {
     background-color: black;
     color: white;
     text-align: left;
+    font-size: large;
     margin-bottom: 5%;
     padding-left: 2%;
     -moz-box-shadow: 5px 5px 5px gray;
@@ -151,6 +152,7 @@ div.Login div.Inputs h2{
 
 div.Login div.Inputs input {
     width: 90%;  
+    font-size: large;
 }
 
 div.wrapper {
@@ -340,34 +342,67 @@ div.right{
 .fieldLogin{
 	font-size: 20px;
 }
-#mciTableHeader {
-        border: 		0px;
-	border-collapse: 	collapse;
-	width:				100%;	
-        background-color: skyblue;
-}
 
-#mciTableHeader th.date,th.type,th.location,th.latitude {
-    
-    border-right: 3px aquamarine ridge;
-}
+
+
 
 
 #mciTable{
 	border: 			0px;
 	border-collapse: 	collapse;
-	width:				100%;	
+	width:				100%;
+        font-size: large;
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+}
+
+#mciTable th{
+    background-color: skyblue;
+    border: 			0px;
+	padding:			3px;
+	border-spacing:		2px;
+}
+
+#mciTable th.date {
+    width: 20%;
+    border-right: 3px aquamarine ridge;
+}
+#mciTable th.type{
+    width: 20%;
+    border-right: 3px aquamarine ridge;
+}
+#mciTable th.location{
+    
+    border-right: 3px aquamarine ridge;
+}
+
+#mciTable th.latitude{
+    width: 5%;
+    border-right: 3px aquamarine ridge;
+}
+
+#mciTable th.longitude{
+    width: 5%;
+    border-right: 3px aquamarine ridge;
+}
+
+#mciTable th.open{
+    width: 5%;
 }
 
 #mciTable td{
 	border: 			0px;
 	padding:			3px;
+        padding-bottom:                 10px;
 	border-spacing:		2px;
+        font-size: large;
 }
 
 #mciTable input{
     background-color:darkred;
     color: white;
+    font-size: large;
 }
 
 #even{
