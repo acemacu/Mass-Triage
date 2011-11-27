@@ -1,6 +1,6 @@
 
 <div class="TopBar">
-  
+  <img class ="image"src ="../../images/LogoWhite.png"/>
     <br />
     <h1 class="TopBarInterior">CLOSE INCIDENT<hr /></h1>
   <br/>
@@ -8,6 +8,7 @@
 <div class="CountLogin">
   <div class="CountInputs">
     <% untransported = @incident.untransported("At Scene") %>
+    <br/>
   <span class="title"><%= untransported %></span><br /><br />
   <h2><%= link_to "TRIAGE", incident_patients_path(@incident) %>   <%= link_to "AMBULANCE", incident_ambulances_path(@incident)%></h2>
   LOG OUT AND EXIT THE APPLICATION<br />
