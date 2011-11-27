@@ -1,5 +1,5 @@
 class HospitalsController < ApplicationController
-  
+  before_filter :require_user
   # GET /hospitals
   # GET /hospitals.xml
   def index

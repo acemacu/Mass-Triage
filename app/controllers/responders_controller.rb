@@ -1,6 +1,7 @@
 class RespondersController < ApplicationController
   # GET /responders
   # GET /responders.xml
+  before_filter :require_user
   def index
     @responders = Responder.all
 

@@ -1,7 +1,9 @@
 class AmbulancesController < ApplicationController
  layout 'patient'
+ before_filter :require_user
   # GET /ambulances
   # GET /ambulances.xml
+  
   def index
     
     @incident = Incident.find(params[:incident_id])

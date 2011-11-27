@@ -1,5 +1,5 @@
 class IncidentsController < ApplicationController
-
+  before_filter :require_user
   # GET /incidents
   # GET /incidents.xml
   def index
@@ -45,7 +45,7 @@ class IncidentsController < ApplicationController
   # Patient count == to show?
   def create  
     @incident = Incident.new(params[:incident])
-    @incident.creating_user_id = current_user.id
+   # @incident.creating_user_id = current_user.id
       
     respond_to do |format|
       if @incident.save

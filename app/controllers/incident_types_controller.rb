@@ -1,6 +1,8 @@
 class IncidentTypesController < ApplicationController
   # GET /incident_types
   # GET /incident_types.xml
+  before_filter :require_user
+  
   def index
     @incident_types = IncidentType.all
 

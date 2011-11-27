@@ -3,6 +3,7 @@ class UserSessionsController < ApplicationController
   # GET /user_sessions.xml
    # GET /user_sessions/new
   # GET /user_sessions/new.xml
+  
   def new
     @user_session = UserSession.new
 

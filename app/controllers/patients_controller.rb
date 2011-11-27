@@ -1,7 +1,8 @@
 class PatientsController < ApplicationController
-layout 'patient'
-require 'json'
-
+  layout 'patient'
+  require 'json'
+  before_filter :require_user
+  
   def other
     @incident_id = params[:incident_id]
     puts "ID = " + @incident_id
