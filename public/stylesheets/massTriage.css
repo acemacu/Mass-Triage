@@ -1,10 +1,9 @@
 body {
    height: 100%;
-   overflow: hidden;
    background-image:url(../images/Brushed_Steel.png);
    background-size: 100%;
 }
-span.title {
+.title {
     color:#fc0;
 }
 
@@ -91,6 +90,12 @@ div.CountInputs input.LongButton {
     font-size: large; 
     font-weight:bold;
 }
+
+div.CountInputs a:link {color: #fff;}
+div.CountInputs a:active {color: #fff;}
+div.CountInputs a:visited {color: #fff;}
+div.CountInputs a:hover {color: #fc0;}
+
 div.Login {
     width: 50%;
     margin-left: auto;
@@ -129,7 +134,7 @@ input.ShortButton {
 input.RedShortButton {
     background-color: darkred;
     height: 50px;
-    width:100px;
+    width:50px;
     font-size:large; 
     font-weight:bold;
    }
@@ -215,8 +220,26 @@ div.incident input.ShortField {
     font-size: x-large;
 }
 
+div.incident select.ShortField {
+    width: 8%;
+    height: 50px;
+    font-size: large;
+}
+
 div.incident input.LongField {
     width: 15%;
+    height: 50px;
+    font-size: large;
+}
+
+div.incident select.LongField {
+    width: 15%;
+    height: 50px;
+    font-size: large;
+}
+
+div.incident input.MidField {
+    width: 8%;
     height: 50px;
     font-size: large;
 }
@@ -275,12 +298,20 @@ table.summary td.black {
 	border: 			2px solid black;
 	padding:			3px;
 	border-spacing:		2px;
-	font: 				large bold;
+	font: 				x-large bold;
 	font-family: 		verdana, arial, helvetica, sans-serif;
         margin-left: auto;
         margin-right: auto;
 }
 
+.patientsTable select{
+    font-size: x-large;
+}
+
+.patientsTable input{
+    font-size: x-large;
+    
+}
 .redPatient {
     background-color:	red;
 	color:  	white;
@@ -360,8 +391,9 @@ div.right{
 #mciTable th{
     background-color: skyblue;
     border: 			0px;
-	padding:			3px;
-	border-spacing:		2px;
+    padding:			3px;
+    border-spacing:		2px;
+    font-weight: bold;
 }
 
 #mciTable th.date {
