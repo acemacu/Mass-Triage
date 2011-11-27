@@ -51,7 +51,15 @@ $(document).ready(function() {
 				}); 
     } 
 );
-
+function resize () {
+    $('.scrollable2').height(function(index, height) {
+                return window.innerHeight - $(this).offset().top;
+            });
+            
+    $('.scrollable3').height(function(index, height) {
+                return window.innerHeight - $(this).offset().top;
+            });
+};
 
 $(function(){
     
@@ -109,13 +117,10 @@ $('.scrollable3').height(function(index, height) {
         
         $('#min').click( function() {
             var toggleStatus = $.cookie("ToggleStatus");
-            $("#collapsable").toggle();
-            $('.scrollable2').height(function(index, height) {
-                return window.innerHeight - $(this).offset().top;
-            });
-            $('.scrollable3').height(function(index, height) {
-                return window.innerHeight - $(this).offset().top;
-            });
+            $("#collapsable").toggle('slow');
+            
+            window.setTimeout(resize, 650);
+                
             if (toggleStatus == "displayed" || toggleStatus == null)
                 $.cookie("ToggleStatus", "hidden");
             else 
@@ -124,28 +129,30 @@ $('.scrollable3').height(function(index, height) {
         });
 
                 
-         $('#min_patient_form').click( function() {
+        $('#min_patient_form').click( function() {
             var formStatus = $.cookie("FormStatus");
-            $("#patient_input").toggle();
-            $('.scrollable2').height(function(index, height) {
-                return window.innerHeight - $(this).offset().top;
-            });
+            $("#patient_input").toggle('slow');
             
+            window.setTimeout(resize, 650);
+                        
             if (formStatus == "displayed" || formStatus == null)
                 $.cookie("FormStatus", "hidden");
             else 
                 $.cookie("FormStatus", "displayed");
-  
-  
-  
-});
-        $('#min_patient_form').click( function() {
-            
-});
-
- $('#extra_options_min').click( function() {
-           
-        $("#extra_options").toggle("slow");
-     });
+        });
+        
+        $('#extra_options_min').click( function() {
+            $("#extra_options").toggle("slow");
+        });
+         
+        $(window).resize(function () { 
+            $('.scrollable2').height(function(index, height) {
+                return window.innerHeight - $(this).offset().top;
+            });
+            $('.scrollable3').height(function(index, height) {
+                return window.innerHeight - $(this).offset().top;
+            });
+        });
+         
          
 });

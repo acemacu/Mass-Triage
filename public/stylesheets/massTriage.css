@@ -115,6 +115,32 @@ div.Login {
     box-shadow: 5px 5px 5px gray;
 }
 
+div.Login div.Inputs {
+    background-color: black;
+    color: white;
+    text-align: left;
+    font-size: large;
+    margin-bottom: 5%;
+    padding-left: 2%;
+    -moz-box-shadow: 5px 5px 5px gray;
+    -webkit-box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px gray;
+}
+
+div.Login div.Inputs h2{
+    text-align: center;
+}
+
+div.Login div.Inputs input {
+    width: 90%;  
+    font-size: large;
+}
+
+div.Login div.Inputs select {
+    width: 90%;  
+    font-size: large;
+}
+
 input.LongButton {
     background-color: orange;
     height: 50px;
@@ -139,26 +165,7 @@ input.RedShortButton {
     font-weight:bold;
    }
 
-div.Login div.Inputs {
-    background-color: black;
-    color: white;
-    text-align: left;
-    font-size: large;
-    margin-bottom: 5%;
-    padding-left: 2%;
-    -moz-box-shadow: 5px 5px 5px gray;
-    -webkit-box-shadow: 5px 5px 5px gray;
-    box-shadow: 5px 5px 5px gray;
-}
 
-div.Login div.Inputs h2{
-    text-align: center;
-}
-
-div.Login div.Inputs input {
-    width: 90%;  
-    font-size: large;
-}
 
 div.wrapper {
     position:           fixed;
@@ -295,7 +302,7 @@ table.summary td.black {
 }
 
 .patientsTable td{
-	border: 			2px solid black;
+    	border: 			2px solid black;
 	padding:			3px;
 	border-spacing:		2px;
 	font: 				x-large bold;
