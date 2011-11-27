@@ -1,7 +1,6 @@
-<h2><%= link_to "TRIAGE TAB", incident_patients_path(@incident) %>   AMBULANCE TAB     <%= link_to "CLOSE TAB", close_incident_path(@incident) %></h2>
+<h2><span class ="UnselectedTab"><%= link_to "TRIAGE TAB", incident_patients_path(@incident) %></span>   <span class ="SelectedTab">AMBULANCE TAB</span>     <span class ="UnselectedTab"><%= link_to "CLOSE TAB", close_incident_path(@incident) %></span></h2>
 
 <div id="incident" data-id="<%= @incident.id %>"></div>
-<div class="centerEverythingContainterNoBorder">
 <% if current_user %>
   <% if User.find(current_user.id).role_id == 2 %>
   <%= render 'form' %>
@@ -20,24 +19,16 @@
     </div>
   <% end %>
 
-
+<div class="CountInputs">
 <h1>Request ambulances</h1>
 <%= submit_tag "-5", :type=> 'button', :class => 'minus5Ambulance'%>
 <%= submit_tag "-1", :type=> 'button', :class => 'minus1Ambulance'%>
 <%= f.text_field :requested_amb_count, :value => '0', :id => 'fieldAmbulance'  %>
 <%= submit_tag "+1", :type=> 'button', :class => 'plus1Ambulance'%>
 <%= submit_tag "+5", :type=> 'button', :class => 'plus5Ambulance'%>
-<br /><br /><br />
-
-<%= f.submit "NOTIFY DISPATCH"%>
-<% end %>
-<% end %>
-<% end %>
-</div>
-<hr />
-
-<div id="patient-notice"></div>
-<br />
+<br /><br />
+<%= f.submit "NOTIFY DISPATCH", :class => 'LongButton'%>
+<br /><br/></div><% end -%><% end -%><% end -%><hr />
 
 <div class="centerEverythingContainterNoBorder">
   <div class="scrollable3">
