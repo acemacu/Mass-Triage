@@ -74,7 +74,9 @@ class HospitalsController < ApplicationController
   # DELETE /hospitals/1.xml
   def destroy
     @hospital = Hospital.find(params[:id])
-    @hospital.destroy
+    if(@hospital.name != "Not yet defined")
+      @hospital.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to(hospitals_url) }

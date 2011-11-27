@@ -45,7 +45,19 @@ class IncidentsController < ApplicationController
   # Patient count == to show?
   def create  
     @incident = Incident.new(params[:incident])
-   # @incident.creating_user_id = current_user.id
+    puts "Incident location " << @incident.location
+    if(current_user != nil)
+      @incident.creating_user_id = current_user.id
+    end
+    if(params[:incident][:location] == "")
+      @incident.location = 'No location specified'
+    end
+    if (params[:incident][:latitude] == "")
+      @incident.latitude = 0
+    end
+    if(params[:incident][:longitude] == "")
+       @incident.longitude = 0
+    end
       
     respond_to do |format|
       if @incident.save
@@ -83,8 +95,10 @@ class IncidentsController < ApplicationController
           format.xml  { head :ok }
         end
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+        if(params[:commit] == "BEGIN TRIAGE")
+          format.html { render :action => "patient_count" }
+          format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end 

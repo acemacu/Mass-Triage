@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
+  before_filter :require_user, :only => [:index, :show]
+  
   def index
     @users = User.all
 
