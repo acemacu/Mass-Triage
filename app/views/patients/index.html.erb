@@ -1,5 +1,5 @@
 
-<h2>TRIAGE TAB   <%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident) %>     <%= link_to "CLOSE TAB", close_incident_path(@incident) %></h2>
+<h2><span class ="SelectedTab">TRIAGE TAB</span>   <span class ="UnselectedTab"><%= link_to "AMBULANCE TAB", incident_ambulances_path(@incident) %></span>     <span class ="UnselectedTab"><%= link_to "CLOSE TAB", close_incident_path(@incident) %></span></h2>
 <div id="incident_info" data-id="<%= @incident.id %>"></div>
 <% if current_user %>
   <% if User.find(current_user.id).role_id == 1 %>
@@ -9,7 +9,7 @@
       <br />
     </div>
     <hr />
-    <center><a class="min_toggle"id="min_patient_form" >PATIENT FORM</a></center>
+    <center><span class="highlight"<a class="min_toggle"id="min_patient_form" >PATIENT FORM</a></span></center>
   <% end %>
 <% end %>
 	<div id="patient-notice"></div>

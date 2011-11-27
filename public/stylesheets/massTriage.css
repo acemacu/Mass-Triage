@@ -29,6 +29,7 @@ div.TopBar a:hover {color: #fc0;}
 
 span.highlight {
     background-color:darkred;
+    color: black;
     border-radius: 5px;
     -moz-border-radius: 5px;
     font-size: large;
@@ -60,19 +61,22 @@ div.CountLogin {
     box-shadow: 5px 5px 5px gray;
 }
 
-div.CountLogin div.CountInputs {
+div.CountInputs {
     background-color: black;
     color: white;
     text-align: center;
-    margin-bottom: 5%;
+    max-width: 580px;
+    
     padding-left: 2%;
     -moz-box-shadow: 5px 5px 5px gray;
     -webkit-box-shadow: 5px 5px 5px gray;
     box-shadow: 5px 5px 5px gray;
+    margin-left: auto;
+    margin-right: auto;
     
 }
 
-div.CountLogin div.CountInputs input {
+div.CountInputs input {
     width: 14%;  
     height: 50px;
     font-size: x-large;
@@ -80,6 +84,13 @@ div.CountLogin div.CountInputs input {
     margin-left: 2%;
 }
 
+div.CountInputs input.LongButton {
+    background-color: orange;
+    height: 50px;
+    min-width:200px;
+    font-size: large; 
+    font-weight:bold;
+}
 div.Login {
     width: 50%;
     margin-left: auto;
@@ -102,8 +113,8 @@ div.Login {
 input.LongButton {
     background-color: orange;
     height: 50px;
-    width:200px;
-    font-size:large; 
+    min-width:200px;
+    font-size: large; 
     font-weight:bold;
 }
 
@@ -127,6 +138,7 @@ div.Login div.Inputs {
     background-color: black;
     color: white;
     text-align: left;
+    font-size: large;
     margin-bottom: 5%;
     padding-left: 2%;
     -moz-box-shadow: 5px 5px 5px gray;
@@ -140,6 +152,7 @@ div.Login div.Inputs h2{
 
 div.Login div.Inputs input {
     width: 90%;  
+    font-size: large;
 }
 
 div.wrapper {
@@ -150,6 +163,38 @@ div.wrapper {
     left: 0px;
     
 }
+
+span.SelectedTab {
+    display: inline-block;
+    width: 20%;
+    height: 30px;
+    text-align: center;
+    color: white;
+    font-size: x-large;
+    background-color: #333;
+    border-top-left-radius: 8px 15px;
+    border-top-right-radius: 8px 15px;
+    -moz-top-left-radius: 8px 15px;
+    -moz-border-top-right-radius: 8px 15px;
+}
+
+span.UnselectedTab {
+    display: inline-block;
+    width: 20%;
+    height:30px;
+    text-align: center;
+    font-size: x-large;
+    background-color: gray;
+    border-top-left-radius: 8px 15px;
+    border-top-right-radius: 8px 15px;
+    -moz-top-left-radius: 8px 15px;
+    -moz-border-top-right-radius: 8px 15px;
+}
+
+span.UnselectedTab a:link {color: #fff;}
+span.UnselectedTab a:active {color: #fff;}
+span.UnselectedTab a:visited {color: #fff;}
+span.UnselectedTab a:hover {color: #fc0;}
 
 div.incident {
     background-color: #333;
@@ -210,9 +255,8 @@ table.summary td.yellow {
 
 table.summary td.green {
     background-color:       green;
-    color: 
 -moz-border-radius: 8px;
-    border-radius: 8px;        white;
+    border-radius: 8px;   
 }
 
 table.summary td.black {
@@ -298,34 +342,67 @@ div.right{
 .fieldLogin{
 	font-size: 20px;
 }
-#mciTableHeader {
-        border: 		0px;
-	border-collapse: 	collapse;
-	width:				100%;	
-        background-color: skyblue;
-}
 
-#mciTableHeader th.date,th.type,th.location,th.latitude {
-    
-    border-right: 3px aquamarine ridge;
-}
+
+
 
 
 #mciTable{
 	border: 			0px;
 	border-collapse: 	collapse;
-	width:				100%;	
+	width:				100%;
+        font-size: large;
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+}
+
+#mciTable th{
+    background-color: skyblue;
+    border: 			0px;
+	padding:			3px;
+	border-spacing:		2px;
+}
+
+#mciTable th.date {
+    width: 20%;
+    border-right: 3px aquamarine ridge;
+}
+#mciTable th.type{
+    width: 20%;
+    border-right: 3px aquamarine ridge;
+}
+#mciTable th.location{
+    
+    border-right: 3px aquamarine ridge;
+}
+
+#mciTable th.latitude{
+    width: 5%;
+    border-right: 3px aquamarine ridge;
+}
+
+#mciTable th.longitude{
+    width: 5%;
+    border-right: 3px aquamarine ridge;
+}
+
+#mciTable th.open{
+    width: 5%;
 }
 
 #mciTable td{
 	border: 			0px;
 	padding:			3px;
+        padding-bottom:                 10px;
 	border-spacing:		2px;
+        font-size: large;
 }
 
 #mciTable input{
     background-color:darkred;
     color: white;
+    font-size: large;
 }
 
 #even{

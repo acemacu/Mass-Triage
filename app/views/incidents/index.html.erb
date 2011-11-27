@@ -5,23 +5,17 @@
     <h1 class="TopBarInterior">MCIs in Progress<hr /></h1><br />
  </div>
   <br />
-  <div class="centerEverythingContainterNoBorder">
-
-
-<table id="mciTableHeader">
+  
+<table id="mciTable">
   <tr>
     <th class="date">Date</th>
     <th class ="type">Type</th>
     <th class="location">Location</th>
-    <th class="latitude">Latitude</th>
-    <th class="longitude">Longitude</th>
-    <th> </th>
-    <th></th>
+    <th class="latitude">LAT</th>
+    <th class="longitude">LONG</th>
+    <th class="open"> </th>
   </tr>
-</table>
-  </div>
-  <div class="scrollable">
-    <table id="mciTable">
+
       <% @incidents.each_with_index do |incident, i| %>
         <% if i%2 == 0 %>
           <tr id ="even">
@@ -48,11 +42,11 @@
 <% end %>
 </table>
 </div>
-</div>
+
 	<div class="footerwrap">
 		<br />
 		<hr />
-		<%= button_to 'START NEW MCI', new_incident_path, {:method => "get", :class => "button"}%>
+		<%= button_to 'START NEW MCI', new_incident_path, {:method => "get", :class => "LongButton"}%>
 		<br />
 	</div>
 
