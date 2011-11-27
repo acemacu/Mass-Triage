@@ -8,9 +8,9 @@
 	  <% @oddOrEven+=1%>
 	
         <td><%= editable_field ambulance, :idAmbulance, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
-        <td><%= editable_field ambulance, :status, :type => 'select', :submit => 'OK', :update_url => incident_ambulance_path(@incident, ambulance), :data => {'En Route', 'En Route', 'Delayed', 'Delayed', 'Arrived', 'Arrived', 'Transported', 'Transported'}%></td>
+        <td><%= editable_field ambulance, :status, :type => 'select', :onblur => 'submit', :update_url => incident_ambulance_path(@incident, ambulance), :data => {'En Route', 'En Route', 'Delayed', 'Delayed', 'Arrived', 'Arrived', 'Transported', 'Transported'}%></td>
 		<%= div_for hospitalname do %>
-		<td><%= editable_field hospitalname, :name, :type => 'select', :submit => 'OK', :data => @stringHospitals, :update_url => incident_ambulance_path(@incident, ambulance) %></td>
+		<td><%= editable_field hospitalname, :name, :type => 'select', :onblur => 'submit', :data => @stringHospitals, :update_url => incident_ambulance_path(@incident, ambulance) %></td>
 		<% end %>
         <td><%= editable_field ambulance, :eta, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
         <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
