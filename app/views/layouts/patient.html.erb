@@ -17,7 +17,7 @@
   <div class="TopBar">
   <div id="collapsable" class="header_bar">
   <div class="left-long">
-	<b>INCIDENT</b><br/>
+	<a href="#" class="tt"><b>INCIDENT</b><span class="tooltip"><span class="top"></span><span class="middle"><%= @incident.description %></span><span class="bottom"></span></span></a></b><br/>
     <%= @incident.date %><br />
 	<% incidentTypeName = IncidentType.find(@incident.incident_type_id)%>
 	<%= div_for incidentTypeName do %>
@@ -50,7 +50,7 @@
         <td id="en_route_amb">EN ROUTE: <%= @incident.amb_count("En Route")%><br /></td>
       </tr>
       <tr>
-        <td id="arrived_amb">ARRIVED: <%= @incident.amb_count("Arrived") %></td>
+        <td id="arrived_amb">AT SCENE: <%= @incident.amb_count("Arrived") %></td>
         <td id="delayed_amb">DELAYED: <%= @incident.amb_count("Delayed") %><br /></td>
       </tr>
       <tr>
@@ -69,7 +69,7 @@
         DISPATCHER
       <% end %>
       <br />
-      <%= link_to "EXIT", :logout %>
+      <%= link_to "EXIT", incidents_path %>
     <% else %>
       NO USER
       <br /><%= link_to "LOGIN", :login %>
