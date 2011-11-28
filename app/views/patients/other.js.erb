@@ -70,11 +70,11 @@ function updateAmbulanceCount(statusMessage, number) {
   incidentTypeList = incidentTypeList.substring(0, incidentTypeList.length-1);
 
   <% for i in @incident %>
-    updateIncident('<%= i.id %>', '<%= escape_javascript(i.location) %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>', incidentTypeList, hashIncidentTypes["<%= i.incident_type_id %>"]);
+    updateIncident('<%= escape_javascript(i.location) %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>', incidentTypeList, hashIncidentTypes["<%= i.incident_type_id %>"]);
   <% end %>
 <% end %>
 
-function updateIncident(id, location, latitude, longitude, requested_amb, incidentTypeList, incident_type) {
+function updateIncident(location, latitude, longitude, requested_amb, incidentTypeList, incident_type) {
   var updateRoute = '/incidents/' + '<%= @incident_id %>' + '/resourceupdate';
   generatejEditableTextField('', location, 'incident_location', '2', 'incident[location]', updateRoute);
   generatejEditableTextField('', latitude, 'incident_latitude', '2', 'incident[latitude]', updateRoute);
