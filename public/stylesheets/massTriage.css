@@ -584,13 +584,17 @@ a.tt{
 a.tt span{ display: none; }
 
 /*background:; ie hack, something must be changed in a for ie to execute it*/
-a.tt:hover{ z-index:25; color: #aaaaff; background: ;}
-a.tt:hover span.tooltip{
+
+span.details{
     display:block;
+    background-color: white;
     position:absolute;
-    top:0px; left:0;
+    border: 5px #fc0 solid;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    top:30px; left:15px;
 	padding: 15px 0 0 0;
-	width:200px;
+	width:25%;
         font-size: medium;
 	color: black;
     text-align: center;
@@ -599,19 +603,7 @@ a.tt:hover span.tooltip{
 	MozOpacity: 0.90;
 	opacity: 0.90;
 }
-a.tt:hover span.top{
-	display: block;
-	padding: 30px 8px 0;
-        background: url(../images/bubble.gif) no-repeat top;
+span.details input{
+	font-size: large;
 }
-a.tt:hover span.middle{ /* different middle bg for stretch */
-	display: block;
-	padding: 0 8px; 
-	background: url(../images/bubble_filler.gif) repeat bottom; 
-}
-a.tt:hover span.bottom{
-	display: block;
-	padding:3px 8px 10px;
-	color: #548912;
-    background: url(../images/bubble.gif) no-repeat bottom;
-}
+

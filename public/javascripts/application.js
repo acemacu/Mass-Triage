@@ -24,7 +24,7 @@ function updatePatients () {
 $(document).ready(function() {
    var toggleStatus = $.cookie("ToggleStatus");
    var formStatus = $.cookie("FormStatus");
-   
+   $("#tooltip").hide();
    $("#tableForPatients").tablesorter({
         headers: {
             // assign the secound column (we start counting zero) 
@@ -120,6 +120,10 @@ $(document).ready(function() {
   
         });
 
+                
+        $('#tt').click( function() {
+            $("#tooltip").toggle('slow');
+        });
                 
         $('#min_patient_form').click( function() {
             var formStatus = $.cookie("FormStatus");
