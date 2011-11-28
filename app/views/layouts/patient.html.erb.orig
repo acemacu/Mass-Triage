@@ -1,0 +1,102 @@
+<!--
+For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+Developed by: Carnegie Mellon University - Team Triage
+Copyright:    Field Applications 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavascriptTest</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+  <%= javascript_include_tag "jquery-rails.js" %>
+  <%= javascript_include_tag "jquery.jeditable.js" %>
+  <%= javascript_include_tag "jquery.cookie.js" %>
+  <%= javascript_include_tag "jquery.tablesorter.js" %>
+  <%= javascript_include_tag "autocomplete-rails.js" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div class="TopBar">
+  <div id="collapsable" class="header_bar">
+  <div class="left-long">
+<<<<<<< HEAD
+    <% incidentTypeName = IncidentType.find(@incident.incident_type_id)%>
+	<a href="#" id="tt"><b>INCIDENT</b></a><span class="details" id="tooltip"><%= editable_field @incident, :description, :update_url => resourceupdate_path %></span><br />
+        <%= @incident.date %><br />
+	<%= div_for incidentTypeName do %>
+        <%= editable_field incidentTypeName, :name, :type => 'select', :submit => 'OK', :data => @stringIncidentType, :update_url => resourceupdate_path %>
+=======
+	<a href="#" class="tt"><b>INCIDENT</b><span class="tooltip"><span class="top"></span><span class="middle"><%= @incident.description %></span><span class="bottom"></span></span></a></b><br/>
+        <%= @incident.date %><br />
+	<% incidentTypeName = IncidentType.find(@incident.incident_type_id)%>
+	<%= div_for incidentTypeName do %>
+          <div id="incident_type_" class="incident_type_"><%= editable_field incidentTypeName, :name, :type => 'select', :onblur => 'submit', :data => @stringIncidentType, :update_url => resourceupdate_path %></div>
+>>>>>>> 389fda84806e064067e8fcdfcb25ecbfac730bf8
+	<% end %>
+	<div id="incident_location_" class="incident_location_"><%= editable_field @incident, :location, :update_url => resourceupdate_path%></div>
+        LAT: <span id="incident_latitude_" class="incident_latitude_"><%= editable_field @incident, :latitude, :update_url => resourceupdate_path %></span> | LONG: <span id="incident_longitude_" class="incident_longitude_"><%= editable_field @incident, :longitude, :update_url => resourceupdate_path %></span>
+  </div>
+
+	
+  <div class="left">
+    <b>PATIENTS</b><br/>
+    ESTIMATED: <%= @incident.est_patient_count %><br />
+    <div id="tagged">TAGGED: <%= @patients.count%><br /></div>
+    <table class="summary">
+      <tr>
+        <td id="black_triage" class="black"><%= @incident.color_dist("Black") %></td>
+        <td id="red_triage" class="red"><%= @incident.color_dist("Red") %></td>
+        <td id="yellow_triage" class="yellow"><%= @incident.color_dist("Yellow") %></td>
+        <td id="green_triage" class="green"><%= @incident.color_dist("Green") %></td>
+      </tr>
+    </table> 
+   </div>
+  <div class="left-long">
+    <b>AMBULANCES</b><br/>
+
+    <table class="ambulance">
+      <tr>
+        <td id="requested_amb">REQUESTED: <%= @incident.requested_amb_count %></td>
+        <td id="en_route_amb">EN ROUTE: <%= @incident.amb_count("En Route")%><br /></td>
+      </tr>
+      <tr>
+        <td id="arrived_amb">AT SCENE: <%= @incident.amb_count("At Scene") %></td>
+        <td id="delayed_amb">DELAYED: <%= @incident.amb_count("Delayed") %><br /></td>
+      </tr>
+      <tr>
+        <td id="staged_amb">STAGING: <%= @incident.amb_count("Staging") %></td>
+        <td id="transported_amb">TRANSPORTED: <%= @incident.amb_count("Transported") %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="right">
+    <% if current_user %>
+      LOGGED IN: <%= link_to "LOGOUT", :logout %><br/>
+      <%= current_user.username%><br />
+      <% if User.find(current_user.id).role_id == 1 %>
+        RESPONDER
+      <% elsif User.find(current_user.id).role_id == 2 %>
+        DISPATCHER
+      <% end %>
+      <br />
+      
+      <%= link_to "EXIT INCIDENT", incidents_path %>
+    <% else %>
+      NO USER
+      <br /><%= link_to "LOGIN", :login %>
+    <% end %>    
+    <br />
+  
+
+  </div>
+   
+  </div>
+  <hr /><span class="highlight"><a class="min_toggle" id="min" >SUMMARY RIBBON</a></span>
+  </div>
+<%= yield %>
+     
+</body>
+</html>
