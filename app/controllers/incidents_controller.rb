@@ -2,9 +2,13 @@ class IncidentsController < ApplicationController
   before_filter :require_user
   # GET /incidents
   # GET /incidents.xml
+  
   def index
-    @incidents = Incident.find_all_by_status(true)
-
+    if(@current_user.role_id == 3)
+      @incidents = Incident.all
+    else
+      @incidents = Incident.find_all_by_status(true)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @incidents }

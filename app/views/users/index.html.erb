@@ -1,4 +1,5 @@
 <div class="TopBar">
+	<img class ="image"src ="../images/LogoWhite.png"/>
 	<br />
 	<h1 class="TopBarInterior">Listing users<hr /></h1><br />
 </div>
@@ -11,16 +12,25 @@
     <th class="open"></th>
   </tr>
 
-<% @users.each do |user| %>
-  <tr>
+<% @users.each_with_index do |user, i| %>
+  	<% if i%2 != 0 %>
+    <tr id ="even">
+  <%else %>
+    <tr>
+  <% end%>
     <td><%= user.username %></td>
     <td><%= user.email %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= button_to 'Edit', edit_user_path(user), {:method => "get"}  %></td>
+    <td><%= button_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete  %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<div class="footerwrap">
+	<br />
+	<hr />
+	<%= button_to 'Add a new user', new_user_path, {:method => "get", :class => "LongButton"}%>
+	<br />
+</div>

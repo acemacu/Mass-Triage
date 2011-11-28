@@ -1,4 +1,5 @@
 <div class="TopBar">
+	<img class ="image"src ="../images/LogoWhite.png"/>
 	<br />
 	<h1 class="TopBarInterior">Listing of hospitals<hr /></h1><br />
 </div>
@@ -11,16 +12,28 @@
     <th class="open"></th>
   </tr>
 
-<% @hospitals.each do |hospital| %>
-  <tr>
-    <td><%= hospital.name %></td>
-    <td><%= hospital.address %></td>
-    <td><%= link_to 'Edit', edit_hospital_path(hospital) %></td>
-    <td><%= link_to 'Destroy', hospital, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<% @hospitals.each_with_index do |hospital, i| %>
+  <%if hospital.name != "Not yet defined"%>
+  	<% if i%2 != 0 %>
+    	<tr id ="even">
+  			<%else %>
+    	<tr>
+  			<% end%>
+   			<td><%= hospital.name %></td>
+    		<td><%= hospital.address %></td>
+			<td><%= button_to 'Edit', edit_hospital_path(hospital), {:method => "get"}  %></td>
+    		<td><%= button_to 'Delete', hospital, :confirm => 'Are you sure?', :method => :delete  %></td>
+  		</tr>
+	<% end %>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Hospital', new_hospital_path %>
+<div class="footerwrap">
+	<br />
+	<hr />
+	<%= button_to 'Add a new hospital', new_hospital_path, {:method => "get", :class => "LongButton"}%>
+	<br />
+</div>
+

@@ -1,5 +1,10 @@
+<% if @current_user %>
+	<% if @current_user.role_id != 3 %>
 <div class="wrapper">
+	<%end%>	
+  <%end%>
   <div class="TopBar">
+
   <img class ="image"src ="../images/LogoWhite.png"/>
     <br />
     <h1 class="TopBarInterior">MCIs in Progress<hr /></h1><br />
@@ -38,10 +43,19 @@
     <td><%= incident.latitude %></td>
     <td><%= incident.longitude %></td>
     <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
+	<% if @current_user %>
+		<% if @current_user.role_id == 3 %>
+			<td><%= button_to 'Delete', incident, :confirm => 'Are you sure?', :method => :delete  %></td>
+		<%end%>
+	<%end%>
   </tr>
 <% end %>
 </table>
-</div>
+<% if @current_user %>
+<% if @current_user.role_id != 3 %>
+ </div>
+	<%end%>	
+ <%end%>
 
 	<div class="footerwrap">
 		<br />

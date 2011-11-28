@@ -354,8 +354,8 @@ table.summary td.black {
 }
 
 .malePatient{
-	background-color: 	blue;
-	color:  			white;	
+	background-color: 	#BCD4E6;
+	color:  			black;	
 }
 
 
@@ -461,7 +461,7 @@ div.right{
 }
 
 .even{
-	background:	 #D3D3D3;
+	background:	 white;
 }
 
 

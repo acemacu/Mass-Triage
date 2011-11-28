@@ -185,7 +185,7 @@ function generatejEditableCombo(id, value, key, d_id, d_name, dataContent, td_cl
                 .replace(/&quot;/gi, "\"");
               return retval;
             }};
-            $.extend(args, {"name": d_name,"data":"{" + dataContent + "}","submit":"OK","method":"PUT","type":"select"});
+            $.extend(args, {"name": d_name,"data":"{" + dataContent + "}","onblur":"submit","method":"PUT","type":"select"});
             $(".editable[data-id='" + d_id + "'][data-name='" + d_name + "']").editable(updateRoute, args);
           });
         })( jQuery ) + '</td>';
