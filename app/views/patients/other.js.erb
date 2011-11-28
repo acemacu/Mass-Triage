@@ -48,11 +48,12 @@ function updateAmbulanceCount(statusMessage, number) {
   <% end %>
 <% end %>
 
-function updateIncident(location, latitude, longitude) {
+function updateIncident(location, latitude, longitude, requested_amb) {
   var updateRoute = '/incidents/' + '<%= @incident_id %>' + '/resourceupdate';
   generatejEditableTextField('', location, 'incident_location', '2', 'incident[location]', updateRoute);
   generatejEditableTextField('', latitude, 'incident_latitude', '2', 'incident[latitude]', updateRoute);
   generatejEditableTextField('', longitude, 'incident_longitude', '2', 'incident[longitude]', updateRoute);
+  $("#requested_amb").text('REQUESTED: ' + requested_amb);
 }
 
 <% if @patients.count > 0 %>
@@ -192,6 +193,7 @@ function generatejEditableCombo(id, value, key, d_id, d_name, dataContent, td_cl
 }
 
 function generatejEditableForNewPatient(id) {
+  $("#patient_" + id).replaceWith('');
   $("#tbody_created_patients").append('<tr id="patient_' + id + '">'
     + '<td id="tagnum_' + id + '"></td>'
     + '<td id="color_' + id + '"></td>'
