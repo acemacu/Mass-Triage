@@ -116,6 +116,9 @@ class IncidentsController < ApplicationController
             elsif params[:incident][:longitude]
               format.html {  render :text => params[:incident][:longitude] }
               format.json  { head :ok }
+            elsif params[:incident][:description]
+              format.html {  render :text => params[:incident][:description] }
+              format.json  { head :ok }
             end
           end
       elsif(params[:incident_type])
