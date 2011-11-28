@@ -18,6 +18,7 @@
     <th class="location">LOCATION</th>
     <th class="latitude">LAT</th>
     <th class="longitude">LONG</th>
+	<th class="open">OPEN?</th>
     <th class="open"> </th>
   </tr>
 
@@ -42,6 +43,15 @@
     <td><%= incident.location %></td>
     <td><%= incident.latitude %></td>
     <td><%= incident.longitude %></td>
+	<% if @current_user %>
+		<% if @current_user.role_id == 3 %>
+			<% if incident.status%>
+				<td>Yes</td>
+			<% else %>
+				<td>No</td>
+			<% end %>
+		<%end%>
+	<%end%>
     <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
 	<% if @current_user %>
 		<% if @current_user.role_id == 3 %>
