@@ -1,6 +1,9 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.xml
+
   before_filter :require_user, :only => [:index, :show]
   
   def index
@@ -12,8 +15,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.xml
+
   def show
     @user = User.find(params[:id])
 
@@ -23,8 +25,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.xml
+
   def new
     @user = User.new
 
@@ -34,13 +35,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1/edit
+
   def edit
     @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.xml
+
   def create
     @user = User.new(params[:user])
     respond_to do |format|
@@ -59,8 +59,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.xml
+
   def update
     @user = User.find(params[:id])
 
@@ -75,8 +74,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.xml
+
   def destroy
     @user = User.find(params[:id])
     @user.destroy

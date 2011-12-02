@@ -1,3 +1,8 @@
+<!--
+For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+Developed by: Carnegie Mellon University - Team Triage
+Copyright:    Field Applications 
+-->
 
 <%= form_for(@incident) do |f| %>
   <% if @incident.errors.any? %>
@@ -38,6 +43,11 @@
   <% @incident_type = IncidentType.find(:all).map { |u| [u.name, u.id] } %>
   <%= f.select :incident_type_id, @incident_type %>
 </div>
+<div class="fieldLogin">
+  <%= f.label "Incident Description:" %>
+  <%= f.text_area :description, :class => "TextArea" %>
+</div>
+
 </div>
 <%= f.submit "Create Incident", :class => "LongButton"%>
 <% end %>

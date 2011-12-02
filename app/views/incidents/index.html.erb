@@ -1,3 +1,9 @@
+<!--
+For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+Developed by: Carnegie Mellon University - Team Triage
+Copyright:    Field Applications 
+-->
+
 <% if @current_user %>
 	<% if @current_user.role_id != 3 %>
 <div class="wrapper">
@@ -18,7 +24,11 @@
     <th class="location">LOCATION</th>
     <th class="latitude">LAT</th>
     <th class="longitude">LONG</th>
-	<th class="open">OPEN?</th>
+	<% if @current_user %>
+		<% if @current_user.role_id == 3 %>
+			<th class="open">OPEN?</th>
+		<%end%>
+	<%end%>
     <th class="open"> </th>
   </tr>
 

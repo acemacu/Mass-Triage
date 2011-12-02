@@ -1,8 +1,11 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
   filter_parameter_logging :password
-  
   helper_method :current_user
   
   private

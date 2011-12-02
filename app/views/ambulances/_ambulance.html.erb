@@ -1,3 +1,9 @@
+<!--
+For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+Developed by: Carnegie Mellon University - Team Triage
+Copyright:    Field Applications 
+-->
+
 <% if ambulance.idAmbulance != "Not yet defined"%>
 <% hospitalname = Hospital.find(ambulance.hospital_id)%>
 	 <% if @oddOrEven % 2 == 0 %>
@@ -8,7 +14,7 @@
 	  <% @oddOrEven+=1%>
 	
         <td><%= editable_field ambulance, :idAmbulance, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
-        <td><%= editable_field ambulance, :status, :type => 'select', :onblur => 'submit', :update_url => incident_ambulance_path(@incident, ambulance), :data => {'En Route', 'En Route', 'Delayed', 'Delayed', 'Arrived', 'Arrived', 'Transported', 'Transported'}%></td>
+        <td><%= editable_field ambulance, :status, :type => 'select', :onblur => 'submit', :update_url => incident_ambulance_path(@incident, ambulance), :data => {'En Route', 'En Route', 'Delayed', 'Delayed', 'Staging', 'Staging', 'At Scene', 'At Scene', 'Transported', 'Transported'}%></td>
 		<%= div_for hospitalname do %>
 		<td><%= editable_field hospitalname, :name, :type => 'select', :onblur => 'submit', :data => @stringHospitals, :update_url => incident_ambulance_path(@incident, ambulance) %></td>
 		<% end %>

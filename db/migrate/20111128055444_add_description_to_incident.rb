@@ -2,18 +2,12 @@
 # Developed by: Carnegie Mellon University - Team Triage
 # Copyright:    Field Applications
 
-class CreateHospitals < ActiveRecord::Migration
+class AddDescriptionToIncident < ActiveRecord::Migration
   def self.up
-    create_table :hospitals do |t|
-      t.integer :idHospital
-      t.string :name
-      t.string :address
-
-      t.timestamps
-    end
+    add_column :incidents, :description, :string
   end
 
   def self.down
-    drop_table :hospitals
+    remove_column :incidents, :description
   end
 end

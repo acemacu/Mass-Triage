@@ -1,7 +1,9 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 class IncidentsController < ApplicationController
   before_filter :require_user
-  # GET /incidents
-  # GET /incidents.xml
   
   def index
     if(@current_user.role_id == 3)
@@ -15,8 +17,6 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # GET /incidents/1
-  # GET /incidents/1.xml
   def show
     @incident = Incident.find(params[:id])
        
@@ -26,8 +26,6 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # GET /incidents/new
-  # GET /incidents/new.xml
   def new
     @incident = Incident.new
     @incident.date = Time.now()
@@ -39,14 +37,11 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # GET /incidents/1/edit
   def edit
     @incident = Incident.find(params[:id])
   end
 
-  # POST /incidentsrequire 'incidents_controller'
-  # POST /incidents.xml
-  # Patient count == to show?
+
   def create  
     @incident = Incident.new(params[:incident])
     puts "Incident location " << @incident.location
@@ -78,9 +73,6 @@ class IncidentsController < ApplicationController
     end
   end
 
-  # PUT /incidents/1
-  # PUT /incidents/1.xml
-
   def update
      @incident = Incident.find(params[:id])
    if ((params[:incident][:requested_amb_count].to_i) < 0)
@@ -108,8 +100,6 @@ class IncidentsController < ApplicationController
   end 
   
 
-
-  
   def resourceupdate
    @incident = Incident.find(params[:incident_id])
     
@@ -146,7 +136,6 @@ class IncidentsController < ApplicationController
       params[:incident][:requested_amb_count] = @incident.requested_amb_count + params[:incident][:requested_amb_count].to_i
     end
     
-
     respond_to do |format|
       if @incident.update_attributes(params[:incident])
         format.html {redirect_to(incident_ambulances_path(@incident), :notice => 'Incident was successfully updated.')}
@@ -159,8 +148,7 @@ class IncidentsController < ApplicationController
     end
   end
   
-  # DELETE /incidents/1
-  # DELETE /incidents/1.xml
+
   def destroy
     @incident = Incident.find(params[:id])
     @incident.destroy
@@ -177,7 +165,6 @@ class IncidentsController < ApplicationController
 
 
   def add_arrival
-
     @incident = Incident.find(params[:id])
     @incident.arrivalTime = Time.now()
 
@@ -197,7 +184,6 @@ class IncidentsController < ApplicationController
   end
   
   def close
-  
     @incident = Incident.find(params[:id])
     @patients = @incident.patients.all
     
@@ -207,8 +193,6 @@ class IncidentsController < ApplicationController
     @stringIncidentType = json_incidentType(@incidentType)
    
     @ambulances = @incident.ambulances.all
-  
-   # render :layout => 'patient'
 end
   
   def closeincident
@@ -234,7 +218,6 @@ end
     end
     return JSON.generate(hashIncidentType)
   end
-  
   
 
 end

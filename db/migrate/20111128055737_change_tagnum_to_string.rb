@@ -2,18 +2,12 @@
 # Developed by: Carnegie Mellon University - Team Triage
 # Copyright:    Field Applications
 
-class CreateHospitals < ActiveRecord::Migration
+class ChangeTagnumToString < ActiveRecord::Migration
   def self.up
-    create_table :hospitals do |t|
-      t.integer :idHospital
-      t.string :name
-      t.string :address
-
-      t.timestamps
-    end
+    change_column :patients, :numberOfTag, :string
   end
 
   def self.down
-    drop_table :hospitals
+    change_column :patients, :numberOfTag, :integer
   end
 end

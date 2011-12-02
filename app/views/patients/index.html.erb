@@ -1,3 +1,8 @@
+<!--
+For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+Developed by: Carnegie Mellon University - Team Triage
+Copyright:    Field Applications 
+-->
 
 <h2><span class ="SelectedTab">TRIAGE</span>   <span class ="UnselectedTab"><%= link_to "AMBULANCE", incident_ambulances_path(@incident) %></span>     <span class ="UnselectedTab"><%= link_to "CLOSE", close_incident_path(@incident) %></span></h2>
 <hr />
@@ -30,7 +35,11 @@
                                 <th>STATUS</th>
 				<th>HOSPITAL</th>
 				<th>AMBULANCE</th>
-				<th>DELETE</th>
+				<% if @current_user %>
+					<% if @current_user.role_id == 1 %>
+						<th class="open">DELETE</th>
+					<%end%>
+				<%end%>
 				</tr>
 				</thead>		
 				<tbody id="tbody_created_patients" class="tbody_created_patients">

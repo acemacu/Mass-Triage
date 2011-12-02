@@ -1,19 +1,19 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 class IncidentTypesController < ApplicationController
-  # GET /incident_types
-  # GET /incident_types.xml
+
   before_filter :require_user
   
   def index
     @incident_types = IncidentType.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @incident_types }
     end
   end
 
-  # GET /incident_types/1
-  # GET /incident_types/1.xml
   def show
     @incident_type = IncidentType.find(params[:id])
 
@@ -23,8 +23,6 @@ class IncidentTypesController < ApplicationController
     end
   end
 
-  # GET /incident_types/new
-  # GET /incident_types/new.xml
   def new
     @incident_type = IncidentType.new
 
@@ -34,13 +32,10 @@ class IncidentTypesController < ApplicationController
     end
   end
 
-  # GET /incident_types/1/edit
   def edit
     @incident_type = IncidentType.find(params[:id])
   end
 
-  # POST /incident_types
-  # POST /incident_types.xml
   def create
     @incident_type = IncidentType.new(params[:incident_type])
 
@@ -55,8 +50,6 @@ class IncidentTypesController < ApplicationController
     end
   end
 
-  # PUT /incident_types/1
-  # PUT /incident_types/1.xml
   def update
     @incident_type = IncidentType.find(params[:id])
 
@@ -71,8 +64,6 @@ class IncidentTypesController < ApplicationController
     end
   end
 
-  # DELETE /incident_types/1
-  # DELETE /incident_types/1.xml
   def destroy
     @incident_type = IncidentType.find(params[:id])
     @incident_type.destroy
