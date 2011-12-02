@@ -1,3 +1,7 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 # This file controls what config variables you want to be able to allow your users
 # to set, as well as those you'll be able to access from within the application.
 # 

@@ -1,15 +1,17 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 class AmbulancesController < ApplicationController
  layout 'patient'
  before_filter :require_user
-  # GET /ambulances
-  # GET /ambulances.xml
   
   def index
     
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
     @ambulance = @incident.ambulances.new
-    @ambulances = @incident.ambulances.all  #Craig has: @ambulances = @incident.ambulances
+    @ambulances = @incident.ambulances.all
     
      @hospitals = Hospital.all
      @stringHospitals = json_hospitals(@hospitals)
@@ -24,8 +26,6 @@ class AmbulancesController < ApplicationController
     end
   end
 
-  # GET /ambulances/1
-  # GET /ambulances/1.xml
   def show
     @ambulance = Ambulance.find(params[:id])
 
@@ -35,8 +35,6 @@ class AmbulancesController < ApplicationController
     end
   end
 
-  # GET /ambulances/new
-  # GET /ambulances/new.xml
   def new
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.new
@@ -48,15 +46,12 @@ class AmbulancesController < ApplicationController
     end
   end
 
-  # GET /ambulances/1/edit
   def edit
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.find(params[:id])
     @patients = @incident.patients.all
   end
 
-  # POST /ambulances
-  # POST /ambulances.xml
   def create
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.new(params[:ambulance])
@@ -77,9 +72,6 @@ class AmbulancesController < ApplicationController
     end
   end
 
-  # PUT /ambulances/1
-  # PUT /ambulances/1.xml
-  #Craig doesn't have all the if's after if @ambulance.update_attributes(params[:ambulance])
   def update
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.find(params[:id])
@@ -116,8 +108,6 @@ class AmbulancesController < ApplicationController
     end
   end
 
-  # DELETE /ambulances/1
-  # DELETE /ambulances/1.xml
   def destroy
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.find(params[:id])
@@ -131,7 +121,7 @@ class AmbulancesController < ApplicationController
     end
   end
   
-  /Returns a json string of the hospitals/
+#Returns a json string of the hospitals
   def json_hospitals(hospitals)
     hashHospitals = Hash.new
     hospitals.each do |hospital|

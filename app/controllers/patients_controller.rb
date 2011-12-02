@@ -1,3 +1,7 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 class PatientsController < ApplicationController
   layout 'patient'
   require 'json'
@@ -41,8 +45,7 @@ class PatientsController < ApplicationController
 
   end
   
-  # GET /patients
-  # GET /patients.xml
+
   def index
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
@@ -63,8 +66,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  # GET /patients/1
-  # GET /patients/1.xml
+
   def show
     @patient = Patient.find(params[:id])
 
@@ -74,8 +76,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  # GET /patients/new
-  # GET /patients/new.xml
+
   def new
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.new
@@ -87,7 +88,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  # GET /patients/1/edit
+
   def edit
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.find(params[:id])
@@ -114,33 +115,6 @@ class PatientsController < ApplicationController
     end
   
   
-  /Craig's create method that include variables for validation in age
-  def create
-      @incident = Incident.find(params[:incident_id])
-      @patient = @incident.patients.new(params[:patient])
-      @patients = @incident.patients.all
-      @hospitals = Hospital.all
-     @stringHospitals = json_hospitals(@hospitals)
-     @incident_types = IncidentType.all
-     @stringTypes = json_incident_types(@incident_types)
-
-
-      respond_to do |format|
-        if @patient.save
-           flash[:notice] = "You just added a patient!"
-          format.html { redirect_to incident_patients_path }
-          format.js
-        else
-          format.html { render :action => "index" }
-          format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
-        end
-
-      end
-    end
-    /
-
-  # PUT /patients/1
-  # PUT /patients/1.xml
   def update
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.find(params[:id])
@@ -193,8 +167,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  # DELETE /patients/1
-  # DELETE /patients/1.xml
+
   def destroy
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.find(params[:id])
@@ -206,7 +179,7 @@ class PatientsController < ApplicationController
     end
   end
   
-  /Returns a json string of the hospitals/
+# Returns a json string of the hospitals/
   def json_hospitals(hospitals)
     hashHospitals = Hash.new
     hospitals.each do |hospital|
