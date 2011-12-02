@@ -35,7 +35,11 @@ Copyright:    Field Applications
                                 <th>STATUS</th>
 				<th>HOSPITAL</th>
 				<th>AMBULANCE</th>
-				<th>DELETE</th>
+				<% if @current_user %>
+					<% if @current_user.role_id == 1 %>
+						<th class="open">DELETE</th>
+					<%end%>
+				<%end%>
 				</tr>
 				</thead>		
 				<tbody id="tbody_created_patients" class="tbody_created_patients">

@@ -66,7 +66,7 @@ Copyright:    Field Applications
   </div>
   <div class="right">
     <% if current_user %>
-      LOGGED IN<br />
+      LOGGED IN: <%= link_to "LOGOUT", :logout %><br/>
       <%= current_user.username%><br />
       <% if User.find(current_user.id).role_id == 1 %>
         RESPONDER
@@ -74,7 +74,8 @@ Copyright:    Field Applications
         DISPATCHER
       <% end %>
       <br />
-      <%= link_to "EXIT", incidents_path %>
+      
+      <%= link_to "EXIT INCIDENT", incidents_path %>
     <% else %>
       NO USER
       <br /><%= link_to "LOGIN", :login %>
