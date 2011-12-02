@@ -8,7 +8,7 @@ class PatientsController < ApplicationController
     puts "ID = " + @incident_id
     date_millis = Time.at(params[:after].to_i/1000)
     puts "Time = " + date_millis.to_s
-    @patients = Patient.where("incident_id = ? and updated_at > ?", @incident_id, date_millis)
+    @patients = Patient.where("incident_id = ? and updated_at > ?", @incident_id, date_millis).limit(1)
     puts "#Patients = " + @patients.count.to_s
 
     if (@patients.count > 0)
@@ -17,19 +17,19 @@ class PatientsController < ApplicationController
       @triage = Patient.select("tagColor, count(*) as number").where("incident_id = ?", @incident_id).group("tagColor")
       puts "Triage = " + @triage.count.to_s
       @general = Patient.where("incident_id = ?", @incident_id)
-      puts "#Total = " + @general.count.to_s
-      @hospitals = Hospital.all
-      puts "#Hospitales = " + @hospitals.count.to_s
+      puts "#Total_Patients = " + @general.count.to_s
+      @hospitals = Hospital.order("name");
+      puts "#Hospitals = " + @hospitals.count.to_s
       @all_ambulances = Ambulance.where("incident_id = ?", @incident_id).order("idAmbulance");
       puts "#Ambulances = " + @all_ambulances.count.to_s
     end
 
-    @ambulances = Ambulance.where("incident_id = ? and updated_at > ?", @incident_id, date_millis)
+    @ambulances = Ambulance.where("incident_id = ? and updated_at > ?", @incident_id, date_millis).limit(1)
     puts "#Ambulances = " + @ambulances.count.to_s
 
     if (@ambulances.count > 0)
       @ambulances_assigned = Ambulance.select("status, count(*) as number").where("incident_id = ?", @incident_id).group("status")
-      puts "Assigned " + @ambulances_assigned.count.to_s
+      puts "Amb. Assigned " + @ambulances_assigned.count.to_s
       @general_ambulances = Ambulance.where("incident_id = ?", @incident_id).order("idAmbulance");
       puts "#Ambulances = " + @general_ambulances.count.to_s
       @all_patients = Patient.where("incident_id = ?", @incident_id)

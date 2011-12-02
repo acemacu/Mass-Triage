@@ -2,9 +2,9 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 $(document).ready(function() {
-  //if ($("#incident").length > 0) {
+  if ($("#incident_info").length > 0) {
     setTimeout(updatePatients, 10000);
-  //}
+  }
 });
 
 function updatePatients () {
