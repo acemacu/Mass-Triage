@@ -16,6 +16,8 @@ class PatientsController < ApplicationController
     puts "#Patients = " + @patients.count.to_s
 
     if (@patients.count > 0)
+      @authenticity_token = params[:authenticity_token]
+      puts "Authenticity token = " + @authenticity_token
       @new_patients = Patient.where("incident_id = ? and created_at > ?", @incident_id, date_millis)
       puts "New patients = " + @new_patients.count.to_s
       @triage = Patient.select("tagColor, count(*) as number").where("incident_id = ?", @incident_id).group("tagColor")
@@ -46,7 +48,7 @@ class PatientsController < ApplicationController
   end
   
 
-  def index
+  def index    
     @incident = Incident.find(params[:incident_id])
     @patients = @incident.patients.all
     @patient = @incident.patients.new

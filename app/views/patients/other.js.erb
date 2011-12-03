@@ -14,9 +14,11 @@ $("#tableForPatients").tablesorter({
 
 <% if @ambulances.count > 0 %>
   resetAmbulanceValues();
+
   <% for ambulance in @ambulances_assigned %>
     updateAmbulanceCount('<%= ambulance.status %>', '<%=  ambulance.number %>');
   <% end %>
+
   var ambulanceList = '';
   var hashAmbulances = new Object();
   <% for a in @general_ambulances %>
@@ -24,6 +26,7 @@ $("#tableForPatients").tablesorter({
     hashAmbulances["<%= a.id %>"] = "<%= a.idAmbulance %>";
   <% end %>
   ambulanceList = ambulanceList.substring(0, ambulanceList.length-1);
+
   <% for p in @all_patients %>
     updateAmbulanceListInPatients('<%= p.id %>', hashAmbulances["<%= p.ambulance_id %>"], ambulanceList);
   <% end %>
@@ -58,7 +61,7 @@ function updateAmbulanceCount(statusMessage, number) {
 
 <% if @incident.count > 0 %>
   <% for i in @incident %>
-    updateIncident('<%= i.location %>', '<%= i.latitude %>', '<%= i.longitude %>');
+    updateIncident('<%= i.location %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>');
   <% end %>
 <% end %>
 
@@ -73,7 +76,7 @@ function updateIncident(location, latitude, longitude, requested_amb) {
 <% if @patients.count > 0 %>  
 
   <% for n in @new_patients %>
-    generatejEditableForNewPatient('<%= n.id %>');
+    generatejEditableForNewPatient('<%= n.id %>', '<%= @incident_id %>', '<%= @authenticity_token %>');
   <% end %>
 
   resetPatientsTriage('<%= @general.count %>');
@@ -206,7 +209,7 @@ function generatejEditableCombo(id, value, key, d_id, d_name, dataContent, td_cl
         })( jQuery ) + '</td>';
 }
 
-function generatejEditableForNewPatient(id) {
+function generatejEditableForNewPatient(id, incident_id, authenticity_token) {
   $("#patient_" + id).replaceWith('');
   $("#tbody_created_patients").append('<tr id="patient_' + id + '">'
     + '<td id="tagnum_' + id + '"></td>'
@@ -217,6 +220,7 @@ function generatejEditableForNewPatient(id) {
     + '<td id="complaint_' + id + '"></td>'
     + '<td id="patient_status_' + id + '"></td>'
     + '<td id="hospital_patient_' + id + '"></td>'
-    + '<td id="ambulance_patient_' + id + '"></td></tr>');
+    + '<td id="ambulance_patient_' + id + '"></td>'
+    + '<td><form method="post" action="/incidents/' + incident_id + '/patients/' + id + '" data-remote="true" class="button_to"><div><input name="_method" type="hidden" value="delete"><input class="destroy" data-confirm="Are you sure?" type="submit" value="X"><input name="authenticity_token" type="hidden" value="' + authenticity_token + '"></div></form></td></tr>');
 }
 

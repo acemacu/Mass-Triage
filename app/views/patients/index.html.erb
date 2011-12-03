@@ -7,6 +7,7 @@ Copyright:    Field Applications
 <h2><span class ="SelectedTab">TRIAGE</span>   <span class ="UnselectedTab"><%= link_to "AMBULANCE", incident_ambulances_path(@incident) %></span>     <span class ="UnselectedTab"><%= link_to "CLOSE", close_incident_path(@incident) %></span></h2>
 <hr />
 <div id="incident_info" data-id="<%= @incident.id %>"></div>
+<div id="form_token" data-id="<%= form_authenticity_token %>"></div>;
 <% if current_user %>
   <% if User.find(current_user.id).role_id == 1 %>
     <div class="incident" id="patient_input" data-id="<%= @incident.id %>">
