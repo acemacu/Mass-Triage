@@ -16,14 +16,14 @@ $("#tableForPatients").tablesorter({
   resetAmbulanceValues();
 
   <% for ambulance in @ambulances_assigned %>
-    updateAmbulanceCount('<%= ambulance.status %>', '<%=  ambulance.number %>');
+    updateAmbulanceCount('<%= escape_javascript(ambulance.status) %>', '<%=  ambulance.number %>');
   <% end %>
 
   var ambulanceList = '';
   var hashAmbulances = new Object();
   <% for a in @general_ambulances %>
-    ambulanceList = ambulanceList + '"<%= a.id %>":"<%= a.idAmbulance %>",';
-    hashAmbulances["<%= a.id %>"] = "<%= a.idAmbulance %>";
+    ambulanceList = ambulanceList + '"<%= a.id %>":"<%= escape_javascript(a.idAmbulance) %>",';
+    hashAmbulances["<%= a.id %>"] = "<%= escape_javascript(a.idAmbulance) %>";
   <% end %>
   ambulanceList = ambulanceList.substring(0, ambulanceList.length-1);
 
@@ -61,7 +61,7 @@ function updateAmbulanceCount(statusMessage, number) {
 
 <% if @incident.count > 0 %>
   <% for i in @incident %>
-    updateIncident('<%= i.location %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>');
+    updateIncident('<%= escape_javascript(i.location) %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>');
   <% end %>
 <% end %>
 
@@ -81,28 +81,28 @@ function updateIncident(location, latitude, longitude, requested_amb) {
 
   resetPatientsTriage('<%= @general.count %>');
   <% for triage in @triage %>
-    updatePatientsTriage('<%= triage.tagColor %>', '<%= triage.number %>');
+    updatePatientsTriage('<%= escape_javascript(triage.tagColor) %>', '<%= triage.number %>');
   <% end %>
 
   var hospitalList = '';
   var hashHospitals = new Object();
   <% for h in @hospitals %>
-    hospitalList = hospitalList + '"<%= h.id %>":"<%= h.name %>",';
-    hashHospitals["<%= h.id %>"] = "<%= h.name %>";
+    hospitalList = hospitalList + '"<%= h.id %>":"<%= escape_javascript(h.name) %>",';
+    hashHospitals["<%= h.id %>"] = "<%= escape_javascript(h.name) %>";
   <% end %>
   hospitalList = hospitalList.substring(0, hospitalList.length-1);
 
   var ambulanceList = '';
   var hashAllAmbulances = new Object();
   <% for a in @all_ambulances %>
-    ambulanceList = ambulanceList + '"<%= a.id %>":"<%= a.idAmbulance %>",';
-    hashAllAmbulances["<%= a.id %>"] = "<%= a.idAmbulance %>";
+    ambulanceList = ambulanceList + '"<%= a.id %>":"<%= escape_javascript(a.idAmbulance) %>",';
+    hashAllAmbulances["<%= a.id %>"] = "<%= escape_javascript(a.idAmbulance) %>";
   <% end %>
   ambulanceList = ambulanceList.substring(0, ambulanceList.length-1);
 
   <% for p in @patients %>
     updateModifiedPatientInfo('<%= p.id %>', '<%= p.numberOfTag %>', '<%= p.tagColor %>',
-      '<%= p.sex %>', '<%= p.age %>', '<%= p.ageType %>', '<%= p.complaint %>',
+      '<%= p.sex %>', '<%= p.age %>', '<%= p.ageType %>', '<%= escape_javascript(p.complaint) %>',
       '<%= p.status %>', '<%= p.hospital_id %>', ambulanceList, hashAllAmbulances["<%= p.ambulance_id %>"],
       hospitalList, hashHospitals["<%= p.hospital_id %>"]);
   <% end %>
