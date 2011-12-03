@@ -30,7 +30,7 @@ function resetAmbulanceValues() {
   $("#en_route_amb").text("EN ROUTE: 0");
   $("#transported_amb").text("TRANSPORTED: 0");
   $("#delayed_amb").text("DELAYED: 0");
-  $("#arrived_amb").text("ARRIVED: 0");
+  $("#arrived_amb").text("AT SCENE: 0");
   $("#staged_amb").text("STAGED: 0");
 }
 
@@ -41,9 +41,9 @@ function updateAmbulanceCount(statusMessage, number) {
       $("#transported_amb").text("TRANSPORTED: " + number);
     } else if (statusMessage == "Delayed") {
       $("#delayed_amb").text("DELAYED: " + number);
-    } else if (statusMessage == "Arrived") {
-      $("#arrived_amb").text("ARRIVED: " + number);
-    } else if (statusMessage == "Staged") {
+    } else if (statusMessage == "At Scene") {
+      $("#arrived_amb").text("AT SCENE: " + number);
+    } else if (statusMessage == "Staging") {
       $("#staged_amb").text("STAGED: " + number);
     }
 }
@@ -68,7 +68,6 @@ function updateIncident(location, latitude, longitude, requested_amb) {
   <% end %>
 
   resetPatientsTriage('<%= @general.count %>');
-
   <% for triage in @triage %>
     updatePatientsTriage('<%= triage.tagColor %>', '<%= triage.number %>');
   <% end %>
