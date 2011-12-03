@@ -15,8 +15,9 @@ $(document).ready(function() {
 
 function updatePatients () {
   var incident_id = $("#incident_info").attr("data-id");
+  var authenticity_token = $("#form_token").attr("data-id");
   var time = new Date().getTime() - 15000;
-  $.getScript("/patients/other.js?incident_id=" + incident_id + "&after=" + time.toString());
+  $.getScript("/patients/other.js?incident_id=" + incident_id + "&after=" + time.toString()+"&authenticity_token=" + authenticity_token);
   setTimeout(updatePatients, 15000);
 }
 
