@@ -55,11 +55,11 @@ Copyright:    Field Applications
         <td id="en_route_amb">EN ROUTE: <%= @incident.amb_count("En Route")%><br /></td>
       </tr>
       <tr>
-        <td id="arrived_amb">AT SCENE: <%= @incident.amb_count("Arrived") %></td>
+        <td id="arrived_amb">AT SCENE: <%= @incident.amb_count("At Scene") %></td>
         <td id="delayed_amb">DELAYED: <%= @incident.amb_count("Delayed") %><br /></td>
       </tr>
       <tr>
-        <td id="staged_amb">STAGING: <%= @incident.amb_count("Staged") %></td>
+        <td id="staged_amb">STAGING: <%= @incident.amb_count("Staging") %></td>
         <td id="transported_amb">TRANSPORTED: <%= @incident.amb_count("Transported") %></td>
       </tr>
     </table>

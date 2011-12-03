@@ -31,7 +31,7 @@ function resetAmbulanceValues() {
   $("#transported_amb").text("TRANSPORTED: 0");
   $("#delayed_amb").text("DELAYED: 0");
   $("#arrived_amb").text("AT SCENE: 0");
-  $("#staged_amb").text("STAGED: 0");
+  $("#staged_amb").text("STAGING: 0");
 }
 
 function updateAmbulanceCount(statusMessage, number) {
@@ -44,7 +44,7 @@ function updateAmbulanceCount(statusMessage, number) {
     } else if (statusMessage == "At Scene") {
       $("#arrived_amb").text("AT SCENE: " + number);
     } else if (statusMessage == "Staging") {
-      $("#staged_amb").text("STAGED: " + number);
+      $("#staged_amb").text("STAGING: " + number);
     }
 }
 
