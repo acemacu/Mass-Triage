@@ -47,6 +47,10 @@ class IncidentsController < ApplicationController
     puts "Incident location " << @incident.location
     if(current_user != nil)
       @incident.creating_user_id = current_user.id
+      @user = User.find(current_user.id)
+      if @user.role_id != 3
+        @incident.users.push(@user)
+      end
     end
     if(params[:incident][:location] == "")
       @incident.location = 'No location specified'
@@ -218,7 +222,24 @@ end
     end
     return JSON.generate(hashIncidentType)
   end
-  
+
+  def join_incident
+    @incident = Incident.find(params[:id])
+    @user = User.find(current_user.id)
+    @incident.users.push(@user)
+
+    respond_to do |format|
+      if @incident.save
+        format.html {redirect_to(incident_patients_path(params[:id]), :notice => 'You have successfully joined incident.')}
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to incidents_path }
+        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+
+      end
+    end
+
+  end
 
 end
 

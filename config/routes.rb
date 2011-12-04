@@ -11,6 +11,8 @@ MassTriage::Application.routes.draw do
   match "patients/other", :to => "patients#other"
   
   match "administrators/index"  => "administrators#index", :as => "administrators"
+  
+  match "join_incident", :to => "incidents#join_incident", :as => :join_incident
 
   resources :user_sessions
 

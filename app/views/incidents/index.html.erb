@@ -54,6 +54,7 @@ Copyright:    Field Applications
     <td><%= incident.location %></td>
     <td><%= incident.latitude %></td>
     <td><%= incident.longitude %></td>
+
 	<% if @current_user %>
 		<% if @current_user.role_id == 3 %>
 			<% if incident.status%>
@@ -63,8 +64,14 @@ Copyright:    Field Applications
 			<% end %>
 		<%end%>
 	<%end%>
-    <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
-	<% if @current_user %>
+                 <% if @current_user %>
+                <%  if (added(incident) or  @current_user.role_id == 3) %>
+                  <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
+                 <% else %>
+              <td><%= button_to 'JOIN', {:controller => 'incidents', :action => 'join_incident', :id => incident.id} %></td>
+          
+       <%end%>
+                 >
 		<% if @current_user.role_id == 3 %>
 			<td><%= button_to 'Delete', incident, :confirm => 'Are you sure?', :method => :delete  %></td>
 		<%end%>

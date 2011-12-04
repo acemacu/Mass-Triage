@@ -3,5 +3,13 @@
 # Copyright:    Field Applications
 
 module IncidentsHelper
-  
+  def added(incident)
+
+        @join =  incident.users.find(current_user.id) if incident.users.exists?(current_user.id)
+        if @join.nil?
+          return false
+        else
+          return true
+        end
+  end
 end
