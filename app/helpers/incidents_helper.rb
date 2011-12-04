@@ -4,12 +4,29 @@
 
 module IncidentsHelper
   def added(incident)
-
-        @join =  incident.users.find(current_user.id) if incident.users.exists?(current_user.id)
-        if @join.nil?
-          return false
+        if incident.users.exists?(current_user.id)
+                 return true
         else
-          return true
+          return false
         end
+  end
+
+  def user(responderid)
+    return @user = User.find(responderid)
+
+  end
+
+
+  def updates(incidentid, patientid)
+   return PatientUpdate.new.getupdates(incidentid, patientid)
+
+  end
+
+  def transport(incidentid, patientid)
+     return  PatientUpdate.new.transported(incidentid, patientid)
+  end
+
+  def incidentcommander()
+
   end
 end

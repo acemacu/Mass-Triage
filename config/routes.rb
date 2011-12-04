@@ -28,7 +28,8 @@ MassTriage::Application.routes.draw do
   match "incidents/:incident_id/viewupdate" => "incidents#viewupdate", :as => "viewupdate"
   match "incidents/:incident_id/resourceupdate" => "incidents#resourceupdate", :as => "resourceupdate"
   match "incidents/:incident_id/patient_count" => "incidents#patient_count", :as => "patient_count"
-
+  match "incidents/report" => "incidents#report", :as => "report"
+  match "viewreport/:id" => "incidents#viewreport", :as => "viewreport"
   
   resources :incidents do
     resources :ambulances

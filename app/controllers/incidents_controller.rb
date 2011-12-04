@@ -4,6 +4,7 @@
 
 class IncidentsController < ApplicationController
   before_filter :require_user
+  helper :incidents
   
   def index
     if(@current_user.role_id == 3)
@@ -244,6 +245,19 @@ end
 
   end
 
+  def report
+    @incident = Incident.select("*").where("status = ?", false)
+
+  end
+
+   def viewreport
+      @incident = Incident.find_by_id_and_status(params[:id], "f")
+      if !@incident.nil?
+        @patient =@incident.patients.all
+        @incident_user = @incident.users.all
+
+      end
+   end
 end
 
 
