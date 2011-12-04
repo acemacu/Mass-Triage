@@ -43,7 +43,7 @@ class PatientsController < ApplicationController
     end
 
     @incident = Incident.where("id = ? and updated_at > ?", @incident_id, date_millis)
-    puts "#Incidents = " + @incident.count.to_s
+    puts "#Incident = " + @incident.count.to_s
 
     if (@incident.count > 0)
       @incident_types = IncidentType.order("name");
