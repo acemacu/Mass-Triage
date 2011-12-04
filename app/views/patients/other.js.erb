@@ -1,7 +1,7 @@
 /*
 For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
 Developed by: Carnegie Mellon University - Team Triage
-Copyright:    Field Applications 
+Copyright:    Field Applications
 */
 
 $("#tableForPatients").tablesorter({
@@ -60,20 +60,30 @@ function updateAmbulanceCount(statusMessage, number) {
 }
 
 <% if @incident.count > 0 %>
+
+  var incidentTypeList = '';
+  var hashIncidentTypes = new Object();
+  <% for t in @incident_types %>
+    incidentTypeList = incidentTypeList + '"<%= t.id %>":"<%= escape_javascript(t.name) %>",';
+    hashIncidentTypes["<%= t.id %>"] = "<%= escape_javascript(t.name) %>";
+  <% end %>
+  incidentTypeList = incidentTypeList.substring(0, incidentTypeList.length-1);
+
   <% for i in @incident %>
-    updateIncident('<%= escape_javascript(i.location) %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>');
+    updateIncident('<%= i.id %>', '<%= escape_javascript(i.location) %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>', incidentTypeList, hashIncidentTypes["<%= i.incident_type_id %>"]);
   <% end %>
 <% end %>
 
-function updateIncident(location, latitude, longitude, requested_amb) {
+function updateIncident(id, location, latitude, longitude, requested_amb, incidentTypeList, incident_type) {
   var updateRoute = '/incidents/' + '<%= @incident_id %>' + '/resourceupdate';
   generatejEditableTextField('', location, 'incident_location', '2', 'incident[location]', updateRoute);
   generatejEditableTextField('', latitude, 'incident_latitude', '2', 'incident[latitude]', updateRoute);
   generatejEditableTextField('', longitude, 'incident_longitude', '2', 'incident[longitude]', updateRoute);
+  generatejEditableCombo('', incident_type, 'incident_type', '1', 'incident_type[name]', incidentTypeList, 'incident_type', updateRoute);
   $("#requested_amb").text('REQUESTED: ' + requested_amb);
 }
 
-<% if @patients.count > 0 %>  
+<% if @patients.count > 0 %>
 
   <% for n in @new_patients %>
     generatejEditableForNewPatient('<%= n.id %>', '<%= @incident_id %>', '<%= @authenticity_token %>');

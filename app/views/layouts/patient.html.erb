@@ -23,10 +23,10 @@ Copyright:    Field Applications
   <div id="collapsable" class="header_bar">
   <div class="left-long">
 	<a href="#" class="tt"><b>INCIDENT</b><span class="tooltip"><span class="top"></span><span class="middle"><%= @incident.description %></span><span class="bottom"></span></span></a></b><br/>
-    <%= @incident.date %><br />
+        <%= @incident.date %><br />
 	<% incidentTypeName = IncidentType.find(@incident.incident_type_id)%>
 	<%= div_for incidentTypeName do %>
-    <%= editable_field incidentTypeName, :name, :type => 'select', :submit => 'OK', :data => @stringIncidentType, :update_url => resourceupdate_path %>
+          <div id="incident_type_" class="incident_type_"><%= editable_field incidentTypeName, :name, :type => 'select', :onblur => 'submit', :data => @stringIncidentType, :update_url => resourceupdate_path %></div>
 	<% end %>
 	<div id="incident_location_" class="incident_location_"><%= editable_field @incident, :location, :update_url => resourceupdate_path%></div>
         LAT: <span id="incident_latitude_" class="incident_latitude_"><%= editable_field @incident, :latitude, :update_url => resourceupdate_path %></span> | LONG: <span id="incident_longitude_" class="incident_longitude_"><%= editable_field @incident, :longitude, :update_url => resourceupdate_path %></span>
