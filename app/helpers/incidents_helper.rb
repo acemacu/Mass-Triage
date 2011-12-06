@@ -3,5 +3,30 @@
 # Copyright:    Field Applications
 
 module IncidentsHelper
-  
+  def added(incident)
+        if incident.users.exists?(current_user.id)
+                 return true
+        else
+          return false
+        end
+  end
+
+  def user(responderid)
+    return @user = User.find(responderid)
+
+  end
+
+
+  def updates(incidentid, patientid)
+   return PatientUpdate.new.getupdates(incidentid, patientid)
+
+  end
+
+  def transport(incidentid, patientid)
+     return  PatientUpdate.new.transported(incidentid, patientid)
+  end
+
+  def incidentcommander()
+
+  end
 end

@@ -125,35 +125,54 @@ class PatientsController < ApplicationController
   def update
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.find(params[:id])
+    @temp_patient=@patient.clone
     puts "The id of the patient is: " << @patient.id
     
     respond_to do |format|
       if(params[:patient])
         if @patient.update_attributes(params[:patient])
-          flash[:notice] = "Patient successfully updated."
+             @chng = PatientUpdate.new.recordchanges(params[:patient], @incident, @patient, current_user.id )
+            flash[:notice] = "Patient successfully updated."
           if params[:patient][:numberOfTag]
+            @chng.updated = "Tag Number"
+            @chng.previous =@temp_patient.numberOfTag
             format.html {  render :text => params[:patient][:numberOfTag] }
             format.json  { head :ok }
           elsif params[:patient][:tagColor]
+            @chng.updated = "Tag Color"
+            @chng.previous =@temp_patient.tagColor
             format.html {  render :text => params[:patient][:tagColor] }
             format.json  { head :ok }
           elsif params[:patient][:sex]
+            @chng.updated = "Sex"
+            @chng.previous =@temp_patient.sex
             format.html {  render :text => params[:patient][:sex] }
-            format.json  { head :ok } 
+            format.json  { head :ok }
           elsif params[:patient][:age]
+            @chng.updated = "Age"
+            @chng.previous =@temp_patient.age
             format.html {  render :text => params[:patient][:age] }
             format.json  { head :ok }
           elsif params[:patient][:ageType]
+             @chng.updated = "Age Type"
+             @chng.previous =@temp_patient.ageType
             format.html {  render :text => params[:patient][:ageType] }
             format.json  { head :ok }
           elsif params[:patient][:complaint]
+             @chng.updated = "Complaint"
+             @chng.previous =@temp_patient.complaint
             format.html {  render :text => params[:patient][:complaint] }
             format.json  { head :ok }
           else params[:patient][:status]
+            @chng.updated = "Status"
+            @chng.previous =@temp_patient.status
             format.html {  render :text => params[:patient][:status] }
-            format.json  { head :ok }      
+            format.json  { head :ok }
           end
+          @chng.save
+
         end
+       
       elsif(params[:ambulance])
         if @patient.update_attributes(:ambulance_id => params[:ambulance][:idAmbulance])
           ambulanceName = Ambulance.find(params[:ambulance][:idAmbulance])

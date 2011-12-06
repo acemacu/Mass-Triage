@@ -41,7 +41,7 @@ Copyright:    Field Applications
         <% end%>
 
     <% if incident.date != nil %>
-      <td><%= incident.date.strftime("%m/%d/%y %H:%I %p %Z") %></td>
+      <td><%= incident.date.strftime("%m/%d/%y %H:%M:%S %p %Z") %></td>
     <% else %>
       <td> </td>
     <% end %>
@@ -54,6 +54,7 @@ Copyright:    Field Applications
     <td><%= incident.location %></td>
     <td><%= incident.latitude %></td>
     <td><%= incident.longitude %></td>
+
 	<% if @current_user %>
 		<% if @current_user.role_id == 3 %>
 			<% if incident.status%>
@@ -63,10 +64,18 @@ Copyright:    Field Applications
 			<% end %>
 		<%end%>
 	<%end%>
-    <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
-	<% if @current_user %>
-		<% if @current_user.role_id == 3 %>
-			<td><%= button_to 'Delete', incident, :confirm => 'Are you sure?', :method => :delete  %></td>
+                <% if @current_user %>
+                <%  if (added(incident) and @current_user.role_id != 3)  %>
+                  <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
+                 <% else if@current_user.role_id == 3 %>
+                  <td><%= button_to 'Delete', incident, :confirm => 'Are you sure?', :method => :delete  %></td>
+                  <% else%>>
+                    <td><%= button_to 'JOIN', {:controller => 'incidents', :action => 'join_incident', :id => incident.id} %></td>
+                 <%end%>
+       
+                
+		
+			
 		<%end%>
 	<%end%>
   </tr>

@@ -4,6 +4,7 @@
 
 class IncidentsController < ApplicationController
   before_filter :require_user
+  helper :incidents
   
   def index
     if(@current_user.role_id == 3)
@@ -47,6 +48,10 @@ class IncidentsController < ApplicationController
     puts "Incident location " << @incident.location
     if(current_user != nil)
       @incident.creating_user_id = current_user.id
+      @user = User.find(current_user.id)
+      if @user.role_id != 3
+        @incident.users.push(@user)
+      end
     end
     if(params[:incident][:location] == "")
       @incident.location = 'No location specified'
@@ -115,6 +120,9 @@ class IncidentsController < ApplicationController
               format.json  { head :ok }
             elsif params[:incident][:longitude]
               format.html {  render :text => params[:incident][:longitude] }
+              format.json  { head :ok }
+            elsif params[:incident][:description]
+              format.html {  render :text => params[:incident][:description] }
               format.json  { head :ok }
             end
           end
@@ -218,8 +226,38 @@ end
     end
     return JSON.generate(hashIncidentType)
   end
-  
 
+  def join_incident
+    @incident = Incident.find(params[:id])
+    @user = User.find(current_user.id)
+    @incident.users.push(@user)
+
+    respond_to do |format|
+      if @incident.save
+        format.html {redirect_to(incident_patients_path(params[:id]), :notice => 'You have successfully joined incident.')}
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to incidents_path }
+        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
+
+      end
+    end
+
+  end
+
+  def report
+    @incident = Incident.select("*").where("status = ?", false)
+
+  end
+
+   def viewreport
+      @incident = Incident.find_by_id_and_status(params[:id], "f")
+      if !@incident.nil?
+        @patient =@incident.patients.all
+        @incident_user = @incident.users.all
+
+      end
+   end
 end
 
 
