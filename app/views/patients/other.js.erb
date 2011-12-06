@@ -111,10 +111,14 @@ function updateIncident(location, latitude, longitude, requested_amb, incidentTy
   ambulanceList = ambulanceList.substring(0, ambulanceList.length-1);
 
   <% for p in @patients %>
-    updateModifiedPatientInfo('<%= p.id %>', '<%= p.numberOfTag %>', '<%= p.tagColor %>',
-      '<%= p.sex %>', '<%= p.age %>', '<%= p.ageType %>', '<%= escape_javascript(p.complaint) %>',
-      '<%= p.status %>', '<%= p.hospital_id %>', ambulanceList, hashAllAmbulances["<%= p.ambulance_id %>"],
-      hospitalList, hashHospitals["<%= p.hospital_id %>"]);
+    if (<%= p.is_deleted %> == 'true') {
+      deletePatient('<%= p.id %>');
+    } else {
+      updateModifiedPatientInfo('<%= p.id %>', '<%= p.numberOfTag %>', '<%= p.tagColor %>',
+        '<%= p.sex %>', '<%= p.age %>', '<%= p.ageType %>', '<%= escape_javascript(p.complaint) %>',
+        '<%= p.status %>', '<%= p.hospital_id %>', ambulanceList, hashAllAmbulances["<%= p.ambulance_id %>"],
+        hospitalList, hashHospitals["<%= p.hospital_id %>"]);
+    }
   <% end %>
 <% end %>
 
@@ -220,7 +224,7 @@ function generatejEditableCombo(id, value, key, d_id, d_name, dataContent, td_cl
 }
 
 function generatejEditableForNewPatient(id, incident_id, authenticity_token) {
-  $("#patient_" + id).replaceWith('');
+  deletePatient(id);
   $("#tbody_created_patients").append('<tr id="patient_' + id + '">'
     + '<td id="tagnum_' + id + '"></td>'
     + '<td id="color_' + id + '"></td>'
@@ -232,5 +236,9 @@ function generatejEditableForNewPatient(id, incident_id, authenticity_token) {
     + '<td id="hospital_patient_' + id + '"></td>'
     + '<td id="ambulance_patient_' + id + '"></td>'
     + '<td><form method="post" action="/incidents/' + incident_id + '/patients/' + id + '" data-remote="true" class="button_to"><div><input name="_method" type="hidden" value="delete"><input class="destroy" data-confirm="Are you sure?" type="submit" value="X"><input name="authenticity_token" type="hidden" value="' + authenticity_token + '"></div></form></td></tr>');
+}
+
+function deletePatient(id) {
+  $("#patient_" + id).replaceWith('');
 }
 
