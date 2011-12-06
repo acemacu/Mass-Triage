@@ -23,9 +23,11 @@
         <td id="ageType_<%= patient.id%>" class="ageType"><%= editable_field patient, :ageType, :type => 'select', :onblur => 'submit', :data => {'Years', 'Years', 'Months', 'Months', 'Days', 'Days'}, :update_url => incident_patient_path(@incident, patient) %></td>
         <td id="complaint_<%= patient.id%>"><%= editable_field patient, :complaint, :update_url => incident_patient_path(@incident, patient) %></td>
         <td id="patient_status_<%= patient.id%>" class="patient_status"><%= editable_field patient, :status, :type => 'select', :onblur => 'submit', :data => {'At Scene', 'At Scene', 'Transported', 'Transported', 'Missing/Left Scene', 'Missing/Left Scene'}, :update_url => incident_patient_path(@incident, patient) %></td>
+
           <%= div_for hospitalname do %>
             <td id="hospital_patient_<%= patient.id%>" class="hospital_patient"><%= editable_field hospitalname, :name, :type => 'select', :onblur => 'submit', :data => @stringHospitals, :update_url => incident_patient_path(@incident, patient) %></td>
           <% end %>
+
           <td id="ambulance_patient_<%= patient.id%>" class="ambulance_patient"><%= editable_field Ambulance.find(patient.ambulance_id), :idAmbulance, :type => 'select', :onblur => 'submit', :data => @stringAmbulances, :update_url => incident_patient_path(@incident, patient) %></td>
         	<% if @current_user %>
 				<% if @current_user.role_id == 1 %>

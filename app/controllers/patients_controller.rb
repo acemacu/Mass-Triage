@@ -125,7 +125,7 @@ class PatientsController < ApplicationController
   def update
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.find(params[:id])
-    
+    puts "The id of the patient is: " << @patient.id
     
     respond_to do |format|
       if(params[:patient])
