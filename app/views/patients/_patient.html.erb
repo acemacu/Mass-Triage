@@ -27,8 +27,18 @@
 				<% hospital = Hospital.find(patient.hospital_id) %>
 				<span class="editable" data-id="<%=patient.id%>" data-name="hospital[name]"><%= hospital.name %></span>
 				<script type="text/javascript">
+					function listHospitals(){
+						var hospitalList = '{';
+						<% for a in @hospitals %>
+						hospitalList = hospitalList + '"<%= a.id %>":"<%= escape_javascript(a.name) %>",';
+						<% end %>
+						hospitalList = hospitalList.substring(0, hospitalList.length-1);
+						return hospitalList + '}';
+					}
 			        (function( $ ){
 			          $(function(){
+						
+	
 			            var args = {data: function(value, settings) {
 			              // Unescape HTML
 			              var retval = value
@@ -38,7 +48,7 @@
 			                .replace(/&quot;/gi, "\"");
 			              return retval;
 			            }};
-			            $.extend(args, {"name":"hospital[name]","data":"{\"5\":\"Regional Medical Center of San Jose\",\"6\":\"California Pacific Medical Center\",\"1\":\"1\",\"2\":\"Stanford\",\"3\":\"Palo Alto Medical Center\",\"4\":\"VA Palo Alto Health Care System\"}","onblur":"submit","method":"PUT","type":"select"});
+			            $.extend(args, {"name":"hospital[name]","data":listHospitals(),"onblur":"submit","method":"PUT","type":"select"});
 			            $(".editable[data-id='<%=  patient.id %>'][data-name='hospital[name]']").editable("<%= incident_patient_path(@incident, patient.id) %>", args);
 			          });
 			        })( jQuery );
@@ -51,6 +61,14 @@
 				<% ambulance = Ambulance.find(patient.ambulance_id) %>
 				<span class="editable" data-id="<%=patient.id%>" data-name="ambulance[idAmbulance]"><%= ambulance.idAmbulance %></span>
 				<script type="text/javascript">
+					function listAmbulances(){
+						var ambulanceList = '{';
+						<% for a in @ambulances %>
+						ambulanceList = ambulanceList + '"<%= a.id %>":"<%= escape_javascript(a.idAmbulance) %>",';
+						<% end %>
+						ambulanceList = ambulanceList.substring(0, ambulanceList.length-1);
+						return ambulanceList + '}';
+					}
 			        (function( $ ){
 			          $(function(){
 			            var args = {data: function(value, settings) {
@@ -62,7 +80,7 @@
 			                .replace(/&quot;/gi, "\"");
 			              return retval;
 			            }};
-			            $.extend(args, {"name":"ambulance[idAmbulance]","data":"{\"5\":\"1234\",\"18\":\"5432\",\"19\":\"5647382\",\"20\":\"657483\",\"4\":\"Not yet defined\",\"21\":\"999\"}","onblur":"submit","method":"PUT","type":"select"});
+			            $.extend(args, {"name":"ambulance[idAmbulance]","data":listAmbulances(),"onblur":"submit","method":"PUT","type":"select"});
 			            $(".editable[data-id='<%=  patient.id %>'][data-name='ambulance[idAmbulance]']").editable("<%= incident_patient_path(@incident, patient.id) %>", args);
 			          });
 			        })( jQuery );

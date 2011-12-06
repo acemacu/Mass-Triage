@@ -210,7 +210,7 @@ class PatientsController < ApplicationController
     hospitals.each do |hospital|
       hashHospitals[hospital.id] = hospital.name
     end
-    return JSON.generate(hashHospitals)
+    return hashHospitals
   end
   
   def json_incidentType(incidentType)
@@ -226,6 +226,6 @@ class PatientsController < ApplicationController
     ambulance.each do |ambulance|
       hashAmbulance[ambulance.id] = ambulance.idAmbulance
     end
-    return JSON.generate(hashAmbulance)
+    return hashAmbulance
   end
 end
