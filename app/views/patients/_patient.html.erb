@@ -80,7 +80,7 @@
 			                .replace(/&quot;/gi, "\"");
 			              return retval;
 			            }};
-			            $.extend(args, {"name":"ambulance[idAmbulance]","data":listAmbulances(),"onblur":"submit","method":"PUT","type":"select"});
+			            $.extend(args, {"name":"ambulance[idAmbulance]","data":listAmbulances,"onblur":"submit","method":"PUT","type":"select"});
 			            $(".editable[data-id='<%=  patient.id %>'][data-name='ambulance[idAmbulance]']").editable("<%= incident_patient_path(@incident, patient.id) %>", args);
 			          });
 			        })( jQuery );

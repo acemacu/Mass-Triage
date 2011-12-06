@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204104051) do
+ActiveRecord::Schema.define(:version => 20111206232746) do
 
   create_table "ambulances", :force => true do |t|
     t.string   "idAmbulance"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20111204104051) do
     t.integer  "ambulance_id"
     t.integer  "hospital_id"
     t.integer  "creating_user_id"
+    t.boolean  "is_deleted"
   end
 
   create_table "responders", :force => true do |t|
