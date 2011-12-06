@@ -1,6 +1,3 @@
-
-<% hospitalname = Hospital.find(patient.hospital_id)%>
-
     <tr id="patient_<%= patient.id %>">
         <td id="tagnum_<%= patient.id%>"><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
         <% if patient.tagColor == "Black" %>
@@ -24,11 +21,55 @@
         <td id="complaint_<%= patient.id%>"><%= editable_field patient, :complaint, :update_url => incident_patient_path(@incident, patient) %></td>
         <td id="patient_status_<%= patient.id%>" class="patient_status"><%= editable_field patient, :status, :type => 'select', :onblur => 'submit', :data => {'At Scene', 'At Scene', 'Transported', 'Transported', 'Missing/Left Scene', 'Missing/Left Scene'}, :update_url => incident_patient_path(@incident, patient) %></td>
 
-          <%= div_for hospitalname do %>
-            <td id="hospital_patient_<%= patient.id%>" class="hospital_patient"><%= editable_field hospitalname, :name, :type => 'select', :onblur => 'submit', :data => @stringHospitals, :update_url => incident_patient_path(@incident, patient) %></td>
-          <% end %>
 
-          <td id="ambulance_patient_<%= patient.id%>" class="ambulance_patient"><%= editable_field Ambulance.find(patient.ambulance_id), :idAmbulance, :type => 'select', :onblur => 'submit', :data => @stringAmbulances, :update_url => incident_patient_path(@incident, patient) %></td>
+			
+			<td id="hospital_patient_<%= patient.id %>" class="hospital_patient">
+				<% hospital = Hospital.find(patient.hospital_id) %>
+				<span class="editable" data-id="<%=patient.id%>" data-name="hospital[name]"><%= hospital.name %></span>
+				<script type="text/javascript">
+			        (function( $ ){
+			          $(function(){
+			            var args = {data: function(value, settings) {
+			              // Unescape HTML
+			              var retval = value
+			                .replace(/&amp;/gi, '&')
+			                .replace(/&gt;/gi, '>')
+			                .replace(/&lt;/gi, '<')
+			                .replace(/&quot;/gi, "\"");
+			              return retval;
+			            }};
+			            $.extend(args, {"name":"hospital[name]","data":"{\"5\":\"Regional Medical Center of San Jose\",\"6\":\"California Pacific Medical Center\",\"1\":\"1\",\"2\":\"Stanford\",\"3\":\"Palo Alto Medical Center\",\"4\":\"VA Palo Alto Health Care System\"}","onblur":"submit","method":"PUT","type":"select"});
+			            $(".editable[data-id='<%=  patient.id %>'][data-name='hospital[name]']").editable("<%= incident_patient_path(@incident, patient.id) %>", args);
+			          });
+			        })( jQuery );
+			</script>
+			 </td>
+			
+
+
+			<td id="ambulance_patient_<%= patient.id %>" class="ambulance_patient">
+				<% ambulance = Ambulance.find(patient.ambulance_id) %>
+				<span class="editable" data-id="<%=patient.id%>" data-name="ambulance[idAmbulance]"><%= ambulance.idAmbulance %></span>
+				<script type="text/javascript">
+			        (function( $ ){
+			          $(function(){
+			            var args = {data: function(value, settings) {
+			              // Unescape HTML
+			              var retval = value
+			                .replace(/&amp;/gi, '&')
+			                .replace(/&gt;/gi, '>')
+			                .replace(/&lt;/gi, '<')
+			                .replace(/&quot;/gi, "\"");
+			              return retval;
+			            }};
+			            $.extend(args, {"name":"ambulance[idAmbulance]","data":"{\"5\":\"1234\",\"18\":\"5432\",\"19\":\"5647382\",\"20\":\"657483\",\"4\":\"Not yet defined\",\"21\":\"999\"}","onblur":"submit","method":"PUT","type":"select"});
+			            $(".editable[data-id='<%=  patient.id %>'][data-name='ambulance[idAmbulance]']").editable("<%= incident_patient_path(@incident, patient.id) %>", args);
+			          });
+			        })( jQuery );
+			</script>
+				
+			 </td>
+			
         	<% if @current_user %>
 				<% if @current_user.role_id == 1 %>
 						<td><%= button_to "X", [@incident, patient], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>

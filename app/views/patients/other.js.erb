@@ -4,6 +4,13 @@ Developed by: Carnegie Mellon University - Team Triage
 Copyright:    Field Applications
 */
 
+$("#tableForPatients").tablesorter({
+        headers: {
+            // assign the secound column (we start counting zero)
+            9: {
+                // disable it by setting the property sorter to false
+		sorter: false
+            }}});
 
 <% if @ambulances.count > 0 %>
   resetAmbulanceValues();

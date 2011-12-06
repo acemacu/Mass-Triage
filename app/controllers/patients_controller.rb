@@ -126,7 +126,6 @@ class PatientsController < ApplicationController
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.find(params[:id])
     @temp_patient=@patient.clone
-    puts "The id of the patient is: " << @patient.id
     
     respond_to do |format|
       if(params[:patient])
