@@ -70,7 +70,12 @@ function updateAmbulanceCount(statusMessage, number) {
   incidentTypeList = incidentTypeList.substring(0, incidentTypeList.length-1);
 
   <% for i in @incident %>
-    updateIncident('<%= escape_javascript(i.location) %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>', incidentTypeList, hashIncidentTypes["<%= i.incident_type_id %>"]);
+    var is_incident_open = '<%= i.status %>';
+    if (is_incident_open == 'true') {
+      updateIncident('<%= escape_javascript(i.location) %>', '<%= i.latitude %>', '<%= i.longitude %>', '<%= i.requested_amb_count %>', incidentTypeList, hashIncidentTypes["<%= i.incident_type_id %>"]);
+    } else {
+      deleteIncident();
+    }
   <% end %>
 <% end %>
 
@@ -241,5 +246,13 @@ function generatejEditableForNewPatient(id, incident_id, authenticity_token) {
 
 function deletePatient(id) {
   $("#patient_" + id).replaceWith('');
+}
+
+function deleteIncident() {
+  $("#tableForPatients").replaceWith('The incident has been closed by user');
+  $("#patient_input").replaceWith('The incident has been closed by user');
+  $("#CountInputs").replaceWith('The incident has been closed by user');
+  $("#ambulance_submit").replaceWith('The incident has been closed by user');
+  $("#mciTable").replaceWith('The incident has been closed by user');
 }
 
