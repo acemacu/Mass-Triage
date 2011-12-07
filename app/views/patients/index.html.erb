@@ -9,7 +9,10 @@ Copyright:    Field Applications
 <div id="incident_info" data-id="<%= @incident.id %>"></div>
 <div id="form_token" data-id="<%= form_authenticity_token %>"></div>
 <% if current_user %>
-  <% if User.find(current_user.id).role_id == 1 %>
+  <% if @incident.status == false %>
+    <h1>THIS INCIDENT HAS BEEN CLOSED</h1>
+  <% end %>
+  <% if User.find(current_user.id).role_id == 1 and @incident.status== true%>
     <div class="incident" id="patient_input" data-id="<%= @incident.id %>">
       <br />
       <%= render 'form' %>
@@ -44,9 +47,8 @@ Copyright:    Field Applications
 				</tr>
 				</thead>		
 				<tbody id="tbody_created_patients" class="tbody_created_patients">
-
-                                  <%= render :partial => @patients, :locals => {:list => true} %>
-                                  
+                                <%= render :partial => @patients, :locals => {:list => true} %>
+                                
 				</tbody>
 			</table>
 		</div>

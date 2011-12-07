@@ -3,7 +3,7 @@ For more information on the technology stack selected, please refer to the docum
 Developed by: Carnegie Mellon University - Team Triage
 Copyright:    Field Applications 
 -->
-
+<% if @incident.status == true %>
 <% if ambulance.idAmbulance != "Not yet defined"%>
 
 	 <% if @oddOrEven % 2 == 0 %>
@@ -53,6 +53,32 @@ Copyright:    Field Applications
         <td><%= editable_field ambulance, :eta, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
         <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
 </tr>
+<% end %>
+
+<% else %>
+
+<% if ambulance.idAmbulance != "Not yet defined"%>
+
+	 <% if @oddOrEven % 2 == 0 %>
+      <tr id="ambulance_<%= ambulance.id %>" class = "even">
+	  <%else %>
+	  <tr id="ambulance_<%= ambulance.id %>" >
+	  <% end %>
+	  <% @oddOrEven+=1%>
+	
+        <td><%= ambulance.idAmbulance%></td>
+        <td><%= ambulance.status%></td>
+
+		<td >
+			<% hospital = Hospital.find(ambulance.hospital_id) %>
+			<span class="editable" data-id="<%=ambulance.id%>" data-name="hospital[name]"><%= hospital.name %></span>
+		</td>
+		
+        <td><%= ambulance.eta %></td>
+        
+</tr>
+<% end %>
+
 <% end %>
 
 

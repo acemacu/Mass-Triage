@@ -8,6 +8,7 @@ Copyright:    Field Applications
 <hr />
 <div id="incident" data-id="<%= @incident.id %>"></div>
 <div id="incident_info" data-id="<%= @incident.id %>"></div>
+<%if @incident.status == true%>
 <% if current_user %>
   <% if User.find(current_user.id).role_id == 2 %>
   <%= render 'form' %>
@@ -35,7 +36,10 @@ Copyright:    Field Applications
 <%= submit_tag "+5", :type=> 'button', :class => 'plus5Ambulance'%>
 <br /><br />
 <%= f.submit "NOTIFY DISPATCH", :class => 'LongButton'%>
-<br /><br/></div><% end -%><% end -%><% end -%><hr />
+<br /><br/></div><% end -%><% end -%><% end -%>
+<% else -%>
+<h1>THIS INCIDENT HAS BEEN CLOSED</h1>
+<%end -%><hr />
 
 <div class="centerEverythingContainterNoBorder">
   <div class="scrollable3">

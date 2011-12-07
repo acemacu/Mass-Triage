@@ -12,6 +12,7 @@ Copyright:    Field Applications
 </div>
 <div class="CountLogin">
   <div class="CountInputs">
+    <% if @incident.status == true %>
     <% untransported = @incident.untransported("At Scene", @incident.id) %>
     <br/>
   <span class="title"><%= @incident.untransported("At Scene", @incident.id) %></span><br /><br />
@@ -20,6 +21,15 @@ Copyright:    Field Applications
   <%= link_to "EXIT", incidents_path %><br /><br />
   CLOSE THE INCIDENT AND MARK IT AS COMPLETED<br />
   <%= link_to "CLOSE INCIDENT", closeincident_path, :confirm => "Are you sure?\nThis will mark the triage and transportation\nprocess as completed!" %>
+  
+<% else %>
+  <br />
+  <h2>THIS INCIDENT HAS BEEN CLOSED</h2><br/><br/>
+  <h2><%= link_to "TRIAGE", incident_patients_path(@incident) %>   <%= link_to "AMBULANCE", incident_ambulances_path(@incident)%></h2>
+  EXIT THE INCIDENT AND GO TO THE INCIDENT LIST<br />
+  <%= link_to "EXIT", incidents_path %><br /><br />
+   
+  <% end %>
   <br /><br/>
 </div>
   <br/><br/>

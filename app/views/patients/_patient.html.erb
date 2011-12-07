@@ -1,3 +1,4 @@
+<% if @incident.status == true %>
 <% if patient.is_deleted != true %>
 <% puts patient.is_deleted %>
     <tr id="patient_<%= patient.id %>">
@@ -96,6 +97,56 @@
 				<%end%>
 			<%end%>
     </tr>
+<%end%>
+    
+    
+    
+<% else %>
+    <% if patient.is_deleted != true %>
+<% puts patient.is_deleted %>
+    <tr id="patient_<%= patient.id %>">
+        <td id="tagnum_<%= patient.id%>"><%= patient.numberOfTag %></td>
+        <% if patient.tagColor == "Black" %>
+			<td id="color_<%= patient.id%>" class="blackPatient">
+		<% elsif patient.tagColor == "Red" %>
+			<td id="color_<%= patient.id%>" class="redPatient">
+		<% elsif patient.tagColor == "Yellow" %>
+			<td id="color_<%= patient.id%>" class="yellowPatient">
+		<% else%>
+			<td id="color_<%= patient.id%>" class="greenPatient">
+		<% end %>					
+		<%= patient.tagColor%></td>
+        <% if patient.sex == "Female"%>
+			<td id="sex_<%= patient.id%>" class="femalePatient">
+		<% else %>
+			<td id="sex_<%= patient.id%>" class="malePatient">
+		<% end %>
+		<%= patient.sex%></td>
+        <td id="age_<%= patient.id%>"><%= patient.age %></td>
+        <td id="ageType_<%= patient.id%>" class="ageType"><%= patient.ageType%></td>
+        <td id="complaint_<%= patient.id%>"><%= patient.complaint%></td>
+        <td id="patient_status_<%= patient.id%>" class="patient_status"><%= patient.status%></td>
+
+
+			
+			<td id="hospital_patient_<%= patient.id %>" class="hospital_patient">
+				<% hospital = Hospital.find(patient.hospital_id) %>
+				<span class="editable" data-id="<%=patient.id%>" data-name="hospital[name]"><%= hospital.name %></span>
+				
+			 </td>
+			
+
+
+			<td id="ambulance_patient_<%= patient.id %>" class="ambulance_patient">
+				<% ambulance = Ambulance.find(patient.ambulance_id) %>
+				<span class="editable" data-id="<%=patient.id%>" data-name="ambulance[idAmbulance]"><%= ambulance.idAmbulance %></span>
+				
+			 </td>
+			
+        	
+    </tr>
+<%end%>
+    
 <%end%>
 
         

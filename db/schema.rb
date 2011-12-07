@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(:version => 20111206232746) do
     t.integer  "ambulance_id"
     t.integer  "hospital_id"
     t.integer  "creating_user_id"
-    t.boolean  "is_deleted",  :default => false
+    t.boolean  "is_deleted"
   end
 
   create_table "responders", :force => true do |t|
