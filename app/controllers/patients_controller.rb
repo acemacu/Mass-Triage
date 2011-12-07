@@ -196,11 +196,11 @@ class PatientsController < ApplicationController
   def destroy
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.find(params[:id])
-    @patient.is_deleted = true;
-
-    respond_to do |format|
-      format.html { redirect_to (incident_patients_url) }
-      format.js
+    if(@patient.update_attributes(:is_deleted => true ))
+      respond_to do |format|
+        format.html { redirect_to (incident_patients_url) }
+        format.js
+      end
     end
   end
   

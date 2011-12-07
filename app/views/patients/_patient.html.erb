@@ -1,3 +1,5 @@
+<% if patient.is_deleted != true %>
+<% puts patient.is_deleted %>
     <tr id="patient_<%= patient.id %>">
         <td id="tagnum_<%= patient.id%>"><%= editable_field patient, :numberOfTag, {:update_url => incident_patient_path(@incident, patient)} %></td>
         <% if patient.tagColor == "Black" %>
@@ -94,5 +96,6 @@
 				<%end%>
 			<%end%>
     </tr>
+<%end%>
 
         
