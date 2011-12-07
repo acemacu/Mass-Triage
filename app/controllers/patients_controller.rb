@@ -131,7 +131,7 @@ class PatientsController < ApplicationController
     respond_to do |format|
       if(params[:patient])
         if @patient.update_attributes(params[:patient])
-             @chng = PatientUpdate.new.recordchanges(params[:patient], @incident, @patient, current_user.id )
+             @chng = PatientUpdate.new.patientchanges(params[:patient], @incident, @patient, current_user.id )
             flash[:notice] = "Patient successfully updated."
           if params[:patient][:numberOfTag]
             @chng.updated = "Tag Number"
@@ -175,12 +175,18 @@ class PatientsController < ApplicationController
        
       elsif(params[:ambulance])
         if @patient.update_attributes(:ambulance_id => params[:ambulance][:idAmbulance])
+           @chng = PatientUpdate.new.ambchanges(params[:ambulance][:idAmbulance], @incident, @patient, current_user.id )
+           @chng.previous = Ambulance.find(@temp_patient.ambulance_id).idAmbulance
+           @chng.save
           ambulanceName = Ambulance.find(params[:ambulance][:idAmbulance])
           format.html {  render :text => ambulanceName.idAmbulance }
           format.json  { head :ok }
         end
       else  
         if @patient.update_attributes(:hospital_id => params[:hospital][:name])
+            @chng = PatientUpdate.new.hospitalchanges(params[:hospital][:name], @incident, @patient, current_user.id )
+           @chng.previous = Hospital.find(@temp_patient.hospital_id).name
+           @chng.save
              @ambulance = Ambulance.find(@patient.ambulance_id)
              if(@ambulance.idAmbulance != "Not yet defined")
                 @ambulance.update_attributes(:hospital_id => params[:hospital][:name] )

@@ -16,6 +16,9 @@ module IncidentsHelper
 
   end
 
+  def role(incident, roleid)
+    return incident.users.find(:first, :conditions => "role_id= #{roleid}")
+  end
 
   def updates(incidentid, patientid)
    return PatientUpdate.new.getupdates(incidentid, patientid)

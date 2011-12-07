@@ -1,17 +1,29 @@
-<h1>Incident Reports</h1>
+<div class="TopBar">
+    <img class ="image"src ="../images/LogoWhite.png"/>
+    <br />
+     <h1 class="TopBarInterior">Incident Reports</h1>
+        <br />
+</div>
+  <br />
 
 <%if !@incident.empty?%>
-<table>
+<table id="mciTable">
   <tr>
-    <th>Incident Id</th>
-    <th>Incident Type</th>
-    <th>Incident Date</th>
-    <th>Incident Location</th>
+    <th class="latitude">ID</th>
+    <th class="type">TYPE</th>
+    <th class="date">DATE</th>
+    <th class="location">LOCATION</th>
+    <th class="open"> </th>
+    <th class="open"> </th>
 
   </tr>
 
-  <% @incident.each do |incident| %>
-  <tr>
+  <% @incident.each_with_index do |incident, y| %>
+  <% if y%2 == 0 %>
+          <tr id ="even">
+        <%else %>
+          <tr>
+        <% end%>
     <td> <%=incident.id %></td>
     <%incident_type_name = IncidentType.find(incident.incident_type_id) %>
     <td> <%=incident_type_name.name %></td>
