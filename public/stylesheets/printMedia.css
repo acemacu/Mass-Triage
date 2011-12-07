@@ -4,10 +4,11 @@ Developed by: Carnegie Mellon University - Team Triage
 Copyright:    Field Applications
 */
 
+
+
 body {
    height: 100%;
-   background-image:url(../images/Brushed_Steel.png);
-   background-size: 100%;
+   
 }
 .title {
     color:#fc0;
@@ -216,66 +217,14 @@ span.SelectedTab {
     -moz-border-top-right-radius: 8px 15px;
 }
 
-span.UnselectedTab {
-    display: inline-block;
-    width: 20%;
-    height:30px;
-    text-align: center;
-    font-size: x-large;
-    background-color: gray;
-    border-top-left-radius: 8px 15px;
-    border-top-right-radius: 8px 15px;
-    -moz-top-left-radius: 8px 15px;
-    -moz-border-top-right-radius: 8px 15px;
-}
 
-span.UnselectedTab a:link {color: #fff;}
-span.UnselectedTab a:active {color: #fff;}
-span.UnselectedTab a:visited {color: #fff;}
-span.UnselectedTab a:hover {color: #fc0;}
 
-div.incident {
-    background-color: #333;
-    font-size: large;
-    color: white;
-    border-radius: 25px;
-    border-radius: 25px;
-    -moz-border-radius: 25px;
-    -moz-border-radius: 25px;
-    -moz-box-shadow: 5px 5px 5px gray;
-    -webkit-box-shadow: 5px 5px 5px gray;
-    box-shadow: 5px 5px 5px gray;
-}
 
-div.incident input.ShortField {
-    width: 5%;
-    height: 50px;
-    font-size: large;
-}
 
-div.incident select.ShortField {
-    width: 8%;
-    height: 50px;
-    font-size: large;
-}
 
-div.incident input.LongField {
-    width: 15%;
-    height: 50px;
-    font-size: large;
-}
 
-div.incident select.LongField {
-    width: 15%;
-    height: 50px;
-    font-size: large;
-}
 
-div.incident input.MidField {
-    width: 8%;
-    height: 50px;
-    font-size: large;
-}
+
 .centerEverythingContainter{
 	margin-left: 	auto;
 	margin-right: 	auto;
@@ -322,168 +271,43 @@ table.summary td.black {
     border-radius: 8px;
 }
 
-.patientsTable{
-	border-collapse: 	collapse;
-	width:				100%;	
-}
-
-.patientsTable td{
-    	border: 			2px solid black;
-	padding:			3px;
-	border-spacing:		2px;
-	font: 				x-large bold;
-	font-family: 		verdana, arial, helvetica, sans-serif;
-        margin-left: auto;
-        margin-right: auto;
-}
-
-.patientsTable select{
-    font-size: x-large;
-}
-
-.patientsTable input{
-    font-size: x-large;
-    
-}
-.redPatient {
-    background-color:	red;
-	color:  	white;
-        text-align: center;
-}
-
-.yellowPatient {
-    background-color:   yellow;
-    text-align: center;
-}
-
-.greenPatient {
-    background-color:	green;
-    color:				white;
-    text-align: center;
-}
-
-.blackPatient {
-    background-color:	black;
-    color:  			white;
-    text-align: center;
-}
-
-.femalePatient{
-	background-color: 	pink;
-}
-
-.malePatient{
-	background-color: 	#BCD4E6;
-	color:  			black;	
-}
-
-
-div.header_bar{
- width: 				100%;
-
-}
-div.header_bar_container{
- width: 				100%;
- text-align: 			center;
-
-}
-
-div.left-long {
-    float: left;
-    width: 35%;
-    text-align: left;
-    min-height: 90px;
-}
-div.left {
-    float: left;
-    width: 20%;
-    text-align: left;
-    min-height: 90px; 
-}
-div.right{
-    float: left;
-    width: 10%;
-    text-align: right;
-    min-height: 90px;
-}
-
-
-.fieldLogin{
-	font-size: 20px;
-}
 
 
 
 
 
-#mciTable{
-	border: 			0px;
+
+#reportTable{
+	border: 			2px solid black;
 	border-collapse: 	collapse;
 	width:				100%;
-        font-size: large;
-        width: 90%;
-        margin-right: auto;
-        margin-left: auto;
+        page-break-inside:           avoid ;
 }
 
-#mciTable th{
-    background-color: skyblue;
-    border: 			0px;
-    padding:			3px;
-    border-spacing:		2px;
-    font-weight: bold;
-}
-
-#mciTable th.date {
-    width: 20%;
-    border-right: 3px aquamarine ridge;
-}
-#mciTable th.type{
-    width: 20%;
-    border-right: 3px aquamarine ridge;
-}
-#mciTable th.location{
-    
-    border-right: 3px aquamarine ridge;
-}
-
-#mciTable th.latitude{
-    width: 5%;
-    border-right: 3px aquamarine ridge;
-}
-
-#mciTable th.longitude{
-    width: 5%;
-    border-right: 3px aquamarine ridge;
-}
-
-#mciTable th.open{
-    width: 5%;
-}
-
-#mciTable td{
-	border: 			0px;
+#reportTable th{
+	border: 			2px solid black;
 	padding:			3px;
-        padding-bottom:                 10px;
 	border-spacing:		2px;
-        font-size: large;
+	background:		gray;
+	color: 			white;
 }
 
-#mciTable input{
-    background-color:darkred;
-    color: white;
-    font-size: large;
+
+#reportTable td{
+	border: 			2px solid black;
+	padding:			3px;
+	border-spacing:		2px;
 }
 
 #even{
-	background:	 white;
+	background:	 #D3D3D3;
 }
 
 .even{
-	background:	 white;
+	background:	 #D3D3D3;
 }
 
-
+.pbi_avoid { page-break-inside:avoid !important; }
 .centerEverythingContainterNoBorder{
 	margin-left: 	auto;
 	margin-right: 	auto;
@@ -491,25 +315,9 @@ div.right{
 	text-align: 	center;
 }
 
-.scrollable {
-        margin-left: 	auto;
-	margin-right: 	auto;
-        width: 75%;
-        max-height:     60%;
-        
-        overflow:       scroll;
-        
-}
 
-.scrollable2 {
-        overflow:               scroll;
-        border:                 2px solid black;
-}  
 
-.scrollable3 {
-        overflow:               scroll;
-        border:                 2px solid black;
-}  
+ 
 
 .footerwrap{
 	position:		fixed;
@@ -519,63 +327,7 @@ div.right{
         text-align:             center;
 }
 
-.centerText{
-	text-align:		center;
-}
 
-.fieldNewMCI{
-	font-size: 30px;
-	margin-bottom: 10px;
-}
-
-#newMCIdiv{
-	margin-left: 	auto;
-	margin-right: 	auto;
-	width: 			50%;
-	text-align: 	left;
-}
-
-#alignRight{
-	text-align:	right;
-}
-
-#closeExitTab{
-	margin-left: 	auto;
-	margin-right: 	auto;
-	width: 			50%;
-	text-align: 	center;
-	border:			1px dashed;
-	font-size: 		30px;
-}
-
-table.tablesorter thead {
-/*	background-image: url('../images/bg.gif'); */
-	background-repeat: no-repeat;
-	background-position: right;
-	cursor: pointer;
-}
-
-table.ambulance {
-        border-spacing: 0px;
-}
-
-table.ambulance td{
-        border-left: 10px solid transparent;
-        border-right: 0px;
-        border-top: 0px;
-        border-bottom: 0px;
-}
-
-
-/*---------- bubble tooltip -----------*/
-a.tt{
-    position:relative;
-    z-index:24;
-    color:#3CA3FF;
-	font-weight:bold;
-    text-decoration:none;
-}
-a.tt span{ display: none; }
 
 /*background:; ie hack, something must be changed in a for ie to execute it*/
 
@@ -601,12 +353,4 @@ span.details input{
 	font-size: large;
 }
 
-@media print {
 
-    body {
-   height: 100%;
-   overflow: hidden;
-
-}
-
-}
