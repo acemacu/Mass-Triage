@@ -12,13 +12,13 @@ class PatientsController < ApplicationController
     puts "ID = " + @incident_id
     date_millis = Time.at(params[:after].to_i/1000)
     puts "Time = " + date_millis.to_s
-    @patients = Patient.where("incident_id = ? and updated_at > ?", @incident_id, date_millis).limit(1)
+    @patients = Patient.where("incident_id = ? and updated_at > ?", @incident_id, Time.now-15.seconds).limit(1)
     puts "#Patients = " + @patients.count.to_s
 
     if (@patients.count > 0)
       @authenticity_token = params[:authenticity_token]
       puts "Authenticity token = " + @authenticity_token
-      @new_patients = Patient.where("incident_id = ? and created_at > ?", @incident_id, date_millis)
+      @new_patients = Patient.where("incident_id = ? and created_at > ?", @incident_id, Time.now-15.seconds)
       puts "New patients = " + @new_patients.count.to_s
       @triage = Patient.select("tagColor, count(*) as number").where("incident_id = ? and is_deleted = ?", @incident_id, false).group("tagColor")
       puts "Triage = " + @triage.count.to_s
@@ -30,7 +30,7 @@ class PatientsController < ApplicationController
       puts "#Ambulances = " + @all_ambulances.count.to_s
     end
 
-    @ambulances = Ambulance.where("incident_id = ? and updated_at > ?", @incident_id, date_millis).limit(1)
+    @ambulances = Ambulance.where("incident_id = ? and updated_at > ?", @incident_id, Time.now-15.seconds).limit(1)
     puts "#Ambulances = " + @ambulances.count.to_s
 
     if (@ambulances.count > 0)
@@ -42,7 +42,7 @@ class PatientsController < ApplicationController
       puts "#Pacients = " + @all_patients.count.to_s
     end
 
-    @incident = Incident.where("id = ? and updated_at > ?", @incident_id, date_millis)
+    @incident = Incident.where("id = ? and updated_at > ?", @incident_id, Time.now-15.seconds)
     puts "#Incident = " + @incident.count.to_s
 
     if (@incident.count > 0)
