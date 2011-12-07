@@ -111,7 +111,8 @@ function updateIncident(location, latitude, longitude, requested_amb, incidentTy
   ambulanceList = ambulanceList.substring(0, ambulanceList.length-1);
 
   <% for p in @patients %>
-    if (<%= p.is_deleted %> == 'true') {
+    var is_patient_deleted = '<%= p.is_deleted %>';
+    if (is_patient_deleted == 'true') {
       deletePatient('<%= p.id %>');
     } else {
       updateModifiedPatientInfo('<%= p.id %>', '<%= p.numberOfTag %>', '<%= p.tagColor %>',

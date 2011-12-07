@@ -20,9 +20,9 @@ class PatientsController < ApplicationController
       puts "Authenticity token = " + @authenticity_token
       @new_patients = Patient.where("incident_id = ? and created_at > ?", @incident_id, date_millis)
       puts "New patients = " + @new_patients.count.to_s
-      @triage = Patient.select("tagColor, count(*) as number").where("incident_id = ?", @incident_id).group("tagColor")
+      @triage = Patient.select("tagColor, count(*) as number").where("incident_id = ? and is_deleted = ?", @incident_id, false).group("tagColor")
       puts "Triage = " + @triage.count.to_s
-      @general = Patient.where("incident_id = ?", @incident_id)
+      @general = Patient.where("incident_id = ? and is_deleted = ?", @incident_id, false)
       puts "#Total_Patients = " + @general.count.to_s
       @hospitals = Hospital.order("name");
       puts "#Hospitals = " + @hospitals.count.to_s
