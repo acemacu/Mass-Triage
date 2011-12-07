@@ -55,11 +55,8 @@ Copyright:    Field Applications
     <%= f.submit :class => "LongButton" %>
   </div>
 <% end %>
-<% if @current_user %>
-	<% if @current_user.role_id != 3 %>
+
 		<%=button_to 'BACK', :login, {:method => "get", :class => "ShortButton"}%>
-   	<% else %>
-		<%= link_to 'Back', users_path %>
-	<%end%>
-<%end%> 
+
+
 

@@ -12,9 +12,9 @@ Copyright:    Field Applications
 </div>
 <div class="CountLogin">
   <div class="CountInputs">
-    <% untransported = @incident.untransported("At Scene") %>
+    <% untransported = @incident.untransported("At Scene", @incident.id) %>
     <br/>
-  <span class="title"><%= untransported %></span><br /><br />
+  <span class="title"><%= @incident.untransported("At Scene", @incident.id) %></span><br /><br />
   <h2><%= link_to "TRIAGE", incident_patients_path(@incident) %>   <%= link_to "AMBULANCE", incident_ambulances_path(@incident)%></h2>
   EXIT THE INCIDENT AND GO TO THE INCIDENT LIST<br />
   <%= link_to "EXIT", incidents_path %><br /><br />
