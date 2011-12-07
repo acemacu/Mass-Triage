@@ -41,7 +41,7 @@ class IncidentTypesController < ApplicationController
 
     respond_to do |format|
       if @incident_type.save
-        format.html { redirect_to(@incident_type, :notice => 'Incident type was successfully created.') }
+        format.html { redirect_to(incident_types_path, :notice => 'Incident type was successfully created.') }
         format.xml  { render :xml => @incident_type, :status => :created, :location => @incident_type }
       else
         format.html { render :action => "new" }
@@ -55,7 +55,7 @@ class IncidentTypesController < ApplicationController
 
     respond_to do |format|
       if @incident_type.update_attributes(params[:incident_type])
-        format.html { redirect_to(@incident_type, :notice => 'Incident type was successfully updated.') }
+        format.html { redirect_to(incident_types_path, :notice => 'Incident type was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

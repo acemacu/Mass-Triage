@@ -7,15 +7,21 @@ Copyright:    Field Applications
 <div class="TopBar">
   <img class ="image"src ="../images/LogoWhite.png"/>
   <br />
-    <h1 class="TopBarInterior">Welcome to MTAP<hr /></h1>
+    		<h1 class="TopBarInterior">Welcome to MTAP<hr /></h1>
   <br/>
 </div>
 <div class="Login">
   <br />
 <div class="Inputs">
   <br />
-  <span class="title">Please Register to use this Application</span><br /><br />
+  <% if @current_user %>
+	<% if @current_user.role_id != 3 %>
+  		<span class="title">Please Register to use this Application</span><br /><br />
+	<%end%>
+  <%end%>
+
 	<%= render 'form' %>
 
 
+ 
 </div>

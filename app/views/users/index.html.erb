@@ -12,6 +12,8 @@ Copyright:    Field Applications
 
 <table id="mciTable">
   <tr>
+    <th class="date">Name</th>
+    <th class="date">Lastname</th>	
     <th class="date">Username</th>
     <th class="date">Email</th>
     <th class="open"></th>
@@ -24,6 +26,8 @@ Copyright:    Field Applications
   <%else %>
     <tr>
   <% end%>
+	<td><%= user.fname %></td>
+    <td><%= user.lname %></td>
     <td><%= user.username %></td>
     <td><%= user.email %></td>
 	<td><%= button_to 'Edit', edit_user_path(user), {:method => "get"}  %></td>
@@ -34,9 +38,11 @@ Copyright:    Field Applications
 
 <br />
 
-<div class="footerwrap">
+
 	<br />
 	<hr />
+	<center>
 	<%= button_to 'Add a new user', new_user_path, {:method => "get", :class => "LongButton"}%>
+	</center>	
 	<br />
-</div>
+

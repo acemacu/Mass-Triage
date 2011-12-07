@@ -52,8 +52,14 @@ Copyright:    Field Applications
 </div>
 </div>
   <div class="actions">
-    <%= f.submit "Create User", :class => "LongButton" %>
+    <%= f.submit :class => "LongButton" %>
   </div>
 <% end %>
-<%=button_to 'BACK', :login, {:method => "get", :class => "ShortButton"}%>    
+<% if @current_user %>
+	<% if @current_user.role_id != 3 %>
+<%=button_to 'BACK', :login, {:method => "get", :class => "ShortButton"}%>
+   	<% else %>
+		<%= link_to 'Back', users_path %>
+	<%end%>
+<%end%> 
 
