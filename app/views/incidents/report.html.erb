@@ -29,7 +29,7 @@
     <td> <%=incident_type_name.name %></td>
     <td> <%=incident.date.strftime("%m/%d/%y %H:%M:%S %p %Z") %> </td>
     <td> <%=incident.location %></td>
-    <td> <%= button_to "VIEW", {:controller => 'incidents', :action => 'viewreport', :id => incident.id}%> </td>
+    <td> <%= button_to "VIEW", {:controller => 'incidents', :action => 'viewreport', :id => incident.id}, {:onclick => "this.form.target = 'window'; window.open('','window', 'height = 650, width = 750, top = 20, left = 100, scrollbars = 0, toolbar = 0, status = 0, menubar = 0, location = 0')"}%> </td>
     <td> <%= button_to "Download Report (PDF)", viewreport_path(incident.id, :format => "pdf") %> </td>
   </tr>
 
