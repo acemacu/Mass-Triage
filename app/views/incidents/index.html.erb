@@ -2,7 +2,6 @@
 For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
 Developed by: Carnegie Mellon University - Team Triage
 Copyright:    Field Applications
- 
 -->
 
 <% if @current_user %>
@@ -67,17 +66,13 @@ Copyright:    Field Applications
                 <% if @current_user %>
                 <%  if (added(incident) and @current_user.role_id != 3)  %>
                   <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
-                 <% else if@current_user.role_id == 3 %>
+                 <% elsif @current_user.role_id == 3 %>
                   <td><%= button_to 'Delete', incident, :confirm => 'Are you sure?', :method => :delete  %></td>
                   <% else%>>
                     <td><%= button_to 'JOIN', {:controller => 'incidents', :action => 'join_incident', :id => incident.id} %></td>
                  <%end%>
-       
-                
-		
-			
-		<%end%>
-	<%end%>
+			<%end%>
+	
   </tr>
 <% end %>
 </table>
