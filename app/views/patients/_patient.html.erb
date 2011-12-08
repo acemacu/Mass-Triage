@@ -91,11 +91,9 @@
 				
 			 </td>
 			
-        	<% if @current_user %>
-				<% if @current_user.role_id == 1 %>
+
 						<td><%= button_to "X", [@incident, patient], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
-				<%end%>
-			<%end%>
+
     </tr>
 <%end%>
     
