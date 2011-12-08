@@ -18,6 +18,7 @@ Copyright:    Field Applications
   </tr>
 
 <% @incident_types.each_with_index do |incident_type, i| %>
+<% if incident_type.is_deleted != true %>
 	<% if i%2 != 0 %>
 		<tr id ="even">
 	<%else %>
@@ -27,6 +28,7 @@ Copyright:    Field Applications
     <td><%= button_to 'Edit', edit_incident_type_path(incident_type), {:method => "get"}  %></td>
     <td><%= button_to 'Delete', incident_type, :confirm => 'Are you sure?', :method => :delete  %></td>
   </tr>
+<% end %>
 <% end %>
 </table>
 

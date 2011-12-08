@@ -35,6 +35,7 @@ class HospitalsController < ApplicationController
 
   def create
     @hospital = Hospital.new(params[:hospital])
+    @hospital.is_deleted = false;
 
     respond_to do |format|
       if @hospital.save
@@ -61,15 +62,16 @@ class HospitalsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy    
     @hospital = Hospital.find(params[:id])
     if(@hospital.name != "Not yet defined")
-      @hospital.destroy
-    end
-
-    respond_to do |format|
-      format.html { redirect_to(hospitals_url) }
-      format.xml  { head :ok }
+      if(@hospital.update_attributes(:is_deleted => true ))
+         respond_to do |format|
+            format.html { redirect_to(hospitals_url) }
+            format.xml  { head :ok }
+        end
+      end
     end
   end
+  
 end

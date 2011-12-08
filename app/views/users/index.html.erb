@@ -21,6 +21,7 @@ Copyright:    Field Applications
   </tr>
 
 <% @users.each_with_index do |user, i| %>
+<% if user.is_deleted != true %>
   	<% if i%2 != 0 %>
     <tr id ="even">
   <%else %>
@@ -33,6 +34,7 @@ Copyright:    Field Applications
 	<td><%= button_to 'Edit', edit_user_path(user), {:method => "get"}  %></td>
     <td><%= button_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete  %></td>
   </tr>
+<% end %>
 <% end %>
 </table>
 

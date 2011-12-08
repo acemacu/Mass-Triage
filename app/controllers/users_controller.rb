@@ -43,6 +43,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.is_deleted = false;
+    
     respond_to do |format|
       if @user.save
         if @user.role_id == 3
@@ -77,11 +79,17 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(users_url) }
-      format.xml  { head :ok }
+      if(@user.update_attributes(:is_deleted => true ))
+         respond_to do |format|
+            format.html { redirect_to(users_url) }
+            format.xml  { head :ok }
+        end
+      end
     end
-  end
+    
+    
+    
+    
+    
+
 end

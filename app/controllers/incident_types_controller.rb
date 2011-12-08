@@ -38,6 +38,7 @@ class IncidentTypesController < ApplicationController
 
   def create
     @incident_type = IncidentType.new(params[:incident_type])
+    @incident_type.is_deleted = false;
 
     respond_to do |format|
       if @incident_type.save
@@ -66,11 +67,12 @@ class IncidentTypesController < ApplicationController
 
   def destroy
     @incident_type = IncidentType.find(params[:id])
-    @incident_type.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(incident_types_url) }
-      format.xml  { head :ok }
+    if(@incident_type.update_attributes(:is_deleted => true ))
+      respond_to do |format|
+        format.html { redirect_to (incident_types_url) }
+        format.xml  { head :ok }
+      end
     end
   end
+  
 end

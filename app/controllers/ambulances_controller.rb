@@ -56,6 +56,7 @@ class AmbulancesController < ApplicationController
     @incident = Incident.find(params[:incident_id])
     @ambulance = @incident.ambulances.new(params[:ambulance])
     @ambulance.adding_user_id = current_user.id
+    @ambulance.is_deleted = false;
 
     if(@ambulance.eta < Time.now())
       @ambulance.eta = @ambulance.eta + 1.day
