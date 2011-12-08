@@ -36,7 +36,7 @@ Copyright:    Field Applications
   <div class="left">
     <b>PATIENTS</b><br/>
     ESTIMATED: <%= @incident.est_patient_count %><br />
-    <div id="tagged">TAGGED: <%= @patients.count%><br /></div>
+    <div id="tagged">TAGGED: <%= @incident.count_patient(@incident.id).count.to_s%><br /></div>
     <table class="summary">
       <tr>
         <td id="black_triage" class="black"><%= @incident.color_dist("Black", @incident.id) %></td>

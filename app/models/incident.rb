@@ -38,6 +38,11 @@ class Incident < ActiveRecord::Base
        
   end
   
+  def count_patient(id)
+     patients_tagged = Patient.find :all, :conditions => ['is_deleted = ? AND incident_id = ?', false, id]
+     return patients_tagged
+  end
+  
 
   
 end
