@@ -12,7 +12,7 @@ class PatientsController < ApplicationController
     puts "ID = " + @incident_id
     date_millis = Time.at(params[:after].to_i/1000)
     puts "Time = " + date_millis.to_s
-    @patients = Patient.where("incident_id = ? and updated_at > ?", @incident_id, Time.now-15.seconds).limit(1)
+    @patients = Patient.where("incident_id = ? and updated_at > ?", @incident_id, Time.now-15.seconds)
     puts "#Patients = " + @patients.count.to_s
 
     if (@patients.count > 0)
