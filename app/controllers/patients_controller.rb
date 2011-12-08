@@ -34,11 +34,11 @@ class PatientsController < ApplicationController
     puts "#Ambulances = " + @ambulances.count.to_s
 
     if (@ambulances.count > 0)
-      @ambulances_assigned = Ambulance.select("status, count(*) as number").where("incident_id = ?", @incident_id).group("status")
+      @ambulances_assigned = Ambulance.select("status, count(*) as number").where("incident_id = ? and is_deleted = ?", @incident_id, false).group("status")
       puts "Amb. Assigned " + @ambulances_assigned.count.to_s
-      @general_ambulances = Ambulance.where("incident_id = ?", @incident_id).order("idAmbulance");
+      @general_ambulances = Ambulance.where("incident_id = ? and is_deleted = ?", @incident_id, false).order("idAmbulance");
       puts "#Ambulances = " + @general_ambulances.count.to_s
-      @all_patients = Patient.where("incident_id = ?", @incident_id)
+      @all_patients = Patient.where("incident_id = ? and is_deleted = ?", @incident_id, false)
       puts "#Pacients = " + @all_patients.count.to_s
     end
 
