@@ -19,7 +19,8 @@ Copyright:    Field Applications
   </tr>
 
 <% @hospitals.each_with_index do |hospital, i| %>
-  <%if hospital.name != "Not yet defined"%>
+  <%if hospital.name != "Not yet defined" %>
+
   	<% if i%2 != 0 %>
     	<tr id ="even">
   			<%else %>
@@ -30,6 +31,7 @@ Copyright:    Field Applications
 			<td><%= button_to 'Edit', edit_hospital_path(hospital), {:method => "get"}  %></td>
     		<td><%= button_to 'Delete', hospital, :confirm => 'Are you sure?', :method => :delete  %></td>
   		</tr>
+
 	<% end %>
   <% end %>
 </table>

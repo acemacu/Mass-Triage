@@ -101,7 +101,8 @@
     
 <% else %>
     <% if patient.is_deleted != true %>
-<% puts patient.is_deleted %>
+<% if patient.is_deleted != true %>
+
     <tr id="patient_<%= patient.id %>">
         <td id="tagnum_<%= patient.id%>"><%= patient.numberOfTag %></td>
         <% if patient.tagColor == "Black" %>
@@ -143,6 +144,7 @@
 			
         	
     </tr>
+<%end%>
 <%end%>
     
 <%end%>

@@ -44,7 +44,6 @@ Copyright:    Field Applications
 <div class="centerEverythingContainterNoBorder">
   <div class="scrollable3">
 <table id="mciTable" class="tablesorter">
-  <thead>
    <tr>
     <th>AMBULANCE</th>
     <th>STATUS</th>
@@ -52,12 +51,10 @@ Copyright:    Field Applications
     <th>ETA</th>
 	<th>REMOVE
 
-  </tr>
-  	</thead>		
-	<tbody>	
+  </tr>		
 
 	<%= render :partial => @ambulances, :locals => {:list => true} %>
-    </tbody>	
+	
 </table>
 </div>
 </div>

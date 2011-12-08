@@ -64,7 +64,7 @@ class PatientsController < ApplicationController
    @incidentType = IncidentType.all
    @stringIncidentType = json_incidentType(@incidentType)
    
-   @ambulances = @incident.ambulances.all
+   @ambulances = Ambulance.find :all, :conditions => ['is_deleted is not ? AND incident_id = ?', true, @incident.id]
    @stringAmbulances = json_ambulance(@ambulances)
 
     respond_to do |format|

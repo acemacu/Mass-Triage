@@ -28,7 +28,6 @@ Copyright:    Field Applications
 	<div class="scrollable2">
 		<div class="patientsTable">
 			<table id="tableForPatients">
-				<thead>
 				<tr>
 		    		<th>TAG#</th>
 		    		<th>COLOR</th>
@@ -44,8 +43,7 @@ Copyright:    Field Applications
 						<th class="open">DELETE</th>
 					<%end%>
 				<%end%>
-				</tr>
-				</thead>		
+				</tr>		
 				<tbody id="tbody_created_patients" class="tbody_created_patients">
                                 <%= render :partial => @patients, :locals => {:list => true} %>
                                 

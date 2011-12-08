@@ -22,8 +22,14 @@ class Incident < ActiveRecord::Base
    patients_untrasported.count
   end
   
-  def amb_count(status)
-    ambulances.find_all_by_status(status).count
+  def amb_count(status, id)
+    ambulances_count = Ambulance.find :all, :conditions => ['status = ? AND is_deleted is not ? AND incident_id = ?', status, true, id]
+    return ambulances_count.count
+  end
+  
+  def total_ambulances(id)
+     total_ambulances = Ambulance.find :all, :conditions => ['is_deleted is not ? AND incident_id = ?', true, id]
+     return total_ambulances.count
   end
   
   def untransported(status, id)

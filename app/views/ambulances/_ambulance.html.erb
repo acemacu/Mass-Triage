@@ -5,6 +5,7 @@ Copyright:    Field Applications
 -->
 <% if @incident.status == true %>
 <% if ambulance.idAmbulance != "Not yet defined"%>
+	<% if ambulance.is_deleted != true %>
 
 	 <% if @oddOrEven % 2 == 0 %>
       <tr id="ambulance_<%= ambulance.id %>" class = "even">
@@ -54,11 +55,13 @@ Copyright:    Field Applications
         <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
 </tr>
 <% end %>
+<% end %>
 
 <% else %>
 
 <% if ambulance.idAmbulance != "Not yet defined"%>
-
+	<% if ambulance.is_deleted != true %>
+	
 	 <% if @oddOrEven % 2 == 0 %>
       <tr id="ambulance_<%= ambulance.id %>" class = "even">
 	  <%else %>
@@ -77,6 +80,7 @@ Copyright:    Field Applications
         <td><%= ambulance.eta %></td>
         
 </tr>
+<% end %>
 <% end %>
 
 <% end %>
