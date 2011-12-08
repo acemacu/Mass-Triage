@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206232746) do
+ActiveRecord::Schema.define(:version => 20111208022555) do
 
   create_table "ambulances", :force => true do |t|
     t.string   "idAmbulance"
@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(:version => 20111206232746) do
     t.datetime "eta"
     t.integer  "adding_user_id"
   end
-
-  create_table "configurables", :force => true do |t|
-    t.string   "name"
-    t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "configurables", ["name"], :name => "index_configurables_on_name"
 
   create_table "hospitals", :force => true do |t|
     t.integer  "idHospital"
@@ -51,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20111206232746) do
   create_table "incidents", :force => true do |t|
     t.integer  "idIncident"
     t.datetime "date"
-    t.string   "incident_type"
     t.string   "location"
     t.float    "longitude"
     t.float    "latitude"
@@ -106,15 +96,6 @@ ActiveRecord::Schema.define(:version => 20111206232746) do
     t.boolean  "is_deleted"
   end
 
-  create_table "responders", :force => true do |t|
-    t.integer  "idResponder"
-    t.string   "firstName"
-    t.string   "lastName"
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -136,7 +117,6 @@ ActiveRecord::Schema.define(:version => 20111206232746) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "responder_id"
     t.integer  "role_id"
     t.string   "fname"
     t.string   "lname"
