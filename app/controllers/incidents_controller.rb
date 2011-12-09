@@ -67,7 +67,7 @@ class IncidentsController < ApplicationController
       if @incident.save
         hospital = Hospital.find(:first, :conditions => {:name => "Not yet defined"})
         puts "Hospital name " << hospital.name
-        ambulance = Ambulance.create(:idAmbulance => "Not yet defined", :incident_id => @incident.id, :hospital_id => hospital.id )
+        ambulance = Ambulance.create(:idAmbulance => "Not yet defined", :incident_id => @incident.id, :hospital_id => hospital.id, :is_deleted => false )
         puts "Ambulance name" << ambulance.id
         format.html { redirect_to(patient_count_path(@incident), :notice => 'Incident was successfully created.') }
         format.xml  { render :xml => @incident, :status => :created, :location => @incident }
