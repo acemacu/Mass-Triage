@@ -6,86 +6,91 @@ Copyright:    Field Applications
 
 <% if @current_user %>
 	<% if @current_user.role_id != 3 %>
-<div class="wrapper">
+		<div class="wrapper">
 	<%end%>	
-  <%end%>
-  <div class="TopBar">
-
-  <img class ="image"src ="../images/LogoWhite.png"/>
-    <br />
-    <h1 class="TopBarInterior">MCIs in Progress<hr /></h1><br />
- </div>
-  <br />
+<%end%>
+  
+	<div class="TopBar">
+		<img class ="image"src ="../images/LogoWhite.png"/>
+    	<br />
+		<h1 class="TopBarInterior">MCIs in Progress<hr /></h1><br />
+	</div>
+	<br />
   
 <table id="mciTable">
-  <tr>
-    <th class="date">DATE</th>
-    <th class ="type">TYPE</th>
-    <th class="location">LOCATION</th>
-    <th class="latitude">LAT</th>
-    <th class="longitude">LONG</th>
-	<% if @current_user %>
-		<% if @current_user.role_id == 3 %>
-			<th class="open">OPEN?</th>
+	<tr>
+    	<th class="date">DATE</th>
+    	<th class ="type">TYPE</th>
+    	<th class="location">LOCATION</th>
+    	<th class="latitude">LAT</th>
+    	<th class="longitude">LONG</th>
+		<% if @current_user %>
+			<% if @current_user.role_id == 3 %>
+				<th class="open">OPEN?</th>
+			<%end%>
 		<%end%>
-	<%end%>
-    <th class="open"> </th>
-  </tr>
+    	<th class="open"> </th>
+  	</tr>
 
-      <% @incidents.each_with_index do |incident, i| %>
-        <% if i%2 == 0 %>
-          <tr id ="even">
+	<% @incidents.each_with_index do |incident, i| %>
+		<% if i%2 == 0 %>
+			<tr id ="even">
         <%else %>
-          <tr>
+			<tr>
         <% end%>
 
-    <% if incident.date != nil %>
-      <td><%= incident.date.strftime("%m/%d/%y %H:%M:%S %p %Z") %></td>
-    <% else %>
-      <td> </td>
-    <% end %>
-	<% if incident.incident_type_id != nil %>
-	<% incident_type_name = IncidentType.find(incident.incident_type_id)%>
-    <td><%= incident_type_name.name %></td>
-	<% else %>
-	<td></td>
-	<% end %>
-    <td><%= incident.location %></td>
-    <td><%= incident.latitude %></td>
-    <td><%= incident.longitude %></td>
+		<% if incident.date != nil %>
+			<td>
+				<%= incident.date.strftime("%m/%d/%y %H:%M:%S %p %Z") %>
+			</td>
+    	<% else %>
+      		<td> </td>
+    	<% end %>
 
-	<% if @current_user %>
-		<% if @current_user.role_id == 3 %>
-			<% if incident.status%>
-				<td>Yes</td>
-			<% else %>
-				<td>No</td>
-			<% end %>
-		<%end%>
-	<%end%>
-                <% if @current_user %>
-                <%  if (added(incident) and @current_user.role_id != 3)  %>
-                  <td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
-                 <% elsif @current_user.role_id == 3 %>
-                  <td><%= button_to 'Delete', incident, :confirm => 'Are you sure?', :method => :delete  %></td>
-                  <% else%>
-                    <td><%= button_to 'JOIN', {:controller => 'incidents', :action => 'join_incident', :id => incident.id} %></td>
-                 <%end%>
+		<% if incident.incident_type_id != nil %>
+			<% incident_type_name = IncidentType.find(incident.incident_type_id)%>
+    		<td>
+				<%= incident_type_name.name %>
+			</td>
+		<% else %>
+			<td></td>
+		<% end %>
+    	<td><%= incident.location %></td>
+    	<td><%= incident.latitude %></td>
+    	<td><%= incident.longitude %></td>
+		<% if @current_user %>
+			<% if @current_user.role_id == 3 %>
+				<% if incident.status%>
+					<td>Yes</td>
+				<% else %>
+					<td>No</td>
+				<% end %>
 			<%end%>
-	
-  </tr>
-<% end %>
+		<%end%>
+		
+		<% if @current_user %>
+			<%  if (added(incident) and @current_user.role_id != 3)  %>
+				<td><%= button_to 'OPEN', incident_patients_path(incident), {:method => "get"}  %></td>
+			<% elsif @current_user.role_id == 3 %>
+				<td><%= button_to 'Delete', incident, :confirm => 'Are you sure?', :method => :delete  %></td>
+			<% else%>
+				<td><%= button_to 'JOIN', {:controller => 'incidents', :action => 'join_incident', :id => incident.id} %></td>
+			<%end%>
+		<%end%>
+	</tr>
+	<% end %>
 </table>
-<% if @current_user %>
-<% if @current_user.role_id != 3 %>
- </div>
-	<%end%>	
- <%end%>
 
-	<div class="footerwrap">
-		<br />
-		<hr />
-		<%= button_to 'START NEW MCI', new_incident_path, {:method => "get", :class => "LongButton"}%>
-		<br />
-	</div>
+<% if @current_user %>
+	<% if @current_user.role_id != 3 %>
+ 		</div>
+	<%end%>	
+<%end%>
+
+<div class="footerwrap">
+	<br />
+	<hr />
+	<%= button_to 'START NEW MCI', new_incident_path, {:method => "get", :class => "LongButton"}%>
+	<br />
+</div>
 

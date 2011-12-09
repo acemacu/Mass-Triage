@@ -6,6 +6,7 @@ Copyright:    Field Applications
 
 /* Eliminate the patient by fading it out */
 $('#ambulance_<%= @ambulance.id %>').fadeOut();
+
 /* Replace the count of patient */
 $("#ambulance_count").html("<%= pluralize(Ambulance.count, 'Ambulance') %>");
 

@@ -7,25 +7,25 @@ Copyright:    Field Applications
 <h1>Listing resources</h1>
 
 <table>
-  <tr>
-    <th>Est patient count</th>
-    <th>Requested amb count</th>
-    <th>Incident</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+	<tr>
+    	<th>Est patient count</th>
+    	<th>Requested amb count</th>
+    	<th>Incident</th>
+    	<th></th>
+    	<th></th>
+    	<th></th>
+  	</tr>
 
-<% @resource.each do |resource| %>
-  <tr>
-    <td><%= resource.est_patient_count %></td>
-    <td><%= resource.requested_amb_count %></td>
-    <td><%= resource.incident_id %></td>
-    <td><%= link_to 'Show', resource %></td>
-    <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-    <td><%= link_to 'Destroy', resource, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+	<% @resource.each do |resource| %>
+  		<tr>
+    		<td><%= resource.est_patient_count %></td>
+    		<td><%= resource.requested_amb_count %></td>
+    		<td><%= resource.incident_id %></td>
+    		<td><%= link_to 'Show', resource %></td>
+    		<td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+    		<td><%= link_to 'Destroy', resource, :confirm => 'Are you sure?', :method => :delete %></td>
+  		</tr>
+	<% end %>
 </table>
 
 <br />

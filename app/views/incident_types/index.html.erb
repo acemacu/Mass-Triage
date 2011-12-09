@@ -11,34 +11,31 @@ Copyright:    Field Applications
 </div>
 
 <table id="mciTable">
-  <tr>
-    <th class="date">Name</th>
-    <th class="open"></th>
-    <th class="open"></th>
-  </tr>
+	<tr>
+		<th class="date">Name</th>
+		<th class="open"></th>
+		<th class="open"></th>
+	</tr>
 
-<% @incident_types.each_with_index do |incident_type, i| %>
-<% if incident_type.is_deleted != true %>
-	<% if i%2 != 0 %>
-		<tr id ="even">
-	<%else %>
-		<tr>
-	<% end%>
-    <td><%= incident_type.name %></td>
-    <td><%= button_to 'Edit', edit_incident_type_path(incident_type), {:method => "get"}  %></td>
-    <td><%= button_to 'Delete', incident_type, :confirm => 'Are you sure?', :method => :delete  %></td>
-  </tr>
-<% end %>
-<% end %>
+	<% @incident_types.each_with_index do |incident_type, i| %>
+		<% if incident_type.is_deleted != true %>
+			<% if i%2 != 0 %>
+				<tr id ="even">
+			<%else %>
+				<tr>
+			<% end%>
+			
+			<td><%= incident_type.name %></td>
+			<td><%= button_to 'Edit', edit_incident_type_path(incident_type), {:method => "get"}  %></td>
+			<td><%= button_to 'Delete', incident_type, :confirm => 'Are you sure?', :method => :delete  %></td>
+		</tr>
+		<% end %>
+	<% end %>
 </table>
 
 <br />
-
-
-	<hr />
-	<center>
+<hr />
+<center>
 	<%= button_to 'Add a type of Incident', new_incident_type_path, {:method => "get", :class => "LongButton"}%>
-	</center>
-	<br />
-
-
+</center>
+<br />

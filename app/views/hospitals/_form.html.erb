@@ -10,9 +10,9 @@ Copyright:    Field Applications
       <h2><%= pluralize(@hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>
 
       <ul>
-      <% @hospital.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+      	<% @hospital.errors.full_messages.each do |msg| %>
+        	<li><%= msg %></li>
+      	<% end %>
       </ul>
     </div>
   <% end %>
@@ -22,11 +22,14 @@ Copyright:    Field Applications
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
   <div class="fieldLogin">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
+
   <div class="actions">
     <%= f.submit :class => "LongButton" %>
   </div>
+
 <% end %>

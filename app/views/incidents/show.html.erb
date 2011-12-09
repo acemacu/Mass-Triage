@@ -39,19 +39,17 @@ Copyright:    Field Applications
   <b>Endtime:</b>
   <%= @incident.endTime %>
 
-
-p>
   <b>est patients:</b>
   <%= @incident.est_patient_count %>
 </p>
 
 <%form_for @incident, :url=> resourceupdate_path  do |f| %>
-ESTIMATED PATIENT COUNT <br />
- <%= f.text_field :est_patient_count, :value => @incident.est_patient_count%><br /><br />
-REQUESTED AMBULANCES <br />
-<%= f.text_field :requested_amb_count, :value => @incident.requested_amb_count%><br /><br />
-<%= f.submit "GO TO TRIAGE"%>
- 
+	ESTIMATED PATIENT COUNT <br />
+ 	<%= f.text_field :est_patient_count, :value => @incident.est_patient_count%>
+	<br /><br />
+	REQUESTED AMBULANCES <br />
+	<%= f.text_field :requested_amb_count, :value => @incident.requested_amb_count%><br /><br />
+	<%= f.submit "GO TO TRIAGE"%>
 <% end %>
 
 <%= link_to 'Back', edit_incident_path(@incident) %> |

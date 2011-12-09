@@ -1,9 +1,9 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 class UserSessionsController < ApplicationController
-  # GET /user_sessions
-  # GET /user_sessions.xml
-   # GET /user_sessions/new
-  # GET /user_sessions/new.xml
-  
+
   def new
     @user_session = UserSession.new
 
@@ -13,11 +13,8 @@ class UserSessionsController < ApplicationController
     end
   end
 
-  # POST /user_sessions
-  # POST /user_sessions.xml
   def create
     @user_session = UserSession.new(params[:user_session])
-
     respond_to do |format|
       if @user_session.save
         if User.find(current_user.id).role_id == 3
@@ -34,8 +31,6 @@ class UserSessionsController < ApplicationController
     end
   end
 
-  # DELETE /user_sessions/1
-  # DELETE /user_sessions/1.xml
   def destroy
     @user_session = UserSession.find
     @user_session.destroy
@@ -45,4 +40,5 @@ class UserSessionsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 end

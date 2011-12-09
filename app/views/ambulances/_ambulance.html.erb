@@ -4,86 +4,93 @@ Developed by: Carnegie Mellon University - Team Triage
 Copyright:    Field Applications 
 -->
 <% if @incident.status == true %>
-<% if ambulance.idAmbulance != "Not yet defined"%>
-	<% if ambulance.is_deleted != true %>
-
-	 <% if @oddOrEven % 2 == 0 %>
-      <tr id="ambulance_<%= ambulance.id %>" class = "even">
-	  <%else %>
-	  <tr id="ambulance_<%= ambulance.id %>" >
-	  <% end %>
-	  <% @oddOrEven+=1%>
+	<% if ambulance.idAmbulance != "Not yet defined"%>
+		<% if ambulance.is_deleted != true %>
+			<% if @oddOrEven % 2 == 0 %>
+				<tr id="ambulance_<%= ambulance.id %>" class = "even">
+			<%else %>
+				<tr id="ambulance_<%= ambulance.id %>" >
+			<% end %>
+			
+			<% @oddOrEven+=1%>
 	
-        <td><%= editable_field ambulance, :idAmbulance, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
-        <td><%= editable_field ambulance, :status, :type => 'select', :onblur => 'submit', :update_url => incident_ambulance_path(@incident, ambulance), :data => {'En Route', 'En Route', 'Delayed', 'Delayed', 'Staging', 'Staging', 'At Scene', 'At Scene', 'Transported', 'Transported'}%></td>
+			<td>
+				<%= editable_field ambulance, :idAmbulance, {:update_url => incident_ambulance_path(@incident, ambulance)} %>
+			</td>
+			<td>
+				<%= editable_field ambulance, :status, :type => 'select', :onblur => 'submit', :update_url => incident_ambulance_path(@incident, ambulance), :data => {'En Route', 'En Route', 'Delayed', 'Delayed', 'Staging', 'Staging', 'At Scene', 'At Scene', 'Transported', 'Transported'}%>
+			</td>
 
-	
+			<td >
+				<% hospital = Hospital.find(ambulance.hospital_id) %>
+				<span class="editable" data-id="<%=ambulance.id%>" data-name="hospital[name]">
+					<%= hospital.name %>
+				</span>
+				<script type="text/javascript">
+					function listHospitals(){
+						var hospitalList = '{';
+						<% for a in @hospitals %>
+							hospitalList = hospitalList + '"<%= a.id %>":"<%= escape_javascript(a.name) %>",';
+						<% end %>
+						hospitalList = hospitalList.substring(0, hospitalList.length-1);
+						return hospitalList + '}';
+					}
+					(function( $ ){
+						$(function(){
+							var args = {data: function(value, settings) {
+								// Unescape HTML
+								var retval = value
+								.replace(/&amp;/gi, '&')
+								.replace(/&gt;/gi, '>')
+								.replace(/&lt;/gi, '<')
+								.replace(/&quot;/gi, "\"");
+								return retval;
+							}};
+							$.extend(args, {"name":"hospital[name]","data":listHospitals(),"onblur":"submit","method":"PUT","type":"select"});
+							$(".editable[data-id='<%=  ambulance.id %>'][data-name='hospital[name]']").editable("<%= incident_ambulance_path(@incident, ambulance.id) %>", args);
+						});
+					})( jQuery );
+				</script>
+			</td>
 		
-		<td >
-			<% hospital = Hospital.find(ambulance.hospital_id) %>
-			<span class="editable" data-id="<%=ambulance.id%>" data-name="hospital[name]"><%= hospital.name %></span>
-			<script type="text/javascript">
-				function listHospitals(){
-					var hospitalList = '{';
-					<% for a in @hospitals %>
-					hospitalList = hospitalList + '"<%= a.id %>":"<%= escape_javascript(a.name) %>",';
-					<% end %>
-					hospitalList = hospitalList.substring(0, hospitalList.length-1);
-					return hospitalList + '}';
-				}
-		        (function( $ ){
-		          $(function(){
-					
-
-		            var args = {data: function(value, settings) {
-		              // Unescape HTML
-		              var retval = value
-		                .replace(/&amp;/gi, '&')
-		                .replace(/&gt;/gi, '>')
-		                .replace(/&lt;/gi, '<')
-		                .replace(/&quot;/gi, "\"");
-		              return retval;
-		            }};
-		            $.extend(args, {"name":"hospital[name]","data":listHospitals(),"onblur":"submit","method":"PUT","type":"select"});
-		            $(".editable[data-id='<%=  ambulance.id %>'][data-name='hospital[name]']").editable("<%= incident_ambulance_path(@incident, ambulance.id) %>", args);
-		          });
-		        })( jQuery );
-		</script>
-		 </td>
-		
-        <td><%= editable_field ambulance, :eta, {:update_url => incident_ambulance_path(@incident, ambulance)} %></td>
-        <td><%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %></td>
-</tr>
-<% end %>
-<% end %>
-
+			<td>
+				<%= editable_field ambulance, :eta, {:update_url => incident_ambulance_path(@incident, ambulance)} %>
+			</td>
+			<td>
+				<%= button_to "X", [@incident, ambulance], :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?", :remote => true %>
+			</td>
+		</tr>
+		<% end %>
+	<% end %>
 <% else %>
 
 <% if ambulance.idAmbulance != "Not yet defined"%>
 	<% if ambulance.is_deleted != true %>
-	
-	 <% if @oddOrEven % 2 == 0 %>
-      <tr id="ambulance_<%= ambulance.id %>" class = "even">
-	  <%else %>
-	  <tr id="ambulance_<%= ambulance.id %>" >
-	  <% end %>
-	  <% @oddOrEven+=1%>
-	
-        <td><%= ambulance.idAmbulance%></td>
-        <td><%= ambulance.status%></td>
+		<% if @oddOrEven % 2 == 0 %>
+      		<tr id="ambulance_<%= ambulance.id %>" class = "even">
+	  	<%else %>
+	  		<tr id="ambulance_<%= ambulance.id %>" >
+	  	<% end %>
+	  	<% @oddOrEven+=1%>	
+        <td>
+			<%= ambulance.idAmbulance%>
+		</td>
+        <td>
+			<%= ambulance.status%>
+		</td>
 
 		<td >
 			<% hospital = Hospital.find(ambulance.hospital_id) %>
-			<span class="editable" data-id="<%=ambulance.id%>" data-name="hospital[name]"><%= hospital.name %></span>
+			<span class="editable" data-id="<%=ambulance.id%>" data-name="hospital[name]">
+				<%= hospital.name %>
+			</span>
 		</td>
 		
-        <td><%= ambulance.eta %></td>
+        <td>
+			<%= ambulance.eta %>
+		</td>
         
-</tr>
+		</tr>
+		<% end %>
+	<% end %>
 <% end %>
-<% end %>
-
-<% end %>
-
-
-        

@@ -45,7 +45,7 @@ class HospitalsController < ApplicationController
         format.html { render :action => "new" }
         format.xml  { render :xml => @hospital.errors, :status => :unprocessable_entity }
       end
-    end
+    end  
   end
 
   def update
@@ -66,9 +66,9 @@ class HospitalsController < ApplicationController
     @hospital = Hospital.find(params[:id])
     if(@hospital.name != "Not yet defined")
       if(@hospital.update_attributes(:is_deleted => true ))
-         respond_to do |format|
-            format.html { redirect_to(hospitals_url) }
-            format.xml  { head :ok }
+        respond_to do |format|
+          format.html { redirect_to(hospitals_url) }
+          format.xml  { head :ok }
         end
       end
     end

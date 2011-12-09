@@ -1,46 +1,46 @@
+<!--
+For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+Developed by: Carnegie Mellon University - Team Triage
+Copyright:    Field Applications 
+-->
+
 <div class="TopBar">
-    <img class ="image"src ="../images/LogoWhite.png"/>
+	<img class ="image"src ="../images/LogoWhite.png"/>
     <br />
-     <h1 class="TopBarInterior">Incident Reports</h1>
-        <br />
+	<h1 class="TopBarInterior">Incident Reports</h1>
+	<br />
 </div>
-  <br />
+<br />
 
 <%if !@incident.empty?%>
-<table id="mciTable">
-  <tr>
-    <th class="latitude">ID</th>
-    <th class="type">TYPE</th>
-    <th class="date">DATE</th>
-    <th class="location">LOCATION</th>
-    <th class="open"> </th>
-    <th class="open"> </th>
-
-  </tr>
-
-  <% @incident.each_with_index do |incident, y| %>
-  <% if y%2 == 0 %>
-          <tr id ="even">
-        <%else %>
-          <tr>
-        <% end%>
-    <td> <%=incident.id %></td>
-    <%incident_type_name = IncidentType.find(incident.incident_type_id) %>
-    <td> <%=incident_type_name.name %></td>
-    <td> <%=incident.date.strftime("%m/%d/%y %H:%M:%S %p %Z") %> </td>
-    <td> <%=incident.location %></td>
-    <td> <%= button_to "VIEW", {:controller => 'incidents', :action => 'viewreport', :id => incident.id}, {:onclick => "this.form.target = 'window'; window.open('','window', 'height = 650, width = 750, top = 20, left = 100, scrollbars = 0, toolbar = 0, status = 0, menubar = 0, location = 0')"}%> </td>
-    <td> <%= button_to "Download Report (PDF)", viewreport_path(incident.id, :format => "pdf") %> </td>
-  </tr>
-
-
-<% end %>
-</table>
-
+	<table id="mciTable">
+  		<tr>
+    		<th class="latitude">ID</th>
+    		<th class="type">TYPE</th>
+    		<th class="date">DATE</th>
+    		<th class="location">LOCATION</th>
+    		<th class="open"> </th>
+    		<th class="open"> </th>
+  		</tr>
+  		<% @incident.each_with_index do |incident, y| %>
+  			<% if y%2 == 0 %>
+				<tr id ="even">
+			<%else %>
+          		<tr>
+        	<% end%>
+    		<td> <%=incident.id %></td>
+    		<%incident_type_name = IncidentType.find(incident.incident_type_id) %>
+    		<td> <%=incident_type_name.name %></td>
+    		<td> <%=incident.date.strftime("%m/%d/%y %H:%M:%S %p %Z") %> </td>
+    		<td> <%=incident.location %></td>
+    		<td> <%= button_to "VIEW", {:controller => 'incidents', :action => 'viewreport', :id => incident.id}, {:onclick => "this.form.target = 'window'; window.open('','window', 'height = 650, width = 750, top = 20, left = 100, scrollbars = 0, toolbar = 0, status = 0, menubar = 0, location = 0')"}%> </td>
+    		<td> <%= button_to "Download Report (PDF)", viewreport_path(incident.id, :format => "pdf") %> </td>
+  		</tr>
+		<% end %>
+	</table>
 <br />
 <%else%>
-
-<h3> There are no closed incidents to generate reports.  <%= link_to 'Back', incidents_path %> </h3>
+	<h3> There are no closed incidents to generate reports.  <%= link_to 'Back', incidents_path %> </h3>
 <% end %>
 
 

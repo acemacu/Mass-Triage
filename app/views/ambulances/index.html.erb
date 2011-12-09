@@ -4,59 +4,75 @@ Developed by: Carnegie Mellon University - Team Triage
 Copyright:    Field Applications 
 -->
 
-<h2><span class ="UnselectedTab"><%= link_to "TRIAGE", incident_patients_path(@incident) %></span>   <span class ="SelectedTab">AMBULANCE</span>     <span class ="UnselectedTab"><%= link_to "CLOSE", close_incident_path(@incident) %></span></h2>
+<h2>
+	<span class ="UnselectedTab">
+		<%= link_to "TRIAGE", incident_patients_path(@incident) %>
+	</span>   
+	<span class ="SelectedTab">
+		AMBULANCE
+	</span>     
+	<span class ="UnselectedTab">
+		<%= link_to "CLOSE", close_incident_path(@incident) %>
+	</span>
+</h2>
+
 <hr />
+
 <div id="incident" data-id="<%= @incident.id %>"></div>
 <div id="incident_info" data-id="<%= @incident.id %>"></div>
+
 <%if @incident.status == true%>
-<% if current_user %>
-  <% if User.find(current_user.id).role_id == 2 %>
-  <%= render 'form' %>
-  <% elsif User.find(current_user.id).role_id == 1 %>
-    <% form_for @incident, :url=> viewupdate_path do |f|%>
+	<% if current_user %>
+  		<% if User.find(current_user.id).role_id == 2 %>
+  			<%= render 'form' %>
+  		<% elsif User.find(current_user.id).role_id == 1 %>
+    	<% form_for @incident, :url=> viewupdate_path do |f|%>
+			<% if @incident.errors.any? %>
+    			<div id="error_explanation">
+      				<h2>
+						<%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:
+					</h2>
+					<ul>
+      					<% @incident.errors.full_messages.each do |msg| %>
+        				<li><%= msg %></li>
+      					<% end %>
+      				</ul>
+    			</div>
+  			<% end %>
 
-<% if @incident.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
-
-      <ul>
-      <% @incident.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<div class="CountInputs">
-<h1>REQUEST AMBULANCES</h1><br />
-<%= submit_tag "-5", :type=> 'button', :class => 'minus5Ambulance'%>
-<%= submit_tag "-1", :type=> 'button', :class => 'minus1Ambulance'%>
-<%= f.text_field :requested_amb_count, :value => '0', :id => 'fieldAmbulance'  %>
-<%= submit_tag "+1", :type=> 'button', :class => 'plus1Ambulance'%>
-<%= submit_tag "+5", :type=> 'button', :class => 'plus5Ambulance'%>
-<br /><br />
-<%= f.submit "NOTIFY DISPATCH", :class => 'LongButton'%>
-<br /><br/></div><% end -%><% end -%><% end -%>
+			<div class="CountInputs">
+				<h1>REQUEST AMBULANCES</h1>
+				<br />
+				<%= submit_tag "-5", :type=> 'button', :class => 'minus5Ambulance'%>
+				<%= submit_tag "-1", :type=> 'button', :class => 'minus1Ambulance'%>
+				<%= f.text_field :requested_amb_count, :value => '0', :id => 'fieldAmbulance'  %>
+				<%= submit_tag "+1", :type=> 'button', :class => 'plus1Ambulance'%>
+				<%= submit_tag "+5", :type=> 'button', :class => 'plus5Ambulance'%>
+				<br /><br />
+				<%= f.submit "NOTIFY DISPATCH", :class => 'LongButton'%>
+				<br /><br/>
+			</div>
+			<% end -%>
+		<% end -%>
+	<% end -%>
 <% else -%>
-<h1>THIS INCIDENT HAS BEEN CLOSED</h1>
-<%end -%><hr />
+	<h1>THIS INCIDENT HAS BEEN CLOSED</h1>
+<%end -%>
 
+<hr />
 <div class="centerEverythingContainterNoBorder">
-  <div class="scrollable3">
-<table id="mciTable" class="tablesorter">
-   <tr>
-    <th>AMBULANCE</th>
-    <th>STATUS</th>
-    <th>HOSPITAL</th>
-    <th>ETA</th>
-	<th>REMOVE
-
-  </tr>		
-
-	<%= render :partial => @ambulances, :locals => {:list => true} %>
-	
-</table>
-</div>
+	<div class="scrollable3">
+		<table id="mciTable" class="tablesorter">
+			<tr>
+    			<th>AMBULANCE</th>
+    			<th>STATUS</th>
+    			<th>HOSPITAL</th>
+    			<th>ETA</th>
+				<th>REMOVE
+			</tr>		
+		<%= render :partial => @ambulances, :locals => {:list => true} %>
+		</table>
+	</div>
 </div>
 
 

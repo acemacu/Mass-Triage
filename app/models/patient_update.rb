@@ -1,3 +1,7 @@
+# For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+# Developed by: Carnegie Mellon University - Team Triage
+# Copyright:    Field Applications
+
 class PatientUpdate < ActiveRecord::Base
 
   belongs_to :patient
@@ -38,7 +42,7 @@ class PatientUpdate < ActiveRecord::Base
   end
 
   def transported(incidentid, patientid)
-
     return PatientUpdate.select("updateTime, value").where("incident_id=? and patient_id=? and value=? ", incidentid, patientid, "Transported").last
   end
+  
 end

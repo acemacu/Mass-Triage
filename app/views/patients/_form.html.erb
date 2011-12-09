@@ -14,14 +14,14 @@ Copyright:    Field Applications
 	<%= patient.select( :ageType, [['Years','Years'],['Months','Months'], ['Days', 'Days']],{}, {:class => "ShortField"}) %>
 	<%= patient.label :complaint, "COMPLAINT"%>
 	<%= patient.text_field :complaint, :class => "LongField"%>
-<%= patient.submit "ADD", :class => "ShortButton"%>
-<input type="button" id="extra_options_min" value="+" class ="RedShortButton" >
-<div id="extra_options">
+	<%= patient.submit "ADD", :class => "ShortButton"%>
+	<input type="button" id="extra_options_min" value="+" class ="RedShortButton" >
+	<div id="extra_options">
         <%= patient.label "Status" %>
         <%= patient.select( :status, [['At Scene', 'At Scene'],['Transported','Transported'],['Missing/Left Scene','Missing/Left Scene']],{}, {:class => "ShortField"}) %>
         <%= patient.label "Hospital" %>
-        <%= patient.collection_select(:hospital_id, Hospital.all ,:id, :name, {}, {:class => "LongField"}) %>
+        <%= patient.collection_select(:hospital_id, @hospitals  ,:id, :name, {}, {:class => "LongField"}) %>
         <%= patient.label "Ambulance" %>
-        <%= patient.collection_select(:ambulance_id, @incident.ambulances.all, :id, :idAmbulance, {}, {:class => "LongField"}) %>
-</div>
+        <%= patient.collection_select(:ambulance_id, @ambulances, :id, :idAmbulance, {}, {:class => "LongField"}) %>
+	</div>
 <% end %>

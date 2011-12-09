@@ -5,49 +5,48 @@ Copyright:    Field Applications
 -->
 
 <%= form_for(@incident) do |f| %>
-  <% if @incident.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+	<% if @incident.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+      		<ul>
+      			<% @incident.errors.full_messages.each do |msg| %>
+        			<li><%= msg %></li>
+      			<% end %>
+      		</ul>
+		</div>
+	<% end %>
 
-      <ul>
-      <% @incident.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.hidden_field :date %>
-<span class="title">
-  <%= f.label "Date: " << @incident.date.strftime("%m/%d/%y %H:%I %p %Z") %>
-</span>
-<br />
-<br />
-<div class="fieldLogin">
-  <%= f.label "Address: " %>
-  <%= f.text_field :location %>
-</div>
-<br />
-<div class="fieldLogin">
-  <%= f.label "Latitude: " %>
-  <%= f.text_field :latitude%>
-</div>
-<br />
-<div class="fieldLogin">
-  <%= f.label "Longitude: " %>
-  <%= f.text_field :longitude%>
-</div>
-<br />
-<div class="fieldLogin">
-  <%= f.label "Incident Type: " %>
-  <% @incident_type = IncidentType.find(:all).map { |u| [u.name, u.id] } %>
-  <%= f.select :incident_type_id, @incident_type %>
-</div>
-<div class="fieldLogin">
-  <%= f.label "Incident Description:" %>
-  <%= f.text_area :description, :class => "TextArea" %>
-</div>
-
+	<%= f.hidden_field :date %>
+	<span class="title">
+  		<%= f.label "Date: " << @incident.date.strftime("%m/%d/%y %H:%I %p %Z") %>
+	</span>
+	<br />
+	<br />
+	<div class="fieldLogin">
+  		<%= f.label "Address: " %>
+		<%= f.text_field :location %>
+	</div>
+	<br />
+	<div class="fieldLogin">
+		<%= f.label "Latitude: " %>
+		<%= f.text_field :latitude%>
+	</div>
+	<br />
+	<div class="fieldLogin">
+  		<%= f.label "Longitude: " %>
+  		<%= f.text_field :longitude%>
+	</div>
+	<br />
+	<div class="fieldLogin">
+  		<%= f.label "Incident Type: " %>
+  		<% @incident_type = IncidentType.find(:all).map { |u| [u.name, u.id] } %>
+  		<%= f.select :incident_type_id, @incident_type %>
+	</div>
+	
+	<div class="fieldLogin">
+  		<%= f.label "Incident Description:" %>
+  		<%= f.text_area :description, :class => "TextArea" %>
+	</div>
 </div>
 <%= f.submit "Create Incident", :class => "LongButton"%>
 <% end %>

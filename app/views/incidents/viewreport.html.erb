@@ -1,216 +1,211 @@
+<!--
+For more information on the technology stack selected, please refer to the document "Technology feasibility analysis"
+Developed by: Carnegie Mellon University - Team Triage
+Copyright:    Field Applications 
+-->
 
 <% if current_user  %>
-<% if @incident !=nil%>
-<div>
-<img class ="image"src ="../images/LogoWhite.png"/>
-   <div align="center">
-    <h3> Mass Triage Incident Report </h3><br/>
-  </div>
-    <div align="left">
+	<% if @incident !=nil%>
+		<div>
+			<img class ="image"src ="../images/LogoWhite.png"/>
+   			<div align="center">
+    			<h3> Mass Triage Incident Report </h3><br/>
+  			</div>
+    		<div align="left">
+    			<b>City of Santa Clara </b> <br/>
+    			Paramedic Department<br/> <br/>
+  			</div>
+			<div align ="left">
+    			Created on: <%=Time.now.strftime("%m/%d/%y %H:%M:%S %p %Z")%><br/>
+    			Created by:<%= User.find(current_user.id).fname %> <%= User.find(current_user.id).lname %>
+    		<br/>
+  			</div>
+		</div>
+		<br/>
+		<h3> Incident Details</h3>
+		<table id="reportTable" >
+  			<tr>  
+				<th>Id</th> 
+				<td> <%=@incident.id %></td>    
+			</tr>
+  			<tr>  
+				<th>Date</th> 
+				<td> <%=@incident.date.strftime("%m/%d/%y %H:%M:%S %p %Z") %> </td> 
+			</tr>
+   			<tr> 
+				<th>Type</th> <%incident_type_name = IncidentType.find(@incident.incident_type_id) %>
+         		<td><%= incident_type_name.name %></td>    
+			</tr>
+   			<tr> 
+				<th>Location</th>  
+				<td> <%=@incident.location %> </td> 
+				</tr>
+   			<tr> 
+				<th>Duration</th>  
+				<td>  <%= (Time.mktime(0)+ (@incident.updated_at - @incident.date) ).strftime("%H:%M:%S") %></td> 
+			</tr>
+   			<tr> 
+				<th>Incident Commander</th>  
+      			<% @leader =  role(@incident, 1) %>
+     			<% if @leader != nil %>
+     				<td> <%=@leader.fname  %>  <%=@leader.lname  %></td>
+      			<%else%>  
+					<td> </td>
+      			<%end%>
+			</tr>
+   			<tr> 
+				<th>Incident Dispatcher</th>
+      			<% @leader =  role(@incident, 2) %>
+      			<% if @leader != nil %>
+          			<td> <%=@leader.fname  %>  <%=@leader.lname  %> </td>
+      			<%else%>  
+					<td> </td>
+      			<%end%>
+      		</tr>
+    		<tr> 
+				<th>Number of Responders</th>  
+				<td><%=@incident.users.count%> </td> 
+			</tr>
+    		<tr> 
+				<th>Number of patients</th>  
+				<td> <%=@incident.patients.count%></td> 
+			</tr>
+    		<tr> 
+				<th>Number of ambulances</th>  
+				<td>  <%= (@incident.ambulances.count - 1)%> </td> 
+			</tr>
+		</table>
+		<br/><br/>
 
-    <b>City of Santa Clara </b> <br/>
-    Paramedic Department<br/> <br/>
-  </div>
+		<h3>Incident Patient Summary by Triage Color</h3>
 
+		<table class="summary">
+      		<tr>
+        		<td id="black_triage" class="black"><%= @incident.color_dist("Black", @incident.id) %></td>
+        		<td id="red_triage" class="red"><%= @incident.color_dist("Red", @incident.id) %></td>
+        		<td id="yellow_triage" class="yellow"><%= @incident.color_dist("Yellow", @incident.id) %></td>
+        		<td id="green_triage" class="green"><%= @incident.color_dist("Green", @incident.id) %></td>
+      		</tr>
+    	</table>
+		<br/><br/>
+		<h3>Incident Patient Details</h3>
+		<% @patient.each do |patient| %>
+			<table id="reportTable" class="pbi_avoid">
+  				<tr>
+    				<th>Tag Number</th>
+    				<th>Tag Color</th>
+    				<th>Sex</th>
+     				<th>Age</th>
+    				<th>Complaint</th>
+    				<th>Status</th>
+    				<th> Ambulance</th>
+    				<th> Hospital </th>
+    				<th> Responder </th>
+    				<th> Time added </th>
+    				<% if patient.is_deleted != true %>
+    					<th> Time Transported</th>
+    					<th> Triage Time</th>
+    				<%else%>
+    					<th> Status</th>
+    					<th> Time Deleted</th>
+    				<%end%>
+  				</tr>
+  				<tr>
+    				<td> <%=patient.numberOfTag%></td>
+    				<td> <%=patient.tagColor%></td>
+    				<td> <%=patient.sex %></td>
+    				<td>  <%=patient.age %> <%= patient.ageType %></td>
+    				<td> <%=patient.complaint %></td>
+    				<td> <%=patient.status %> </td>
+  					<%ambulance = Ambulance.find(patient.ambulance_id)%>
+    				<%if ambulance != nil%>
+    					<td> <%=ambulance.id %> </td>
+    				<%else%>
+    					<td> </td>
+    				<%end%>
+    				<%hospital = Hospital.find(patient.hospital_id)%>
+    				<%if hospital != nil%>
+    					<td> <%=hospital.name %> </td>
+    				<%else%>
+    					<td> </td>
+    				<%end%>
+    				<%  @user = user(patient.creating_user_id) %>
 
-  <div align ="left">
-
-    Created on: <%=Time.now.strftime("%m/%d/%y %H:%M:%S %p %Z")%><br/>
-    Created by:<%= User.find(current_user.id).fname %> <%= User.find(current_user.id).lname %>
-    <br/>
-  </div>
-
-</div>
-<br/>
-<h3> Incident Details</h3>
-<table id="reportTable" >
-  <tr>  <th>Id</th> <td> <%=@incident.id %></td>    </tr>
-  <tr>  <th>Date</th> <td> <%=@incident.date.strftime("%m/%d/%y %H:%M:%S %p %Z") %> </td> </tr>
-   <tr> <th>Type</th> <%incident_type_name = IncidentType.find(@incident.incident_type_id) %>
-         <td><%= incident_type_name.name %></td>    </tr>
-   <tr> <th>Location</th>  <td> <%=@incident.location %> </td> </tr>
-   <tr> <th>Duration</th>  <td>  <%= (Time.mktime(0)+ (@incident.updated_at - @incident.date) ).strftime("%H:%M:%S") %></td> </tr>
-  
-   <tr> <th>Incident Commander</th>  
-      <% @leader =  role(@incident, 1) %>
-     <% if @leader != nil %>
-     <td> <%=@leader.fname  %>  <%=@leader.lname  %></td>
-      <%else%>  <td> </td>
-      <%end%>
-      
-      </tr>
-   <tr> <th>Incident Dispatcher</th>
-      <% @leader =  role(@incident, 2) %>
-      <% if @leader != nil %>
-          <td> <%=@leader.fname  %>  <%=@leader.lname  %> </td>
-      <%else%>  <td> </td>
-      <%end%>
-      
-      </tr>
-    <tr> <th>Number of Responders</th>  <td><%=@incident.users.count%> </td> </tr>
-    <tr> <th>Number of patients</th>  <td> <%=@incident.patients.count%></td> </tr>
-    <tr> <th>Number of ambulances</th>  <td>  <%= (@incident.ambulances.count - 1)%> </td> </tr>
-
-    
-    
-    
-   
-   
-
-
-  </table>
-<br/><br/>
-
-<h3>Incident Patient Summary by Triage Color</h3>
-
-<table class="summary">
-      <tr>
-        <td id="black_triage" class="black"><%= @incident.color_dist("Black", @incident.id) %></td>
-        <td id="red_triage" class="red"><%= @incident.color_dist("Red", @incident.id) %></td>
-        <td id="yellow_triage" class="yellow"><%= @incident.color_dist("Yellow", @incident.id) %></td>
-        <td id="green_triage" class="green"><%= @incident.color_dist("Green", @incident.id) %></td>
-      </tr>
-    </table>
-<br/><br/>
-<h3>Incident Patient Details</h3>
-<% @patient.each do |patient| %>
-<table id="reportTable" class="pbi_avoid">
-  
-  <tr>
-    <th>Tag Number</th>
-    <th>Tag Color</th>
-    <th>Sex</th>
-     <th>Age</th>
-    <th>Complaint</th>
-    <th>Status</th>
-    <th> Ambulance</th>
-    <th> Hospital </th>
-    <th> Responder </th>
-    <th> Time added </th>
-    <% if patient.is_deleted != true %>
-    <th> Time Transported</th>
-    <th> Triage Time</th>
-    <%else%>
-    <th> Status</th>
-    <th> Time Deleted</th>
-    <%end%>
-  </tr>
-
-  
-  <tr>
-    <td> <%=patient.numberOfTag%></td>
-    <td> <%=patient.tagColor%></td>
-    <td> <%=patient.sex %></td>
-    <td>  <%=patient.age %> <%= patient.ageType %></td>
-    <td> <%=patient.complaint %></td>
-    <td> <%=patient.status %> </td>
-  <%ambulance = Ambulance.find(patient.ambulance_id)%>
-    <%if ambulance != nil%>
-    <td> <%=ambulance.id %> </td>
-    <%else%>
-    <td> </td>
-    <%end%>
-    <%hospital = Hospital.find(patient.hospital_id)%>
-    <%if hospital != nil%>
-    <td> <%=hospital.name %> </td>
-    <%else%>
-    <td> </td>
-    <%end%>
-    <%  @user = user(patient.creating_user_id) %>
-
-    <td> <%=@user.fname %> <%=@user.lname %></td>
-     <td> <%=patient.created_at.strftime("%m/%d/%y %H:%M:%S %p %Z") %> </td>
-     <%  @transported = transport(@incident.id, patient.id) %>
-     <%if (@transported != nil and patient.is_deleted != true)  %>
-        <% if  @transported.value == "Transported"%>
-          <td> <%= @transported.updateTime.strftime("%m/%d/%y %H:%M:%S %p %Z")%> </td>
-          <td> <%= (Time.mktime(0)+ (@transported.updateTime - patient.created_at) ).strftime("%H:%M:%S") %> </td>
-        <%end %>
-     <%elsif patient.is_deleted == true %>
-          <td> DELETED </td>
-          <td> <%=patient.updated_at.strftime("%m/%d/%y %H:%M:%S %p %Z")%> </td>
-     <%else %>
-          <td> <%=patient.updated_at.strftime("%m/%d/%y %H:%M:%S %p %Z")%></td>
-          <td> <%= (Time.mktime(0)+ (patient.updated_at - patient.created_at) ).strftime("%H:%M:%S") %> </td>
-        
-     <%end%>
-  </tr>
-  <% @update = updates(@incident.id, patient.id) %>
-   <%if !@update.empty?%>
-    
-      <table id="reportTable">
-        <tr>
-          <th>Changed </th>
-           <th>Previous </th>
-          <th>Current </th>
-          <th> Update Time</th>
-          <th> Updated by</th>
-        </tr>
-        <% @update.each_with_index do |update, x| %>
-       <% if x%2 == 0 %>
-          <tr id ="even" class="pbi_avoid">
-        <%else %>
-          <tr>
-        <% end%>
-          <td> <%=update.updated%> </td>
-          <td> <%=update.previous%> </td>
-          <td> <%=update.value %></td>
-          <td> <%=update.updateTime.strftime("%m/%d/%y %H:%M:%S %p %Z") %></td>
-          <%  @user = user(update.user_id) %>
-          <td> <%=@user.fname %> <%=@user.lname %></td>
-        </tr>
-        <%end%>
-
+    				<td> <%=@user.fname %> <%=@user.lname %></td>
+     				<td> <%=patient.created_at.strftime("%m/%d/%y %H:%M:%S %p %Z") %> </td>
+     				<%  @transported = transport(@incident.id, patient.id) %>
+     				<%if (@transported != nil and patient.is_deleted != true)  %>
+        				<% if  @transported.value == "Transported"%>
+          					<td> <%= @transported.updateTime.strftime("%m/%d/%y %H:%M:%S %p %Z")%> </td>
+          					<td> <%= (Time.mktime(0)+ (@transported.updateTime - patient.created_at) ).strftime("%H:%M:%S") %> </td>
+        				<%end %>
+     				<%elsif patient.is_deleted == true %>
+          				<td> DELETED </td>
+          				<td> <%=patient.updated_at.strftime("%m/%d/%y %H:%M:%S %p %Z")%> </td>
+     				<%else %>
+          				<td> <%=patient.updated_at.strftime("%m/%d/%y %H:%M:%S %p %Z")%></td>
+          				<td> <%= (Time.mktime(0)+ (patient.updated_at - patient.created_at) ).strftime("%H:%M:%S") %> </td>
+     				<%end%>
+  				</tr>
+  				<% @update = updates(@incident.id, patient.id) %>
+   				<%if !@update.empty?%>
+      				<table id="reportTable">
+        				<tr>
+          					<th>Changed </th>
+           					<th>Previous </th>
+          					<th>Current </th>
+          					<th> Update Time</th>
+          					<th> Updated by</th>
+        				</tr>
+        				<% @update.each_with_index do |update, x| %>
+       						<% if x%2 == 0 %>
+          						<tr id ="even" class="pbi_avoid">
+        					<%else %>
+          						<tr>
+        					<% end%>
+          					<td> <%=update.updated%> </td>
+          					<td> <%=update.previous%> </td>
+          					<td> <%=update.value %></td>
+          					<td> <%=update.updateTime.strftime("%m/%d/%y %H:%M:%S %p %Z") %></td>
+          					<%  @user = user(update.user_id) %>
+          					<td> <%=@user.fname %> <%=@user.lname %></td>
+        				</tr>
+        				<%end%>
+      				</table>
+   				<% end %> 
+			</table>
+			<br/> <br/> 
+		<% end %>
+		<br/> 
+		<h3> Incident Responders</h3>
+		<table id="reportTable">
+  			<tr>
+    			<th>First Name</th>
+    			<th>Last Name</th>
+    			<th>Role</th>
+    			<th>Joined Incident </th>
+  			</tr>
+			<% @incident_user.each_with_index do |user, i| %>
+        		<% if i%2 == 0 %>
+          			<tr id ="even">
+        		<%else %>
+          			<tr>
+        		<% end%>
+    			<td> <%=user.fname %></td>
+    			<td> <%=user.lname %></td>
+       				<%if user.role_id == 1 %>
+      					<td> Responder</td>
+    				<%else%>
+      					<td> Dispatcher</td>
+      				<%end%>
+      			<td> <%=user.created_at.strftime("%m/%d/%y %H:%M:%S %p %Z")%></td>
+        	</tr>
+			<% end %>
       </table>
-
-     <% end %>
-  
-
-
-</table>
-<br/> <br/> 
-<% end %>
-<br/> 
-<h3> Incident Responders</h3>
-
-<table id="reportTable">
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Role</th>
-    <th>Joined Incident </th>
-
-  </tr>
-<% @incident_user.each_with_index do |user, i| %>
-        <% if i%2 == 0 %>
-          <tr id ="even">
-        <%else %>
-          <tr>
-        <% end%>
- 
-        
-  
-    <td> <%=user.fname %></td>
-    <td> <%=user.lname %></td>
-       <%if user.role_id == 1 %>
-      <td> Responder</td>
-    <%else%>
-      <td> Dispatcher</td>
-     
-      <%end%>
-      <td> <%=user.created_at.strftime("%m/%d/%y %H:%M:%S %p %Z")%></td>
-        </tr>
-<% end %>
-      
-</table>
-
-<br />
-  <%else%>
-
-  <h3> There are is no report available for Incident <%= params[:id]%>.  <%= link_to 'Back', report_path %> </h3>
-<% end %>
-
+	<br />
+	<%else%>
+	<h3> There are is no report available for Incident <%= params[:id]%>.  <%= link_to 'Back', report_path %> </h3>
+	<% end %>
 <%else%>
-
-<h3> You must be logged in to view report</h3>
+	<h3> You must be logged in to view report</h3>
 <%end%>

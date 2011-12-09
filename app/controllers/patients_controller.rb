@@ -58,14 +58,11 @@ class PatientsController < ApplicationController
     @patients = @incident.patients.all
     @patient = @incident.patients.new
     
-   @hospitals = Hospital.all
-   @stringHospitals = json_hospitals(@hospitals)
+    @hospitals = Hospital.find :all, :conditions => ['is_deleted is not ?', true]   
+    @incidentType = IncidentType.find :all, :conditions => ['is_deleted is not ?', true]
+    @stringIncidentType = json_incidentType(@incidentType)
    
-   @incidentType = IncidentType.all
-   @stringIncidentType = json_incidentType(@incidentType)
-   
-   @ambulances = Ambulance.find :all, :conditions => ['is_deleted is not ? AND incident_id = ?', true, @incident.id]
-   @stringAmbulances = json_ambulance(@ambulances)
+    @ambulances = Ambulance.find :all, :conditions => ['is_deleted is not ? AND incident_id = ?', true, @incident.id]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -88,7 +85,6 @@ class PatientsController < ApplicationController
     @incident = Incident.find(params[:incident_id])
     @patient = @incident.patients.new
     
-    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @patient }
@@ -110,17 +106,16 @@ class PatientsController < ApplicationController
     end
     
     respond_to do |format|
-        if @patient.save
-           flash[:notice] = "You just added a patient!"
-          format.html { redirect_to incident_patients_path }
-          format.js
-        else
-          format.html { render :action => "index" }
-          format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
-        end
-
+      if @patient.save
+        flash[:notice] = "You just added a patient!"
+        format.html { redirect_to incident_patients_path }
+        format.js
+      else
+        format.html { render :action => "index" }
+        format.xml  { render :xml => @incident.errors, :status => :unprocessable_entity }
       end
     end
+  end
   
   
   def update
@@ -131,11 +126,11 @@ class PatientsController < ApplicationController
     respond_to do |format|
       if(params[:patient])
         if @patient.update_attributes(params[:patient])
-             @chng = PatientUpdate.new.patientchanges(params[:patient], @incident, @patient, current_user.id )
-            flash[:notice] = "Patient successfully updated."
+          @chng = PatientUpdate.new.patientchanges(params[:patient], @incident, @patient, current_user.id )
+          flash[:notice] = "Patient successfully updated."
           if params[:patient][:numberOfTag]
             @chng.updated = "Tag Number"
-            @chng.previous =@temp_patient.numberOfTag
+            @chng.previous = @temp_patient.numberOfTag
             format.html {  render :text => params[:patient][:numberOfTag] }
             format.json  { head :ok }
           elsif params[:patient][:tagColor]
@@ -170,30 +165,29 @@ class PatientsController < ApplicationController
             format.json  { head :ok }
           end
           @chng.save
-
         end
        
       elsif(params[:ambulance])
         if @patient.update_attributes(:ambulance_id => params[:ambulance][:idAmbulance])
-           @chng = PatientUpdate.new.ambchanges(params[:ambulance][:idAmbulance], @incident, @patient, current_user.id )
-           @chng.previous = Ambulance.find(@temp_patient.ambulance_id).idAmbulance
-           @chng.save
+          @chng = PatientUpdate.new.ambchanges(params[:ambulance][:idAmbulance], @incident, @patient, current_user.id )
+          @chng.previous = Ambulance.find(@temp_patient.ambulance_id).idAmbulance
+          @chng.save
           ambulanceName = Ambulance.find(params[:ambulance][:idAmbulance])
           format.html {  render :text => ambulanceName.idAmbulance }
           format.json  { head :ok }
         end
       else  
         if @patient.update_attributes(:hospital_id => params[:hospital][:name])
-            @chng = PatientUpdate.new.hospitalchanges(params[:hospital][:name], @incident, @patient, current_user.id )
-           @chng.previous = Hospital.find(@temp_patient.hospital_id).name
-           @chng.save
-             @ambulance = Ambulance.find(@patient.ambulance_id)
-             if(@ambulance.idAmbulance != "Not yet defined")
-                @ambulance.update_attributes(:hospital_id => params[:hospital][:name] )
-             end
-             @new_hospital = Hospital.find(params[:hospital][:name])
-             format.html {  render :text => @new_hospital.name }
-             format.json  { head :ok }
+          @chng = PatientUpdate.new.hospitalchanges(params[:hospital][:name], @incident, @patient, current_user.id )
+          @chng.previous = Hospital.find(@temp_patient.hospital_id).name
+          @chng.save
+          @ambulance = Ambulance.find(@patient.ambulance_id)
+          if(@ambulance.idAmbulance != "Not yet defined")
+            @ambulance.update_attributes(:hospital_id => params[:hospital][:name] )
+          end
+          @new_hospital = Hospital.find(params[:hospital][:name])
+          format.html {  render :text => @new_hospital.name }
+          format.json  { head :ok }
         end
       end
     end
@@ -211,15 +205,6 @@ class PatientsController < ApplicationController
     end
   end
   
-# Returns a json string of the hospitals/
-  def json_hospitals(hospitals)
-    hashHospitals = Hash.new
-    hospitals.each do |hospital|
-      hashHospitals[hospital.id] = hospital.name
-    end
-    return hashHospitals
-  end
-  
   def json_incidentType(incidentType)
     hashIncidentType = Hash.new
     incidentType.each do |incidentType|
@@ -228,11 +213,4 @@ class PatientsController < ApplicationController
     return JSON.generate(hashIncidentType)
   end
   
-  def json_ambulance(ambulance)
-    hashAmbulance = Hash.new
-    ambulance.each do |ambulance|
-      hashAmbulance[ambulance.id] = ambulance.idAmbulance
-    end
-    return hashAmbulance
-  end
 end
