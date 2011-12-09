@@ -30,7 +30,7 @@ class IncidentsController < ApplicationController
   def new
     @incident = Incident.new
     @incident.date = Time.now()
-    @incident_type = IncidentType.all
+    @incident_type = IncidentType.find :all, :conditions => ['is_deleted is not ?', true]
 
     respond_to do |format|
       format.html # new.html.erb
