@@ -39,7 +39,7 @@ Copyright:    Field Applications
 	<br />
 	<div class="fieldLogin">
   		<%= f.label "Incident Type: " %>
-  		<% @incident_type = IncidentType.find(:all).map { |u| [u.name, u.id] } %>
+  		<% @incident_type = IncidentType.find(:all, :conditions => ['is_deleted is not ? ', true]).map { |u| [u.name, u.id] } %>
   		<%= f.select :incident_type_id, @incident_type %>
 	</div>
 	
