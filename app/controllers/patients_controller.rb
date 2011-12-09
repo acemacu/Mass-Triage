@@ -9,40 +9,40 @@ class PatientsController < ApplicationController
   
   def other
     @incident_id = params[:incident_id]
-    puts "ID = " + @incident_id
+    puts "Incident ID = " + @incident_id
     date_millis = Time.at(params[:after].to_i/1000)
-    puts "Time = " + date_millis.to_s
-    @patients = Patient.where("incident_id = ? and updated_at > ?", @incident_id, Time.now-15.seconds)
-    puts "#Patients = " + @patients.count.to_s
+    puts "Time in client = " + date_millis.to_s
+    @patients = Patient.where("incident_id = ? and updated_at > ?", @incident_id, Time.now-10.seconds)
+    puts "# Updated Patients = " + @patients.count.to_s
 
     if (@patients.count > 0)
       @authenticity_token = params[:authenticity_token]
       puts "Authenticity token = " + @authenticity_token
-      @new_patients = Patient.where("incident_id = ? and created_at > ?", @incident_id, Time.now-15.seconds)
+      @new_patients = Patient.where("incident_id = ? and created_at > ?", @incident_id, Time.now-10.seconds)
       puts "New patients = " + @new_patients.count.to_s
       @triage = Patient.select("tagColor, count(*) as number").where("incident_id = ? and is_deleted = ?", @incident_id, false).group("tagColor")
-      puts "Triage = " + @triage.count.to_s
+      puts "Triage summary = " + @triage.count.to_s
       @general = Patient.where("incident_id = ? and is_deleted = ?", @incident_id, false)
-      puts "#Total_Patients = " + @general.count.to_s
+      puts "#Total_Patients in incident = " + @general.count.to_s
       @hospitals = Hospital.order("name");
       puts "#Hospitals = " + @hospitals.count.to_s
       @all_ambulances = Ambulance.where("incident_id = ?", @incident_id).order("idAmbulance");
       puts "#Ambulances = " + @all_ambulances.count.to_s
     end
 
-    @ambulances = Ambulance.where("incident_id = ? and updated_at > ?", @incident_id, Time.now-15.seconds).limit(1)
+    @ambulances = Ambulance.where("incident_id = ? and updated_at > ?", @incident_id, Time.now-10.seconds).limit(1)
     puts "#Ambulances = " + @ambulances.count.to_s
 
     if (@ambulances.count > 0)
       @ambulances_assigned = Ambulance.select("status, count(*) as number").where("incident_id = ? and is_deleted = ?", @incident_id, false).group("status")
-      puts "Amb. Assigned " + @ambulances_assigned.count.to_s
+      puts "Ambulances Assigned = " + @ambulances_assigned.count.to_s
       @general_ambulances = Ambulance.where("incident_id = ? and is_deleted = ?", @incident_id, false).order("idAmbulance");
-      puts "#Ambulances = " + @general_ambulances.count.to_s
+      puts "#Total Ambulances in incident = " + @general_ambulances.count.to_s
       @all_patients = Patient.where("incident_id = ? and is_deleted = ?", @incident_id, false)
-      puts "#Pacients = " + @all_patients.count.to_s
+      puts "#Patients = " + @all_patients.count.to_s
     end
 
-    @incident = Incident.where("id = ? and updated_at > ?", @incident_id, Time.now-15.seconds)
+    @incident = Incident.where("id = ? and updated_at > ?", @incident_id, Time.now-10.seconds)
     puts "#Incident = " + @incident.count.to_s
 
     if (@incident.count > 0)
@@ -50,8 +50,7 @@ class PatientsController < ApplicationController
       puts "#Incident types = " + @incident_types.count.to_s
     end
 
-  end
-  
+  end  
 
   def index    
     @incident = Incident.find(params[:incident_id])

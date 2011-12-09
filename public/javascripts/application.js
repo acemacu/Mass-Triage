@@ -9,16 +9,16 @@ Copyright:    Field Applications
 
 $(document).ready(function() {
   if ($("#incident_info").length > 0) {
-    setTimeout(updatePatients, 10000);
+    setTimeout(updatePatients, 5000);
   }
 });
 
 function updatePatients () {
   var incident_id = $("#incident_info").attr("data-id");
   var authenticity_token = $("#form_token").attr("data-id");
-  var time = new Date().getTime() - 15000;
+  var time = new Date().getTime() - 10000;
   $.getScript("/patients/other.js?incident_id=" + incident_id + "&after=" + time.toString()+"&authenticity_token=" + authenticity_token);
-  setTimeout(updatePatients, 15000);
+  setTimeout(updatePatients, 10000);
 }
 
 $(document).ready(function() {
